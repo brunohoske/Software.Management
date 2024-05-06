@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{345461FD-E142-4D7C-B4D3-E2863EEBBFD1}|Software.Management\\Software.Management.csproj|d:\\meus arquivos\\visual studio\\software.management\\software.management\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{345461FD-E142-4D7C-B4D3-E2863EEBBFD1}|Software.Management\\Software.Management.csproj|solutionrelative:software.management\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Projeto]",
+              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\Form1.cs",
+              "RelativeDocumentMoniker": "Software.Management\\Form1.cs",
+              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\Form1.cs [Projeto]",
+              "RelativeToolTip": "Software.Management\\Form1.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T23:03:47.078Z",
+              "EditorCaption": " [Projeto]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
