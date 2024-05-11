@@ -1,0 +1,104 @@
+﻿@using Models;
+@using DAL;
+
+@page "/{CompanyName}/CARDAPIO/M{Comanda}"
+
+@code {
+
+    public Menu menu { get; set; }
+    [Parameter]
+    public string Comanda { get; set; }
+    [Parameter]
+    public string CompanyName { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        DALCompany dc = new DALCompany();
+        @if (dc.CheckExist(CompanyName))
+        {
+            menu = new Menu() { Company = dc.GetCompanyPerName(CompanyName) };
+        }
+        else
+        {
+            menu = new Menu();
+        }
+    }
+
+}
+
+<PageTitle>Home</PageTitle>
+
+<div class="rest-banner">
+    <img src="@(CompanyName.ToLower() == "mcdonalds" ? @"Images\McDonalds-Banner.png" : @"Images\BurgerKing-Banner.jpg")" class="rest-banner">
+</div>
+
+<h5>@menu.Company.Name - CARDAPIO - COMANDA #1</h5>
+
+
+<section id="products1">
+
+    <div class="product">
+
+        <div class="product-image">
+            <img src="Images\hamburguer.png" />
+        </div>
+       
+            <div class="product-info">
+                <p class="product-name">Hamburguer - McChicken</p>
+                <p class="product-description"> Um deliciosos hamburguer de frango com molho especial, alface, tomate e fatias de bacon</p>
+            </div>
+
+            <div class="product-value">
+                <p>R$10,00</p>
+            <div class="product-button">
+                <button>Adicionar</button>
+            </div>
+            </div>
+    </div>
+
+    <div class="product">
+
+        <div class="product-image">
+            <img src="Images\hamburguer.png" />
+        </div>
+
+        <div class="product-info">
+            <p class="product-name">Hamburguer - McChicken</p>
+            <p class="product-description"> Um deliciosos hamburguer de frango com molho especial, alface, tomate e fatias de bacon</p>
+        </div>
+
+        <div class="product-value">
+            <p>R$10,00</p>
+            <div class="product-button">
+                <button>Adicionar</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="product">
+
+        <div class="product-image">
+            <img src="Images\hamburguer.png" />
+        </div>
+
+        <div class="product-info">
+            <p class="product-name">Hamburguer - McChicken</p>
+            <p class="product-description"> Um deliciosos hamburguer de frango com molho especial, alface, tomate e fatias de bacon</p>
+        </div>
+
+        <div class="product-value">
+            <p>R$10,00</p>
+            <div class="product-button">
+                <button>Adicionar</button>
+            </div>
+        </div>
+    </div>
+
+    
+
+</section>
+
+
