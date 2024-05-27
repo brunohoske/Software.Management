@@ -18,12 +18,12 @@ namespace Software.Menu.DAL
             try
             {
                 Database database = new Database();
-                reader = database.ExecuteCommandReader($"SELECT NAME FROM EMPRESAS WHERE NAME = '{companyName}'", reader);
+                reader = database.ExecuteCommandReader($"SELECT COMPANY_NAME FROM COMPANYS WHERE COMPANY_NAME = '{companyName}'", reader);
 
                 string name = "";
                 while (reader.Read())
                 {
-                    name = reader["name"].ToString();
+                    name = reader["COMPANY_NAME"].ToString();
                 }
 
                 if (name != "")
@@ -50,12 +50,12 @@ namespace Software.Menu.DAL
             {
                 Database database = new Database();
                 database.GetConnection();
-                reader = database.ExecuteCommandReader($"SELECT * FROM EMPRESAS WHERE NAME = '{companyName}'", reader);
+                reader = database.ExecuteCommandReader($"SELECT * FROM COMPANYS WHERE COMPANY_NAME = '{companyName}'", reader);
 
                 string name = "";
                 while (reader.Read())
                 {
-                    name = reader["name"].ToString();
+                    name = reader["COMPANY_NAME"].ToString();
                 }
                 
                 

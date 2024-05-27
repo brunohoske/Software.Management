@@ -1,5 +1,7 @@
 ﻿@using Models;
-@using DAL;
+@using DAL
+@inject HttpClient _httpClient
+@rendermode InteractiveAuto
 
 @page "/{CompanyName}/CARDAPIO/M{Comanda}"
 
@@ -10,6 +12,8 @@
     public string Comanda { get; set; }
     [Parameter]
     public string CompanyName { get; set; }
+
+    // public List<Item> Produtos { get; set; }
 
     protected override void OnInitialized()
     {
@@ -28,6 +32,10 @@
 
 }
 
+@code{
+    [SupplyParameterFromForm]
+    public Order Order {get;set;}
+}
 <PageTitle>Home</PageTitle>
 
 <div class="rest-banner">
@@ -37,7 +45,30 @@
 <h5>@menu.Company.Name - CARDAPIO - COMANDA #1</h5>
 
 
+@* @code {
+
+    public class Item {
+        public string ProductName { get; set; }
+        public int ProductValue { get; set; }
+    }
+
+    private string productName { get; set; }
+    private int productValue { get; set; }
+
+
+    // public void AddItem()
+    // {
+
+    //     Produtos.Add(new Item() { ProductName = productName, ProductValue = productValue });
+
+    // }
+
+} *@
+
 <section id="products1">
+
+    
+    
 
     <div class="product">
 
@@ -58,25 +89,7 @@
             </div>
     </div>
 
-    <div class="product">
-
-        <div class="product-image">
-            <img src="Images\hamburguer.png" />
-        </div>
-
-        <div class="product-info">
-            <p class="product-name">Hamburguer - McChicken</p>
-            <p class="product-description"> Um deliciosos hamburguer de frango com molho especial, alface, tomate e fatias de bacon</p>
-        </div>
-
-        <div class="product-value">
-            <p>R$10,00</p>
-            <div class="product-button">
-                <button>Adicionar</button>
-            </div>
-        </div>
-    </div>
-
+   
 
     <div class="product">
 
@@ -99,6 +112,56 @@
 
     
 
+    
+
 </section>
 
 
+
+<section id="cart">
+
+    <EditForm Model="@order" OnSubmit="SubmitOrder">
+        
+@*         @if(Produtos != null && Produtos.Count != 0 )
+        {
+            @foreach (var item in Produtos)
+            {
+
+                <p>Produto @item </p>
+                <br />
+                <input @bind="item.ProductName" type="text"  />
+                <input @bind="item.ProductValue" type="text" />
+
+            }
+        } *@
+
+        <button type="submit">Submit</button>
+
+    </EditForm>
+    
+</section>
+
+@code{
+
+
+    private Order order = new Order(); 
+
+    private async Task SubmitOrder()
+    {
+        try
+        {
+            string jsonBody = System.Text.Json.JsonSerializer.Serialize(order);
+            HttpContent httpContent = new StringContent(jsonBody, System.Text.Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await _httpClient.PostAsync("Orders", httpContent);
+            response.EnsureSuccessStatusCode();
+
+            
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erro ao enviar pedido"+ex.Message);
+        }
+    }
+
+}

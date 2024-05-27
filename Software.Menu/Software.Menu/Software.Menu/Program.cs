@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7289") });
+
 
 var app = builder.Build();
 
@@ -31,5 +33,7 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(Software.Menu.Client._Imports).Assembly);
+
+
 
 app.Run();

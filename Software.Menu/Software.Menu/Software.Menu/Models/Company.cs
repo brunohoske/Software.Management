@@ -4,6 +4,7 @@
     {
 
         public string Name { get; set; }
+        public string cnpj {  get; set; }
 
         public Company(string name)
         {
