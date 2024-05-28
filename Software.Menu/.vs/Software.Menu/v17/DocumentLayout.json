@@ -80,7 +80,7 @@
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Components\\Pages\\Home.razor",
               "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Components\\Pages\\Home.razor",
-              "ViewState": "AQIAAHkAAAAAAAAAAAAAAHIAAAAAAAAA",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAAAHIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-07T21:51:37.792Z",
               "IsPinned": true,
@@ -96,8 +96,7 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Program.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T22:04:58.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T22:04:58.934Z"
             },
             {
               "$type": "Document",
@@ -109,8 +108,7 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu.Client\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T22:04:56.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T22:04:56.291Z"
             },
             {
               "$type": "Document",
@@ -122,8 +120,7 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Order.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T02:48:36.37Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-22T02:48:36.37Z"
             },
             {
               "$type": "Document",
@@ -135,8 +132,7 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Product.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T02:35:26.641Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-22T02:35:26.641Z"
             },
             {
               "$type": "Document",
@@ -148,8 +144,7 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Menu.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T02:35:27.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-22T02:35:27.15Z"
             },
             {
               "$type": "Document",
@@ -161,8 +156,7 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\DAL\\DALCompany.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T02:20:19.217Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-22T02:20:19.217Z"
             },
             {
               "$type": "Document",
@@ -174,8 +168,7 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Components\\App.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-11T00:16:04.033Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-11T00:16:04.033Z"
             },
             {
               "$type": "Document",
@@ -187,8 +180,7 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Components\\_Imports.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-11T00:15:57.039Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-11T00:15:57.039Z"
             },
             {
               "$type": "Document",
@@ -200,8 +192,7 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Database.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAQwA0AAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T01:26:27.748Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-09T01:26:27.748Z"
             },
             {
               "$type": "Document",
@@ -213,8 +204,7 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Check.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T01:20:00.067Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-09T01:20:00.067Z"
             },
             {
               "$type": "Document",
@@ -226,8 +216,7 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Company.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T01:16:56.034Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-09T01:16:56.034Z"
             },
             {
               "$type": "Document",
@@ -239,8 +228,7 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\wwwroot\\app.css",
               "ViewState": "AQIAAEcAAAAAAAAAAAAgwGkAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-05-07T22:04:55.278Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-07T22:04:55.278Z"
             },
             {
               "$type": "Document",
@@ -251,8 +239,7 @@
               "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\favicon.png",
               "RelativeToolTip": "Software.Menu\\Software.Menu\\wwwroot\\favicon.png",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-05-10T23:48:36.736Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-10T23:48:36.736Z"
             },
             {
               "$type": "Document",
@@ -264,8 +251,7 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Software.Menu.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-07T22:05:23.459Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-07T22:05:23.459Z"
             }
           ]
         }
