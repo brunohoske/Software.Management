@@ -19,13 +19,13 @@ namespace ProjetoDeSoftware
         {
             try
             {
-                if(txtNome.Text != "" )
+                if (txtNome.Text != "")
                 {
                     string nome = txtNome.Text;
                     float preco = float.Parse(txtPreco.Text);
                     int qntd = int.Parse(txtQntd.Text);
 
-                    if( preco > 0 && qntd > 0)
+                    if (preco > 0 && qntd > 0)
                     {
                         Produto p = new Produto(nome, preco, qntd); // Construtor
 
@@ -39,20 +39,20 @@ namespace ProjetoDeSoftware
                     {
                         MessageBox.Show("Valores negativos não são permitidos");
                     }
-                   
+
                 }
                 else
                 {
                     MessageBox.Show("Todos os campos são obrigatórios");
                 }
-               
+
             }
-            catch(FormatException)
+            catch (FormatException)
             {
                 MessageBox.Show("Preço e quantidade devem ser números e devem ser preenchidos");
             }
 
-           
+
         }
 
         private void Update_Click(object sender, EventArgs e)
@@ -121,6 +121,11 @@ namespace ProjetoDeSoftware
         private void Form1_Load(object sender, EventArgs e)
         {
             LerDados();
+        }
+
+        private void L_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
