@@ -25,7 +25,7 @@ namespace Restaurante.BLL
 
                 conexao = f.Conectar();
                 var comando = conexao.CreateCommand();
-                comando.CommandText = $"select * from usuarios where nome = '{name}'";
+                comando.CommandText = $"select * from USERS where name = '{name}'";
                 reader = comando.ExecuteReader();
 
                 string readName = "";
@@ -34,10 +34,10 @@ namespace Restaurante.BLL
                 int codigo = 0;
                 while (reader.Read())
                 {
-                    id = int.Parse(reader["idUsuarios"].ToString());
-                    readName = reader["nome"].ToString();
+                    id = int.Parse(reader["IDUSER"].ToString());
+                    readName = reader["NAME"].ToString();
                     password = reader["senha"].ToString();
-                    codigo = int.Parse(reader["codigo"].ToString());
+                    codigo = int.Parse(reader["ADMIN"].ToString());
                 }
 
                 reader.Close();
@@ -66,7 +66,7 @@ namespace Restaurante.BLL
             {
                 conexao = f.Conectar();
                 var comando = conexao.CreateCommand();
-                comando.CommandText = $"select senha from usuarios where idUsuarios = {u.Id}";
+                comando.CommandText = $"select senha from USERS where IDUSER = {u.Id}";
                 reader = comando.ExecuteReader();
 
                 string pass = "";
@@ -104,11 +104,11 @@ namespace Restaurante.BLL
 
                 conexao = f.Conectar();
                 var comando = conexao.CreateCommand();
-                comando.CommandText = $"select * from usuarios where nome = {u.Nome}";
+                comando.CommandText = $"select * from USERS where name = {u.Nome}";
                 reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    string name = reader["nome"].ToString(); 
+                    string name = reader["name"].ToString(); 
                 }
 
             }

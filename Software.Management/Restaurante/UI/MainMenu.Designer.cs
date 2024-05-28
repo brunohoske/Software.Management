@@ -52,8 +52,9 @@
             button2.Name = "button2";
             button2.Size = new Size(252, 49);
             button2.TabIndex = 1;
-            button2.Text = "Função 2";
+            button2.Text = "Cadastrar Mesa";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 

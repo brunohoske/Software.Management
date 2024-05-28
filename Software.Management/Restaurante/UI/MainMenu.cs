@@ -31,5 +31,11 @@ namespace Restaurante.UI
             this.Dispose();
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CheckRegister checkRegister = new CheckRegister();
+            checkRegister.Show();
+        }
     }
 }

@@ -18,7 +18,6 @@ namespace Restaurante.DAL
                 string conn = @"Persist Security info = false;
                                 server = localhost;
                                 database = MenuSystem;
-                                port = 3307;
                                 uid = root;
                                 pwd = 1234;";
 
