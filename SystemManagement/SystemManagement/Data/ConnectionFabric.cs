@@ -29,5 +29,22 @@ namespace SystemManagement.Data
             return conexao;
         }
 
+        public MySqlDataReader ExecuteCommandReader(string sql, MySqlDataReader read)
+        {
+            try
+            {
+
+                Connect();
+                MySqlCommand cmd = new MySqlCommand(sql, Connect());
+                read = cmd.ExecuteReader();
+                return read;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
     }
 }

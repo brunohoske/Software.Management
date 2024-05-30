@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NEFV6VYDgI5ecpCiQECCUwx3uLShyu/L5Jw7kbSd8eo=",
+  "Hash": "9x7g/1N5D2uZ+A81C4b7Sa1MzUm3SZt5mQjQHfIo0Ao=",
   "Source": "Software.Menu",
   "BasePath": "_content/Software.Menu",
   "Mode": "Default",
@@ -8453,12 +8453,12 @@
       "OriginalItemSpec": "wwwroot\\Images\\BurgerKing-Banner.jpg"
     },
     {
-      "Identity": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\Images\\hamburguer.png",
+      "Identity": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\Images\\comida-rapida.png",
       "SourceId": "Software.Menu",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\",
       "BasePath": "_content/Software.Menu",
-      "RelativePath": "Images/hamburguer.png",
+      "RelativePath": "Images/comida-rapida.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -8469,7 +8469,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\hamburguer.png"
+      "OriginalItemSpec": "wwwroot\\Images\\comida-rapida.png"
+    },
+    {
+      "Identity": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\Images\\hamburguer1.png",
+      "SourceId": "Software.Menu",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\",
+      "BasePath": "_content/Software.Menu",
+      "RelativePath": "Images/hamburguer1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\hamburguer1.png"
     },
     {
       "Identity": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\Images\\McDonalds-Banner.png",
@@ -8489,6 +8508,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\McDonalds-Banner.png"
+    },
+    {
+      "Identity": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\product.css",
+      "SourceId": "Software.Menu",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\",
+      "BasePath": "_content/Software.Menu",
+      "RelativePath": "product.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\product.css"
     }
   ]
 }

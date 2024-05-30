@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OErnHJfcc/z5XnrqjkPbpmGmZJOGBMpomNpLqNzT1JRQl0KJ+DmvHyztWCQw7iQRXiNwYAxueHYIdfkAAY6qAg==",
+  "dgSpecHash": "5HW2WIWE7KpjEmvr4I7IFyrUuMX1RxBSbOiSY/llX9xi9gs5lw8UtQu3zrJAX6LR85cZBm0KQoPiL0aDC6Z9lQ==",
   "success": true,
-  "projectFilePath": "D:\\Meus arquivos\\Visual Studio\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
+  "projectFilePath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bruno\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
