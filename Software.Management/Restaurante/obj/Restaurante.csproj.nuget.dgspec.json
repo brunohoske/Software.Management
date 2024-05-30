@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\Restaurante.csproj": {}
+    "C:\\Users\\USUARIO\\Desktop\\Nova pasta (4)\\Software.Management\\Software.Management\\Restaurante\\Restaurante.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\Restaurante.csproj": {
+    "C:\\Users\\USUARIO\\Desktop\\Nova pasta (4)\\Software.Management\\Software.Management\\Restaurante\\Restaurante.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\Restaurante.csproj",
+        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (4)\\Software.Management\\Software.Management\\Restaurante\\Restaurante.csproj",
         "projectName": "Restaurante",
-        "projectPath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\Restaurante.csproj",
-        "packagesPath": "C:\\Users\\Caio\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\obj\\",
+        "projectPath": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (4)\\Software.Management\\Software.Management\\Restaurante\\Restaurante.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (4)\\Software.Management\\Software.Management\\Restaurante\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Caio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

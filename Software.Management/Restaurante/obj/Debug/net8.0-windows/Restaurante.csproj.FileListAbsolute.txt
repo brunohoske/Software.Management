@@ -97,73 +97,38 @@ D:\Meus arquivos\Cotemig 3 ano\Pitch\GitHub\Software.Management\Software.Managem
 D:\Meus arquivos\Cotemig 3 ano\Pitch\GitHub\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.pdb
 D:\Meus arquivos\Cotemig 3 ano\Pitch\GitHub\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.genruntimeconfig.cache
 D:\Meus arquivos\Cotemig 3 ano\Pitch\GitHub\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\ref\Restaurante.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.csproj.AssemblyReference.cache
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.Form1.resources
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.CheckRegister.resources
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.MainMenu.resources
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\ProjetoDeSoftware.ProductRegister.resources
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.csproj.GenerateResource.cache
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.GeneratedMSBuildEditorConfig.editorconfig
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.AssemblyInfoInputs.cache
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.AssemblyInfo.cs
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.csproj.CoreCompileInputs.cache
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.sourcelink.json
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\refint\Restaurante.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.pdb
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.exe
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.deps.json
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.runtimeconfig.json
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.pdb
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Google.Protobuf.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\K4os.Compression.LZ4.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\K4os.Compression.LZ4.Streams.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\K4os.Hash.xxHash.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\MySql.Data.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\ZstdSharp.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\comerr64.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\gssapi64.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\k5sprt64.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaura.9D27851C.Up2Date
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.genruntimeconfig.cache
-C:\Projetos\Visual Studio Code\Cardapio - SoftwareMenu\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\ref\Restaurante.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.exe
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.deps.json
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.runtimeconfig.json
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.pdb
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Google.Protobuf.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\K4os.Compression.LZ4.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\K4os.Compression.LZ4.Streams.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\K4os.Hash.xxHash.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\MySql.Data.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\ZstdSharp.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\comerr64.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\gssapi64.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\k5sprt64.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.csproj.AssemblyReference.cache
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.Form1.resources
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.CheckRegister.resources
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.MainMenu.resources
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\ProjetoDeSoftware.ProductRegister.resources
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.csproj.GenerateResource.cache
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.GeneratedMSBuildEditorConfig.editorconfig
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.AssemblyInfoInputs.cache
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.AssemblyInfo.cs
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.csproj.CoreCompileInputs.cache
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.sourcelink.json
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaura.9D27851C.Up2Date
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\refint\Restaurante.dll
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.pdb
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.genruntimeconfig.cache
-C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\ref\Restaurante.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.csproj.AssemblyReference.cache
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.Form1.resources
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.MainMenu.resources
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\ProjetoDeSoftware.ProductRegister.resources
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.UserMenager.resources
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.csproj.GenerateResource.cache
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.AssemblyInfoInputs.cache
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.AssemblyInfo.cs
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.sourcelink.json
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\refint\Restaurante.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.pdb
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.exe
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.deps.json
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.runtimeconfig.json
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.pdb
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Google.Protobuf.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\K4os.Compression.LZ4.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\K4os.Hash.xxHash.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\MySql.Data.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\ZstdSharp.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaura.9D27851C.Up2Date
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.genruntimeconfig.cache
+C:\Users\USUARIO\Desktop\Nova pasta (4)\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\ref\Restaurante.dll

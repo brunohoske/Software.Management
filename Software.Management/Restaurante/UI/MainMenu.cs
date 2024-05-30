@@ -1,4 +1,6 @@
 ﻿using ProjetoDeSoftware;
+using Restaurante.BLL;
+using Restaurante.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +15,13 @@ namespace Restaurante.UI
 {
     public partial class MainMenu : Form
     {
-        public MainMenu()
+        Users user;
+        public MainMenu(Users u)
         {
             InitializeComponent();
+           user = u;
         }
-
+       
         private void button1_Click(object sender, EventArgs e)
         {
             ProductRegister productRegister = new ProductRegister();
@@ -34,8 +38,21 @@ namespace Restaurante.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            CheckRegister checkRegister = new CheckRegister();
-            checkRegister.Show();
+
+            if (user.Codigo == 1)
+            {
+                UserMenager um = new UserMenager();
+                um.Show();
+            }
+            else
+            {
+                MessageBox.Show("Você não tem acesso.");
+            }
+        }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

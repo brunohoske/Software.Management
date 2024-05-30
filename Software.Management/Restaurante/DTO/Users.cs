@@ -6,31 +6,13 @@ using System.Threading.Tasks;
 
 namespace Restaurante.DTO
 {
-    internal class Users
+    public class Users
     {
         private int id;
         private string nome;
         private string senha;
         private int codigo;
-
-
-        public int Id
-        {
-            get { return this.id; }
-            set
-            {
-                id = value;
-                if (id < 0)
-                {
-                    Console.WriteLine("O id do Usuário, não pode ser menor que zero");
-                }
-                else
-                {
-                    Console.WriteLine("O id digitada corretamente");
-                }
-            }
-
-        }
+        public int Id { get; set; }
 
         public string Nome
         {
@@ -86,5 +68,40 @@ namespace Restaurante.DTO
             }
 
         }
+
+        public Users(int id, string nome, string senha, bool adm)
+        {
+            Id = id;
+            Nome = nome;
+            Senha = senha;
+
+            if (adm == true)
+            {
+                Codigo = 1;
+            }
+            else
+            {
+                Codigo = 0;
+            }
+        }
+
+        public Users(string nome, string senha, bool adm)
+        {
+            Nome = nome;
+            Senha = senha;
+
+            if (adm == true)
+            {
+                Codigo = 1;
+            }
+            else
+            {
+                Codigo = 0;
+            }
+        }
+
+        public Users() { }
+
+
     }
 }

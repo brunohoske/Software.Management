@@ -25,7 +25,7 @@ namespace Restaurante.BLL
 
                 conexao = f.Conectar();
                 var comando = conexao.CreateCommand();
-                comando.CommandText = $"select * from USERS where name = '{name}'";
+                comando.CommandText = $"select * from USERS where NAME = '{name}'";
                 reader = comando.ExecuteReader();
 
                 string readName = "";
@@ -95,8 +95,7 @@ namespace Restaurante.BLL
                 f.Conectar().Close();
             }
         }
-        
-        
+
         public void Select(Users u)
         {
             try
@@ -104,11 +103,11 @@ namespace Restaurante.BLL
 
                 conexao = f.Conectar();
                 var comando = conexao.CreateCommand();
-                comando.CommandText = $"select * from USERS where name = {u.Nome}";
+                comando.CommandText = $"select * from usuarios where nome = {u.Nome}";
                 reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    string name = reader["name"].ToString(); 
+                    string name = reader["nome"].ToString(); 
                 }
 
             }
@@ -121,6 +120,80 @@ namespace Restaurante.BLL
                 f.Conectar().Close();
             }
         }
+
+        public void Update(Users c)
+        {
+
+            int cnpj = 111111;
+
+            try
+            {
+                conexao = f.Conectar();
+                var comando = conexao.CreateCommand();
+                string tabela = "Users";
+                comando.CommandText = String.Format($@"UPDATE {tabela}
+                SET NAME = '{c.Nome}',
+                SENHA = '{c.Senha}',
+                CNPJ  = '{cnpj}',
+                Admin = '{c.Codigo}'
+                WHERE idUser= '{c.Id}';");
+                comando.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception("Problemas ao atualizar o banco!" + ex.Message);
+            }
+            finally
+            {
+                f.Conectar().Close();
+            }
+        }
+
+
+        public void Insert(Users c)
+        {
+            int cnpj = 111111;
+
+            try
+            {
+                conexao = f.Conectar();
+                var comando = conexao.CreateCommand();
+                comando.CommandText = "INSERT INTO Users (NAME,SENHA,CNPJ,ADMIN)" +
+                "values('" + c.Nome + "','" + c.Senha + "','" + cnpj + "','" + c.Codigo + "')";
+                comando.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception("Problemas ao INSERIR no banco" + ex.Message);
+            }
+            finally
+            {
+                f.Conectar().Close();
+            }
+        }
+
+        public void Delete(Users c) 
+        {
+            try
+            {
+                conexao = f.Conectar();
+                var comando = conexao.CreateCommand();
+                string tabela = "Users";
+                comando.CommandText = String.Format($@"DELETE from {tabela} 
+                WHERE IDUSER = '{c.Id}';");
+                comando.ExecuteNonQuery();
+
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception("Problemas ao apagar no banco!" + ex.Message);
+            }
+            finally
+            {
+                f.Conectar().Close();
+            }
+        }
+
 
     }
 }

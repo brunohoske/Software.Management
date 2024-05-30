@@ -16,11 +16,6 @@ namespace Restaurante
             {
                 string nomeLogin = TxtNome.Text;
                 string senhaLogin = TxtSenha.Text;
-                int codigoLogin;
-                if (TxtCodigo.Text != "")
-                {
-                    codigoLogin = int.Parse(TxtCodigo.Text);
-                }
 
 
                 DALUsers d = new DALUsers();
@@ -31,9 +26,10 @@ namespace Restaurante
                 {
                     if (d.ValidatePass(user, TxtSenha.Text))
                     {
-                        MainMenu m = new MainMenu();
+                        MainMenu m = new MainMenu(user);
                         m.Show();
                         this.Hide();
+
                     }
                     else
                     {
@@ -57,7 +53,6 @@ namespace Restaurante
         {
             TxtNome.Text = "Nome";
             TxtSenha.Text = "Senha";
-            TxtCodigo.Text = "";
         }
 
         private void TxtNome_Enter(object sender, EventArgs e)

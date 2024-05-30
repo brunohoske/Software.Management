@@ -112,6 +112,7 @@
             dataGridView1.Size = new Size(522, 294);
             dataGridView1.TabIndex = 8;
             dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Insert
             // 
