@@ -23,11 +23,11 @@ namespace ProjetoDeSoftware
                 {
                     string nome = txtNome.Text;
                     float preco = float.Parse(txtPreco.Text);
-                    int qntd = int.Parse(txtQntd.Text);
+                    string desc = txtDescription.Text;
 
-                    if (preco > 0 && qntd > 0)
+                    if (preco > 0)
                     {
-                        Produto p = new Produto(nome, preco, qntd); // Construtor
+                        Produto p = new Produto(nome,preco,desc);
 
                         DAOProduto daop = new DAOProduto();
 
@@ -62,9 +62,9 @@ namespace ProjetoDeSoftware
             int id = int.Parse(lblId.Text);
             string nome = txtNome.Text;
             float preco = float.Parse(txtPreco.Text);
-            int qntd = int.Parse(txtQntd.Text);
+            string desc = txtDescription.Text;
 
-            Produto al = new Produto(id, nome, preco, qntd); // Construtor
+            Produto al = new Produto(id, nome, preco, desc); // Construtor
 
             DAOProduto daoc = new DAOProduto();
             daoc.Update(al);
@@ -77,9 +77,9 @@ namespace ProjetoDeSoftware
             int id = int.Parse(lblId.Text);
             string nome = txtNome.Text;
             float preco = float.Parse(txtPreco.Text);
-            int qntd = int.Parse(txtQntd.Text);
+            string desc = txtDescription.Text;
 
-            Produto a = new Produto(id, nome, preco, qntd);
+            Produto a = new Produto(id, nome, preco, desc);
 
             DAOProduto daoc = new DAOProduto();
             const string message =
@@ -99,7 +99,7 @@ namespace ProjetoDeSoftware
             MySqlConnection conexao = null;
             FabricaConexao f = new FabricaConexao();
             conexao = f.Conectar();
-            string sql = "SELECT * from produtos order by idProdutos";
+            string sql = "SELECT * from products order by IDPRODUCT";
             MySqlDataAdapter adap = new MySqlDataAdapter(sql, conexao);
             DataTable tbProduto = new DataTable();
             adap.Fill(tbProduto);
@@ -114,8 +114,9 @@ namespace ProjetoDeSoftware
             DataGridViewRow drg = dataGridView1.Rows[e.RowIndex];
             lblId.Text = drg.Cells[0].Value.ToString();
             txtNome.Text = drg.Cells[1].Value.ToString();
-            txtPreco.Text = drg.Cells[2].Value.ToString();
-            txtQntd.Text = drg.Cells[3].Value.ToString();
+            txtDescription.Text = drg.Cells[2].Value.ToString();
+            txtPreco.Text = drg.Cells[3].Value.ToString();
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)

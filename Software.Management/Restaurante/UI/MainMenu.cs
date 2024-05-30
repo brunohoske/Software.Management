@@ -19,9 +19,9 @@ namespace Restaurante.UI
         public MainMenu(Users u)
         {
             InitializeComponent();
-           user = u;
+            user = u;
         }
-       
+
         private void button1_Click(object sender, EventArgs e)
         {
             ProductRegister productRegister = new ProductRegister();
@@ -53,6 +53,12 @@ namespace Restaurante.UI
         private void MainMenu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnTableManager_Click(object sender, EventArgs e)
+        {
+            CheckRegister cr = new CheckRegister();
+            cr.Show();
         }
     }
 }

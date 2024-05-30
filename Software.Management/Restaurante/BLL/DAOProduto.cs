@@ -23,8 +23,8 @@ namespace Restaurante.BLL
             {
                 conexao = f.Conectar();
                 var comando = conexao.CreateCommand();
-                comando.CommandText = "INSERT INTO produtos ( nome, preco, quantidade)" +
-                "values('" + c.Nome + "','" + c.Preco.ToString(CultureInfo.InvariantCulture) + "','" + c.Qntd + "')";
+                comando.CommandText = "INSERT INTO products ( PRODUCT_NAME,PRICE,DESCRIPTION, CNPJ)" +
+                $"values('{c.Nome}',{c.Preco.ToString(CultureInfo.InvariantCulture)},'{c.Descricao}',42591651000143)";
                 comando.ExecuteNonQuery();
             }
             catch (MySqlException ex)
@@ -43,13 +43,13 @@ namespace Restaurante.BLL
             {
                 conexao = f.Conectar();
                 var comando = conexao.CreateCommand();
-                string tabela = "produtos";
+                string tabela = "products";
                 comando.CommandText = $@"UPDATE {tabela}
-                SET idProdutos = {c.Id},
-                nome = '{c.Nome}',
-                preco = {c.Preco},
-                quantidade = {c.Qntd}
-                Where idProdutos = {c.Id};";
+                SET idProduct = {c.Id},
+                product_name = '{c.Nome}',
+                price = {c.Preco},
+                description= '{c.Descricao}'
+                Where idProduct = {c.Id};";
                 comando.ExecuteNonQuery();
             }
             catch (MySqlException ex)
@@ -68,9 +68,9 @@ namespace Restaurante.BLL
             {
                 conexao = f.Conectar();
                 var comando = conexao.CreateCommand();
-                string tabela = "produtos";
+                string tabela = "products";
                 comando.CommandText = String.Format($@"DELETE from {tabela} 
-                WHERE idProdutos = '{c.Id}';");
+                WHERE idProduct = '{c.Id}';");
                 comando.ExecuteNonQuery();
 
             }

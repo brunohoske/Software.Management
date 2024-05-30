@@ -123,9 +123,6 @@ namespace Restaurante.BLL
 
         public void Update(Users c)
         {
-
-            int cnpj = 111111;
-
             try
             {
                 conexao = f.Conectar();
@@ -134,7 +131,7 @@ namespace Restaurante.BLL
                 comando.CommandText = String.Format($@"UPDATE {tabela}
                 SET NAME = '{c.Nome}',
                 SENHA = '{c.Senha}',
-                CNPJ  = '{cnpj}',
+                CNPJ  = '42591651000143',
                 Admin = '{c.Codigo}'
                 WHERE idUser= '{c.Id}';");
                 comando.ExecuteNonQuery();
@@ -152,14 +149,12 @@ namespace Restaurante.BLL
 
         public void Insert(Users c)
         {
-            int cnpj = 111111;
-
             try
             {
                 conexao = f.Conectar();
                 var comando = conexao.CreateCommand();
                 comando.CommandText = "INSERT INTO Users (NAME,SENHA,CNPJ,ADMIN)" +
-                "values('" + c.Nome + "','" + c.Senha + "','" + cnpj + "','" + c.Codigo + "')";
+                "values('" + c.Nome + "','" + c.Senha + "','" + "42591651000143" + "','" + c.Codigo + "')";
                 comando.ExecuteNonQuery();
             }
             catch (MySqlException ex)

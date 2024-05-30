@@ -30,7 +30,7 @@
         {
             button1 = new Button();
             button2 = new Button();
-            button3 = new Button();
+            btnTableManager = new Button();
             button4 = new Button();
             panel1 = new Panel();
             label1 = new Label();
@@ -56,14 +56,15 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // button3
+            // btnTableManager
             // 
-            button3.Location = new Point(39, 236);
-            button3.Name = "button3";
-            button3.Size = new Size(252, 49);
-            button3.TabIndex = 2;
-            button3.Text = "Função 3";
-            button3.UseVisualStyleBackColor = true;
+            btnTableManager.Location = new Point(39, 236);
+            btnTableManager.Name = "btnTableManager";
+            btnTableManager.Size = new Size(252, 49);
+            btnTableManager.TabIndex = 2;
+            btnTableManager.Text = "Gerenciar Mesas";
+            btnTableManager.UseVisualStyleBackColor = true;
+            btnTableManager.Click += btnTableManager_Click;
             // 
             // button4
             // 
@@ -99,7 +100,7 @@
             Controls.Add(label1);
             Controls.Add(panel1);
             Controls.Add(button4);
-            Controls.Add(button3);
+            Controls.Add(btnTableManager);
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "MainMenu";
@@ -113,7 +114,7 @@
 
         private Button button1;
         private Button button2;
-        private Button button3;
+        private Button btnTableManager;
         private Button button4;
         private Panel panel1;
         private Label label1;

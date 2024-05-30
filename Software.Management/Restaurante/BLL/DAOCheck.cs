@@ -23,7 +23,7 @@ namespace Restaurante.BLL
                 conexao = f.Conectar();
                 var comando = conexao.CreateCommand();
                 comando.CommandText = "INSERT INTO CHECKS (check_number, CNPJ)" +
-                $"values({c.Check_number},'11111111')";
+                $"values({c.Check_number},'42591651000143')";
                 comando.ExecuteNonQuery();
             }
             catch (MySqlException ex)
@@ -36,7 +36,7 @@ namespace Restaurante.BLL
             }
         }
 
-        public void Update(Check c)
+        public void Update(Check c, double newNumber)
         {
             try
             {
@@ -44,7 +44,8 @@ namespace Restaurante.BLL
                 var comando = conexao.CreateCommand();
                 string tabela = "CHECKS";
                 comando.CommandText = $@"UPDATE {tabela}
-                SET CHECK_NUMBER = '{c.Check_number}';";
+                SET CHECK_NUMBER = '{newNumber}' 
+                WHERE CHECK_NUMBER = {c.Check_number}";
                 comando.ExecuteNonQuery();
             }
             catch (MySqlException ex)

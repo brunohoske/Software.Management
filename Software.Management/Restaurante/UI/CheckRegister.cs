@@ -62,10 +62,10 @@ namespace Restaurante.UI
         {
             double numeroMesa = double.Parse(txtNumMesa.Text);
 
-            Check ch = new Check(numeroMesa); // Construtor
+            Check ch = new Check(int.Parse(lblnumMesa.Text));
 
             DAOCheck daoc = new DAOCheck();
-            daoc.Update(ch);
+            daoc.Update(ch,numeroMesa);
             LerDados();
         }
 

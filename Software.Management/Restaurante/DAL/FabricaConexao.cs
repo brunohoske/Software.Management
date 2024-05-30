@@ -19,6 +19,7 @@ namespace Restaurante.DAL
                                 server = localhost;
                                 database = MenuSystem;
                                 uid = root;
+                                port = 3307;
                                 pwd = 1234;";
 
                 conexao = new MySqlConnection(conn);

@@ -25,7 +25,9 @@ namespace SystemManagement.DAO
 
                     p.Name = reader["Product_name"].ToString();
                     p.Value = Convert.ToInt32(reader["PRICE"]);
+                    p.Description = reader["DESCRIPTION"].ToString();
                     p.Store = new Store() { Name = "McDonalds", Cnpj = reader["CNPJ"].ToString() };
+                    
 
                     products.Add(p);
                 }

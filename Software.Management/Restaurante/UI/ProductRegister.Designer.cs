@@ -1,4 +1,5 @@
-﻿namespace ProjetoDeSoftware
+﻿
+namespace ProjetoDeSoftware
 {
     partial class ProductRegister
     {
@@ -30,7 +31,7 @@
         {
             txtNome = new TextBox();
             txtPreco = new TextBox();
-            txtQntd = new TextBox();
+            txtDescription = new TextBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -59,12 +60,12 @@
             txtPreco.Size = new Size(131, 23);
             txtPreco.TabIndex = 1;
             // 
-            // txtQntd
+            // txtDescription
             // 
-            txtQntd.Location = new Point(26, 211);
-            txtQntd.Name = "txtQntd";
-            txtQntd.Size = new Size(131, 23);
-            txtQntd.TabIndex = 2;
+            txtDescription.Location = new Point(26, 211);
+            txtDescription.Name = "txtDescription";
+            txtDescription.Size = new Size(131, 23);
+            txtDescription.TabIndex = 2;
             // 
             // label1
             // 
@@ -89,9 +90,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(26, 193);
             label3.Name = "label3";
-            label3.Size = new Size(72, 15);
+            label3.Size = new Size(61, 15);
             label3.TabIndex = 6;
-            label3.Text = "Quantidade:";
+            label3.Text = "Descrição:";
             // 
             // L
             // 
@@ -130,7 +131,7 @@
             panel1.Controls.Add(txtNome);
             panel1.Controls.Add(txtPreco);
             panel1.Controls.Add(L);
-            panel1.Controls.Add(txtQntd);
+            panel1.Controls.Add(txtDescription);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
@@ -187,11 +188,16 @@
             ResumeLayout(false);
         }
 
+        private void L_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private TextBox txtNome;
         private TextBox txtPreco;
-        private TextBox txtQntd;
+        private TextBox txtDescription;
         private TextBox txtId;
         private Label label1;
         private Label label2;
