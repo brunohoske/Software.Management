@@ -102,6 +102,7 @@
             L.TabIndex = 7;
             L.Text = "ID:";
             L.Visible = false;
+            L.Click += L_Click;
             // 
             // dataGridView1
             // 
