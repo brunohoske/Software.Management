@@ -7,7 +7,20 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7289") });
+    builder.Services.AddScoped(sp => new HttpClient {
+    
+        BaseAddress = new Uri("https://localhost:7289") 
+        
+
+});
+
+builder.Services.AddScoped(sp =>
+{
+
+    var httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:7289") };
+    httpClient.DefaultRequestHeaders.Add("cnpj", "53060216000109");
+    return httpClient;
+});
 
 
 var app = builder.Build();

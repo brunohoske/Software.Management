@@ -1,9 +1,19 @@
 ﻿@using Models;
 @using DAL
+@using System.Text.Json;
 @inject HttpClient _httpClient
-@rendermode InteractiveAuto
+@rendermode InteractiveServer
 
 @page "/{CompanyName}/CARDAPIO/M{Comanda}"
+
+<button @onclick="HandleClick">Click me</button>
+
+@code {
+    private void HandleClick()
+    {
+        Console.WriteLine("Button clicked");
+    }
+}
 
 @code {
 
@@ -13,11 +23,25 @@
     [Parameter]
     public string CompanyName { get; set; }
 
-    // public List<Item> Produtos { get; set; }
+    public List<Product> Produtos { get; set; }
 
-    protected override void OnInitialized()
+    public List<Product> ProductsInOrder = new List<Product>();
+
+    public async Task CarregarProdutosAsync()
+    {
+        Produtos = await GetProducts();
+    }
+
+    private void AddProductToOrder(Product produto)
+    {
+        ProductsInOrder.Add(produto);
+    }
+
+    protected override async Task OnInitializedAsync()
     {
         base.OnInitialized();
+
+        await CarregarProdutosAsync();
 
         DALCompany dc = new DALCompany();
         @if (dc.CheckExist(CompanyName))
@@ -45,111 +69,84 @@
 <h5>@menu.Company.Name - CARDAPIO - COMANDA #1</h5>
 
 
-@* @code {
-
-    public class Item {
-        public string ProductName { get; set; }
-        public int ProductValue { get; set; }
-    }
-
-    private string productName { get; set; }
-    private int productValue { get; set; }
-
-
-    // public void AddItem()
-    // {
-
-    //     Produtos.Add(new Item() { ProductName = productName, ProductValue = productValue });
-
-    // }
-
-} *@
 
 <section id="products1">
 
     
-    
-
-    <div class="product">
-
-        <div class="product-image">
-            <img src="Images\hamburguer.png" />
-        </div>
-       
-            <div class="product-info">
-                <p class="product-name">Hamburguer - McChicken</p>
-                <p class="product-description"> Um deliciosos hamburguer de frango com molho especial, alface, tomate e fatias de bacon</p>
-            </div>
-
-            <div class="product-value">
-                <p>R$10,00</p>
-            <div class="product-button">
-                <button>Adicionar</button>
-            </div>
-            </div>
-    </div>
-
-   
-
-    <div class="product">
-
-        <div class="product-image">
-            <img src="Images\hamburguer.png" />
-        </div>
-
-        <div class="product-info">
-            <p class="product-name">Hamburguer - McChicken</p>
-            <p class="product-description"> Um deliciosos hamburguer de frango com molho especial, alface, tomate e fatias de bacon</p>
-        </div>
-
-        <div class="product-value">
-            <p>R$10,00</p>
-            <div class="product-button">
-                <button>Adicionar</button>
+    @foreach(var item in Produtos)
+    {
+        <div class="container-ger">
+            <div class="container-item">
+                <div class="imagem"><img src="/Images/hamburguer1.png" alt=""></div>
+                <div class="item">
+                    <div class="desc-img">
+                        <h3>Nome:@item.Name</h3>
+                        <h3>Descrição:</h3>
+                        <h3>Valor:@item.Value</h3>
+                        <button @onclick="() => AddProductToOrder(item)">Adicionar</button> 
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    
-
-    
+    }
 
 </section>
 
 
 
-<section id="cart">
+<section class="cart">
+    
+    <div class="cartpos">
+        <div class="itemCart">
+            <h1>Carrinho</h1>
+        </div>
 
-    <EditForm Model="@order" OnSubmit="SubmitOrder">
         
-@*         @if(Produtos != null && Produtos.Count != 0 )
+        @if(ProductsInOrder.Count != 0 && ProductsInOrder != null)
         {
-            @foreach (var item in Produtos)
+            @foreach (var item in ProductsInOrder)
             {
-
-                <p>Produto @item </p>
-                <br />
-                <input @bind="item.ProductName" type="text"  />
-                <input @bind="item.ProductValue" type="text" />
-
+                <div class="itemCart">
+                    <h2>1 -</h2>
+                    <h3>Produto: @item.Name</h3>
+                    <h3>Valor: @item.Value</h3>
+                    <button @onclick="() => ProductsInOrder.Remove(item)">Remover</button>
+                </div>
             }
-        } *@
-
-        <button type="submit">Submit</button>
-
-    </EditForm>
+        }
+        
+        <div class="divbtnConcluir" @onclick="() => SubmitOrder(ProductsInOrder)"><button class="btnConcluir">Concluir</button></div>
+    </div>
     
 </section>
 
 @code{
 
 
-    private Order order = new Order(); 
 
-    private async Task SubmitOrder()
+
+    private async Task SubmitOrder(List<Product> p)
     {
         try
         {
+            double total = 0;
+            foreach (var item in p)
+            {
+                total += item.Value;
+            }
+
+            Order order = new Order()
+                {
+
+                    Products = p,
+                    Date = System.DateTime.Now,
+                    Store = new Company("McDonalds") { cnpj = "42591651000143" },
+                    Table = new Table() { TableNumber = int.Parse(Comanda), Store = new Company("McDonalds") { cnpj = "42591651000143" } },
+                    Value = total
+
+                };
+
             string jsonBody = System.Text.Json.JsonSerializer.Serialize(order);
             HttpContent httpContent = new StringContent(jsonBody, System.Text.Encoding.UTF8, "application/json");
 
@@ -163,5 +160,24 @@
             Console.WriteLine("Erro ao enviar pedido"+ex.Message);
         }
     }
+
+    async Task<List<Product>> GetProducts()
+    {
+        HttpResponseMessage response = _httpClient.GetAsync("Products").Result;
+        var content = await response.Content.ReadAsStringAsync();
+        var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+        List<Product> p = System.Text.Json.JsonSerializer.Deserialize<List<Product>>(content,options);
+
+        
+
+        return p;
+    }
+
+
+
 
 }

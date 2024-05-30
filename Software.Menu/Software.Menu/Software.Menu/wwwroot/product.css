@@ -1,0 +1,112 @@
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.texto h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.container-ger {
+    margin-left: 7%;
+    margin-top: 5vh;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+}
+
+.container-item {
+    display: flex;
+    flex-direction: row;
+}
+
+.item {
+    margin-left: 30px;
+    border: 2px solid black;
+    width: 80%;
+}
+
+.botao-add {
+    display: flex;
+    justify-content: end;
+}
+
+    .botao-add button {
+        display: flex;
+        justify-content: end;
+        background-color: #e74c3c;
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 25px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        .botao-add button:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+
+        .botao-add button:active {
+            background-color: #a93226;
+            transform: scale(1);
+        }
+
+        .botao-add button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.5);
+        }
+
+.imagem {
+    width: 6%;
+}
+
+    .imagem img {
+        width: 100%;
+    }
+
+.cart {
+    display: flex;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.cartpos {
+    margin-top: 8vh;
+    border: 1px solid black;
+    width: 50%;
+}
+
+.itemCart {
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+}
+
+.divbtnConcluir {
+    display: flex;
+    justify-content: end;
+}
+
+section h2 {
+    margin-left: 1vh;
+}
+
+.btnConcluir {
+    border-radius: 30px;
+    width: 100px;
+    height: 50px;
+    background-color: greenyellow;
+    font-family: "Poppins", sans-serif;
+}

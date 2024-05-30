@@ -7,8 +7,8 @@ namespace Software.Menu.Models
         public List<Product> Products { get; set; }
         public double Value { get; set; }
         public DateTime Date { get; set; }
-        public Company store { get; set; }
+        public Company Store { get; set; }
 
-        public int Table { get; set; }
+        public Table Table { get; set; }
     }
 }

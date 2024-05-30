@@ -13,8 +13,12 @@
       "PackagePath": "staticwebassets\\Images\\McDonalds-Banner.png"
     },
     {
-      "Id": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\Images\\hamburguer.png",
-      "PackagePath": "staticwebassets\\Images\\hamburguer.png"
+      "Id": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\Images\\comida-rapida.png",
+      "PackagePath": "staticwebassets\\Images\\comida-rapida.png"
+    },
+    {
+      "Id": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\Images\\hamburguer1.png",
+      "PackagePath": "staticwebassets\\Images\\hamburguer1.png"
     },
     {
       "Id": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\app.css",
@@ -31,6 +35,10 @@
     {
       "Id": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\product.css",
+      "PackagePath": "staticwebassets\\product.css"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Software.Menu.Microsoft.AspNetCore.StaticWebAssets.props",
