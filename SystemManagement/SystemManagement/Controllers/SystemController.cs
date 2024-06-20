@@ -32,7 +32,7 @@ namespace SystemManagement.Controllers
         }
 
         [HttpGet("Products")]
-        public IActionResult GetOrder()
+        public IActionResult GetProducts()
         {
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
             Store store = new Store() { Cnpj = cnpj};

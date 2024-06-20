@@ -6,15 +6,6 @@
 
 @page "/{CompanyName}/CARDAPIO/M{Comanda}"
 
-<button @onclick="HandleClick">Click me</button>
-
-@code {
-    private void HandleClick()
-    {
-        Console.WriteLine("Button clicked");
-    }
-}
-
 @code {
 
     public Menu menu { get; set; }
@@ -94,7 +85,6 @@
 </section>
 
 
-
 <section class="cart">
     
     <div class="cartpos">
@@ -112,6 +102,7 @@
                     <h3>Produto: @item.Name</h3>
                     <h3>Valor: @item.Value</h3>
                     <button @onclick="() => ProductsInOrder.Remove(item)">Remover</button>
+                    
                 </div>
             }
         }
@@ -122,9 +113,6 @@
 </section>
 
 @code{
-
-
-
 
     private async Task SubmitOrder(List<Product> p)
     {
@@ -138,7 +126,6 @@
 
             Order order = new Order()
                 {
-
                     Products = p,
                     Date = System.DateTime.Now,
                     Store = new Company("McDonalds") { cnpj = "42591651000143" },
@@ -151,7 +138,8 @@
             HttpContent httpContent = new StringContent(jsonBody, System.Text.Encoding.UTF8, "application/json");
 
             HttpResponseMessage response = await _httpClient.PostAsync("Orders", httpContent);
-            response.EnsureSuccessStatusCode();
+            ProductsInOrder.Clear();
+
 
             
         }

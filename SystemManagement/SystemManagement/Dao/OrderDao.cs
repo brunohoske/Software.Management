@@ -23,6 +23,7 @@ namespace SystemManagement.DAO
                 {
                     Product p = new Product();
 
+                    p.Id = reader.GetInt32("IdProduct");
                     p.Name = reader["Product_name"].ToString();
                     p.Value = Convert.ToInt32(reader["PRICE"]);
                     p.Description = reader["DESCRIPTION"].ToString();
@@ -50,7 +51,12 @@ namespace SystemManagement.DAO
                 command.CommandText = $"Insert into Orders(cnpj,total,order_date,check_number) Values('{order.Store.Cnpj}',{order.Value},'{dt}',{order.Table.TableNumber} )";
 
                 command.ExecuteNonQuery();
-                
+                for (int i = 0;i < order.Products.Count;i++)
+                {
+                    command.CommandText = $"INSERT INTO order_details(idorder,cnpj,idproduct,item,check_number,price,order_date) VALUES({order.Id}'{order.Store.Cnpj}',{order.Products[i].Id} ,{i+1},{order.Table.TableNumber},{order.Products[i].Value},'{dt}')";
+                    command.ExecuteNonQuery();
+
+                }
                 
             }
             catch (Exception ex)
