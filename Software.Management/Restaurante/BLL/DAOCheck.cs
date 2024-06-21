@@ -28,7 +28,7 @@ namespace Restaurante.BLL
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Mesas não podem se repetir");
+                throw new Exception("Problemas ao Cadastrar " + ex.Message);
             }
             finally
             {

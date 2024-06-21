@@ -63,8 +63,8 @@ namespace Restaurante.UI
 
         private void button4_Click(object sender, EventArgs e)
         {
-            DiscountManager dc = new DiscountManager();
-            dc.Show();
+            DiscountManager ds = new DiscountManager();
+            ds.Show();
         }
     }
 }
