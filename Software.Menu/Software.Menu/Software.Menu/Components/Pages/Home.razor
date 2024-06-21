@@ -17,7 +17,9 @@
     public List<Product> Produtos { get; set; }
 
     public List<Product> ProductsInOrder = new List<Product>();
+    public List<Order> OrdersInCheck = new List<Order>();
 
+    public double total;
     public async Task CarregarProdutosAsync()
     {
         Produtos = await GetProducts();
@@ -33,8 +35,8 @@
         base.OnInitialized();
 
         await CarregarProdutosAsync();
-
-        DALCompany dc = new DALCompany();
+        OrdersInCheck = await GetOrders();
+    DALCompany dc = new DALCompany();
         @if (dc.CheckExist(CompanyName))
         {
             menu = new Menu() { Company = dc.GetCompanyPerName(CompanyName) };
@@ -112,6 +114,33 @@
     
 </section>
 
+<section class="check">
+
+    <h2>Total dos pedidos:</h2>
+    
+    @for (int i = 0; i < OrdersInCheck.Count; i++)
+    {
+        @for (int c = 0; c < OrdersInCheck[i].Products.Count; c++)
+        {
+        <div class="container">
+
+            <div class="item">
+
+                <h3> Pedido: @OrdersInCheck[i].Products[c].Name </h3>
+                <h3> Valor: @OrdersInCheck[i].Products[c].Value</h3>
+            </div>
+
+        </div>
+        }
+        
+    }
+    @foreach (var item in OrdersInCheck)
+    {
+        total += item.Value;
+    }
+    <h3>TOTAL: @total</h3>
+</section>
+
 @code{
 
     private async Task SubmitOrder(List<Product> p)
@@ -180,6 +209,22 @@
 
 
         return number;
+    }
+
+    public async Task<List<Order>> GetOrders()
+    {
+        HttpResponseMessage response = _httpClient.GetAsync("GetOrdersInTable").Result;
+        var content = await response.Content.ReadAsStringAsync();
+        var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+        List<Order> o = System.Text.Json.JsonSerializer.Deserialize<List<Order>>(content, options);
+
+
+
+        return o;
     }
 
 

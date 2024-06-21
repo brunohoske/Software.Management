@@ -55,5 +55,17 @@ namespace SystemManagement.Controllers
             int number = dao.GetOrderNumber(store);
             return Ok(number);
         }
+
+        [HttpGet("GetOrdersInTable")]
+        public IActionResult GetOrdersInTable()
+        {
+            List<Order> orders = new List<Order>();
+            OrderDao dao = new OrderDao();
+            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
+            Store store = new Store() { Cnpj = cnpj };
+            Table t = new Table { TableNumber = 1, Store = store };
+            orders = dao.GetOrdersInTable(store,t);
+            return Ok(orders);
+        }
     }
 }

@@ -118,5 +118,38 @@ namespace SystemManagement.DAO
             }
         }
 
+
+        public List<Order> GetOrdersInTable(Store s, Table t)
+        {
+            List<Order> orders = new List<Order>();
+
+            try
+            {
+                conexao = f.Connect();
+                reader = f.ExecuteCommandReader($"SELECT * FROM ORDERS WHERE CNPJ = '{s.Cnpj}' AND ORDER_ACTIVE = 1 AND CHECK_NUMBER = {t.TableNumber}", reader);
+
+                while (reader.Read())
+                {
+                    Order o = new Order();
+
+                    o.Id = Convert.ToInt32(reader["idorder"]);
+                    o.Products = GetOrderProduct(o);
+                    o.Value = Convert.ToDouble(reader["total"]);
+                    o.Table = new Table() { Store = s, TableNumber = Convert.ToInt32(reader["check_number"]) };
+                    o.Date = Convert.ToDateTime(reader["order_date"]);
+                    orders.Add(o);
+                }
+
+                return orders;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+
+
+
     }
 }
