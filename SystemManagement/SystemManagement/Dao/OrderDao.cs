@@ -13,16 +13,17 @@ namespace SystemManagement.DAO
         ConnectionFabric f = new ConnectionFabric();
         MySqlDataReader reader;
         MySqlDataReader reader2;
-        public int GetOrderNumber()
+        MySqlDataReader reader3;
+        public int GetOrderNumber(Store s)
         {
             int number = 0;
             try
             {
                 conexao = f.Connect();
-                reader = f.ExecuteCommandReader($"SELECT IDORDER FROM ORDER ORDER BY IDORDER DESC", reader);
-                while (reader.Read())
+                reader3 = f.ExecuteCommandReader($"SELECT IDORDER FROM ORDERS WHERE CNPJ = {s.Cnpj} ORDER BY IDORDER DESC LIMIT 1", reader3);
+                while (reader3.Read())
                 {
-                    number = Convert.ToInt32(reader["IdOrder"]);
+                    number = Convert.ToInt32(reader3["IdOrder"]);
                 }
 
                 return number + 10;
@@ -39,16 +40,16 @@ namespace SystemManagement.DAO
         {
             try
             {
-                order.Id = GetOrderNumber();
+                order.Id = GetOrderNumber(order.Store);
                 string dt = order.Date.ToString("yyyy-MM-dd HH:mm:ss");
                 conexao = f.Connect();
                 var command = conexao.CreateCommand();
-                command.CommandText = $"Insert into Orders(cnpj,total,order_date,check_number) Values('{order.Store.Cnpj}',{order.Value},'{dt}',{order.Table.TableNumber} )";
+                command.CommandText = $"Insert into Orders(idorder,cnpj,total,order_date,check_number,order_active) Values({order.Id},'{order.Store.Cnpj}',{order.Value},'{dt}',{order.Table.TableNumber},1 )";
 
                 command.ExecuteNonQuery();
                 for (int i = 0;i < order.Products.Count;i++)
                 {
-                    command.CommandText = $"INSERT INTO order_details(idorder,cnpj,idproduct,item,check_number,price,order_date) VALUES({order.Id}'{order.Store.Cnpj}',{order.Products[i].Id} ,{i+1},{order.Table.TableNumber},{order.Products[i].Value},'{dt}')";
+                    command.CommandText = $"INSERT INTO order_details(idorder,cnpj,idproduct,item,check_number,price,order_date) VALUES({order.Id},'{order.Store.Cnpj}',{order.Products[i].Id} ,{i+1},{order.Table.TableNumber},{order.Products[i].Value},'{dt}')";
                     command.ExecuteNonQuery();
 
                 }
@@ -98,9 +99,9 @@ namespace SystemManagement.DAO
               
                 conexao = f.Connect();
                 reader2 = f.ExecuteCommandReader($"SELECT idproduct FROM order_details where idorder = {order.Id}", reader2);
-                while (reader.Read())
+                while (reader2.Read())
                 {
-                    orderProducts.Add(Convert.ToInt32(reader["idproduct"]));
+                    orderProducts.Add(Convert.ToInt32(reader2["idproduct"]));
                 }
 
                foreach (int i in orderProducts)

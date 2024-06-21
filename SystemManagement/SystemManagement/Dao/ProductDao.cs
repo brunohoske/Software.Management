@@ -39,11 +39,11 @@ namespace SystemManagement.Dao
         }
         public Product GetProductFromId(int id)
         {
-            reader = f.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE ID PRODUCT = {id}", reader);
+            reader = f.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE IDPRODUCT = {id}", reader);
             Product p = new Product();
             while (reader.Read())
             {
-                p.Id = Convert.ToInt32(reader.Read());
+                p.Id = Convert.ToInt32(reader["idproduct"].ToString());
                 p.Name = reader["Product_Name"].ToString();
                 p.Value = Convert.ToInt32(reader["price"]);
                 p.Description = reader["description"].ToString();

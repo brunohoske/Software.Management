@@ -44,5 +44,16 @@ namespace SystemManagement.Controllers
             List<Product> products = dao.GetProducts(store);
             return Ok(products);
         }
+
+        [HttpGet("OrderNumber")]
+        public IActionResult GetOrderNumber()
+        {
+            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
+            Store store = new Store() { Cnpj = cnpj };
+            OrderDao dao = new OrderDao();
+
+            int number = dao.GetOrderNumber(store);
+            return Ok(number);
+        }
     }
 }
