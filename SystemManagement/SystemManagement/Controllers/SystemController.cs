@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Data;
+using SystemManagement.Dao;
 using SystemManagement.DAO;
 using SystemManagement.Models;
 
@@ -15,10 +16,12 @@ namespace SystemManagement.Controllers
         [HttpGet("Orders")]
         public IActionResult GetOrders()
         {
-
-
-
-            return Index();
+            List<Order> orders = new List<Order>();
+            OrderDao dao = new OrderDao();
+            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
+            Store store = new Store() { Cnpj = cnpj };
+            orders = dao.GetOrders(store);
+            return Ok(orders);
         }
 
         [HttpPost("Orders")]
@@ -36,9 +39,9 @@ namespace SystemManagement.Controllers
         {
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
             Store store = new Store() { Cnpj = cnpj};
-            OrderDao dao = new OrderDao();
+            ProductDao dao = new ProductDao();
 
-            List<Product> products = dao.GetProduct(store);
+            List<Product> products = dao.GetProducts(store);
             return Ok(products);
         }
     }

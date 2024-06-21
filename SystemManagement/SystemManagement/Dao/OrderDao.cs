@@ -1,50 +1,45 @@
 ﻿using MySql.Data.MySqlClient;
+using SystemManagement.Dao;
 using SystemManagement.Data;
 using SystemManagement.Models;
 
 namespace SystemManagement.DAO
 {
-    public class OrderDao
+    public class OrderDao 
+
     {
+
         MySqlConnection conexao = null;
         ConnectionFabric f = new ConnectionFabric();
         MySqlDataReader reader;
-
-        
-
-        public List<Product> GetProduct(Store s)
+        MySqlDataReader reader2;
+        public int GetOrderNumber()
         {
-            List<Product> products = new List<Product>();
+            int number = 0;
             try
             {
                 conexao = f.Connect();
-                reader = f.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE CNPJ = {s.Cnpj}", reader);
+                reader = f.ExecuteCommandReader($"SELECT IDORDER FROM ORDER ORDER BY IDORDER DESC", reader);
                 while (reader.Read())
                 {
-                    Product p = new Product();
-
-                    p.Id = reader.GetInt32("IdProduct");
-                    p.Name = reader["Product_name"].ToString();
-                    p.Value = Convert.ToInt32(reader["PRICE"]);
-                    p.Description = reader["DESCRIPTION"].ToString();
-                    p.Store = new Store() { Name = "McDonalds", Cnpj = reader["CNPJ"].ToString() };
-                    
-
-                    products.Add(p);
+                    number = Convert.ToInt32(reader["IdOrder"]);
                 }
 
-                return products;
+                return number + 10;
             }
-            catch (Exception ex)
+            
+            catch (Exception e)
             {
-                return null;
+                return 0;
             }
+
         }
 
         public void CreateOrder(Order order)
         {
             try
             {
+                order.Id = GetOrderNumber();
                 string dt = order.Date.ToString("yyyy-MM-dd HH:mm:ss");
                 conexao = f.Connect();
                 var command = conexao.CreateCommand();
@@ -62,6 +57,63 @@ namespace SystemManagement.DAO
             catch (Exception ex)
             {
                 throw new Exception("Erro ao inserir Pedido");
+            }
+        }
+
+        public List<Order> GetOrders(Store s)
+        {
+            List<Order> orders = new List<Order>();
+
+            try
+            {
+                conexao = f.Connect();
+                reader = f.ExecuteCommandReader($"SELECT * FROM ORDERS WHERE CNPJ = '{s.Cnpj}' AND ORDER_ACTIVE = 1",reader);
+
+                while (reader.Read())
+                {
+                    Order o = new Order();
+
+                    o.Id = Convert.ToInt32(reader["idorder"]);
+                    o.Products = GetOrderProduct(o);
+                    o.Value = Convert.ToDouble(reader["total"]);
+                    o.Table = new Table() { Store = s, TableNumber = Convert.ToInt32(reader["check_number"]) };
+                    o.Date = Convert.ToDateTime(reader["order_date"]);
+                    orders.Add(o);
+                }
+
+                return orders;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public List<Product> GetOrderProduct(Order order)
+        {
+            List<Product> products = new List<Product>();
+            List<int> orderProducts = new List<int>();
+            try
+            {
+              
+                conexao = f.Connect();
+                reader2 = f.ExecuteCommandReader($"SELECT idproduct FROM order_details where idorder = {order.Id}", reader2);
+                while (reader.Read())
+                {
+                    orderProducts.Add(Convert.ToInt32(reader["idproduct"]));
+                }
+
+               foreach (int i in orderProducts)
+                {
+                    ProductDao productDao = new ProductDao();
+                    products.Add(productDao.GetProductFromId(i));
+                }
+                
+                return products;
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
 
