@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "Twgea4NOIxc=",
   "success": true,
   "projectFilePath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\Restaurante.csproj",
+=======
+  "dgSpecHash": "w2cFvywawZDyU72+8XPJPOUXx58DcLcGDtOSeX8HIo7fwvKLLd+09B0ZUX8WxiEatZcjilpqdir2UlW+rnL8pg==",
+  "success": true,
+  "projectFilePath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\Restaurante.csproj",
+>>>>>>> origin/main
   "expectedPackageFiles": [
     "C:\\Users\\Caio\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\Caio\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",

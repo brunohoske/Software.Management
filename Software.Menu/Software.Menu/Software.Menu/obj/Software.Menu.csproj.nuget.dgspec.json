@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj",
         "packagesPath": "C:\\Users\\Caio\\.nuget\\packages\\",
         "outputPath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\obj\\",
+=======
+    "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj": {}
+  },
+  "projects": {
+    "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj",
+        "projectName": "Software.Menu.Client",
+        "projectPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj",
+        "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
+        "outputPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\obj\\",
+>>>>>>> origin/main
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -102,6 +116,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -110,6 +125,16 @@
         "projectPath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
         "packagesPath": "C:\\Users\\Caio\\.nuget\\packages\\",
         "outputPath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\obj\\",
+=======
+    "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
+        "projectName": "Software.Menu",
+        "projectPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
+        "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
+        "outputPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\obj\\",
+>>>>>>> origin/main
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -131,8 +156,13 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj": {
                 "projectPath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj"
+=======
+              "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj": {
+                "projectPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj"
+>>>>>>> origin/main
               }
             }
           }

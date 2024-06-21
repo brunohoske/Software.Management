@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Data;
+using SystemManagement.Dao;
 using SystemManagement.DAO;
 using SystemManagement.Models;
 
@@ -15,10 +16,12 @@ namespace SystemManagement.Controllers
         [HttpGet("Orders")]
         public IActionResult GetOrders()
         {
-
-
-
-            return Index();
+            List<Order> orders = new List<Order>();
+            OrderDao dao = new OrderDao();
+            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
+            Store store = new Store() { Cnpj = cnpj };
+            orders = dao.GetOrders(store);
+            return Ok(orders);
         }
 
         [HttpPost("Orders")]
@@ -32,14 +35,37 @@ namespace SystemManagement.Controllers
         }
 
         [HttpGet("Products")]
-        public IActionResult GetOrder()
+        public IActionResult GetProducts()
         {
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
             Store store = new Store() { Cnpj = cnpj};
+            ProductDao dao = new ProductDao();
+
+            List<Product> products = dao.GetProducts(store);
+            return Ok(products);
+        }
+
+        [HttpGet("OrderNumber")]
+        public IActionResult GetOrderNumber()
+        {
+            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
+            Store store = new Store() { Cnpj = cnpj };
             OrderDao dao = new OrderDao();
 
-            List<Product> products = dao.GetProduct(store);
-            return Ok(products);
+            int number = dao.GetOrderNumber(store);
+            return Ok(number);
+        }
+
+        [HttpGet("GetOrdersInTable")]
+        public IActionResult GetOrdersInTable()
+        {
+            List<Order> orders = new List<Order>();
+            OrderDao dao = new OrderDao();
+            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
+            Store store = new Store() { Cnpj = cnpj };
+            Table t = new Table { TableNumber = 1, Store = store };
+            orders = dao.GetOrdersInTable(store,t);
+            return Ok(orders);
         }
     }
 }

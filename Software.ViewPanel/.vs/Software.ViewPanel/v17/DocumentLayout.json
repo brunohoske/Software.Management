@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|d:\\meus arquivos\\visual studio\\software.management\\software.viewpanel\\software.viewpanel\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|solutionrelative:software.viewpanel\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\software.viewpanel\\client\\softwareclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|solutionrelative:software.viewpanel\\client\\softwareclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\software.viewpanel\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|solutionrelative:software.viewpanel\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Home.razor",
+              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "Software.ViewPanel\\Components\\Pages\\Home.razor",
+              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "Software.ViewPanel\\Components\\Pages\\Home.razor",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAADAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-20T17:53:50.428Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SoftwareClient.cs",
+              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Client\\SoftwareClient.cs",
+              "RelativeDocumentMoniker": "Software.ViewPanel\\Client\\SoftwareClient.cs",
+              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Client\\SoftwareClient.cs",
+              "RelativeToolTip": "Software.ViewPanel\\Client\\SoftwareClient.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-20T18:32:14.685Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Program.cs",
+              "RelativeDocumentMoniker": "Software.ViewPanel\\Program.cs",
+              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Program.cs",
+              "RelativeToolTip": "Software.ViewPanel\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-20T17:51:45.74Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

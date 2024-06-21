@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "vhIcRx+6DdY=",
   "success": true,
   "projectFilePath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj",
+=======
+  "dgSpecHash": "ma9RSn4Z2jahP1Mk09zvtEBOAaZ2twxpB/hIXtAojlRBjBNPEEzn5fHWN2IFqaKfes8zP1ifVdYUyJTXtVAmmA==",
+  "success": true,
+  "projectFilePath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj",
+>>>>>>> origin/main
   "expectedPackageFiles": [
     "C:\\Users\\Caio\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\Caio\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",

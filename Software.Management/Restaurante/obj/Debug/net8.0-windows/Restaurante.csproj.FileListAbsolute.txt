@@ -168,6 +168,7 @@ C:\Users\bruno\Documents\Software.Management\Software.Management\Restaurante\bin
 C:\Users\bruno\Documents\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaura.9D27851C.Up2Date
 C:\Users\bruno\Documents\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.genruntimeconfig.cache
 C:\Users\bruno\Documents\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\ref\Restaurante.dll
+<<<<<<< HEAD
 C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.csproj.AssemblyReference.cache
 C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.Form1.resources
 C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.CheckRegister.resources
@@ -205,3 +206,41 @@ C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\
 C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaura.9D27851C.Up2Date
 C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.genruntimeconfig.cache
 C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\ref\Restaurante.dll
+=======
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.exe
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.deps.json
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.runtimeconfig.json
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Restaurante.pdb
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\Google.Protobuf.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\K4os.Compression.LZ4.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\K4os.Compression.LZ4.Streams.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\K4os.Hash.xxHash.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\MySql.Data.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\ZstdSharp.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\comerr64.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\gssapi64.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\k5sprt64.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.csproj.AssemblyReference.cache
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.Form1.resources
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.CheckRegister.resources
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.MainMenu.resources
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\ProjetoDeSoftware.ProductRegister.resources
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.UserMenager.resources
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.csproj.GenerateResource.cache
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.GeneratedMSBuildEditorConfig.editorconfig
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.AssemblyInfoInputs.cache
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.AssemblyInfo.cs
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.csproj.CoreCompileInputs.cache
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.sourcelink.json
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaura.9D27851C.Up2Date
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\refint\Restaurante.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.pdb
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.genruntimeconfig.cache
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\ref\Restaurante.dll
+>>>>>>> origin/main

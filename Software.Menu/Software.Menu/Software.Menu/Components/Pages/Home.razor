@@ -6,15 +6,6 @@
 
 @page "/{CompanyName}/CARDAPIO/M{Comanda}"
 
-<button @onclick="HandleClick">Click me</button>
-
-@code {
-    private void HandleClick()
-    {
-        Console.WriteLine("Button clicked");
-    }
-}
-
 @code {
 
     public Menu menu { get; set; }
@@ -26,7 +17,9 @@
     public List<Product> Produtos { get; set; }
 
     public List<Product> ProductsInOrder = new List<Product>();
+    public List<Order> OrdersInCheck = new List<Order>();
 
+    public double total;
     public async Task CarregarProdutosAsync()
     {
         Produtos = await GetProducts();
@@ -42,8 +35,8 @@
         base.OnInitialized();
 
         await CarregarProdutosAsync();
-
-        DALCompany dc = new DALCompany();
+        OrdersInCheck = await GetOrders();
+    DALCompany dc = new DALCompany();
         @if (dc.CheckExist(CompanyName))
         {
             menu = new Menu() { Company = dc.GetCompanyPerName(CompanyName) };
@@ -94,7 +87,6 @@
 </section>
 
 
-
 <section class="cart">
     
     <div class="cartpos">
@@ -112,6 +104,7 @@
                     <h3>Produto: @item.Name</h3>
                     <h3>Valor: @item.Value</h3>
                     <button @onclick="() => ProductsInOrder.Remove(item)">Remover</button>
+                    
                 </div>
             }
         }
@@ -121,10 +114,34 @@
     
 </section>
 
+<section class="check">
+
+    <h2>Total dos pedidos:</h2>
+    
+    @for (int i = 0; i < OrdersInCheck.Count; i++)
+    {
+        @for (int c = 0; c < OrdersInCheck[i].Products.Count; c++)
+        {
+        <div class="container">
+
+            <div class="item">
+
+                <h3> Pedido: @OrdersInCheck[i].Products[c].Name </h3>
+                <h3> Valor: @OrdersInCheck[i].Products[c].Value</h3>
+            </div>
+
+        </div>
+        }
+        
+    }
+    @foreach (var item in OrdersInCheck)
+    {
+        total += item.Value;
+    }
+    <h3>TOTAL: @total</h3>
+</section>
+
 @code{
-
-
-
 
     private async Task SubmitOrder(List<Product> p)
     {
@@ -138,7 +155,7 @@
 
             Order order = new Order()
                 {
-
+                    Id = await GetOrderNumber(),
                     Products = p,
                     Date = System.DateTime.Now,
                     Store = new Company("McDonalds") { cnpj = "42591651000143" },
@@ -151,9 +168,10 @@
             HttpContent httpContent = new StringContent(jsonBody, System.Text.Encoding.UTF8, "application/json");
 
             HttpResponseMessage response = await _httpClient.PostAsync("Orders", httpContent);
-            response.EnsureSuccessStatusCode();
+            ProductsInOrder.Clear();
 
-            
+
+
         }
         catch (Exception ex)
         {
@@ -172,9 +190,41 @@
 
         List<Product> p = System.Text.Json.JsonSerializer.Deserialize<List<Product>>(content,options);
 
-        
+
 
         return p;
+    }
+
+    async Task<int> GetOrderNumber()
+    {
+        HttpResponseMessage response = _httpClient.GetAsync("OrderNumber").Result;
+        var content = await response.Content.ReadAsStringAsync();
+        var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+        int number = System.Text.Json.JsonSerializer.Deserialize<int>(content, options);
+
+
+
+        return number;
+    }
+
+    public async Task<List<Order>> GetOrders()
+    {
+        HttpResponseMessage response = _httpClient.GetAsync("GetOrdersInTable").Result;
+        var content = await response.Content.ReadAsStringAsync();
+        var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+        List<Order> o = System.Text.Json.JsonSerializer.Deserialize<List<Order>>(content, options);
+
+
+
+        return o;
     }
 
 
