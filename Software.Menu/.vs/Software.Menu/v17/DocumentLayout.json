@@ -3,28 +3,36 @@
   "WorkspaceRootPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|d:\\meus arquivos\\visual studio\\software.management\\software.menu\\software.menu\\software.menu\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\models\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8873B547-3DE6-4C0A-A060-A19E0C28896B}|Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8873B547-3DE6-4C0A-A060-A19E0C28896B}|Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj|solutionrelative:software.menu\\software.menu.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|d:\\meus arquivos\\visual studio\\software.management\\software.menu\\software.menu\\software.menu\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\models\\check.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\check.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\models\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -35,20 +43,12 @@
       "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\models\\check.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\check.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\software.menu.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\software.menu.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\models\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\software.menu\\software.menu\\models\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -92,7 +92,7 @@
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Components\\Pages\\Home.razor",
               "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Components\\Pages\\Home.razor",
-              "ViewState": "AQIAAG0AAAAAAAAAAAAIwH8AAAARAAAA",
+              "ViewState": "AQIAAIEAAAAAAAAAAAAAAB4AAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-07T21:51:37.792Z",
               "IsPinned": true,
@@ -100,7 +100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Routes.razor",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\Routes.razor",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Components\\Routes.razor",
@@ -113,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "Check.cs",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Check.cs",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Models\\Check.cs",
@@ -150,19 +150,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Program.cs",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Program.cs",
               "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Program.cs",
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Program.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABQAAABAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T22:04:58.934Z"
+              "WhenOpened": "2024-05-24T22:04:58.934Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Menu.cs",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Menu.cs",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Models\\Menu.cs",
@@ -174,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "Order.cs",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Order.cs",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Models\\Order.cs",
@@ -182,8 +183,7 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Order.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T02:48:36.37Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-22T02:48:36.37Z"
             },
             {
               "$type": "Document",
@@ -211,7 +211,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "App.razor",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\App.razor",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Components\\App.razor",
@@ -219,12 +219,11 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Components\\App.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-11T00:16:04.033Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-11T00:16:04.033Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "_Imports.razor",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\_Imports.razor",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Components\\_Imports.razor",
@@ -232,12 +231,11 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Components\\_Imports.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-11T00:15:57.039Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-11T00:15:57.039Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Database.cs",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Database.cs",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Models\\Database.cs",
@@ -250,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Program.cs",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu.Client\\Program.cs",
@@ -263,7 +261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Product.cs",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Product.cs",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Models\\Product.cs",
@@ -276,7 +274,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Software.Menu.csproj",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Software.Menu.csproj",
@@ -284,8 +282,7 @@
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Software.Menu.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-07T22:05:23.459Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-07T22:05:23.459Z"
             },
             {
               "$type": "Document",

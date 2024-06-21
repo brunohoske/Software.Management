@@ -16,7 +16,6 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddScoped(sp =>
 {
-
     var httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:7289") };
     httpClient.DefaultRequestHeaders.Add("cnpj", "42591651000143");
     return httpClient;
