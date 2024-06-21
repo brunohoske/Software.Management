@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bruno\\Documents\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj": {}
+    "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bruno\\Documents\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj": {
+    "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno\\Documents\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj",
+        "projectUniqueName": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj",
         "projectName": "Software.Menu.Client",
-        "projectPath": "C:\\Users\\bruno\\Documents\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj",
+        "projectPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj",
         "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno\\Documents\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\obj\\",
+        "outputPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -102,14 +102,14 @@
         }
       }
     },
-    "C:\\Users\\bruno\\Documents\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj": {
+    "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno\\Documents\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
+        "projectUniqueName": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
         "projectName": "Software.Menu",
-        "projectPath": "C:\\Users\\bruno\\Documents\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
+        "projectPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
         "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno\\Documents\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\obj\\",
+        "outputPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -131,8 +131,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\bruno\\Documents\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj": {
-                "projectPath": "C:\\Users\\bruno\\Documents\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj"
+              "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj": {
+                "projectPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj"
               }
             }
           }

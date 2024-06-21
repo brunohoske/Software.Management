@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bruno\\Documents\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj": {}
+    "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bruno\\Documents\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj": {
+    "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno\\Documents\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
+        "projectUniqueName": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
         "projectName": "SystemManagement",
-        "projectPath": "C:\\Users\\bruno\\Documents\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
+        "projectPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
         "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno\\Documents\\Software.Management\\SystemManagement\\SystemManagement\\obj\\",
+        "outputPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
