@@ -14,6 +14,10 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Restaurante
+<<<<<<< HEAD
+build_property.ProjectDir = C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\
+=======
 build_property.ProjectDir = D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\
+>>>>>>> origin/main
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
