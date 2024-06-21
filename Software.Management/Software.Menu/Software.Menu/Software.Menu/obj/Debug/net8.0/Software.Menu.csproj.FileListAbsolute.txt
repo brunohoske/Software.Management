@@ -1,0 +1,245 @@
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.Client.staticwebassets.runtime.json
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\appsettings.Development.json
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\appsettings.json
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\BrowserDebugHost.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\BrowserDebugHost.runtimeconfig.json
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\BrowserDebugProxy.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.CodeAnalysis.CSharp.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.CodeAnalysis.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.CodeAnalysis.Scripting.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.FileFormats.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.NET.WebAssembly.Webcil.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.SymbolStore.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Newtonsoft.Json.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.staticwebassets.runtime.json
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.exe
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.deps.json
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.runtimeconfig.json
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.pdb
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Components.WebAssembly.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Components.WebAssembly.Server.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.JSInterop.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.JSInterop.WebAssembly.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.Client.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.Client.pdb
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.csproj.AssemblyReference.cache
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.GeneratedMSBuildEditorConfig.editorconfig
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.AssemblyInfoInputs.cache
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.AssemblyInfo.cs
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.csproj.CoreCompileInputs.cache
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.MvcApplicationPartsAssemblyInfo.cache
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets.build.json
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets.development.json
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets\msbuild.Software.Menu.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets\msbuild.build.Software.Menu.props
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Software.Menu.props
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Software.Menu.props
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\bundle\Software.Menu.styles.css
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\projectbundle\Software.Menu.bundle.scp.css
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.BC2511EC.Up2Date
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\refint\Software.Menu.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.pdb
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.genruntimeconfig.cache
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\ref\Software.Menu.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Google.Protobuf.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\K4os.Compression.LZ4.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\K4os.Compression.LZ4.Streams.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\K4os.Hash.xxHash.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\MySql.Data.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\ZstdSharp.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win-x64\native\comerr64.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win-x64\native\gssapi64.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Meus arquivos\Visual Studio\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\appsettings.Development.json
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\appsettings.json
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\BrowserDebugHost.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\BrowserDebugHost.runtimeconfig.json
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\BrowserDebugProxy.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.CodeAnalysis.CSharp.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.CodeAnalysis.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.CodeAnalysis.Scripting.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.FileFormats.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.NET.WebAssembly.Webcil.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.SymbolStore.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Newtonsoft.Json.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.Client.staticwebassets.runtime.json
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.staticwebassets.runtime.json
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.exe
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.deps.json
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.runtimeconfig.json
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.pdb
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Google.Protobuf.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\K4os.Compression.LZ4.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\K4os.Compression.LZ4.Streams.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\K4os.Hash.xxHash.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Components.WebAssembly.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Components.WebAssembly.Server.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.JSInterop.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.JSInterop.WebAssembly.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\MySql.Data.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\ZstdSharp.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win-x64\native\comerr64.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win-x64\native\gssapi64.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.Client.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.Client.pdb
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.csproj.AssemblyReference.cache
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.GeneratedMSBuildEditorConfig.editorconfig
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.AssemblyInfoInputs.cache
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.AssemblyInfo.cs
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.csproj.CoreCompileInputs.cache
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.MvcApplicationPartsAssemblyInfo.cache
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.sourcelink.json
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets.build.json
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets.development.json
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets\msbuild.Software.Menu.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets\msbuild.build.Software.Menu.props
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Software.Menu.props
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Software.Menu.props
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\bundle\Software.Menu.styles.css
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\projectbundle\Software.Menu.bundle.scp.css
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.BC2511EC.Up2Date
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\refint\Software.Menu.dll
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.pdb
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.genruntimeconfig.cache
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\ref\Software.Menu.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\appsettings.json
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\BrowserDebugHost.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\BrowserDebugHost.runtimeconfig.json
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\BrowserDebugProxy.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.CodeAnalysis.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.FileFormats.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.NET.WebAssembly.Webcil.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Microsoft.SymbolStore.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BlazorDebugProxy\Newtonsoft.Json.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.Client.staticwebassets.runtime.json
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.staticwebassets.runtime.json
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.exe
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.deps.json
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.runtimeconfig.json
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.pdb
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Google.Protobuf.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\K4os.Compression.LZ4.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\K4os.Hash.xxHash.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Components.WebAssembly.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Components.WebAssembly.Server.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.JSInterop.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.JSInterop.WebAssembly.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\MySql.Data.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\System.Drawing.Common.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.Client.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\bin\Debug\net8.0\Software.Menu.Client.pdb
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.csproj.AssemblyReference.cache
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.AssemblyInfoInputs.cache
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.AssemblyInfo.cs
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.csproj.CoreCompileInputs.cache
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.sourcelink.json
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets\msbuild.Software.Menu.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets\msbuild.build.Software.Menu.props
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Software.Menu.props
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Software.Menu.props
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\bundle\Software.Menu.styles.css
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\projectbundle\Software.Menu.bundle.scp.css
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.BC2511EC.Up2Date
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\refint\Software.Menu.dll
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.pdb
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\Software.Menu.genruntimeconfig.cache
+C:\Users\bruno\Documents\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\ref\Software.Menu.dll

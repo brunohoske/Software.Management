@@ -60,5 +60,11 @@ namespace Restaurante.UI
             CheckRegister cr = new CheckRegister();
             cr.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DiscountManager dc = new DiscountManager();
+            dc.Show();
+        }
     }
 }
