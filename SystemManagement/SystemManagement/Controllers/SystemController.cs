@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Data;
-using SystemManagement.Dao;
-using SystemManagement.DAO;
 using SystemManagement.Models;
 
 namespace SystemManagement.Controllers
@@ -17,20 +14,17 @@ namespace SystemManagement.Controllers
         public IActionResult GetOrders()
         {
             List<Order> orders = new List<Order>();
-            OrderDao dao = new OrderDao();
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
-            Store store = new Store() { Cnpj = cnpj };
-            orders = dao.GetOrders(store);
+
+            Order order = new Order() { Store = new Store() { Cnpj = cnpj } };
+            orders = order.GetOrders();
             return Ok(orders);
         }
 
         [HttpPost("Orders")]
         public IActionResult SendOrder([FromBody]Order order)
         {
-            OrderDao dao = new OrderDao();
-            Console.WriteLine(order);
-            dao.CreateOrder(order);
-           
+            order.CreateOrder();
             return Index();
         }
 
@@ -39,9 +33,9 @@ namespace SystemManagement.Controllers
         {
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
             Store store = new Store() { Cnpj = cnpj};
-            ProductDao dao = new ProductDao();
+            Product product = new Product() { Store = store };
 
-            List<Product> products = dao.GetProducts(store);
+            List<Product> products = product.GetProducts();
             return Ok(products);
         }
 
@@ -49,10 +43,9 @@ namespace SystemManagement.Controllers
         public IActionResult GetOrderNumber()
         {
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
-            Store store = new Store() { Cnpj = cnpj };
-            OrderDao dao = new OrderDao();
+            Order order = new Order() { Store = new Store() { Cnpj = cnpj } };
+            int number = order.GetOrderNumber();
 
-            int number = dao.GetOrderNumber(store);
             return Ok(number);
         }
 
@@ -60,11 +53,11 @@ namespace SystemManagement.Controllers
         public IActionResult GetOrdersInTable()
         {
             List<Order> orders = new List<Order>();
-            OrderDao dao = new OrderDao();
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
             Store store = new Store() { Cnpj = cnpj };
-            Table t = new Table { TableNumber = 1, Store = store };
-            orders = dao.GetOrdersInTable(store,t);
+            Table table = new Table { TableNumber = 1, Store = store };
+            Order order = new Order() { Store = store, Table = table };
+            orders = order.GetOrdersInTable();
             return Ok(orders);
         }
     }

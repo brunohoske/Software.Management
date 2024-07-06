@@ -2,15 +2,9 @@
 using Restaurante.BLL;
 using Restaurante.DAL;
 using Restaurante.DTO;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using QRCoder;
+
 
 namespace Restaurante.UI
 {
@@ -65,7 +59,7 @@ namespace Restaurante.UI
             Check ch = new Check(int.Parse(lblnumMesa.Text));
 
             DAOCheck daoc = new DAOCheck();
-            daoc.Update(ch,numeroMesa);
+            daoc.Update(ch, numeroMesa);
             LerDados();
         }
 
@@ -124,5 +118,14 @@ namespace Restaurante.UI
         {
             LerDados();
         }
+
+        private void btnGerarQR_Click(object sender, EventArgs e)
+        {
+            QrCodeUI qr = new QrCodeUI($@"https://localhost:7124/mcdonalds/cardapio/m{lblnumMesa.Text}");
+            qr.Show();
+            
+
+        }
+
     }
 }

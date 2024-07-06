@@ -25,7 +25,7 @@ namespace Restaurante.BLL
 
                 conexao = f.Conectar();
                 var comando = conexao.CreateCommand();
-                comando.CommandText = $"select * from USERS where NAME = '{name}'";
+                comando.CommandText = $"SELECT * FROM USERS WHERE NAME = '{name}'";
                 reader = comando.ExecuteReader();
 
                 string readName = "";

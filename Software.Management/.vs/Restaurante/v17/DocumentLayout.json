@@ -1,72 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|d:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\dto\\discount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\dto\\discount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|d:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\restaurante\\bll\\dalusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\bll\\dalusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Meus Arquivos\\Software.Management\\Software.Management\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedHeight": 302,
-          "SelectedChildIndex": 2,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\Form1.cs",
-              "RelativeDocumentMoniker": "Restaurante\\Form1.cs",
-              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\Form1.cs",
-              "RelativeToolTip": "Restaurante\\Form1.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAkAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T19:22:02.68Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DALUsers.cs",
-              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\BLL\\DALUsers.cs",
-              "RelativeDocumentMoniker": "Restaurante\\BLL\\DALUsers.cs",
-              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\BLL\\DALUsers.cs",
-              "RelativeToolTip": "Restaurante\\BLL\\DALUsers.cs",
-              "ViewState": "AQIAAHMAAAAAAAAAAAAAwIUAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T19:23:24.414Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Discount.cs",
-              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\DTO\\Discount.cs",
-              "RelativeDocumentMoniker": "Restaurante\\DTO\\Discount.cs",
-              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\DTO\\Discount.cs",
-              "RelativeToolTip": "Restaurante\\DTO\\Discount.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T22:53:46.73Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

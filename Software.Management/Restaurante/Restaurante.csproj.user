@@ -16,6 +16,9 @@
     <Compile Update="UI\ProductRegister.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UI\QrCodeUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UI\UserMenager.cs">
       <SubType>Form</SubType>
     </Compile>
