@@ -9,7 +9,6 @@
       "Restaurante/1.0.0": {
         "dependencies": {
           "MySql.Data": "8.4.0",
-          "Net.Codecrete.QrCodeGenerator": "2.0.5",
           "QRCoder": "1.6.0"
         },
         "runtime": {
@@ -111,14 +110,6 @@
             "rid": "win-x64",
             "assetType": "native",
             "fileVersion": "4.1.0.0"
-          }
-        }
-      },
-      "Net.Codecrete.QrCodeGenerator/2.0.5": {
-        "runtime": {
-          "lib/netstandard2.0/QrCodeGenerator.dll": {
-            "assemblyVersion": "1.6.0.0",
-            "fileVersion": "2.0.5.0"
           }
         }
       },
@@ -315,13 +306,6 @@
       "sha512": "sha512-NA273x7ybutfGwGbF2cd8rLVM5t7AkZCzRHr/+tGms1FeMlfl+LgfjHXcb5qN1QxFpeNQQKZ+vqZw8v/S8gUiA==",
       "path": "mysql.data/8.4.0",
       "hashPath": "mysql.data.8.4.0.nupkg.sha512"
-    },
-    "Net.Codecrete.QrCodeGenerator/2.0.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-jH8i2g7liqxMVyY8WsNzJwMpwHqeWvGRl0f2GMW+C2CLT8vyIT72fdN+HfZeVFdDG0AMLxbvMPrpavXsL76LGQ==",
-      "path": "net.codecrete.qrcodegenerator/2.0.5",
-      "hashPath": "net.codecrete.qrcodegenerator.2.0.5.nupkg.sha512"
     },
     "QRCoder/1.6.0": {
       "type": "package",

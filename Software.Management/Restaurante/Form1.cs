@@ -10,7 +10,8 @@ namespace Restaurante
         {
             InitializeComponent();
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        public void Logar()
         {
             if (TxtNome.Text != "Nome" && TxtNome.Text != "" && TxtSenha.Text != "" && TxtSenha.Text != "Senha")
             {
@@ -45,7 +46,10 @@ namespace Restaurante
             {
                 MessageBox.Show("Preencha o nome e a senha.");
             }
-
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Logar();
         }
 
         #region placeholders
@@ -90,5 +94,14 @@ namespace Restaurante
         }
         #endregion
 
+
+
+        private void TxtSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Space)
+            {
+                Logar(); // Chama o método Logar
+            }
+        }
     }
 }

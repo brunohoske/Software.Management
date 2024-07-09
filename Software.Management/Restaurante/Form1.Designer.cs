@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label4 = new Label();
+            label3 = new Label();
+            BtnAcesso = new Button();
             TxtSenha = new TextBox();
             TxtNome = new TextBox();
             label2 = new Label();
             label1 = new Label();
-            BtnAcesso = new Button();
-            label3 = new Label();
-            label4 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,6 +54,38 @@
             panel1.Size = new Size(461, 281);
             panel1.TabIndex = 0;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ControlLightLight;
+            label4.Location = new Point(140, 126);
+            label4.Name = "label4";
+            label4.Size = new Size(41, 13);
+            label4.TabIndex = 14;
+            label4.Text = "Senha:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.ControlLightLight;
+            label3.Location = new Point(140, 80);
+            label3.Name = "label3";
+            label3.Size = new Size(36, 13);
+            label3.TabIndex = 13;
+            label3.Text = "Login:";
+            // 
+            // BtnAcesso
+            // 
+            BtnAcesso.Location = new Point(146, 237);
+            BtnAcesso.Name = "BtnAcesso";
+            BtnAcesso.Size = new Size(156, 23);
+            BtnAcesso.TabIndex = 12;
+            BtnAcesso.Text = "Logar";
+            BtnAcesso.UseVisualStyleBackColor = true;
+            BtnAcesso.Click += button1_Click;
+            // 
             // TxtSenha
             // 
             TxtSenha.ForeColor = SystemColors.ControlDark;
@@ -63,6 +95,7 @@
             TxtSenha.TabIndex = 4;
             TxtSenha.Text = "Senha";
             TxtSenha.Enter += TxtSenha_Enter;
+            TxtSenha.KeyPress += TxtSenha_KeyPress;
             TxtSenha.Leave += TxtSenha_Leave;
             // 
             // TxtNome
@@ -96,38 +129,6 @@
             label1.Size = new Size(86, 15);
             label1.TabIndex = 0;
             label1.Text = "Bem-Vindo (a)";
-            // 
-            // BtnAcesso
-            // 
-            BtnAcesso.Location = new Point(146, 237);
-            BtnAcesso.Name = "BtnAcesso";
-            BtnAcesso.Size = new Size(156, 23);
-            BtnAcesso.TabIndex = 12;
-            BtnAcesso.Text = "Logar";
-            BtnAcesso.UseVisualStyleBackColor = true;
-            BtnAcesso.Click += button1_Click;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(140, 80);
-            label3.Name = "label3";
-            label3.Size = new Size(36, 13);
-            label3.TabIndex = 13;
-            label3.Text = "Login:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ControlLightLight;
-            label4.Location = new Point(140, 126);
-            label4.Name = "label4";
-            label4.Size = new Size(41, 13);
-            label4.TabIndex = 14;
-            label4.Text = "Senha:";
             // 
             // Form1
             // 
