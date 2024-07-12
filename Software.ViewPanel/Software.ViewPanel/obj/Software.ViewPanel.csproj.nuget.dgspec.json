@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj": {}
+    "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj": {}
   },
   "projects": {
-    "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj": {
+    "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj",
+        "projectUniqueName": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj",
         "projectName": "Software.ViewPanel",
-        "projectPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj",
+        "projectPath": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj",
         "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\",
+        "outputPath": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
