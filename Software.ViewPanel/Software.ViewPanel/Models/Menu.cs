@@ -3,7 +3,7 @@
     public class Menu
     {
 
-        public Company Company { get; set; }
+        public Store Company { get; set; }
         public Product Products { get; set; }
 
     }

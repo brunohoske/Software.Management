@@ -3,6 +3,6 @@
     public class Table
     {
         public int TableNumber { get; set; }
-        public Company Store { get; set; }
+        public Store Store { get; set; }
     }
 }

@@ -13,8 +13,19 @@
     {
         orders = await client.GetOrder();
     }
+
+    public async Task CompleteOrder(Order order)
+    {
+        await client.CompleteOrder(order);
+    }
 }
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> origin/main
 <div class="title">
     <h1> PEDIDOS PENDENTES </h1>
 </div>
@@ -23,9 +34,11 @@
 
 @for (int i = 0; i < orders.Count; i++)
 {
+
     <h1>Pedido #@orders[i].Id</h1>
     <h2> Mesa: @orders[i].Table.TableNumber</h2>
     <h2> Horário do pedido: @orders[i].Date</h2>
+    <button  @onclick="()=>CompleteOrder(orders[i -1])"> Finalizar </button>
 
     @for (int c = 0; c < orders[i].Products.Count; c++)
     {
@@ -37,13 +50,19 @@
 
 
                 <h2> Observações: @orders[i].Products[c].Description</h2>
+
+                
+
                 @*   <h2> Situação: @conv.Products</h2> *@
                 <h3>--------------------------------------------------------------------------------</h3>
+
 
             </div>
 
         </div>
     }
+
+    
 
 }
 

@@ -1,6 +1,7 @@
 {
   "Files": [
     {
+<<<<<<< HEAD
       "Id": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Software.ViewPanel.bundle.scp.css",
       "PackagePath": "staticwebassets\\Software.ViewPanel.bundle.scp.css"
     },
@@ -18,6 +19,25 @@
     },
     {
       "Id": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\favicon.png",
+=======
+      "Id": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Software.ViewPanel.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Software.ViewPanel.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\favicon.png",
+>>>>>>> origin/main
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {

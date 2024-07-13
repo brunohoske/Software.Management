@@ -11,7 +11,7 @@ namespace SystemManagement.Models
         public Store Store { get; set; }
         public Table Table { get; set; }
 
-        public OrderDao dao = new OrderDao();
+         OrderDao dao = new OrderDao();
 
 
         public void CreateOrder()
@@ -33,7 +33,10 @@ namespace SystemManagement.Models
             return dao.GetOrdersInTable(Store, Table);
         }
 
-        
+        public int CompleteOrder() 
+        {
+            return dao.CompleteOrder(this);
+        }
 
     }
 }

@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "nQkDdDN6fGDkEhBi3/fqABK751zd0TY+aqpoLf09qWI=",
+=======
+  "Hash": "JqEJBI0fLPmveOhe0Oool8pPQ2jSV/B3M2qX/Utm6WM=",
+>>>>>>> origin/main
   "Source": "Software.ViewPanel",
   "BasePath": "_content/Software.ViewPanel",
   "Mode": "Default",
@@ -10,17 +14,28 @@
     {
       "Name": "Software.ViewPanel\\wwwroot",
       "Source": "Software.ViewPanel",
+<<<<<<< HEAD
       "ContentRoot": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\",
+=======
+      "ContentRoot": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\",
+>>>>>>> origin/main
       "BasePath": "_content/Software.ViewPanel",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
+<<<<<<< HEAD
       "Identity": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Software.ViewPanel.styles.css",
       "SourceId": "Software.ViewPanel",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+=======
+      "Identity": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Software.ViewPanel.styles.css",
+      "SourceId": "Software.ViewPanel",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+>>>>>>> origin/main
       "BasePath": "_content/Software.ViewPanel",
       "RelativePath": "Software.ViewPanel.styles.css",
       "AssetKind": "All",
@@ -33,6 +48,7 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Software.ViewPanel.styles.css"
     },
     {
@@ -40,6 +56,15 @@
       "SourceId": "Software.ViewPanel",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+=======
+      "OriginalItemSpec": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Software.ViewPanel.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Software.ViewPanel.bundle.scp.css",
+      "SourceId": "Software.ViewPanel",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+>>>>>>> origin/main
       "BasePath": "_content/Software.ViewPanel",
       "RelativePath": "Software.ViewPanel.bundle.scp.css",
       "AssetKind": "All",
@@ -52,6 +77,7 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Software.ViewPanel.bundle.scp.css"
     },
     {
@@ -59,6 +85,15 @@
       "SourceId": "Software.ViewPanel",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\",
+=======
+      "OriginalItemSpec": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Software.ViewPanel.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\app.css",
+      "SourceId": "Software.ViewPanel",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\",
+>>>>>>> origin/main
       "BasePath": "_content/Software.ViewPanel",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +109,17 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "Software.ViewPanel",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "SourceId": "Software.ViewPanel",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\",
+>>>>>>> origin/main
       "BasePath": "_content/Software.ViewPanel",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +135,17 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "Software.ViewPanel",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "SourceId": "Software.ViewPanel",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\",
+>>>>>>> origin/main
       "BasePath": "_content/Software.ViewPanel",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +161,17 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\favicon.png",
       "SourceId": "Software.ViewPanel",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\",
+=======
+      "Identity": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\favicon.png",
+      "SourceId": "Software.ViewPanel",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\",
+>>>>>>> origin/main
       "BasePath": "_content/Software.ViewPanel",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
