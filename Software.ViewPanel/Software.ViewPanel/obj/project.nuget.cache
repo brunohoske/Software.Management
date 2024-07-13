@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "VC6unOCPQdg=",
+  "success": true,
+  "projectFilePath": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj",
+=======
   "dgSpecHash": "qSju9h+z6TenKZcm4qiPNIr0FyY0JSapFEtMsgs79sa9KSqinPfhEXaYsPVQ89Z9zqeSVU5antj25CbKqbQ4rg==",
   "success": true,
   "projectFilePath": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj",
+>>>>>>> origin/main
   "expectedPackageFiles": [],
   "logs": []
 }

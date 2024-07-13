@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj": {}
+  },
+  "projects": {
+    "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj",
+        "projectName": "Software.ViewPanel",
+        "projectPath": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj",
+        "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
+        "outputPath": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\",
+=======
     "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj": {}
   },
   "projects": {
@@ -12,6 +25,7 @@
         "projectPath": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Software.ViewPanel.csproj",
         "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\",
+>>>>>>> origin/main
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -68,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

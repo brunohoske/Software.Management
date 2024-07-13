@@ -2228,11 +2228,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
+      "projectName": "SystemManagement",
+      "projectPath": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
+      "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
+      "outputPath": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\obj\\",
+=======
       "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
       "projectName": "SystemManagement",
       "projectPath": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
       "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\SystemManagement\\SystemManagement\\obj\\",
+>>>>>>> origin/main
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

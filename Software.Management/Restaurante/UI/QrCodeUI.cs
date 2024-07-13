@@ -23,13 +23,6 @@ namespace Restaurante.UI
         }
         private void QrCodeUI_Load(object sender, EventArgs e)
         {
-
-        }
-        private Image qrCodeImage;
-        private int qrcodeCount = 1;
-
-        private void button1_Click(object sender, EventArgs e)
-        {
             QRCodeGenerator qr = new QRCodeGenerator();
             var qrCodeData = qr.CreateQrCode(url, QRCodeGenerator.ECCLevel.Q);
             var qrCode = new QRCode(qrCodeData);
@@ -38,6 +31,8 @@ namespace Restaurante.UI
             pbQrCode.Image = qrCodeImage;
             pbQrCode.SizeMode = PictureBoxSizeMode.CenterImage;
         }
+        private Image qrCodeImage;
+        private int qrcodeCount = 1;
 
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
