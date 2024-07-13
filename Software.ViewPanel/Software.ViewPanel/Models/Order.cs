@@ -1,5 +1,7 @@
 ﻿
 
+using System.Text.Json.Serialization;
+
 namespace Software.ViewPanel.Models
 {
     public class Order
@@ -8,8 +10,7 @@ namespace Software.ViewPanel.Models
         public List<Product> Products { get; set; }
         public double Value { get; set; }
         public DateTime Date { get; set; }
-        public Company Store { get; set; }
-
+        public Store Store { get; set; }
         public Table Table { get; set; }
     }
 }

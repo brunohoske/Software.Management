@@ -22,7 +22,7 @@ namespace SystemManagement.Controllers
         }
 
         [HttpPost("Orders")]
-        public IActionResult SendOrder([FromBody]Order order)
+        public IActionResult SendOrder([FromBody] Order order)
         {
             order.CreateOrder();
             return Index();
@@ -32,7 +32,7 @@ namespace SystemManagement.Controllers
         public IActionResult GetProducts()
         {
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
-            Store store = new Store() { Cnpj = cnpj};
+            Store store = new Store() { Cnpj = cnpj };
             Product product = new Product() { Store = store };
 
             List<Product> products = product.GetProducts();
@@ -59,6 +59,15 @@ namespace SystemManagement.Controllers
             Order order = new Order() { Store = store, Table = table };
             orders = order.GetOrdersInTable();
             return Ok(orders);
+        }
+
+        [HttpPost("CompleteOrder")]
+        public IActionResult CompleteOrder([FromBody]Order order) 
+        {
+            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
+            order.CompleteOrder();
+
+            return Ok();
         }
     }
 }

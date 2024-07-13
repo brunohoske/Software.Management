@@ -1,12 +1,12 @@
 ﻿namespace Software.ViewPanel.Models
 {
-    public class Company
+    public class Store
     {
 
         public string Name { get; set; }
         public string cnpj {  get; set; }
 
-        public Company(string name)
+        public Store(string name)
         {
             Name = name;
         }

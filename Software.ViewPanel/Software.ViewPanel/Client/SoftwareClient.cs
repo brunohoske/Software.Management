@@ -1,4 +1,5 @@
 ﻿using Software.ViewPanel.Models;
+using System.Text;
 using System.Text.Json;
 
 namespace Software.ViewPanel.Client
@@ -26,6 +27,15 @@ namespace Software.ViewPanel.Client
 
 
             return o;
+        }
+
+        
+        public async Task CompleteOrder(Order order)
+        {
+
+            string json = JsonSerializer.Serialize(order);
+            HttpContent content = new StringContent(json,UTF8Encoding.UTF8, "application/json");
+            HttpResponseMessage response = _httpClient.PostAsync("CompleteOrder", content).Result;
         }
 
     }
