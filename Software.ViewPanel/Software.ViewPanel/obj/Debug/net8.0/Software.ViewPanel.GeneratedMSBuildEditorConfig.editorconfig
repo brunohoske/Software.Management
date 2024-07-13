@@ -9,47 +9,47 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Software.ViewPanel
 build_property.RootNamespace = Software.ViewPanel
-build_property.ProjectDir = D:\Meus arquivos\Visual Studio\Software.Management\Software.ViewPanel\Software.ViewPanel\
+build_property.ProjectDir = C:\Users\USUARIO\Desktop\Nova pasta (3)\Software.Management\Software.ViewPanel\Software.ViewPanel\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Meus arquivos\Visual Studio\Software.Management\Software.ViewPanel\Software.ViewPanel
+build_property.MSBuildProjectDirectory = C:\Users\USUARIO\Desktop\Nova pasta (3)\Software.Management\Software.ViewPanel\Software.ViewPanel
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Meus arquivos/Visual Studio/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/App.razor]
+[C:/Users/USUARIO/Desktop/Nova pasta (3)/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Meus arquivos/Visual Studio/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/Pages/Counter.razor]
+[C:/Users/USUARIO/Desktop/Nova pasta (3)/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Meus arquivos/Visual Studio/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/Pages/Error.razor]
+[C:/Users/USUARIO/Desktop/Nova pasta (3)/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Meus arquivos/Visual Studio/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/Pages/Home.razor]
+[C:/Users/USUARIO/Desktop/Nova pasta (3)/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Meus arquivos/Visual Studio/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/Pages/Weather.razor]
+[C:/Users/USUARIO/Desktop/Nova pasta (3)/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Meus arquivos/Visual Studio/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/Routes.razor]
+[C:/Users/USUARIO/Desktop/Nova pasta (3)/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Meus arquivos/Visual Studio/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/_Imports.razor]
+[C:/Users/USUARIO/Desktop/Nova pasta (3)/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Meus arquivos/Visual Studio/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/Layout/MainLayout.razor]
+[C:/Users/USUARIO/Desktop/Nova pasta (3)/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-711d88p4nf
 
-[D:/Meus arquivos/Visual Studio/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/Layout/NavMenu.razor]
+[C:/Users/USUARIO/Desktop/Nova pasta (3)/Software.Management/Software.ViewPanel/Software.ViewPanel/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-j3mgfpgz7l

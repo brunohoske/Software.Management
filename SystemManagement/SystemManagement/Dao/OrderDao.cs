@@ -79,6 +79,7 @@ namespace SystemManagement.DAO
                     o.Value = Convert.ToDouble(reader["total"]);
                     o.Table = new Table() { Store = s, TableNumber = Convert.ToInt32(reader["check_number"]) };
                     o.Date = Convert.ToDateTime(reader["order_date"]);
+                    o.Store = s;
                     orders.Add(o);
                 }
 
@@ -148,6 +149,27 @@ namespace SystemManagement.DAO
             }
         }
 
+        public int CompleteOrder(Order order) 
+        {
+
+            try
+            {
+                string com = $"Update orders set order_active = 0 where idorder = {order.Id}";
+                conexao = f.Connect();
+                MySqlCommand cmd = new MySqlCommand(com, conexao);
+
+
+                return cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                throw;
+
+                return 0;
+            }
+            
+
+        }
 
 
 

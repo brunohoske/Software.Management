@@ -1,17 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\",
+  "WorkspaceRootPath": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|d:\\meus arquivos\\visual studio\\software.management\\software.viewpanel\\software.viewpanel\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|solutionrelative:software.viewpanel\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\software.viewpanel\\client\\softwareclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\software.viewpanel\\client\\softwareclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|solutionrelative:software.viewpanel\\client\\softwareclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\software.viewpanel\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|c:\\users\\usuario\\desktop\\nova pasta (3)\\software.management\\software.viewpanel\\software.viewpanel\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|solutionrelative:software.viewpanel\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|c:\\users\\usuario\\desktop\\nova pasta (3)\\software.management\\software.viewpanel\\software.viewpanel\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|solutionrelative:software.viewpanel\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|c:\\users\\usuario\\desktop\\nova pasta (3)\\software.management\\software.viewpanel\\software.viewpanel\\models\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|solutionrelative:software.viewpanel\\models\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|c:\\users\\usuario\\desktop\\nova pasta (3)\\software.management\\software.viewpanel\\software.viewpanel\\models\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|solutionrelative:software.viewpanel\\models\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|c:\\users\\usuario\\desktop\\nova pasta (3)\\software.management\\software.viewpanel\\software.viewpanel\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|solutionrelative:software.viewpanel\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|c:\\users\\usuario\\desktop\\nova pasta (3)\\software.management\\software.viewpanel\\software.viewpanel\\models\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|solutionrelative:software.viewpanel\\models\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\software.viewpanel\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1CCDB90-52C4-4867-8310-EB54561ACC4B}|Software.ViewPanel\\Software.ViewPanel.csproj|solutionrelative:software.viewpanel\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,17 +42,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Home.razor",
-              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Components\\Pages\\Home.razor",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "Software.ViewPanel\\Components\\Pages\\Home.razor",
-              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "Software.ViewPanel\\Components\\Pages\\Home.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAWAAAA",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAowBIAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-20T17:53:50.428Z",
               "IsPinned": true,
@@ -40,28 +60,103 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Table.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Models\\Table.cs",
+              "RelativeDocumentMoniker": "Software.ViewPanel\\Models\\Table.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Models\\Table.cs",
+              "RelativeToolTip": "Software.ViewPanel\\Models\\Table.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-13T00:17:27.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Software.ViewPanel\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Models\\Product.cs",
+              "RelativeToolTip": "Software.ViewPanel\\Models\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-13T00:17:23.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "Software.ViewPanel\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Models\\Order.cs",
+              "RelativeToolTip": "Software.ViewPanel\\Models\\Order.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-13T00:17:20.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Models\\Menu.cs",
+              "RelativeDocumentMoniker": "Software.ViewPanel\\Models\\Menu.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Models\\Menu.cs",
+              "RelativeToolTip": "Software.ViewPanel\\Models\\Menu.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-13T00:17:15.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Company.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Models\\Company.cs",
+              "RelativeDocumentMoniker": "Software.ViewPanel\\Models\\Company.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Models\\Company.cs",
+              "RelativeToolTip": "Software.ViewPanel\\Models\\Company.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-13T00:16:55.685Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "SoftwareClient.cs",
-              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Client\\SoftwareClient.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Client\\SoftwareClient.cs",
               "RelativeDocumentMoniker": "Software.ViewPanel\\Client\\SoftwareClient.cs",
-              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Client\\SoftwareClient.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Client\\SoftwareClient.cs",
               "RelativeToolTip": "Software.ViewPanel\\Client\\SoftwareClient.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAANAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAA5wCUAAABiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-20T18:32:14.685Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Program.cs",
               "RelativeDocumentMoniker": "Software.ViewPanel\\Program.cs",
-              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Program.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\Program.cs",
               "RelativeToolTip": "Software.ViewPanel\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-20T17:51:45.74Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1908,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }
