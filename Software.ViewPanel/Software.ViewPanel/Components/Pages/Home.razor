@@ -20,12 +20,6 @@
     }
 }
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> origin/main
 <div class="title">
     <h1> PEDIDOS PENDENTES </h1>
 </div>
@@ -38,8 +32,7 @@
     <h1>Pedido #@orders[i].Id</h1>
     <h2> Mesa: @orders[i].Table.TableNumber</h2>
     <h2> Horário do pedido: @orders[i].Date</h2>
-    <button  @onclick="()=>CompleteOrder(orders[i -1])"> Finalizar </button>
-
+   
     @for (int c = 0; c < orders[i].Products.Count; c++)
     {
         <div class="container">
@@ -61,6 +54,7 @@
 
         </div>
     }
+    <button @onclick="()=>CompleteOrder(orders[i -1])"> Finalizar </button>
 
     
 

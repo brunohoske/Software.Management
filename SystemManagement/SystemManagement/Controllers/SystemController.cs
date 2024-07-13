@@ -62,7 +62,7 @@ namespace SystemManagement.Controllers
         }
 
         [HttpPost("CompleteOrder")]
-        public IActionResult CompleteOrder([FromBody]Order order) 
+        public IActionResult CompleteOrder([FromBody] Order order)
         {
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
             order.CompleteOrder();

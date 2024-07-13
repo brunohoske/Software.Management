@@ -14,8 +14,9 @@ namespace SystemManagement.Data
                 string conn = @"Persist Security info = false;
                                 server = localhost;
                                 database = menusystem;
-                                uid = root;
-                                pwd =1234";
+                                uid = brunohoske;
+                                port= 3307;
+                                pwd =123";
 
                 conexao = new MySqlConnection(conn);
                 conexao.Open();

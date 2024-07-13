@@ -2222,31 +2222,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\USUARIO\\.nuget\\packages\\": {},
+    "C:\\Users\\bruno\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
+      "projectUniqueName": "C:\\Users\\bruno\\Documents\\Nova pasta\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
       "projectName": "SystemManagement",
-      "projectPath": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
+      "projectPath": "C:\\Users\\bruno\\Documents\\Nova pasta\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
       "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-      "outputPath": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
-      "projectName": "SystemManagement",
-      "projectPath": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\SystemManagement\\SystemManagement\\SystemManagement.csproj",
-      "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USUARIO\\Desktop\\Nova pasta (3)\\Software.Management\\SystemManagement\\SystemManagement\\obj\\",
->>>>>>> origin/main
+      "outputPath": "C:\\Users\\bruno\\Documents\\Nova pasta\\Software.Management\\SystemManagement\\SystemManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
