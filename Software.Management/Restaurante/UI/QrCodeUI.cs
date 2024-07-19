@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,5 +65,46 @@ namespace Restaurante.UI
             }
         }
 
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (qrCodeImage != null)
+                {
+                    PrintDocument printDocument = new PrintDocument();
+                    printDocument.PrintPage += PrintDocument_PrintPage;
+
+                    using (PrintDialog printDialog = new PrintDialog())
+                    {
+                        printDialog.Document = printDocument;
+
+                        if (printDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            printDocument.Print();
+                  
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, gere um QR code primeiro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro inesperado: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            if (qrCodeImage != null)
+            {
+                float x = (e.PageBounds.Width - qrCodeImage.Width) / 2;
+                float y = (e.PageBounds.Height - qrCodeImage.Height) / 2;
+
+                e.Graphics.DrawImage(qrCodeImage, x, y, qrCodeImage.Width, qrCodeImage.Height);
+            }
+        }
     }
 }
