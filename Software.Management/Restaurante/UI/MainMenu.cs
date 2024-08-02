@@ -66,5 +66,11 @@ namespace Restaurante.UI
             DiscountManager ds = new DiscountManager();
             ds.Show();
         }
+
+        private void btnVendaPanel_Click(object sender, EventArgs e)
+        {
+            SalePanel s = new SalePanel();
+            s.Show();
+        }
     }
 }

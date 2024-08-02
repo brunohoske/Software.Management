@@ -10,16 +10,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QRCoder;
+using Restaurante.DTO;
 
 namespace Restaurante.UI
 {
     public partial class QrCodeUI : Form
     {
         string url = "";
+        Store store = new Store();
         public QrCodeUI(string url)
         {
             InitializeComponent();
             this.url = url;
+
+        }
+
+
+        public QrCodeUI(string url,bool haveName,  Store store)
+        {
+            InitializeComponent();
+            this.url = url;
+            this.store = store;
 
         }
         private void QrCodeUI_Load(object sender, EventArgs e)

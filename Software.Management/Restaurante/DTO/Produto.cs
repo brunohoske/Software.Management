@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Restaurante.DTO
 {
-    internal class Produto
+    public class Produto
     {
         public int Id { get; private set; }
         public string Nome { get; private set; }
-
         public float Preco { get; private set; }
         public string Descricao { get; set; }
         public int Qntd { get; private set; }
+
+        public Produto() { }
 
         public Produto(string nome, float preco, string desc)
         {
