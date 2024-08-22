@@ -117,3 +117,33 @@ C:\Users\bruno\Documents\Nova pasta\Software.Management\Software.ViewPanel\Softw
 C:\Users\bruno\Documents\Nova pasta\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\Software.ViewPanel.pdb
 C:\Users\bruno\Documents\Nova pasta\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\Software.ViewPanel.genruntimeconfig.cache
 C:\Users\bruno\Documents\Nova pasta\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\ref\Software.ViewPanel.dll
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\bin\Debug\net8.0\appsettings.Development.json
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\bin\Debug\net8.0\appsettings.json
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\bin\Debug\net8.0\Software.ViewPanel.staticwebassets.runtime.json
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\bin\Debug\net8.0\Software.ViewPanel.exe
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\bin\Debug\net8.0\Software.ViewPanel.deps.json
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\bin\Debug\net8.0\Software.ViewPanel.runtimeconfig.json
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\bin\Debug\net8.0\Software.ViewPanel.dll
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\bin\Debug\net8.0\Software.ViewPanel.pdb
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\Software.ViewPanel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\Software.ViewPanel.AssemblyInfoInputs.cache
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\Software.ViewPanel.AssemblyInfo.cs
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\Software.ViewPanel.csproj.CoreCompileInputs.cache
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\Software.ViewPanel.MvcApplicationPartsAssemblyInfo.cache
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\Software.ViewPanel.sourcelink.json
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\staticwebassets.build.json
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\staticwebassets.development.json
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\staticwebassets\msbuild.Software.ViewPanel.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\staticwebassets\msbuild.build.Software.ViewPanel.props
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Software.ViewPanel.props
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Software.ViewPanel.props
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\scopedcss\bundle\Software.ViewPanel.styles.css
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\scopedcss\projectbundle\Software.ViewPanel.bundle.scp.css
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\Software.ViewPanel.dll
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\refint\Software.ViewPanel.dll
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\Software.ViewPanel.pdb
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\Software.ViewPanel.genruntimeconfig.cache
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.ViewPanel\Software.ViewPanel\obj\Debug\net8.0\ref\Software.ViewPanel.dll

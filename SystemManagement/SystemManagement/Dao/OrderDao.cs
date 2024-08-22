@@ -137,6 +137,7 @@ namespace SystemManagement.DAO
                     o.Products = GetOrderProduct(o);
                     o.Value = Convert.ToDouble(reader["total"]);
                     o.Table = new Table() { Store = s, TableNumber = Convert.ToInt32(reader["check_number"]) };
+                    o.Status = Convert.ToInt32(reader["order_status"]);
                     o.Date = Convert.ToDateTime(reader["order_date"]);
                     orders.Add(o);
                 }

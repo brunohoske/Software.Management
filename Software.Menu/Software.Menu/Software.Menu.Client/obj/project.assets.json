@@ -486,13 +486,13 @@
           }
         }
       },
-      "Microsoft.NET.ILLink.Tasks/8.0.6": {
+      "Microsoft.NET.ILLink.Tasks/8.0.7": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
       },
-      "Microsoft.NET.Sdk.WebAssembly.Pack/8.0.5": {
+      "Microsoft.NET.Sdk.WebAssembly.Pack/8.0.7": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.props": {},
@@ -1449,13 +1449,13 @@
           }
         }
       },
-      "Microsoft.NET.ILLink.Tasks/8.0.6": {
+      "Microsoft.NET.ILLink.Tasks/8.0.7": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
       },
-      "Microsoft.NET.Sdk.WebAssembly.Pack/8.0.5": {
+      "Microsoft.NET.Sdk.WebAssembly.Pack/8.0.7": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.props": {},
@@ -2673,10 +2673,10 @@
         "microsoft.jsinterop.webassembly.nuspec"
       ]
     },
-    "Microsoft.NET.ILLink.Tasks/8.0.6": {
-      "sha512": "E+lDylsTeP4ZiDmnEkiJ5wobnGaIJzFhOgZppznJCb69UZgbh6G3cfv1pnLDLLBx6JAgl0kAlnINDeT3uCuczQ==",
+    "Microsoft.NET.ILLink.Tasks/8.0.7": {
+      "sha512": "iI52ptEKby2ymQ6B7h4TWbFmm85T4VvLgc/HvS45Yr3lgi4IIFbQtjON3bQbX/Vc94jXNSLvrDOp5Kh7SJyFYQ==",
       "type": "package",
-      "path": "microsoft.net.illink.tasks/8.0.6",
+      "path": "microsoft.net.illink.tasks/8.0.7",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -2690,7 +2690,7 @@
         "build/Microsoft.NET.ILLink.Analyzers.props",
         "build/Microsoft.NET.ILLink.Tasks.props",
         "build/Microsoft.NET.ILLink.targets",
-        "microsoft.net.illink.tasks.8.0.6.nupkg.sha512",
+        "microsoft.net.illink.tasks.8.0.7.nupkg.sha512",
         "microsoft.net.illink.tasks.nuspec",
         "tools/net472/ILLink.Tasks.dll",
         "tools/net472/ILLink.Tasks.dll.config",
@@ -2724,10 +2724,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.NET.Sdk.WebAssembly.Pack/8.0.5": {
-      "sha512": "CABBOqZZEDgiVSjkwUr+pJEGEtQbrT+6dltzJnBDap7mOSvfn53+zwb112hRGB7ynm9ikAocGZTUp+GizbH7XQ==",
+    "Microsoft.NET.Sdk.WebAssembly.Pack/8.0.7": {
+      "sha512": "HI/nGJnpSn8370os+GuviOnCM1RsXB3PQSX6u9RjApncJ5jZZf2qdFRQZM9tUjdDJ/ADmrzBxlV/hKp3CWYMDA==",
       "type": "package",
-      "path": "microsoft.net.sdk.webassembly.pack/8.0.5",
+      "path": "microsoft.net.sdk.webassembly.pack/8.0.7",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -2755,7 +2755,7 @@
         "build/Microsoft.NET.Sdk.WebAssembly.Pack.props",
         "build/Microsoft.NET.Sdk.WebAssembly.Pack.targets",
         "build/Wasm.web.config",
-        "microsoft.net.sdk.webassembly.pack.8.0.5.nupkg.sha512",
+        "microsoft.net.sdk.webassembly.pack.8.0.7.nupkg.sha512",
         "microsoft.net.sdk.webassembly.pack.nuspec",
         "tools/net472/Microsoft.Bcl.AsyncInterfaces.dll",
         "tools/net472/Microsoft.Build.dll",
@@ -4117,29 +4117,29 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.AspNetCore.Components.WebAssembly >= 8.0.4",
-      "Microsoft.NET.ILLink.Tasks >= 8.0.6",
-      "Microsoft.NET.Sdk.WebAssembly.Pack >= 8.0.5",
+      "Microsoft.NET.ILLink.Tasks >= 8.0.7",
+      "Microsoft.NET.Sdk.WebAssembly.Pack >= 8.0.7",
       "MySql.Data >= 8.4.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bruno\\.nuget\\packages\\": {},
+    "C:\\Users\\Caio\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj",
+      "projectUniqueName": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj",
       "projectName": "Software.Menu.Client",
-      "projectPath": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj",
-      "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-      "outputPath": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\obj\\",
+      "projectPath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj",
+      "packagesPath": "C:\\Users\\Caio\\.nuget\\packages\\",
+      "outputPath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Caio\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4179,13 +4179,13 @@
           "Microsoft.NET.ILLink.Tasks": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[8.0.6, )",
+            "version": "[8.0.7, )",
             "autoReferenced": true
           },
           "Microsoft.NET.Sdk.WebAssembly.Pack": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[8.0.5, )",
+            "version": "[8.0.7, )",
             "autoReferenced": true
           },
           "MySql.Data": {
@@ -4207,7 +4207,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[8.0.5, 8.0.5]"
+            "version": "[8.0.7, 8.0.7]"
           }
         ],
         "frameworkReferences": {
@@ -4215,7 +4215,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

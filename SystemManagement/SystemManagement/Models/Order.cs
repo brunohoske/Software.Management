@@ -11,6 +11,8 @@ namespace SystemManagement.Models
         public Store Store { get; set; }
         public Table Table { get; set; }
 
+        public int Status { get; set; }
+
          OrderDao dao = new OrderDao();
 
 

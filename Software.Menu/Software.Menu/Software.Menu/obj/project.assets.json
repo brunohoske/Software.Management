@@ -2921,23 +2921,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bruno\\.nuget\\packages\\": {},
+    "C:\\Users\\Caio\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
+      "projectUniqueName": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
       "projectName": "Software.Menu",
-      "projectPath": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
-      "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-      "outputPath": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\obj\\",
+      "projectPath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
+      "packagesPath": "C:\\Users\\Caio\\.nuget\\packages\\",
+      "outputPath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Caio\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2953,8 +2953,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj": {
-              "projectPath": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj"
+            "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj": {
+              "projectPath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu.Client\\Software.Menu.Client.csproj"
             }
           }
         }
@@ -3002,7 +3002,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

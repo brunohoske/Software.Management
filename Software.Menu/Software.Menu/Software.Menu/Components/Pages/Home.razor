@@ -120,6 +120,8 @@
     
     @for (int i = 0; i < OrdersInCheck.Count; i++)
     {
+        <h3> Status: @OrdersInCheck[i].Status </h3>
+
         @for (int c = 0; c < OrdersInCheck[i].Products.Count; c++)
         {
         <div class="container">
@@ -127,6 +129,7 @@
             <div class="item">
 
                 <h3> Pedido: @OrdersInCheck[i].Products[c].Name </h3>
+
                 <h3> Valor: @OrdersInCheck[i].Products[c].Value</h3>
             </div>
 

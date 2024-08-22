@@ -1,69 +1,69 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\",
+  "WorkspaceRootPath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\dal\\dalstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\dal\\dalstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\wwwroot\\product.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\wwwroot\\product.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\models\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\software.menu.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\software.menu.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\dal\\dalcompany.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\models\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\dal\\dalcompany.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\dal\\dalcompany.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\models\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\models\\check.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\check.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\models\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\models\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\models\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\meus arquivos\\software.management\\software.menu\\software.menu\\software.menu\\wwwroot\\favicon.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\models\\check.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\check.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\models\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\models\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\models\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\software.menu.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\software.menu.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.menu\\software.menu\\software.menu\\wwwroot\\favicon.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
       "RelativeMoniker": "D:0:0:{2EB515AA-A854-485D-AA84-B1AB6CEB3473}|Software.Menu\\Software.Menu\\Software.Menu.csproj|solutionrelative:software.menu\\software.menu\\wwwroot\\favicon.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
     }
   ],
@@ -74,76 +74,67 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DALStatus.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\DAL\\DALStatus.cs",
+              "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\DAL\\DALStatus.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\DAL\\DALStatus.cs",
+              "RelativeToolTip": "Software.Menu\\Software.Menu\\DAL\\DALStatus.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwBoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T21:51:52.165Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Home.razor",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\Pages\\Home.razor",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Components\\Pages\\Home.razor",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Components\\Pages\\Home.razor",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAOIAAAAFAAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAIEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-21T22:52:14.701Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "_Imports.razor",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\_Imports.razor",
-              "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Components\\_Imports.razor",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\_Imports.razor",
-              "RelativeToolTip": "Software.Menu\\Software.Menu\\Components\\_Imports.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-21T22:52:14.896Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 10,
               "Title": "Database.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Database.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Database.cs",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Models\\Database.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Database.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Database.cs",
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Database.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwA0AAAAsAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T22:52:14.897Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Check.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Check.cs",
-              "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Models\\Check.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Check.cs",
-              "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Check.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T22:52:14.898Z"
+              "WhenOpened": "2024-06-21T22:52:14.897Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "Company.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Company.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Company.cs",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Models\\Company.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Company.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Company.cs",
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Company.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T22:52:14.898Z"
+              "WhenOpened": "2024-06-21T22:52:14.898Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "app.css",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\app.css",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\app.css",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\wwwroot\\app.css",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\app.css",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\app.css",
               "RelativeToolTip": "Software.Menu\\Software.Menu\\wwwroot\\app.css",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAGkAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
@@ -151,95 +142,89 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Program.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Program.cs",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Program.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Program.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Program.cs",
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Program.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAABAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T22:52:14.899Z"
+              "WhenOpened": "2024-06-21T22:52:14.899Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 8,
               "Title": "Menu.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Menu.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Menu.cs",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Models\\Menu.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Menu.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Menu.cs",
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Menu.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T22:52:14.9Z"
+              "WhenOpened": "2024-06-21T22:52:14.9Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Order.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Order.cs",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Models\\Order.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Order.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Order.cs",
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Order.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAjAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T22:52:14.9Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "product.css",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\product.css",
-              "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\wwwroot\\product.css",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\product.css",
-              "RelativeToolTip": "Software.Menu\\Software.Menu\\wwwroot\\product.css",
-              "ViewState": "AQIAADsAAAAAAAAAAAAAAFUAAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-06-21T22:52:14.901Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Table.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Table.cs",
-              "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Models\\Table.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Table.cs",
-              "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Table.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T22:52:14.902Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Models\\Product.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Product.cs",
-              "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Product.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T22:52:14.902Z"
+              "WhenOpened": "2024-06-21T22:52:14.9Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "App.razor",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\App.razor",
-              "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Components\\App.razor",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\App.razor",
-              "RelativeToolTip": "Software.Menu\\Software.Menu\\Components\\App.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-21T22:52:14.903Z"
+              "Title": "Table.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Table.cs",
+              "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Models\\Table.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Table.cs",
+              "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Table.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T22:52:14.902Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Models\\Product.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Product.cs",
+              "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T22:52:14.902Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\App.razor",
+              "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Components\\App.razor",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\App.razor",
+              "RelativeToolTip": "Software.Menu\\Software.Menu\\Components\\App.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-21T22:52:14.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "Software.Menu.csproj",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Software.Menu.csproj",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
               "RelativeToolTip": "Software.Menu\\Software.Menu\\Software.Menu.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -247,23 +232,49 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "DALCompany.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\DAL\\DALCompany.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\DAL\\DALCompany.cs",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\DAL\\DALCompany.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\DAL\\DALCompany.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\DAL\\DALCompany.cs",
               "RelativeToolTip": "Software.Menu\\Software.Menu\\DAL\\DALCompany.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAQwB0AAAARAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T22:52:14.904Z"
+              "WhenOpened": "2024-06-21T22:52:14.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Check.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Check.cs",
+              "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Models\\Check.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Models\\Check.cs",
+              "RelativeToolTip": "Software.Menu\\Software.Menu\\Models\\Check.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T22:52:14.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\Components\\_Imports.razor",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Components\\_Imports.razor",
+              "RelativeToolTip": "Software.Menu\\Software.Menu\\Components\\_Imports.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-21T22:52:14.896Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
               "Title": "favicon.png",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\favicon.png",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\favicon.png",
               "RelativeDocumentMoniker": "Software.Menu\\Software.Menu\\wwwroot\\favicon.png",
-              "ToolTip": "C:\\Meus Arquivos\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\favicon.png",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\favicon.png",
               "RelativeToolTip": "Software.Menu\\Software.Menu\\wwwroot\\favicon.png",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
               "WhenOpened": "2024-06-21T22:52:14.905Z"
