@@ -10,9 +10,9 @@ namespace Software.Menu.Models
         string conn = $@"Persist Security info = false;
                                 server = localhost;
                                 database = menusystem;
-                                uid = root;
-                                port = 3306;
-                                pwd = 1234;";
+                                uid = brunohoske;
+                                port = 3307;
+                                pwd = 123;";
 
         public MySqlConnection GetConnection()
         {

@@ -1,0 +1,74 @@
+[
+  {
+    "ContainingType": "SystemManagement.Controllers.SystemController",
+    "Method": "CompleteOrder",
+    "RelativePath": "CompleteOrder",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "order",
+        "Type": "SystemManagement.Models.Order",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SystemManagement.Controllers.SystemController",
+    "Method": "GetOrdersInTable",
+    "RelativePath": "GetOrdersInTable",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SystemManagement.Controllers.SystemController",
+    "Method": "GetOrderNumber",
+    "RelativePath": "OrderNumber",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SystemManagement.Controllers.SystemController",
+    "Method": "GetOrders",
+    "RelativePath": "Orders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SystemManagement.Controllers.SystemController",
+    "Method": "SendOrder",
+    "RelativePath": "Orders",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "order",
+        "Type": "SystemManagement.Models.Order",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SystemManagement.Controllers.SystemController",
+    "Method": "GetProducts",
+    "RelativePath": "Products",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

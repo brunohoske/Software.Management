@@ -13,6 +13,7 @@ namespace Restaurante.DTO
         public float Preco { get; private set; }
         public string Descricao { get; set; }
         public int Qntd { get; private set; }
+        public bool IsActive { get; set; }
 
         public Produto() { }
 

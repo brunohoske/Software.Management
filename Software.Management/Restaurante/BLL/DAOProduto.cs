@@ -19,12 +19,13 @@ namespace Restaurante.BLL
         public void Insert(Produto c)
         {
                 MySqlConnection conexao = null;
+            int ativo = c.IsActive ? 1 : 0;
             try
             {
                 conexao = f.Conectar();
                 var comando = conexao.CreateCommand();
-                comando.CommandText = "INSERT INTO products ( PRODUCT_NAME,PRICE,DESCRIPTION, CNPJ)" +
-                $"values('{c.Nome}',{c.Preco.ToString(CultureInfo.InvariantCulture)},'{c.Descricao}',42591651000143)";
+                comando.CommandText = "INSERT INTO products ( PRODUCT_NAME,PRICE,DESCRIPTION, CNPJ, ACTIVE)" +
+                $"values('{c.Nome}',{c.Preco.ToString(CultureInfo.InvariantCulture)},'{c.Descricao}',42591651000143, {ativo})";
                 comando.ExecuteNonQuery();
             }
             catch (MySqlException ex)
@@ -39,6 +40,7 @@ namespace Restaurante.BLL
 
         public void Update(Produto c)
         {
+            int ativo = c.IsActive ? 1 : 0;
             try
             {
                 conexao = f.Conectar();
@@ -48,7 +50,9 @@ namespace Restaurante.BLL
                 SET idProduct = {c.Id},
                 product_name = '{c.Nome}',
                 price = {c.Preco},
-                description= '{c.Descricao}'
+                description= '{c.Descricao}',
+                active = {ativo}
+                
                 Where idProduct = {c.Id};";
                 comando.ExecuteNonQuery();
             }

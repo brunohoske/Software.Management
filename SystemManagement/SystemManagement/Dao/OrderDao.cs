@@ -33,6 +33,10 @@ namespace SystemManagement.DAO
             {
                 return 0;
             }
+            finally
+            {
+                conexao.Close();
+            }
 
         }
 
@@ -58,6 +62,10 @@ namespace SystemManagement.DAO
             catch (Exception ex)
             {
                 throw new Exception("Erro ao inserir Pedido");
+            }
+            finally
+            {
+                conexao.Close();
             }
         }
 
@@ -89,6 +97,10 @@ namespace SystemManagement.DAO
             {
                 return null;
             }
+            finally
+            {
+                conexao.Close();
+            }
         }
 
         public List<Product> GetOrderProduct(Order order)
@@ -116,6 +128,10 @@ namespace SystemManagement.DAO
             catch (Exception ex)
             {
                 return null;
+            }
+            finally
+            {
+                conexao.Close();
             }
         }
 
@@ -148,6 +164,10 @@ namespace SystemManagement.DAO
             {
                 return null;
             }
+            finally
+            {
+                conexao.Close();
+            }
         }
 
         public int CompleteOrder(Order order) 
@@ -167,6 +187,10 @@ namespace SystemManagement.DAO
                 throw;
 
                 return 0;
+            }
+            finally
+            {
+                conexao.Close();
             }
             
 

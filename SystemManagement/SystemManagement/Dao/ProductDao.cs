@@ -36,6 +36,10 @@ namespace SystemManagement.Dao
             {
                 return null;
             }
+            finally
+            {
+                conexao.Close();
+            }
         }
         public Product GetProductFromId(int id)
         {

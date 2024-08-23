@@ -42,64 +42,68 @@ namespace ProjetoDeSoftware
             lblId = new Label();
             Update = new Button();
             Dalete = new Button();
+            cbAtivo = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(26, 110);
+            txtNome.Location = new Point(30, 147);
+            txtNome.Margin = new Padding(3, 4, 3, 4);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(131, 23);
+            txtNome.Size = new Size(149, 27);
             txtNome.TabIndex = 0;
             // 
             // txtPreco
             // 
-            txtPreco.Location = new Point(26, 158);
+            txtPreco.Location = new Point(30, 211);
+            txtPreco.Margin = new Padding(3, 4, 3, 4);
             txtPreco.Name = "txtPreco";
-            txtPreco.Size = new Size(131, 23);
+            txtPreco.Size = new Size(149, 27);
             txtPreco.TabIndex = 1;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(26, 211);
+            txtDescription.Location = new Point(30, 281);
+            txtDescription.Margin = new Padding(3, 4, 3, 4);
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(131, 23);
+            txtDescription.Size = new Size(149, 27);
             txtDescription.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(26, 92);
+            label1.Location = new Point(30, 123);
             label1.Name = "label1";
-            label1.Size = new Size(43, 15);
+            label1.Size = new Size(53, 20);
             label1.TabIndex = 4;
             label1.Text = "Nome:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(26, 140);
+            label2.Location = new Point(30, 187);
             label2.Name = "label2";
-            label2.Size = new Size(40, 15);
+            label2.Size = new Size(49, 20);
             label2.TabIndex = 5;
             label2.Text = "Preço:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(26, 193);
+            label3.Location = new Point(30, 257);
             label3.Name = "label3";
-            label3.Size = new Size(61, 15);
+            label3.Size = new Size(77, 20);
             label3.TabIndex = 6;
             label3.Text = "Descrição:";
             // 
             // L
             // 
             L.AutoSize = true;
-            L.Location = new Point(14, 13);
+            L.Location = new Point(16, 17);
             L.Name = "L";
-            L.Size = new Size(21, 15);
+            L.Size = new Size(27, 20);
             L.TabIndex = 7;
             L.Text = "ID:";
             L.Visible = false;
@@ -108,18 +112,21 @@ namespace ProjetoDeSoftware
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(266, 12);
+            dataGridView1.Location = new Point(304, 16);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(522, 294);
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(597, 392);
             dataGridView1.TabIndex = 8;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Insert
             // 
-            Insert.Location = new Point(54, 357);
+            Insert.Location = new Point(62, 476);
+            Insert.Margin = new Padding(3, 4, 3, 4);
             Insert.Name = "Insert";
-            Insert.Size = new Size(115, 42);
+            Insert.Size = new Size(131, 56);
             Insert.TabIndex = 9;
             Insert.Text = "Insert";
             Insert.UseVisualStyleBackColor = true;
@@ -127,6 +134,7 @@ namespace ProjetoDeSoftware
             // 
             // panel1
             // 
+            panel1.Controls.Add(cbAtivo);
             panel1.Controls.Add(lblId);
             panel1.Controls.Add(txtNome);
             panel1.Controls.Add(txtPreco);
@@ -135,25 +143,27 @@ namespace ProjetoDeSoftware
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(12, 10);
+            panel1.Location = new Point(14, 13);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(217, 296);
+            panel1.Size = new Size(248, 395);
             panel1.TabIndex = 10;
             // 
             // lblId
             // 
             lblId.AutoSize = true;
-            lblId.Location = new Point(41, 13);
+            lblId.Location = new Point(47, 17);
             lblId.Name = "lblId";
-            lblId.Size = new Size(0, 15);
+            lblId.Size = new Size(0, 20);
             lblId.TabIndex = 8;
             lblId.Visible = false;
             // 
             // Update
             // 
-            Update.Location = new Point(207, 357);
+            Update.Location = new Point(237, 476);
+            Update.Margin = new Padding(3, 4, 3, 4);
             Update.Name = "Update";
-            Update.Size = new Size(115, 42);
+            Update.Size = new Size(131, 56);
             Update.TabIndex = 11;
             Update.Text = "Update";
             Update.UseVisualStyleBackColor = true;
@@ -161,24 +171,36 @@ namespace ProjetoDeSoftware
             // 
             // Dalete
             // 
-            Dalete.Location = new Point(366, 357);
+            Dalete.Location = new Point(418, 476);
+            Dalete.Margin = new Padding(3, 4, 3, 4);
             Dalete.Name = "Dalete";
-            Dalete.Size = new Size(115, 42);
+            Dalete.Size = new Size(131, 56);
             Dalete.TabIndex = 12;
             Dalete.Text = "Delete";
             Dalete.UseVisualStyleBackColor = true;
             Dalete.Click += Dalete_Click;
             // 
+            // cbAtivo
+            // 
+            cbAtivo.AutoSize = true;
+            cbAtivo.Location = new Point(35, 329);
+            cbAtivo.Name = "cbAtivo";
+            cbAtivo.Size = new Size(121, 24);
+            cbAtivo.TabIndex = 9;
+            cbAtivo.Text = "Produto ativo";
+            cbAtivo.UseVisualStyleBackColor = true;
+            // 
             // ProductRegister
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(Dalete);
             Controls.Add(Update);
             Controls.Add(panel1);
             Controls.Add(Insert);
             Controls.Add(dataGridView1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ProductRegister";
             Text = "Form1";
             Load += Form1_Load;
@@ -209,5 +231,6 @@ namespace ProjetoDeSoftware
         private Button Update;
         private Button Dalete;
         private Label lblId;
+        private CheckBox cbAtivo;
     }
 }
