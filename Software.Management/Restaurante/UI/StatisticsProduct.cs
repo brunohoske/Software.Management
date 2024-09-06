@@ -28,6 +28,8 @@ namespace Restaurante.UI
         private void StatisticsProduct_Load(object sender, EventArgs e)
         {
             ExibirPedidosNoDataGridView(produto.Id, dtProduct);
+            ExibirEstatisticas();
+            lblProduct.Text = $"PRODUTO SELECIONADO: {produto.Nome}";
         }
 
         public void ExibirPedidosNoDataGridView(int produtoId, DataGridView dtProduct)
@@ -38,24 +40,26 @@ namespace Restaurante.UI
         
         public void ExibirEstatisticas()
         {
-            decimal totalReceita = 0;
-            int totalVendas = 0;
+            double totalReceita = (dtProduct.RowCount - 1) * produto.Preco;
+            double totalVendas = 0;
+            int quantidade = dtProduct.RowCount - 1;
 
             foreach (DataGridViewRow row in dtProduct.Rows)
             {
-                if (row.Cells["quantity"].Value != null && row.Cells["unit_price"].Value != null)
+                
+                if (row.Cells["total"].Value != null)
                 {
-                    int quantidade = Convert.ToInt32(row.Cells["quantity"].Value);
-                    decimal preco = Convert.ToDecimal(row.Cells["unit_price"].Value);
-
-                    totalReceita += quantidade * preco;
+                    // Tenta converter o valor da célula para double e adiciona ao total
+                    double value;
+                    if (double.TryParse(row.Cells["total"].Value.ToString(), out value))
+                    {
+                        totalVendas += value;
+                    }
                 }
             }
-
-            totalVendas = dtProduct.Rows.Count;
-
-            lblTotalR.Text = $"{totalReceita}";
-            lblTotalV.Text = $"{totalVendas}";
+            lblTotalPerProduto.Text = $"{totalReceita.ToString("F2")}";
+            lblTotal.Text = $"{totalVendas.ToString("F2")}";
+            lblQuant.Text = quantidade.ToString();
         }
     }
 }

@@ -119,12 +119,14 @@ namespace Restaurante.UI
         private void button2_Click(object sender, EventArgs e)
         {
 
+
             int id = int.Parse(lblId.Text);
             string nome = txtNome.Text;
             string senha = txtSenha.Text;
             bool adm = checkBox1.Checked;
+            bool ativo = cbAtivo.Checked;
 
-            Users al = new Users(id, nome, senha, adm); // Construtor
+            Users al = new Users(id, nome, senha, adm) { IsActive = ativo }; // Construtor
 
             DALUsers daoc = new DALUsers();
             daoc.Update(al);
