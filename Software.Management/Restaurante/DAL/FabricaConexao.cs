@@ -18,9 +18,9 @@ namespace Restaurante.DAL
                 string conn = @"Persist Security info = false;
                                 server = localhost;
                                 database = MenuSystem;
-                                port = 3307;
-                                uid = brunohoske;
-                                pwd = 123;";
+                                port = 3306;
+                                uid = root;
+                                pwd = 1234;";
 
                 conexao = new MySqlConnection(conn);
                 conexao.Open();

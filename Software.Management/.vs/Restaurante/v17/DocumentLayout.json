@@ -1,114 +1,58 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\",
+  "WorkspaceRootPath": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.management\\restaurante\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\ui\\usermenager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\usermenager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.management\\restaurante\\ui\\statisticsproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\statisticsproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\bll\\daoproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\bll\\daoproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\restaurante\\ui\\statisticsproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\statisticsproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\restaurante\\ui\\usermenager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\usermenager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\restaurante\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\ui\\productregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\productregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\bll\\dalusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\bll\\dalusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\restaurante\\ui\\productregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\restaurante\\ui\\productregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\productregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\dto\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\dto\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.management\\restaurante\\bll\\daoproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\bll\\daoproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\ui\\productregister.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\productregister.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\bll\\daocheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\bll\\daocheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\dto\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\dto\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\restaurante\\ui\\salepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\salepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\ui\\salepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\salepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\dto\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\dto\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\restaurante\\ui\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\ui\\qrcodeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\qrcodeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\restaurante\\ui\\qrcodeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\qrcodeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\ui\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\bll\\daoorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\bll\\daoorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\bll\\daodiscount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\bll\\daodiscount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\ui\\qrcodeui.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\qrcodeui.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\dto\\store.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\dto\\store.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\dal\\fabricaconexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.management\\restaurante\\dal\\fabricaconexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\dal\\fabricaconexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\ui\\checkregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\checkregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.management\\restaurante\\ui\\productregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\productregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\restaurante\\ui\\checkregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\checkregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.management\\restaurante\\bll\\dalusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\bll\\dalusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.management\\restaurante\\dto\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\dto\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.management\\restaurante\\bll\\daocheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\bll\\daocheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.management\\restaurante\\dto\\check.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\dto\\check.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.management\\restaurante\\ui\\usermenager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\usermenager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|c:\\projetos\\projetos visual studio 2022\\software.management\\software.management\\restaurante\\ui\\salepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\salepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -118,340 +62,174 @@
       "DocumentGroups": [
         {
           "DockedHeight": 302,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProductRegister.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\ProductRegister.cs",
-              "RelativeDocumentMoniker": "Restaurante\\UI\\ProductRegister.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\ProductRegister.cs",
-              "RelativeToolTip": "Restaurante\\UI\\ProductRegister.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAIwBoAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T12:26:10.601Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserMenager.cs [Projeto]",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\UserMenager.cs",
-              "RelativeDocumentMoniker": "Restaurante\\UI\\UserMenager.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\UserMenager.cs [Projeto]",
-              "RelativeToolTip": "Restaurante\\UI\\UserMenager.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T20:39:29.494Z",
-              "EditorCaption": " [Projeto]"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserMenager.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\UserMenager.cs",
-              "RelativeDocumentMoniker": "Restaurante\\UI\\UserMenager.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\UserMenager.cs",
-              "RelativeToolTip": "Restaurante\\UI\\UserMenager.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAawDEAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-06T14:16:03.027Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{873151d0-cf2e-48cc-b4bf-ad0394f6a3c3}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DAOProduto.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\BLL\\DAOProduto.cs",
-              "RelativeDocumentMoniker": "Restaurante\\BLL\\DAOProduto.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\BLL\\DAOProduto.cs",
-              "RelativeToolTip": "Restaurante\\BLL\\DAOProduto.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAuwCoAAAAMAAAAAAAAAA==",
+              "Title": "StatisticsProduct.cs [Design]",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\UI\\StatisticsProduct.cs",
+              "RelativeDocumentMoniker": "Restaurante\\UI\\StatisticsProduct.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\UI\\StatisticsProduct.cs [Design]",
+              "RelativeToolTip": "Restaurante\\UI\\StatisticsProduct.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-23T14:12:20.547Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Form1.cs [Projeto]",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\Form1.cs",
-              "RelativeDocumentMoniker": "Restaurante\\Form1.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\Form1.cs [Projeto]",
-              "RelativeToolTip": "Restaurante\\Form1.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T20:48:52.709Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2024-09-06T21:33:10.918Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\Form1.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\Form1.cs",
               "RelativeDocumentMoniker": "Restaurante\\Form1.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\Form1.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\Form1.cs",
               "RelativeToolTip": "Restaurante\\Form1.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwC8AAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T20:48:53.801Z",
+              "WhenOpened": "2024-09-06T20:40:17.24Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DALUsers.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\BLL\\DALUsers.cs",
-              "RelativeDocumentMoniker": "Restaurante\\BLL\\DALUsers.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\BLL\\DALUsers.cs",
-              "RelativeToolTip": "Restaurante\\BLL\\DALUsers.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAAwIIAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "FabricaConexao.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\DAL\\FabricaConexao.cs",
+              "RelativeDocumentMoniker": "Restaurante\\DAL\\FabricaConexao.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\DAL\\FabricaConexao.cs",
+              "RelativeToolTip": "Restaurante\\DAL\\FabricaConexao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T12:14:45.259Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-06T20:38:44.836Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ProductRegister.cs [Projeto]",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\ProductRegister.cs",
-              "RelativeDocumentMoniker": "Restaurante\\UI\\ProductRegister.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\ProductRegister.cs [Projeto]",
-              "RelativeToolTip": "Restaurante\\UI\\ProductRegister.cs [Projeto]",
+              "DocumentIndex": 1,
+              "Title": "StatisticsProduct.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\UI\\StatisticsProduct.cs",
+              "RelativeDocumentMoniker": "Restaurante\\UI\\StatisticsProduct.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\UI\\StatisticsProduct.cs",
+              "RelativeToolTip": "Restaurante\\UI\\StatisticsProduct.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T20:39:31.014Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2024-09-06T19:06:50.639Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DAOProduto.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\BLL\\DAOProduto.cs",
+              "RelativeDocumentMoniker": "Restaurante\\BLL\\DAOProduto.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\BLL\\DAOProduto.cs",
+              "RelativeToolTip": "Restaurante\\BLL\\DAOProduto.cs",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAQwJ4AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-23T14:12:20.547Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Users.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\DTO\\Users.cs",
-              "RelativeDocumentMoniker": "Restaurante\\DTO\\Users.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\DTO\\Users.cs",
-              "RelativeToolTip": "Restaurante\\DTO\\Users.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAATAAAAAAAAAA==",
+              "Title": "Produto.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\DTO\\Produto.cs",
+              "RelativeDocumentMoniker": "Restaurante\\DTO\\Produto.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\DTO\\Produto.cs",
+              "RelativeToolTip": "Restaurante\\DTO\\Produto.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAkwA4AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T21:19:04.881Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-06T18:57:42.277Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ProductRegister.Designer.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\ProductRegister.Designer.cs",
-              "RelativeDocumentMoniker": "Restaurante\\UI\\ProductRegister.Designer.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\ProductRegister.Designer.cs",
-              "RelativeToolTip": "Restaurante\\UI\\ProductRegister.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ProductRegister.cs [Design]",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\UI\\ProductRegister.cs",
+              "RelativeDocumentMoniker": "Restaurante\\UI\\ProductRegister.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\UI\\ProductRegister.cs [Design]",
+              "RelativeToolTip": "Restaurante\\UI\\ProductRegister.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-06T14:16:20.66Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-06T18:09:02.585Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProductRegister.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\UI\\ProductRegister.cs",
+              "RelativeDocumentMoniker": "Restaurante\\UI\\ProductRegister.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\UI\\ProductRegister.cs",
+              "RelativeToolTip": "Restaurante\\UI\\ProductRegister.cs",
+              "ViewState": "AgIAAIEAAAAAAAAAAAA3wJAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-02T12:26:10.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DALUsers.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\BLL\\DALUsers.cs",
+              "RelativeDocumentMoniker": "Restaurante\\BLL\\DALUsers.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\BLL\\DALUsers.cs",
+              "RelativeToolTip": "Restaurante\\BLL\\DALUsers.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACkAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T17:45:38.4Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "DAOCheck.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\BLL\\DAOCheck.cs",
-              "RelativeDocumentMoniker": "Restaurante\\BLL\\DAOCheck.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\BLL\\DAOCheck.cs",
-              "RelativeToolTip": "Restaurante\\BLL\\DAOCheck.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAYwBsAAAAKAAAAAAAAAA==",
+              "Title": "Check.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\DTO\\Check.cs",
+              "RelativeDocumentMoniker": "Restaurante\\DTO\\Check.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\DTO\\Check.cs",
+              "RelativeToolTip": "Restaurante\\DTO\\Check.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T21:19:46.644Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "SalePanel.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\SalePanel.cs",
-              "RelativeDocumentMoniker": "Restaurante\\UI\\SalePanel.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\SalePanel.cs",
-              "RelativeToolTip": "Restaurante\\UI\\SalePanel.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAuwDEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T04:30:13.113Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "SalePanel.cs [Projeto]",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\SalePanel.cs",
-              "RelativeDocumentMoniker": "Restaurante\\UI\\SalePanel.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\SalePanel.cs [Projeto]",
-              "RelativeToolTip": "Restaurante\\UI\\SalePanel.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T04:27:59.785Z",
-              "EditorCaption": " [Projeto]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\Program.cs",
-              "RelativeDocumentMoniker": "Restaurante\\Program.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\Program.cs",
-              "RelativeToolTip": "Restaurante\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T20:39:26.294Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-06T16:41:12.802Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\DTO\\Order.cs",
-              "RelativeDocumentMoniker": "Restaurante\\DTO\\Order.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\DTO\\Order.cs",
-              "RelativeToolTip": "Restaurante\\DTO\\Order.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "UserMenager.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\UI\\UserMenager.cs",
+              "RelativeDocumentMoniker": "Restaurante\\UI\\UserMenager.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\UI\\UserMenager.cs",
+              "RelativeToolTip": "Restaurante\\UI\\UserMenager.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAawDEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T12:11:12.449Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-06T14:16:03.027Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "MainMenu.cs [Projeto]",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\MainMenu.cs",
-              "RelativeDocumentMoniker": "Restaurante\\UI\\MainMenu.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\MainMenu.cs [Projeto]",
-              "RelativeToolTip": "Restaurante\\UI\\MainMenu.cs [Projeto]",
+              "DocumentIndex": 9,
+              "Title": "DAOCheck.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\BLL\\DAOCheck.cs",
+              "RelativeDocumentMoniker": "Restaurante\\BLL\\DAOCheck.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\BLL\\DAOCheck.cs",
+              "RelativeToolTip": "Restaurante\\BLL\\DAOCheck.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAYwBsAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T04:25:40.405Z"
+              "WhenOpened": "2024-07-09T21:19:46.644Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "QrCodeUI.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\QrCodeUI.cs",
-              "RelativeDocumentMoniker": "Restaurante\\UI\\QrCodeUI.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\QrCodeUI.cs",
-              "RelativeToolTip": "Restaurante\\UI\\QrCodeUI.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "SalePanel.cs",
+              "DocumentMoniker": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\UI\\SalePanel.cs",
+              "RelativeDocumentMoniker": "Restaurante\\UI\\SalePanel.cs",
+              "ToolTip": "C:\\Projetos\\Projetos Visual Studio 2022\\Software.Management\\Software.Management\\Restaurante\\UI\\SalePanel.cs",
+              "RelativeToolTip": "Restaurante\\UI\\SalePanel.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwDEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T20:39:41.28Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Produto.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\DTO\\Produto.cs",
-              "RelativeDocumentMoniker": "Restaurante\\DTO\\Produto.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\DTO\\Produto.cs",
-              "RelativeToolTip": "Restaurante\\DTO\\Produto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T12:11:50.375Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "DAODiscount.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\BLL\\DAODiscount.cs",
-              "RelativeDocumentMoniker": "Restaurante\\BLL\\DAODiscount.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\BLL\\DAODiscount.cs",
-              "RelativeToolTip": "Restaurante\\BLL\\DAODiscount.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAA8wAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T12:14:48.655Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "MainMenu.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\MainMenu.cs",
-              "RelativeDocumentMoniker": "Restaurante\\UI\\MainMenu.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\MainMenu.cs",
-              "RelativeToolTip": "Restaurante\\UI\\MainMenu.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAnwDsAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T12:37:49.745Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "QrCodeUI.cs [Design]",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\QrCodeUI.cs",
-              "RelativeDocumentMoniker": "Restaurante\\UI\\QrCodeUI.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\QrCodeUI.cs [Design]",
-              "RelativeToolTip": "Restaurante\\UI\\QrCodeUI.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T20:39:09.809Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "DAOOrder.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\BLL\\DAOOrder.cs",
-              "RelativeDocumentMoniker": "Restaurante\\BLL\\DAOOrder.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\BLL\\DAOOrder.cs",
-              "RelativeToolTip": "Restaurante\\BLL\\DAOOrder.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAUwC4AAAA/AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T12:13:47.621Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Store.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\DTO\\Store.cs",
-              "RelativeDocumentMoniker": "Restaurante\\DTO\\Store.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\DTO\\Store.cs",
-              "RelativeToolTip": "Restaurante\\DTO\\Store.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T23:35:33.158Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "CheckRegister.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\CheckRegister.cs",
-              "RelativeDocumentMoniker": "Restaurante\\UI\\CheckRegister.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\CheckRegister.cs",
-              "RelativeToolTip": "Restaurante\\UI\\CheckRegister.cs",
-              "ViewState": "AQIAAGgAAAAAAAAAAAAwwHsAAABpAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T21:00:13.857Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "FabricaConexao.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\DAL\\FabricaConexao.cs",
-              "RelativeDocumentMoniker": "Restaurante\\DAL\\FabricaConexao.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\DAL\\FabricaConexao.cs",
-              "RelativeToolTip": "Restaurante\\DAL\\FabricaConexao.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAawBQAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T20:53:24.53Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "QrCodeUI.Designer.cs",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\QrCodeUI.Designer.cs",
-              "RelativeDocumentMoniker": "Restaurante\\UI\\QrCodeUI.Designer.cs",
-              "ToolTip": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\QrCodeUI.Designer.cs",
-              "RelativeToolTip": "Restaurante\\UI\\QrCodeUI.Designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T23:58:00.989Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "CheckRegister.cs [Projeto]",
-              "DocumentMoniker": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\CheckRegister.cs",
-              "RelativeDocumentMoniker": "Restaurante\\UI\\CheckRegister.cs",
-              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\CheckRegister.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T20:39:23.529Z"
+              "WhenOpened": "2024-08-02T04:30:13.113Z"
             }
           ]
         }

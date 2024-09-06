@@ -404,3 +404,5 @@ C:\Users\bruno\Documents\Nova pasta\Software.Management\Software.Management\Rest
 C:\Users\bruno\Documents\Nova pasta\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.genruntimeconfig.cache
 C:\Users\bruno\Documents\Nova pasta\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\ref\Restaurante.dll
 C:\Meus Arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.SalePanel.resources
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.SalePanel.resources
+C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.StatisticsProduct.resources

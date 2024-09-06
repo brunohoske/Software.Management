@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using Org.BouncyCastle.Asn1.Ocsp;
+using Restaurante.BLL;
+using System.Data;
 
 namespace Restaurante.BLL
 {
@@ -15,10 +18,11 @@ namespace Restaurante.BLL
         MySqlConnection conexao = null;
         FabricaConexao f = new FabricaConexao();
 
+        MySqlDataReader reader;
 
         public void Insert(Produto c)
         {
-                MySqlConnection conexao = null;
+            MySqlConnection conexao = null;
             int ativo = c.IsActive ? 1 : 0;
             try
             {
@@ -88,5 +92,72 @@ namespace Restaurante.BLL
             }
         }
 
+        public Produto FindProduct(int id)
+        {
+            Produto produto = null;
+            try
+            {
+                conexao = f.Conectar();
+                var comando = conexao.CreateCommand();
+                comando.CommandText = $"SELECT * FROM products WHERE idProduct = {id}";
+                reader = comando.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    produto = new Produto
+                    {
+                        Id = reader.GetInt32("IDPRODUCT"),
+                        Nome = reader.GetString("PRODUCT_NAME"),
+                        Preco = reader.GetFloat("PRICE"),
+                        Descricao = reader.GetString("DESCRIPTION"),
+                        IsActive = reader.GetInt32("ACTIVE") == 1
+                    };
+                }
+
+                reader.Close();
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception("Problemas ao buscar produto: " + ex.Message);
+            }
+            finally
+            {
+                f.Conectar().Close();
+            }
+
+            return produto;
+        }
+
+        public DataTable GetPedidosByProduto(int produtoId)
+        {
+            DataTable dataTable = new DataTable();
+            try
+            {
+                conexao = f.Conectar();
+                var comando = conexao.CreateCommand();
+                comando.CommandText = @"
+                    SELECT o.idorder, o.order_date, o.total, o.order_status
+                    FROM orders o
+                    INNER JOIN order_details od ON o.idorder = od.idorder
+                    WHERE od.idproduct = @produtoId";
+                comando.Parameters.AddWithValue("@produtoId", produtoId);
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(comando))
+                {
+                    adapter.Fill(dataTable);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception("Problemas ao buscar pedidos: " + ex.Message);
+            }
+            finally
+            {
+                f.Conectar().Close();
+            }
+
+            return dataTable;
+        }
     }
 }
+

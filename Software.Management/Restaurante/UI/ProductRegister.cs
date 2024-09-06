@@ -3,6 +3,7 @@ using Org.BouncyCastle.Asn1.Ocsp;
 using Restaurante.BLL;
 using Restaurante.DAL;
 using Restaurante.DTO;
+using Restaurante.UI;
 using System.Data;
 using System.Windows.Forms;
 
@@ -72,8 +73,7 @@ namespace ProjetoDeSoftware
             LerDados();
 
         }
-
-        private void Dalete_Click(object sender, EventArgs e)
+        private void Delete_Click(object sender, EventArgs e)
         {
             int id = int.Parse(lblId.Text);
             string nome = txtNome.Text;
@@ -135,6 +135,25 @@ namespace ProjetoDeSoftware
         private void cbAtivo_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DAOProduto dp = new DAOProduto();
+            Produto p = new Produto();
+            int productId;
+
+            if (int.TryParse(lblId.Text, out productId))
+            {
+                p = dp.FindProduct(productId);
+                StatisticsProduct st = new StatisticsProduct(p);
+                st.Show();
+            }
+            else
+            {
+                MessageBox.Show("Invalid product ID. Please enter a valid number.");
+            }
         }
     }
 }
