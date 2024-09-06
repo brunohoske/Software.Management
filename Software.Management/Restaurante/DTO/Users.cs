@@ -12,6 +12,7 @@ namespace Restaurante.DTO
         private string nome;
         private string senha;
         private int codigo;
+        public bool IsActive { get; set; }
         public int Id { get; set; }
 
         public string Nome
@@ -101,6 +102,8 @@ namespace Restaurante.DTO
         }
 
         public Users() { }
+
+        
 
 
     }

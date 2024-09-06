@@ -22,15 +22,21 @@ namespace Restaurante
                 DALUsers d = new DALUsers();
                 Users user = d.SearchUser(TxtNome.Text);
 
-
-                if (user != null)
+                if(user.IsActive == true)
                 {
-                    if (d.ValidatePass(user, TxtSenha.Text))
+                    if (user != null)
                     {
-                        MainMenu m = new MainMenu(user);
-                        m.Show();
-                        this.Hide();
+                        if (d.ValidatePass(user, TxtSenha.Text))
+                        {
+                            MainMenu m = new MainMenu(user);
+                            m.Show();
+                            this.Hide();
 
+                        }
+                        else
+                        {
+                            MessageBox.Show("Nome ou senha inválido");
+                        }
                     }
                     else
                     {
@@ -39,8 +45,9 @@ namespace Restaurante
                 }
                 else
                 {
-                    MessageBox.Show("Nome ou senha inválido");
+                    MessageBox.Show("Cliente Inativo");
                 }
+                
             }
             else
             {

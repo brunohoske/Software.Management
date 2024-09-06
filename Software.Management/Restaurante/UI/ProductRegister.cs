@@ -28,7 +28,7 @@ namespace ProjetoDeSoftware
 
                     if (preco > 0)
                     {
-                        Produto p = new Produto(nome,preco,desc) { IsActive = ativo};
+                        Produto p = new Produto(nome, preco, desc) { IsActive = ativo };
 
                         DAOProduto daop = new DAOProduto();
 
@@ -65,7 +65,7 @@ namespace ProjetoDeSoftware
             float preco = float.Parse(txtPreco.Text);
             string desc = txtDescription.Text;
             bool ativo = cbAtivo.Checked;
-            Produto al = new Produto(id, nome, preco, desc) { IsActive = ativo}; // Construtor
+            Produto al = new Produto(id, nome, preco, desc) { IsActive = ativo }; // Construtor
 
             DAOProduto daoc = new DAOProduto();
             daoc.Update(al);
@@ -117,9 +117,9 @@ namespace ProjetoDeSoftware
             txtNome.Text = drg.Cells[1].Value.ToString();
             txtDescription.Text = drg.Cells[2].Value.ToString();
             txtPreco.Text = drg.Cells[3].Value.ToString();
-       
-            cbAtivo.Checked = int.Parse(drg.Cells[5].Value.ToString()) == 1 ? true: false;
-           
+
+            cbAtivo.Checked = int.Parse(drg.Cells[5].Value.ToString()) == 1 ? true : false;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -128,6 +128,11 @@ namespace ProjetoDeSoftware
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cbAtivo_CheckedChanged(object sender, EventArgs e)
         {
 
         }

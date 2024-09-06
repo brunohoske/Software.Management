@@ -45,5 +45,9 @@ namespace Restaurante.UI
 
         }
 
+        private void lblTotal_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

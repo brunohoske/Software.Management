@@ -55,7 +55,7 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(848, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(258, 125);
+            panel1.Size = new Size(258, 109);
             panel1.TabIndex = 1;
             // 
             // lblQuant
@@ -84,6 +84,7 @@
             lblTotal.Size = new Size(33, 20);
             lblTotal.TabIndex = 1;
             lblTotal.Text = "100";
+            lblTotal.Click += lblTotal_Click;
             // 
             // label1
             // 

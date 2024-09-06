@@ -39,10 +39,10 @@ namespace ProjetoDeSoftware
             dataGridView1 = new DataGridView();
             Insert = new Button();
             panel1 = new Panel();
+            cbAtivo = new CheckBox();
             lblId = new Label();
             Update = new Button();
             Dalete = new Button();
-            cbAtivo = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -149,6 +149,17 @@ namespace ProjetoDeSoftware
             panel1.Size = new Size(248, 395);
             panel1.TabIndex = 10;
             // 
+            // cbAtivo
+            // 
+            cbAtivo.AutoSize = true;
+            cbAtivo.Location = new Point(35, 329);
+            cbAtivo.Name = "cbAtivo";
+            cbAtivo.Size = new Size(121, 24);
+            cbAtivo.TabIndex = 9;
+            cbAtivo.Text = "Produto ativo";
+            cbAtivo.UseVisualStyleBackColor = true;
+            cbAtivo.CheckedChanged += cbAtivo_CheckedChanged;
+            // 
             // lblId
             // 
             lblId.AutoSize = true;
@@ -179,16 +190,6 @@ namespace ProjetoDeSoftware
             Dalete.Text = "Delete";
             Dalete.UseVisualStyleBackColor = true;
             Dalete.Click += Dalete_Click;
-            // 
-            // cbAtivo
-            // 
-            cbAtivo.AutoSize = true;
-            cbAtivo.Location = new Point(35, 329);
-            cbAtivo.Name = "cbAtivo";
-            cbAtivo.Size = new Size(121, 24);
-            cbAtivo.TabIndex = 9;
-            cbAtivo.Text = "Produto ativo";
-            cbAtivo.UseVisualStyleBackColor = true;
             // 
             // ProductRegister
             // 

@@ -32,18 +32,21 @@ namespace Restaurante.BLL
                 int id = 0;
                 string password = "";
                 int codigo = 0;
+                int ativo = 0;
                 while (reader.Read())
                 {
                     id = int.Parse(reader["IDUSER"].ToString());
                     readName = reader["NAME"].ToString();
                     password = reader["senha"].ToString();
                     codigo = int.Parse(reader["ADMIN"].ToString());
+                    ativo = int.Parse(reader["USER_ACTIVE"].ToString()) ;
                 }
 
                 reader.Close();
                 if (readName != "")
                 {
-                    return new Users() { Id = id, Codigo = codigo, Nome = name, Senha = password};
+                    bool status_ativo = (ativo == 1? true : false);
+                    return new Users() { Id = id, Codigo = codigo, Nome = name, Senha = password, IsActive = status_ativo};
                 }
                 else
                 {
@@ -123,6 +126,7 @@ namespace Restaurante.BLL
 
         public void Update(Users c)
         {
+            int ativo = c.IsActive ? 1 : 0;
             try
             {
                 conexao = f.Conectar();
@@ -132,7 +136,8 @@ namespace Restaurante.BLL
                 SET NAME = '{c.Nome}',
                 SENHA = '{c.Senha}',
                 CNPJ  = '42591651000143',
-                Admin = '{c.Codigo}'
+                Admin = '{c.Codigo}',
+                USER_ACTIVE = {ativo}
                 WHERE idUser= '{c.Id}';");
                 comando.ExecuteNonQuery();
             }
@@ -149,12 +154,13 @@ namespace Restaurante.BLL
 
         public void Insert(Users c)
         {
+            int ativo = c.IsActive ? 1 : 0;
             try
             {
                 conexao = f.Conectar();
                 var comando = conexao.CreateCommand();
-                comando.CommandText = "INSERT INTO Users (NAME,SENHA,CNPJ,ADMIN)" +
-                "values('" + c.Nome + "','" + c.Senha + "','" + "42591651000143" + "','" + c.Codigo + "')";
+                comando.CommandText = "INSERT INTO Users (NAME,SENHA,CNPJ,ADMIN,USER_ACTIVE)" +
+                "values('" + c.Nome + "','" + c.Senha + "','" + "42591651000143" + "','" + c.Codigo + "','"+ ativo + "')";
                 comando.ExecuteNonQuery();
             }
             catch (MySqlException ex)

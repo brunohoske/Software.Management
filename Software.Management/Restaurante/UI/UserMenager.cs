@@ -56,6 +56,7 @@ namespace Restaurante.UI
             {
                 checkBox1.Checked = false;
             }
+            cbAtivo.Checked = int.Parse(drg.Cells[5].Value.ToString()) == 1 ? true : false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -67,10 +68,11 @@ namespace Restaurante.UI
                     string nome = txtNome.Text;
                     string senha = txtSenha.Text;
                     bool adm = checkBox1.Checked;
+                    bool ativo = cbAtivo.Checked;
 
                     if (senha != "")
                     {
-                        Users u = new Users(nome, senha, adm); // Construtor
+                        Users u = new Users(nome, senha, adm) { IsActive = ativo}; // Construtor
 
                         DALUsers daop = new DALUsers();
 
@@ -156,6 +158,11 @@ namespace Restaurante.UI
 
         private void button4_Click(object sender, EventArgs e)
         {
+        }
+
+        private void cbAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
