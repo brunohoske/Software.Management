@@ -1,6 +1,6 @@
 ﻿namespace Restaurante.UI
 {
-    partial class DiscountManager
+    partial class CouponManager
     {
         /// <summary>
         /// Required designer variable.
@@ -31,76 +31,104 @@
             BtnDelete = new Button();
             BtnUpdate = new Button();
             BntInsert = new Button();
-            dataGridView1 = new DataGridView();
+            dtgCoupon = new DataGridView();
             panel1 = new Panel();
+            cbActive = new CheckBox();
+            txtCode = new TextBox();
+            label1 = new Label();
             lblIdDiscount = new Label();
             txtPercentual = new TextBox();
             lblId = new Label();
-            lblnum = new Label();
             label2 = new Label();
-            dataGridView2 = new DataGridView();
-            button1 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtgCoupon).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // BtnDelete
             // 
-            BtnDelete.Location = new Point(930, 506);
+            BtnDelete.Location = new Point(713, 483);
             BtnDelete.Name = "BtnDelete";
             BtnDelete.Size = new Size(187, 54);
-            BtnDelete.TabIndex = 26;
+            BtnDelete.TabIndex = 33;
             BtnDelete.Text = "Apagar";
             BtnDelete.UseVisualStyleBackColor = true;
             BtnDelete.Click += BtnDelete_Click;
             // 
             // BtnUpdate
             // 
-            BtnUpdate.Location = new Point(713, 506);
+            BtnUpdate.Location = new Point(496, 483);
             BtnUpdate.Name = "BtnUpdate";
             BtnUpdate.Size = new Size(187, 54);
-            BtnUpdate.TabIndex = 25;
+            BtnUpdate.TabIndex = 32;
             BtnUpdate.Text = "Editar";
             BtnUpdate.UseVisualStyleBackColor = true;
             BtnUpdate.Click += BtnUpdate_Click;
             // 
             // BntInsert
             // 
-            BntInsert.Location = new Point(496, 506);
+            BntInsert.Location = new Point(279, 483);
             BntInsert.Name = "BntInsert";
             BntInsert.Size = new Size(187, 54);
-            BntInsert.TabIndex = 24;
+            BntInsert.TabIndex = 31;
             BntInsert.Text = "Adicionar";
             BntInsert.UseVisualStyleBackColor = true;
             BntInsert.Click += BntInsert_Click;
             // 
-            // dataGridView1
+            // dtgCoupon
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(496, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(644, 449);
-            dataGridView1.TabIndex = 23;
-            dataGridView1.CellClick += dataGridView1_CellClick;
+            dtgCoupon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgCoupon.Location = new Point(264, 12);
+            dtgCoupon.Name = "dtgCoupon";
+            dtgCoupon.Size = new Size(644, 449);
+            dtgCoupon.TabIndex = 30;
+            dtgCoupon.CellClick += dtgCoupon_CellClick;
             // 
             // panel1
             // 
+            panel1.Controls.Add(cbActive);
+            panel1.Controls.Add(txtCode);
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(lblIdDiscount);
             panel1.Controls.Add(txtPercentual);
             panel1.Controls.Add(lblId);
-            panel1.Controls.Add(lblnum);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(22, 34);
+            panel1.Location = new Point(17, 55);
             panel1.Name = "panel1";
             panel1.Size = new Size(217, 296);
-            panel1.TabIndex = 22;
-            panel1.Paint += panel1_Paint;
+            panel1.TabIndex = 29;
+            // 
+            // cbActive
+            // 
+            cbActive.AutoSize = true;
+            cbActive.Checked = true;
+            cbActive.CheckState = CheckState.Checked;
+            cbActive.Location = new Point(13, 13);
+            cbActive.Name = "cbActive";
+            cbActive.Size = new Size(95, 19);
+            cbActive.TabIndex = 26;
+            cbActive.Text = "Cupom ativo";
+            cbActive.UseVisualStyleBackColor = true;
+            // 
+            // txtCode
+            // 
+            txtCode.Location = new Point(72, 48);
+            txtCode.Name = "txtCode";
+            txtCode.Size = new Size(123, 23);
+            txtCode.TabIndex = 25;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(13, 51);
+            label1.Name = "label1";
+            label1.Size = new Size(49, 15);
+            label1.TabIndex = 24;
+            label1.Text = "Código:";
             // 
             // lblIdDiscount
             // 
             lblIdDiscount.AutoSize = true;
-            lblIdDiscount.Location = new Point(108, 141);
+            lblIdDiscount.Location = new Point(13, 95);
             lblIdDiscount.Name = "lblIdDiscount";
             lblIdDiscount.Size = new Size(0, 15);
             lblIdDiscount.TabIndex = 23;
@@ -108,7 +136,7 @@
             // 
             // txtPercentual
             // 
-            txtPercentual.Location = new Point(147, 53);
+            txtPercentual.Location = new Point(153, 77);
             txtPercentual.Name = "txtPercentual";
             txtPercentual.Size = new Size(42, 23);
             txtPercentual.TabIndex = 22;
@@ -116,84 +144,51 @@
             // lblId
             // 
             lblId.AutoSize = true;
-            lblId.Location = new Point(124, 14);
+            lblId.Location = new Point(129, 48);
             lblId.Name = "lblId";
             lblId.Size = new Size(0, 15);
             lblId.TabIndex = 8;
             lblId.Visible = false;
             // 
-            // lblnum
-            // 
-            lblnum.AutoSize = true;
-            lblnum.Location = new Point(13, 14);
-            lblnum.Name = "lblnum";
-            lblnum.Size = new Size(77, 15);
-            lblnum.TabIndex = 7;
-            lblnum.Text = "ID PRODUTO:";
-            lblnum.Visible = false;
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(7, 56);
+            label2.Location = new Point(13, 80);
             label2.Name = "label2";
             label2.Size = new Size(134, 15);
             label2.TabIndex = 5;
             label2.Text = "Percentual de desconto:";
             // 
-            // dataGridView2
-            // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(254, 12);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(236, 449);
-            dataGridView2.TabIndex = 27;
-            dataGridView2.CellClick += dataGridView2_CellClick;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(35, 355);
-            button1.Name = "button1";
-            button1.Size = new Size(187, 54);
-            button1.TabIndex = 28;
-            button1.Text = "Gerenciar Cupons";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // DiscountManager
+            // CouponManager
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1152, 584);
-            Controls.Add(button1);
-            Controls.Add(dataGridView2);
+            ClientSize = new Size(959, 593);
             Controls.Add(BtnDelete);
             Controls.Add(BtnUpdate);
             Controls.Add(BntInsert);
-            Controls.Add(dataGridView1);
+            Controls.Add(dtgCoupon);
             Controls.Add(panel1);
-            Name = "DiscountManager";
-            Text = "DiscountManager";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Name = "CouponManager";
+            Text = "CouponManager";
+            ((System.ComponentModel.ISupportInitialize)dtgCoupon).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
         private Button BtnDelete;
         private Button BtnUpdate;
         private Button BntInsert;
-        private DataGridView dataGridView1;
+        private DataGridView dtgCoupon;
         private Panel panel1;
+        private Label lblIdDiscount;
         private TextBox txtPercentual;
         private Label lblId;
-        private Label lblnum;
         private Label label2;
-        private DataGridView dataGridView2;
-        private Label lblIdDiscount;
-        private Button button1;
+        private TextBox txtCode;
+        private Label label1;
+        private CheckBox cbActive;
     }
 }

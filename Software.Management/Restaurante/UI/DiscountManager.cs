@@ -146,5 +146,10 @@ namespace Restaurante.UI
                 LerDados();
             }
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CouponManager couponManager = new CouponManager();
+            couponManager.ShowDialog();
+        }
     }
 }

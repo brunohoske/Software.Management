@@ -408,3 +408,4 @@ C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\
 C:\Projetos\Projetos Visual Studio 2022\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.StatisticsProduct.resources
 D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.SalePanel.resources
 D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.StatisticsProduct.resources
+D:\Meus arquivos\Visual Studio\Software.Management\Software.Management\Restaurante\obj\Debug\net8.0-windows\Restaurante.UI.CouponManager.resources
