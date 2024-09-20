@@ -72,5 +72,12 @@ namespace Restaurante.UI
             SalePanel s = new SalePanel();
             s.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FeedbackUI feedbackUI = new FeedbackUI();
+            feedbackUI.Show();
+            
+        }
     }
 }

@@ -1,11 +1,9 @@
 using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Asn1.Ocsp;
 using Restaurante.BLL;
 using Restaurante.DAL;
 using Restaurante.DTO;
 using Restaurante.UI;
 using System.Data;
-using System.Windows.Forms;
 
 namespace ProjetoDeSoftware
 {

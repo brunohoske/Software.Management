@@ -34,6 +34,7 @@
             button4 = new Button();
             label1 = new Label();
             btnVendaPanel = new Button();
+            button3 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -96,11 +97,22 @@
             btnVendaPanel.UseVisualStyleBackColor = true;
             btnVendaPanel.Click += btnVendaPanel_Click;
             // 
+            // button3
+            // 
+            button3.Location = new Point(493, 151);
+            button3.Name = "button3";
+            button3.Size = new Size(252, 49);
+            button3.TabIndex = 7;
+            button3.Text = "Feedbacks";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button3);
             Controls.Add(btnVendaPanel);
             Controls.Add(label1);
             Controls.Add(button4);
@@ -123,5 +135,6 @@
         private Panel panel1;
         private Label label1;
         private Button btnVendaPanel;
+        private Button button3;
     }
 }

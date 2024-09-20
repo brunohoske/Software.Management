@@ -1,6 +1,7 @@
 ﻿
 
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Relational;
 using Restaurante.DAL;
 using Restaurante.DTO;
 using System.Data;
@@ -48,6 +49,16 @@ namespace Restaurante.BLL
             MySqlDataAdapter adap = new MySqlDataAdapter(sql, conexao);
             adap.Fill(table);
             return table;
+        }
+
+        public DataTable GetProducts(Order order)
+        {
+            conexao = f.Conectar();
+            string sql = $"SELECT idorder, PRODUCT_NAME, DESCRIPTION, PRODUCTS.PRICE\r\nFROM products\r\nJOIN order_details USING(IDPRODUCT)\r\nJOIN orders USING(IDORDER)\r\nWHERE idorder = {order.Id}";
+            MySqlDataAdapter adap = new MySqlDataAdapter(sql, conexao);
+            DataTable tbFeedback = new DataTable();
+            adap.Fill(tbFeedback);
+            return tbFeedback;
         }
     }
 }
