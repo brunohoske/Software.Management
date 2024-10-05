@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SystemManagement.Dao;
 using SystemManagement.Models;
 
 namespace SystemManagement.Controllers
@@ -68,6 +69,40 @@ namespace SystemManagement.Controllers
             order.CompleteOrder();
 
             return Ok();
+        }
+
+        [HttpPost("CloseCheck")]
+        public IActionResult CloseCheck([FromBody] Table table)
+        {
+            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
+            CheckDao checkDao = new CheckDao();
+            if(checkDao.CloseCheck(table) == 1)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+        }
+
+        [HttpGet("SearchCoupon")]
+        public IActionResult SearchCouponFromCode()
+        {
+            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
+            string code = Request.Headers.FirstOrDefault(x => x.Key == "code").Value;
+            CouponDao couponDao = new CouponDao();
+            Coupon coupon = couponDao.SearchCouponFromCode(code);
+
+            if (coupon != null)
+            {
+                return Ok(coupon);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }

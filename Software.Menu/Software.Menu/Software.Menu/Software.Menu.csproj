@@ -7,13 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Software.Menu.Client\Software.Menu.Client.csproj" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.4" />
-    <PackageReference Include="MySql.Data" Version="8.4.0" />
+    <Compile Remove="Controllers\**" />
+    <Content Remove="Controllers\**" />
+    <EmbeddedResource Remove="Controllers\**" />
+    <None Remove="Controllers\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <None Remove="Components\Pages\CloseTable.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Components\Pages\CloseTable.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Software.Menu.Client\Software.Menu.Client.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.4" />
+    <PackageReference Include="MySql.Data" Version="8.4.0" />
   </ItemGroup>
 
 </Project>

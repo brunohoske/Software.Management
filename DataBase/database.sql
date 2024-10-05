@@ -2,7 +2,7 @@
 -- Servidor:                     127.0.0.1
 -- Versão do servidor:           8.2.0 - MySQL Community Server - GPL
 -- OS do Servidor:               Win64
--- HeidiSQL Versão:              12.7.0.6850
+-- HeidiSQL Versão:              12.6.0.6765
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -49,6 +49,21 @@ INSERT INTO `companys` (`CNPJ`, `COMPANY_NAME`) VALUES
 	('42591651000143', 'MCDONALDS'),
 	('53060216000109', 'BURGUERKING');
 
+-- Copiando estrutura para tabela menusystem.coupon
+CREATE TABLE IF NOT EXISTS `coupon` (
+  `COUPONID` int NOT NULL AUTO_INCREMENT,
+  `CODE` varchar(12) NOT NULL DEFAULT '0',
+  `DISCOUNT` int NOT NULL DEFAULT (0),
+  `ACTIVE` smallint DEFAULT '1',
+  PRIMARY KEY (`COUPONID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela menusystem.coupon: ~2 rows (aproximadamente)
+INSERT INTO `coupon` (`COUPONID`, `CODE`, `DISCOUNT`, `ACTIVE`) VALUES
+	(2, 'BRUNO50OFF', 50, 1),
+	(3, '40OFF', 40, 1),
+	(4, '100OFF', 100, 0);
+
 -- Copiando estrutura para tabela menusystem.discount
 CREATE TABLE IF NOT EXISTS `discount` (
   `ID_DISCOUNT` int NOT NULL AUTO_INCREMENT,
@@ -60,9 +75,26 @@ CREATE TABLE IF NOT EXISTS `discount` (
   KEY `IDPRODUCT` (`IDPRODUCT`),
   CONSTRAINT `discount_ibfk_1` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`),
   CONSTRAINT `discount_ibfk_2` FOREIGN KEY (`IDPRODUCT`) REFERENCES `products` (`IDPRODUCT`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Copiando dados para a tabela menusystem.discount: ~0 rows (aproximadamente)
+INSERT INTO `discount` (`ID_DISCOUNT`, `DISCOUNT_PERCENTAGE`, `CNPJ`, `IDPRODUCT`) VALUES
+	(4, 10, '42591651000143', 5);
+
+-- Copiando estrutura para tabela menusystem.feedbacks
+CREATE TABLE IF NOT EXISTS `feedbacks` (
+  `FEEDBACK_ID` int NOT NULL AUTO_INCREMENT,
+  `IDORDER` int NOT NULL,
+  `DESCRIPTION` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`FEEDBACK_ID`),
+  KEY `IDORDER` (`IDORDER`),
+  CONSTRAINT `feedbacks_ibfk_1` FOREIGN KEY (`IDORDER`) REFERENCES `orders` (`IDORDER`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela menusystem.feedbacks: ~1 rows (aproximadamente)
+INSERT INTO `feedbacks` (`FEEDBACK_ID`, `IDORDER`, `DESCRIPTION`) VALUES
+	(1, 40, 'Ótima comida!!'),
+	(2, 10, 'Gostei!');
 
 -- Copiando estrutura para tabela menusystem.orders
 CREATE TABLE IF NOT EXISTS `orders` (
@@ -82,10 +114,15 @@ CREATE TABLE IF NOT EXISTS `orders` (
 
 -- Copiando dados para a tabela menusystem.orders: ~4 rows (aproximadamente)
 INSERT INTO `orders` (`IDORDER`, `CNPJ`, `TOTAL`, `ORDER_DATE`, `CHECK_NUMBER`, `ORDER_ACTIVE`, `ORDER_STATUS`) VALUES
-	(10, '42591651000143', 30, '2024-07-09 22:27:31', 1, 1, 1),
-	(30, '42591651000143', 143, '2024-08-09 11:44:03', 1, 1, 2),
-	(40, '42591651000143', 143, '2024-08-09 11:45:33', 1, 1, 3),
-	(50, '42591651000143', 40, '2024-08-23 11:07:48', 1, 1, 1);
+	(10, '42591651000143', 30, '2024-07-09 22:27:31', 1, 0, 3),
+	(30, '42591651000143', 143, '2024-08-09 11:44:03', 1, 0, 3),
+	(40, '42591651000143', 143, '2024-08-09 11:45:33', 1, 0, 3),
+	(50, '42591651000143', 40, '2024-08-23 11:07:48', 1, 0, 3),
+	(60, '42591651000143', 40, '2024-10-04 19:47:20', 1, 0, 3),
+	(70, '42591651000143', 40, '2024-10-04 19:50:11', 1, 0, 3),
+	(80, '42591651000143', 20, '2024-10-04 19:54:50', 1, 0, 3),
+	(90, '42591651000143', 40, '2024-10-04 19:55:00', 1, 0, 3),
+	(100, '42591651000143', 40, '2024-10-04 19:57:12', 1, 0, 3);
 
 -- Copiando estrutura para tabela menusystem.order_details
 CREATE TABLE IF NOT EXISTS `order_details` (
@@ -106,16 +143,21 @@ CREATE TABLE IF NOT EXISTS `order_details` (
   CONSTRAINT `order_details_ibfk_3` FOREIGN KEY (`IDPRODUCT`) REFERENCES `products` (`IDPRODUCT`),
   CONSTRAINT `order_details_ibfk_4` FOREIGN KEY (`CHECK_NUMBER`) REFERENCES `checks` (`CHECK_NUMBER`),
   CONSTRAINT `order_details_ibfk_5` FOREIGN KEY (`IDORDER`) REFERENCES `orders` (`IDORDER`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.order_details: ~5 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.order_details: ~6 rows (aproximadamente)
 INSERT INTO `order_details` (`ID`, `IDORDER`, `CNPJ`, `IDPRODUCT`, `ITEM`, `CHECK_NUMBER`, `PRICE`, `ORDER_DATE`) VALUES
 	(45, 10, '42591651000143', 1, 1, 1, 30, '2024-07-09 22:27:31'),
 	(46, 30, '42591651000143', 7, 1, 1, 123, '2024-08-09 11:44:03'),
 	(47, 30, '42591651000143', 4, 2, 1, 20, '2024-08-09 11:44:03'),
 	(48, 40, '42591651000143', 7, 1, 1, 123, '2024-08-09 11:45:33'),
 	(49, 40, '42591651000143', 4, 2, 1, 20, '2024-08-09 11:45:33'),
-	(50, 50, '42591651000143', 3, 1, 1, 40, '2024-08-23 11:07:48');
+	(50, 50, '42591651000143', 3, 1, 1, 40, '2024-08-23 11:07:48'),
+	(51, 60, '42591651000143', 8, 1, 1, 40, '2024-10-04 19:47:20'),
+	(52, 70, '42591651000143', 8, 1, 1, 40, '2024-10-04 19:50:11'),
+	(53, 80, '42591651000143', 4, 1, 1, 20, '2024-10-04 19:54:50'),
+	(54, 90, '42591651000143', 8, 1, 1, 40, '2024-10-04 19:55:00'),
+	(55, 100, '42591651000143', 8, 1, 1, 40, '2024-10-04 19:57:12');
 
 -- Copiando estrutura para tabela menusystem.products
 CREATE TABLE IF NOT EXISTS `products` (
@@ -130,15 +172,15 @@ CREATE TABLE IF NOT EXISTS `products` (
   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.products: ~6 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.products: ~7 rows (aproximadamente)
 INSERT INTO `products` (`IDPRODUCT`, `PRODUCT_NAME`, `DESCRIPTION`, `PRICE`, `CNPJ`, `ACTIVE`) VALUES
 	(1, 'McOferta McChicken', 'Um delicioso hamburguer de frango', 30, '42591651000143', 1),
 	(2, 'BK Whopper', 'Um delicioso hamburguer', 40, '53060216000109', 1),
 	(3, 'McOferta BigMac', 'Um delicioso hamburguer', 40, '42591651000143', 0),
 	(4, 'McLancheFeliz', 'O melhor para criançada', 20.2, '42591651000143', 1),
 	(5, 'BK Whopper Plantas', 'Um delicioso hamburguer com o dobro de salada', 35.99, '53060216000109', 1),
-	(7, 'teste', 'teste', 123, '42591651000143', 1),
-	(8, 'BK Whopper', 'Um delicioso hamburguer', 40, '42591651000143', 0);
+	(7, 'teste', 'teste', 123, '42591651000143', 0),
+	(8, 'BK Whopper', 'Um delicioso hamburguer', 40, '42591651000143', 1);
 
 -- Copiando estrutura para tabela menusystem.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -147,16 +189,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `SENHA` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `CNPJ` varchar(20) NOT NULL,
   `ADMIN` smallint NOT NULL DEFAULT (0),
+  `USER_ACTIVE` int DEFAULT NULL,
   PRIMARY KEY (`IDUSER`),
   KEY `CNPJ` (`CNPJ`),
   CONSTRAINT `users_ibfk_1` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Copiando dados para a tabela menusystem.users: ~3 rows (aproximadamente)
-INSERT INTO `users` (`IDUSER`, `NAME`, `SENHA`, `CNPJ`, `ADMIN`) VALUES
-	(1, 'Bruno', '1234', '42591651000143', 1),
-	(4, 'TETE5', '1234', '42591651000143', 1),
-	(5, 'TESTE', '12345', '42591651000143', 0);
+INSERT INTO `users` (`IDUSER`, `NAME`, `SENHA`, `CNPJ`, `ADMIN`, `USER_ACTIVE`) VALUES
+	(1, 'BRUNO', '1234', '42591651000143', 1, 1),
+	(4, 'TETE5', '1234', '42591651000143', 1, 1),
+	(5, 'TESTE', '12345', '42591651000143', 0, 0);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

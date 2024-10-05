@@ -2,6 +2,7 @@
 @using DAL
 @using System.Text.Json;
 @inject HttpClient _httpClient
+@inject NavigationManager nav
 @rendermode InteractiveServer
 
 @page "/{CompanyName}/CARDAPIO/M{Comanda}"
@@ -45,6 +46,11 @@
         {
             menu = new Menu();
         }
+    }
+
+    private void CloseOrder()
+    {
+        nav.NavigateTo($"Payment/{menu.Company.cnpj = "42591651000143"}/{Comanda}/Close");
     }
 
 }
@@ -143,8 +149,10 @@
     @foreach (var item in OrdersInCheck)
     {
         total += item.Value;
+        
     }
     <h3>TOTAL: @total</h3>
+    <div class="divbtnConcluir" style="justify-content: center;" @onclick="CloseOrder"><button style="background-color: #ea684b; width: 165px; " class="btnConcluir">Fechar comanda</button></div>
 </section>
 
 @code{
@@ -175,6 +183,7 @@
 
             HttpResponseMessage response = await _httpClient.PostAsync("Orders", httpContent);
             ProductsInOrder.Clear();
+            nav.Refresh();
 
 
 

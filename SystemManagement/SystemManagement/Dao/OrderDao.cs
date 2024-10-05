@@ -48,7 +48,7 @@ namespace SystemManagement.DAO
                 string dt = order.Date.ToString("yyyy-MM-dd HH:mm:ss");
                 conexao = f.Connect();
                 var command = conexao.CreateCommand();
-                command.CommandText = $"Insert into Orders(idorder,cnpj,total,order_date,check_number,order_active) Values({order.Id},'{order.Store.Cnpj}',{order.Value},'{dt}',{order.Table.TableNumber},1 )";
+                command.CommandText = $"Insert into Orders(idorder,cnpj,total,order_date,check_number,order_active,order_status) Values({order.Id},'{order.Store.Cnpj}',{order.Value},'{dt}',{order.Table.TableNumber},1,1)";
 
                 command.ExecuteNonQuery();
                 for (int i = 0;i < order.Products.Count;i++)

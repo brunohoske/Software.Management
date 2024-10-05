@@ -505,10 +505,7 @@
           "MySql.Data": "8.4.0"
         },
         "runtime": {
-          "Software.Menu.Client.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Software.Menu.Client.dll": {}
         }
       }
     }
