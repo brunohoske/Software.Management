@@ -5,7 +5,7 @@ using Restaurante.DTO;
 
 namespace Restaurante.UI
 {
-    public partial class FeedbackUI : Form
+    public partial class FeedbackUI : BaseForm
     {
         public FeedbackUI()
         {

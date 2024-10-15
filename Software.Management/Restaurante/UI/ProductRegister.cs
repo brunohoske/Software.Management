@@ -7,7 +7,7 @@ using System.Data;
 
 namespace ProjetoDeSoftware
 {
-    public partial class ProductRegister : Form
+    public partial class ProductRegister : BaseForm
     {
         public ProductRegister()
         {

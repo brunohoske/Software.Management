@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace Restaurante.UI
 {
-    public partial class DiscountManager : Form
+    public partial class DiscountManager : BaseForm
     {
         public DiscountManager()
         {

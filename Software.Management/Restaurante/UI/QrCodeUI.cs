@@ -14,7 +14,7 @@ using Restaurante.DTO;
 
 namespace Restaurante.UI
 {
-    public partial class QrCodeUI : Form
+    public partial class QrCodeUI : BaseForm
     {
         string url = "";
         Store store = new Store();

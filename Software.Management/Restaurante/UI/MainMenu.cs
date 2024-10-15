@@ -4,22 +4,26 @@ using Restaurante.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Restaurante.UI
 {
-    public partial class MainMenu : Form
+    public partial class MainMenu : BaseForm
     {
         Users user;
+        DAOStore daoStore = new DAOStore();
+        Store store = new Store();
         public MainMenu(Users u)
         {
             InitializeComponent();
             user = u;
+            this.BackColor = ColorTranslator.FromHtml("#E74C4C");
+            store = daoStore.GetCompanyFromCNPJ(user.Cnpj);
+            pbStoreLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbStoreLogo.Visible = true;
+            pbStoreLogo.ImageLocation = store.Logo;
+            pbStoreLogo.Load();
+
+            lblName.Text = store.Name;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -50,11 +54,6 @@ namespace Restaurante.UI
             }
         }
 
-        private void MainMenu_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnTableManager_Click(object sender, EventArgs e)
         {
             CheckRegister cr = new CheckRegister();
@@ -77,7 +76,12 @@ namespace Restaurante.UI
         {
             FeedbackUI feedbackUI = new FeedbackUI();
             feedbackUI.Show();
-            
+
+        }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

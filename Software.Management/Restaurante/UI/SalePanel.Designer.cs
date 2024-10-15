@@ -41,10 +41,11 @@
             // dtgSalePanel
             // 
             dtgSalePanel.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgSalePanel.Location = new Point(4, 4);
+            dtgSalePanel.Location = new Point(4, 3);
+            dtgSalePanel.Margin = new Padding(3, 2, 3, 2);
             dtgSalePanel.Name = "dtgSalePanel";
             dtgSalePanel.RowHeadersWidth = 51;
-            dtgSalePanel.Size = new Size(838, 518);
+            dtgSalePanel.Size = new Size(733, 388);
             dtgSalePanel.TabIndex = 0;
             // 
             // panel1
@@ -53,35 +54,36 @@
             panel1.Controls.Add(label4);
             panel1.Controls.Add(lblTotal);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(848, 12);
+            panel1.Location = new Point(742, 9);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(258, 109);
+            panel1.Size = new Size(226, 82);
             panel1.TabIndex = 1;
             // 
             // lblQuant
             // 
             lblQuant.AutoSize = true;
-            lblQuant.Location = new Point(136, 65);
+            lblQuant.Location = new Point(119, 49);
             lblQuant.Name = "lblQuant";
-            lblQuant.Size = new Size(33, 20);
+            lblQuant.Size = new Size(25, 15);
             lblQuant.TabIndex = 3;
             lblQuant.Text = "100";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(3, 65);
+            label4.Location = new Point(3, 49);
             label4.Name = "label4";
-            label4.Size = new Size(127, 20);
+            label4.Size = new Size(101, 15);
             label4.TabIndex = 2;
             label4.Text = "Quantidade Total:";
             // 
             // lblTotal
             // 
             lblTotal.AutoSize = true;
-            lblTotal.Location = new Point(93, 31);
+            lblTotal.Location = new Point(81, 23);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(33, 20);
+            lblTotal.Size = new Size(25, 15);
             lblTotal.TabIndex = 1;
             lblTotal.Text = "100";
             lblTotal.Click += lblTotal_Click;
@@ -89,19 +91,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(3, 31);
+            label1.Location = new Point(3, 23);
             label1.Name = "label1";
-            label1.Size = new Size(84, 20);
+            label1.Size = new Size(66, 15);
             label1.TabIndex = 0;
             label1.Text = "Total Geral:";
             // 
             // SalePanel
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1118, 522);
+            ClientSize = new Size(984, 392);
             Controls.Add(panel1);
             Controls.Add(dtgSalePanel);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "SalePanel";
             Text = "SalePanel";
             Load += SalePanel_Load;

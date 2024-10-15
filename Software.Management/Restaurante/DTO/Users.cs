@@ -14,6 +14,7 @@ namespace Restaurante.DTO
         private int codigo;
         public bool IsActive { get; set; }
         public int Id { get; set; }
+        public string Cnpj { get; set; }
 
         public string Nome
         {

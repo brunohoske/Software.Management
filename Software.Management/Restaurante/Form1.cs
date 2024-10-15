@@ -4,7 +4,7 @@ using Restaurante.UI;
 
 namespace Restaurante
 {
-    public partial class Form1 : Form
+    public partial class Form1 : BaseForm
     {
         public Form1()
         {

@@ -8,14 +8,12 @@ namespace SystemManagement.Dao
     {
         MySqlConnection conexao = null;
         ConnectionFabric f = new ConnectionFabric();
-        MySqlDataReader reader;
         public List<Product> GetProducts(Store s)
         {
             List<Product> products = new List<Product>();
             try
             {
-                conexao = f.Connect();
-                reader = f.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE CNPJ = {s.Cnpj}", reader);
+                using var reader = f.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE CNPJ = {s.Cnpj}");
                 while (reader.Read())
                 {
                     Product p = new Product();
@@ -38,24 +36,35 @@ namespace SystemManagement.Dao
             }
             finally
             {
-                conexao.Close();
+                f.CloseConnection();
             }
         }
         public Product GetProductFromId(int id)
         {
-            reader = f.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE IDPRODUCT = {id}", reader);
-            Product p = new Product();
-            while (reader.Read())
+            try
             {
-                p.Id = Convert.ToInt32(reader["idproduct"].ToString());
-                p.Name = reader["Product_Name"].ToString();
-                p.Value = Convert.ToInt32(reader["price"]);
-                p.Description = reader["description"].ToString();
-                p.Store = new Store() { Cnpj = reader["cnpj"].ToString() };
-                
-            }
+                using var reader = f.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE IDPRODUCT = {id}");
+                Product p = new Product();
+                while (reader.Read())
+                {
+                    p.Id = Convert.ToInt32(reader["idproduct"].ToString());
+                    p.Name = reader["Product_Name"].ToString();
+                    p.Value = Convert.ToInt32(reader["price"]);
+                    p.Description = reader["description"].ToString();
+                    p.Store = new Store() { Cnpj = reader["cnpj"].ToString() };
 
-            return p;
+                }
+
+                return p;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                f.CloseConnection();
+            }
         }
 
     }

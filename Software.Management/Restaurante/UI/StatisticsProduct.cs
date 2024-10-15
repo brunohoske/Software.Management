@@ -14,7 +14,7 @@ using Restaurante.DTO;
 
 namespace Restaurante.UI
 {
-    public partial class StatisticsProduct : Form
+    public partial class StatisticsProduct : BaseForm
     {
         public Produto produto { get; set; }
         DAOProduto dp = new DAOProduto();

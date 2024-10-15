@@ -7,14 +7,15 @@ namespace Software.Menu.DAL
     public class DALStatus
     {
 
-        MySqlDataReader reader = null;
+        MySqlConnection conexao = null;
+        Database database = new Database();
 
         public string GetStatus(int Status)
         {
             try
             {
-                Database database = new Database();
-                reader = database.ExecuteCommandReader("SELECT ORDER_STATUS FROM ORDERS", reader);
+               
+                using var reader = database.ExecuteCommandReader("SELECT ORDER_STATUS FROM ORDERS");
                 
                 int ValorStatus = 0;
 
@@ -29,6 +30,10 @@ namespace Software.Menu.DAL
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+            finally
+            {
+                database.CloseConnection();
             }
         }
 

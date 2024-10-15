@@ -6,6 +6,7 @@
         public string Name { get; set; }
         public string cnpj {  get; set; }
 
+        public Company() { }
         public Company(string name)
         {
             Name = name;

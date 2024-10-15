@@ -30,19 +30,20 @@ namespace Software.Menu.Models
             return connection;
         }
 
-        public  MySqlDataReader ExecuteCommandReader(string sql, MySqlDataReader read)
+        public MySqlDataReader ExecuteCommandReader(string sql)
         {
             try
             {
-                GetConnection();
-                MySqlCommand cmd = new MySqlCommand(sql,connection);
-                read = cmd.ExecuteReader();
-                return read;
+               
+                using MySqlCommand cmd = new MySqlCommand(sql, connection = GetConnection());
+                var reader = cmd.ExecuteReader();
+                return reader;
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.ToString());
+                return null;
             }
+
 
         }
 
@@ -59,7 +60,15 @@ namespace Software.Menu.Models
                 throw new Exception(ex.ToString());
             }
         }
+        public void CloseConnection()
+        {
+            if (connection != null && connection.State == System.Data.ConnectionState.Open)
+            {
+                connection.Close();
+            }
 
+
+        }
 
 
 

@@ -8,15 +8,13 @@ namespace SystemManagement.Dao
     {
         MySqlConnection conexao = null;
         ConnectionFabric f = new ConnectionFabric();
-        MySqlDataReader reader;
 
         public Coupon SearchCouponFromCode(string code)
         {
             Coupon coupon = new Coupon();
             try
             {
-                conexao = f.Connect();
-                reader = f.ExecuteCommandReader($"SELECT * FROM COUPON WHERE CODE = '{code}';", reader);
+                using var reader = f.ExecuteCommandReader($"SELECT * FROM COUPON WHERE CODE = '{code}';");
                 while (reader.Read())
                 {
                     
@@ -26,20 +24,20 @@ namespace SystemManagement.Dao
                     coupon.Discount = double.Parse(reader["DISCOUNT"].ToString());
                     return coupon;
                 }
+                
 
                 return null;
-
-
 
             }
 
             catch (Exception e)
             {
                 return null;
+
             }
             finally
             {
-                conexao.Close();
+                f.CloseConnection();
             }
         }
     }

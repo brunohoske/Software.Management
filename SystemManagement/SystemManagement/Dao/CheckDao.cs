@@ -27,6 +27,7 @@ namespace SystemManagement.Dao
             finally
             {
                 conexao.Close();
+                f.CloseConnection();
             }
           
         }

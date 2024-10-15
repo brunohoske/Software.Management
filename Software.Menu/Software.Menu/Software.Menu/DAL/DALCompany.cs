@@ -6,19 +6,18 @@ namespace Software.Menu.DAL
     public class DALCompany
     {
 
-        MySqlDataReader reader = null;
-
+        MySqlConnection conexao = null;
+        Database database = new Database();
         public DALCompany()
         {
 
         }
 
-        public bool CheckExist(string companyName)
+        public bool CheckExist(string cnpj)
         {
             try
             {
-                Database database = new Database();
-                reader = database.ExecuteCommandReader($"SELECT COMPANY_NAME FROM COMPANYS WHERE COMPANY_NAME = '{companyName}'", reader);
+                using var reader = database.ExecuteCommandReader($"SELECT COMPANY_NAME FROM COMPANYS WHERE CNPJ = '{cnpj}'");
 
                 string name = "";
                 while (reader.Read())
@@ -38,6 +37,11 @@ namespace Software.Menu.DAL
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+
+            }
+            finally
+            {
+                database.CloseConnection();
             }
 
 
@@ -48,9 +52,8 @@ namespace Software.Menu.DAL
         {
             try
             {
-                Database database = new Database();
-                database.GetConnection();
-                reader = database.ExecuteCommandReader($"SELECT * FROM COMPANYS WHERE COMPANY_NAME = '{companyName}'", reader);
+                conexao = database.GetConnection();
+                using var reader = database.ExecuteCommandReader($"SELECT * FROM COMPANYS WHERE COMPANY_NAME = '{companyName}'");
 
                 string name = "";
                 while (reader.Read())
@@ -61,8 +64,8 @@ namespace Software.Menu.DAL
                 
                 if (name != "")
                 {
-                    Company c = new Company(name);
-                    return c; 
+                    Company company = new Company(name);
+                    return company; 
                 }
                 else
                 {
@@ -73,7 +76,51 @@ namespace Software.Menu.DAL
             {
                 throw new Exception(ex.Message);
             }
-        } 
+            finally
+            {
+                conexao.Close();
+                database.CloseConnection();
+            }
+        }
+
+        public Company GetCompanyFromCnpj(string cnpj)
+        {
+            try
+            {
+             
+                conexao = database.GetConnection();
+                using var reader = database.ExecuteCommandReader($"SELECT * FROM COMPANYS WHERE CNPJ = '{cnpj}'");
+
+                string _cnpj = "";
+                string _name = "";
+                while (reader.Read())
+                {
+                    _cnpj = reader["CNPJ"].ToString();
+                    _name = reader["COMPANY_NAME"].ToString();
+                }
+
+
+                if (_cnpj != "")
+                {
+                    Company company = new Company() { cnpj = _cnpj , Name = _name};
+                    return company;
+                }
+                else
+                {
+                    return new Company();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                conexao.Close();
+                database.CloseConnection();
+                
+            }
+        }
     }
 }
 

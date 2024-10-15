@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace Restaurante.UI
 {
-    public partial class UserMenager : Form
+    public partial class UserMenager : BaseForm
     {
         public UserMenager()
         {

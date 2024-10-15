@@ -28,25 +28,27 @@ namespace Restaurante.BLL
                 comando.CommandText = $"SELECT * FROM USERS WHERE NAME = '{name}'";
                 reader = comando.ExecuteReader();
 
-                string readName = "";
-                int id = 0;
-                string password = "";
-                int codigo = 0;
+
                 int ativo = 0;
+
+                Users user = new Users();
+                
                 while (reader.Read())
                 {
-                    id = int.Parse(reader["IDUSER"].ToString());
-                    readName = reader["NAME"].ToString();
-                    password = reader["senha"].ToString();
-                    codigo = int.Parse(reader["ADMIN"].ToString());
+                    user.Id = int.Parse(reader["IDUSER"].ToString());
+                    user.Nome = reader["NAME"].ToString();
+                    user.Senha = reader["senha"].ToString();
+                    user.Codigo = int.Parse(reader["ADMIN"].ToString());
                     ativo = int.Parse(reader["USER_ACTIVE"].ToString()) ;
+                    user.Cnpj = reader["CNPJ"].ToString();
                 }
-
+                
                 reader.Close();
-                if (readName != "")
+                if (user.Nome != "")
                 {
                     bool status_ativo = (ativo == 1? true : false);
-                    return new Users() { Id = id, Codigo = codigo, Nome = name, Senha = password, IsActive = status_ativo};
+                    user.IsActive = status_ativo;
+                    return user;
                 }
                 else
                 {

@@ -8,7 +8,7 @@ using QRCoder;
 
 namespace Restaurante.UI
 {
-    public partial class CheckRegister : Form
+    public partial class CheckRegister : BaseForm
     {
         public CheckRegister()
         {

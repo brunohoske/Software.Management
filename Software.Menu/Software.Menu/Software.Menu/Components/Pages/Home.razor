@@ -5,7 +5,7 @@
 @inject NavigationManager nav
 @rendermode InteractiveServer
 
-@page "/{CompanyName}/CARDAPIO/M{Comanda}"
+@page "/{Cnpj}/CARDAPIO/M{Comanda}"
 
 @code {
 
@@ -13,7 +13,7 @@
     [Parameter]
     public string Comanda { get; set; }
     [Parameter]
-    public string CompanyName { get; set; }
+    public string Cnpj { get; set; }
 
     public List<Product> Produtos { get; set; }
 
@@ -37,10 +37,10 @@
 
         await CarregarProdutosAsync();
         OrdersInCheck = await GetOrders();
-    DALCompany dc = new DALCompany();
-        @if (dc.CheckExist(CompanyName))
+        DALCompany dc = new DALCompany();
+        @if (dc.CheckExist(Cnpj))
         {
-            menu = new Menu() { Company = dc.GetCompanyPerName(CompanyName) };
+            menu = new Menu() { Company = dc.GetCompanyFromCnpj(Cnpj) };
         }
         else
         {
@@ -50,7 +50,7 @@
 
     private void CloseOrder()
     {
-        nav.NavigateTo($"Payment/{menu.Company.cnpj = "42591651000143"}/{Comanda}/Close");
+        nav.NavigateTo($"Payment/{menu.Company.cnpj}/{Comanda}/Close");
     }
 
 }
@@ -62,7 +62,7 @@
 <PageTitle>Home</PageTitle>
 
 <div class="rest-banner">
-    <img src="@(CompanyName.ToLower() == "mcdonalds" ? @"Images\McDonalds-Banner.png" : @"Images\BurgerKing-Banner.jpg")" class="rest-banner">
+    <img src="@(menu.Company.Name.ToLower() == "mcdonalds" ? @"Images\McDonalds-Banner.png" : @"Images\BurgerKing-Banner.jpg")" class="rest-banner">
 </div>
 
 <h5>@menu.Company.Name - CARDAPIO - COMANDA #1</h5>
@@ -172,8 +172,8 @@
                     Id = await GetOrderNumber(),
                     Products = p,
                     Date = System.DateTime.Now,
-                    Store = new Company("McDonalds") { cnpj = "42591651000143" },
-                    Table = new Table() { TableNumber = int.Parse(Comanda), Store = new Company("McDonalds") { cnpj = "42591651000143" } },
+                    Store = new Company("McDonalds") { cnpj = Cnpj },
+                    Table = new Table() { TableNumber = int.Parse(Comanda), Store = new Company("McDonalds") { cnpj = Cnpj } },
                     Value = total
 
                 };

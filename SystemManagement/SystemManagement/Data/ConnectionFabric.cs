@@ -11,6 +11,7 @@ namespace SystemManagement.Data
         {
             try
             {
+              
                 string conn = @"Persist Security info = false;
                                 server = localhost;
                                 database = menusystem;
@@ -29,22 +30,29 @@ namespace SystemManagement.Data
             return conexao;
         }
 
-        public MySqlDataReader ExecuteCommandReader(string sql, MySqlDataReader read)
+        public MySqlDataReader ExecuteCommandReader(string sql)
         {
             try
             {
-
-                Connect();
-                MySqlCommand cmd = new MySqlCommand(sql, Connect());
-                read = cmd.ExecuteReader();
-                return read;
+                using MySqlCommand cmd = new MySqlCommand(sql, conexao = Connect());
+                var reader = cmd.ExecuteReader();
+                return reader;
             }
             catch (Exception ex)
             {
                 return null;
             }
 
-        }
 
+        }
+        public void CloseConnection()
+        {
+            if (conexao != null && conexao.State == System.Data.ConnectionState.Open)
+            {
+                conexao.Close();
+            }
+
+
+        }
     }
 }

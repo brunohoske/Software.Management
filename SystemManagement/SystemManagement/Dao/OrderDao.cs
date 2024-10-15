@@ -11,19 +11,16 @@ namespace SystemManagement.DAO
 
         MySqlConnection conexao = null;
         ConnectionFabric f = new ConnectionFabric();
-        MySqlDataReader reader;
-        MySqlDataReader reader2;
-        MySqlDataReader reader3;
+
         public int GetOrderNumber(Store s)
         {
             int number = 0;
             try
             {
-                conexao = f.Connect();
-                reader3 = f.ExecuteCommandReader($"SELECT IDORDER FROM ORDERS WHERE CNPJ = {s.Cnpj} ORDER BY IDORDER DESC LIMIT 1", reader3);
-                while (reader3.Read())
+                using var reader = f.ExecuteCommandReader($"SELECT IDORDER FROM ORDERS WHERE CNPJ = {s.Cnpj} ORDER BY IDORDER DESC LIMIT 1");
+                while (reader.Read())
                 {
-                    number = Convert.ToInt32(reader3["IdOrder"]);
+                    number = Convert.ToInt32(reader["IdOrder"]);
                 }
 
                 return number + 10;
@@ -35,7 +32,7 @@ namespace SystemManagement.DAO
             }
             finally
             {
-                conexao.Close();
+                f.CloseConnection();
             }
 
         }
@@ -66,6 +63,7 @@ namespace SystemManagement.DAO
             finally
             {
                 conexao.Close();
+                f.CloseConnection();
             }
         }
 
@@ -75,8 +73,7 @@ namespace SystemManagement.DAO
 
             try
             {
-                conexao = f.Connect();
-                reader = f.ExecuteCommandReader($"SELECT * FROM ORDERS WHERE CNPJ = '{s.Cnpj}' AND ORDER_ACTIVE = 1",reader);
+                using var reader = f.ExecuteCommandReader($"SELECT * FROM ORDERS WHERE CNPJ = '{s.Cnpj}' AND ORDER_ACTIVE = 1");
 
                 while (reader.Read())
                 {
@@ -99,7 +96,7 @@ namespace SystemManagement.DAO
             }
             finally
             {
-                conexao.Close();
+                f.CloseConnection();
             }
         }
 
@@ -110,11 +107,10 @@ namespace SystemManagement.DAO
             try
             {
               
-                conexao = f.Connect();
-                reader2 = f.ExecuteCommandReader($"SELECT idproduct FROM order_details where idorder = {order.Id}", reader2);
-                while (reader2.Read())
+                using var reader = f.ExecuteCommandReader($"SELECT idproduct FROM order_details where idorder = {order.Id}");
+                while (reader.Read())
                 {
-                    orderProducts.Add(Convert.ToInt32(reader2["idproduct"]));
+                    orderProducts.Add(Convert.ToInt32(reader["idproduct"]));
                 }
 
                foreach (int i in orderProducts)
@@ -131,7 +127,7 @@ namespace SystemManagement.DAO
             }
             finally
             {
-                conexao.Close();
+                f.CloseConnection();
             }
         }
 
@@ -142,8 +138,8 @@ namespace SystemManagement.DAO
 
             try
             {
-                conexao = f.Connect();
-                reader = f.ExecuteCommandReader($"SELECT * FROM ORDERS WHERE CNPJ = '{s.Cnpj}' AND ORDER_ACTIVE = 1 AND CHECK_NUMBER = {t.TableNumber}", reader);
+                using var reader = f.ExecuteCommandReader($"SELECT * FROM ORDERS WHERE CNPJ = '{s.Cnpj}' AND ORDER_ACTIVE = 1 AND CHECK_NUMBER = {t.TableNumber}");
+            
 
                 while (reader.Read())
                 {
@@ -166,7 +162,7 @@ namespace SystemManagement.DAO
             }
             finally
             {
-                conexao.Close();
+                f.CloseConnection();
             }
         }
 
@@ -191,6 +187,7 @@ namespace SystemManagement.DAO
             finally
             {
                 conexao.Close();
+                f.CloseConnection();
             }
             
 

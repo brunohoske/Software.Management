@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Restaurante.UI
 {
-    public partial class CouponManager : Form
+    public partial class CouponManager : BaseForm
     {
         public CouponManager()
         {
