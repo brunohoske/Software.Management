@@ -7,19 +7,19 @@
       "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|d:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\ui\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\restaurante\\ui\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|d:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\ui\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\restaurante\\ui\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\baseform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|d:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\ui\\salepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\restaurante\\ui\\salepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\salepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|d:\\meus arquivos\\visual studio\\software.management\\software.management\\restaurante\\ui\\checkregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\restaurante\\ui\\checkregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5C72368E-DD97-4011-A75B-7AA45DEE16BC}|Restaurante\\Restaurante.csproj|solutionrelative:restaurante\\ui\\checkregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "Restaurante\\UI\\MainMenu.cs",
               "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\MainMenu.cs",
               "RelativeToolTip": "Restaurante\\UI\\MainMenu.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAACIAAAA9AAAA",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAqwCIAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-14T03:21:32.155Z",
               "EditorCaption": ""
@@ -54,8 +54,7 @@
               "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\BaseForm.cs [Projeto]",
               "RelativeToolTip": "Restaurante\\UI\\BaseForm.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T03:21:06.664Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2024-10-14T03:21:06.664Z"
             },
             {
               "$type": "Document",
@@ -66,8 +65,7 @@
               "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Management\\Restaurante\\UI\\SalePanel.cs [Projeto]",
               "RelativeToolTip": "Restaurante\\UI\\SalePanel.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T03:20:26.789Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2024-10-14T03:20:26.789Z"
             },
             {
               "$type": "Document",
@@ -91,8 +89,7 @@
               "RelativeToolTip": "Restaurante\\UI\\BaseForm.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T02:02:58.308Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-14T02:02:58.308Z"
             }
           ]
         }

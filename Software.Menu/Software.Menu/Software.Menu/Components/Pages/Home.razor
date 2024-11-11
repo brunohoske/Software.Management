@@ -21,6 +21,8 @@
     public List<Order> OrdersInCheck = new List<Order>();
 
     public double total;
+    public double totalGeral;
+
     public async Task CarregarProdutosAsync()
     {
         Produtos = await GetProducts();
@@ -31,11 +33,16 @@
         ProductsInOrder.Add(produto);
     }
 
+    private void CalculateTotalGeral()
+    {
+        totalGeral = OrdersInCheck.Sum(order => order.Value);
+    }
     protected override async Task OnInitializedAsync()
     {
         base.OnInitialized();
 
         await CarregarProdutosAsync();
+    
         OrdersInCheck = await GetOrders();
         DALCompany dc = new DALCompany();
         @if (dc.CheckExist(Cnpj))
@@ -46,11 +53,18 @@
         {
             menu = new Menu();
         }
+        CalculateTotalGeral();
     }
+
 
     private void CloseOrder()
     {
         nav.NavigateTo($"Payment/{menu.Company.cnpj}/{Comanda}/Close");
+    }
+
+    private void RemoveProductFromOrder(Product product)
+    {
+        ProductsInOrder.Remove(product);
     }
 
 }
@@ -61,98 +75,104 @@
 }
 <PageTitle>Home</PageTitle>
 
-<div class="rest-banner">
-    <img src="@(menu.Company.Name.ToLower() == "mcdonalds" ? @"Images\McDonalds-Banner.png" : @"Images\BurgerKing-Banner.jpg")" class="rest-banner">
+<div class="banner">
+    <img src="@(menu.Company.Name.ToLower() == "mcdonalds" ? @"Images/McDonalds-Banner.png" : @"Images/BurgerKing-Banner.jpg")" alt="Restaurant Banner">
 </div>
 
-<h5>@menu.Company.Name - CARDAPIO - COMANDA #1</h5>
+<h2 class="menu-title">@menu.Company.Name - Cardápio</h2>
 
-
-
-<section id="products1">
-
-    
-    @foreach(var item in Produtos)
-    {
-        <div class="container-ger">
-            <div class="container-item">
-                <div class="imagem"><img src="/Images/hamburguer1.png" alt=""></div>
-                <div class="item">
-                    <div class="desc-img">
-                        <h3>Nome:@item.Name</h3>
-                        <h3>Descrição:@item.Description</h3>
-                        <h3>Valor:@item.Value</h3>
-                        <button @onclick="() => AddProductToOrder(item)">Adicionar</button> 
+<section id="menu" class="menu-section">
+    <div class="product-category">
+        <h3 class="category-title">Todos os Produtos</h3>
+        <div class="product-list">
+            @foreach (var item in Produtos)
+            {
+                <div class="product-card">
+                    <img src="/Images/hamburguer1.png" alt="Product Image" class="product-image" />
+                    <div class="product-details">
+                        <h4 class="product-name">@item.Name</h4>
+                        <p class="product-description">@item.Description</p>
+                        <div class="product-bottom">
+                            <span class="product-price">R$ @item.Value</span>
+                            <button class="add-to-cart" @onclick="() => AddProductToOrder(item)">Adicionar</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
-
-    }
-
-</section>
-
-
-<section class="cart">
-    
-    <div class="cartpos">
-        <div class="itemCart">
-            <h1>Carrinho</h1>
-        </div>
-
-        
-        @if(ProductsInOrder.Count != 0 && ProductsInOrder != null)
-        {
-            @foreach (var item in ProductsInOrder)
+    </div>
+    <div class="product-category">
+        <h3 class="category-title">Pratos do dia</h3>
+        <div class="product-list">
+            @foreach (var item in Produtos)
             {
-                <div class="itemCart">
-                    <h2>1 -</h2>
-                    <h3>Produto: @item.Name</h3>
-                    <h3>Valor: @item.Value</h3>
-                    <button @onclick="() => ProductsInOrder.Remove(item)">Remover</button>
-                    
+                <div class="product-card">
+                    <img src="/Images/hamburguer1.png" alt="Product Image" class="product-image" />
+                    <div class="product-details">
+                        <h4 class="product-name">@item.Name</h4>
+                        <p class="product-description">@item.Description</p>
+                        <div class="product-bottom">
+                            <span class="product-price">R$ @item.Value</span>
+                            <button class="add-to-cart" @onclick="() => AddProductToOrder(item)">Adicionar</button>
+                        </div>
+                    </div>
                 </div>
             }
-        }
-        
-        <div class="divbtnConcluir" @onclick="() => SubmitOrder(ProductsInOrder)"><button class="btnConcluir">Concluir</button></div>
+        </div>
     </div>
-    
 </section>
 
-<section class="check">
-
-    <h2>Total dos pedidos:</h2>
-    
-    @for (int i = 0; i < OrdersInCheck.Count; i++)
-    {
-        <h3>Pedido: @OrdersInCheck[i].Id</h3>
-        <h3 style=" color:@(OrdersInCheck[i].Status == 1 ? "red" : (OrdersInCheck[i].Status == 2 ? "yellow": "green")) ">
-            Status: @(OrdersInCheck[i].Status == 1 ? "Enviado a cozinha" : (OrdersInCheck[i].Status == 2 ? "Preparando": "Pedido Pronto")) 
-        </h3>
-
-        @for (int c = 0; c < OrdersInCheck[i].Products.Count; c++)
+<section id="cart" class="cart-section">
+    <h3>Meu Carrinho</h3>
+    <div class="cart-items">
+        @if (ProductsInOrder.Any())
         {
-        <div class="container">
-
-            <div class="item">
-
-                <h3> Produto: @OrdersInCheck[i].Products[c].Name </h3>
-
-                <h3> Valor: @OrdersInCheck[i].Products[c].Value</h3>
-            </div>
-
-        </div>
+            @foreach (var product in ProductsInOrder.ToList())
+            {
+                <div class="cart-item">
+                    <span class="cart-item-name">@product.Name</span>
+                    <span class="cart-item-price">R$ @product.Value</span>
+                    <button class="remove-button" @onclick="() => RemoveProductFromOrder(product)">Remover</button>
+                </div>
+            }
+            <h4 class="cart-total">Total: R$ @ProductsInOrder.Sum(p => p.Value)</h4>
+            <button class="btn-submit-order" @onclick="() => SubmitOrder(ProductsInOrder)">Finalizar Pedido</button>
         }
-        
-    }
-    @foreach (var item in OrdersInCheck)
+        else
+        {
+            <p class="empty-cart">Seu carrinho está vazio.</p>
+        }
+    </div>
+</section>
+
+<section class="order-status-section">
+    <h3>Status dos Pedidos</h3>
+    @foreach (var order in OrdersInCheck)
     {
-        total += item.Value;
-        
+        <div class="order-status">
+            <h4>Pedido: @order.Id</h4>
+            <p class="status-text" style="color:@(order.Status == 1 ? "red" : (order.Status == 2 ? "yellow": "green"))">
+                Status: @(order.Status == 1 ? "Enviado à cozinha" : (order.Status == 2 ? "Preparando" : "Pronto para retirada"))
+            </p>
+            <ul>
+                @foreach (var product in order.Products)
+                {
+                    <li>@product.Name - R$ @product.Value</li>
+                }
+            </ul>
+        </div>
     }
-    <h3>TOTAL: @total</h3>
-    <div class="divbtnConcluir" style="justify-content: center;" @onclick="CloseOrder"><button style="background-color: #ea684b; width: 165px; " class="btnConcluir">Fechar comanda</button></div>
+</section>
+
+<section id="summary">
+    <section id="order-summary" class="order-summary-section">
+        <h3>Resumo dos Pedidos</h3>
+        <div class="order-summary">
+            <p>Total dos Pedidos Realizados:</p>
+            <h4 class="order-total">R$ @totalGeral</h4>
+        </div>
+        <button class="btn-close-order" @onclick="CloseOrder">Fechar Comanda</button>
+    </section>
 </section>
 
 @code{

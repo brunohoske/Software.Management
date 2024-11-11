@@ -21,54 +21,33 @@
 }
 
 <div class="title">
-    <h1> PEDIDOS PENDENTES </h1>
+    <h1>PEDIDOS PENDENTES</h1>
 </div>
 
-
-
-@for (int i = 0; i < orders.Count; i++)
-{
-
-    <h1>Pedido #@orders[i].Id</h1>
-    <h2> Mesa: @orders[i].Table.TableNumber</h2>
-    <h2> Horário do pedido: @orders[i].Date</h2>
-   
-    @for (int c = 0; c < orders[i].Products.Count; c++)
+<div class="orders-container">
+    @for (int i = 0; i < orders.Count; i++)
     {
-        <div class="container">
-
-            <div class="item">
-
-                <h2> Pedido: @orders[i].Products[c].Name </h2>
-
-
-                <h2> Observações: @orders[i].Products[c].Description</h2>
-
-                
-
-                @*   <h2> Situação: @conv.Products</h2> *@
-                <h3>--------------------------------------------------------------------------------</h3>
-
-
+        <div class="order-card">
+            <div class="order-header">
+                <h2>Pedido #@orders[i].Id</h2>
+                <p><strong>Mesa:</strong> @orders[i].Table.TableNumber</p>
+                <p><strong>Horário:</strong> @orders[i].Date.ToShortTimeString()</p>
             </div>
 
+            <div class="products-list">     
+                @for (int c = 0; c < orders[i].Products.Count; c++)
+                {
+                    <div class="product-item">
+                        <p><strong>@orders[i].Products[c].Name</strong></p>
+                        <p class="description">Observações: @orders[i].Products[c].Description</p>
+                    </div>
+                }
+            </div>
+            <button class="complete-button" @onclick="()=>CompleteOrder(orders[i])">Finalizar Pedido</button>
         </div>
     }
-    <button @onclick="()=>CompleteOrder(orders[i -1])"> Finalizar </button>
-
-    
-
-}
-
-@* <div class="container">
-
-    <div class="item">
-        <h2> Pedido: Fritas com batata</h2>
-        <h2> Mesa: Nº 13</h2>
-        <h2> Observações: Sem sal</h2>
-        <h2> Situação: Em preparo</h2>
-        <h2> Horário do pedido: 19:35</h2>
-    </div>
-
 </div>
- *@
+
+
+
+
