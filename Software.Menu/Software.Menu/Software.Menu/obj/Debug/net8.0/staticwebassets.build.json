@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9x7g/1N5D2uZ+A81C4b7Sa1MzUm3SZt5mQjQHfIo0Ao=",
+  "Hash": "veQvIfoaUOogtLXLGG2iNIsAoKa/3wC0ZHcEFxeIC1g=",
   "Source": "Software.Menu",
   "BasePath": "_content/Software.Menu",
   "Mode": "Default",
@@ -8508,6 +8508,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\McDonalds-Banner.png"
+    },
+    {
+      "Identity": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\js\\script.js",
+      "SourceId": "Software.Menu",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\",
+      "BasePath": "_content/Software.Menu",
+      "RelativePath": "js/script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\script.js"
     },
     {
       "Identity": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\product.css",

@@ -3,51 +3,51 @@
   "WorkspaceRootPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\controllers\\systemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\controllers\\systemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\dao\\checkdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\dao\\checkdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\dao\\basedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\dao\\basedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\dao\\orderdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\dao\\orderdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\dao\\productdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\dao\\productdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\systemmanagement\\dao\\coupondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\dao\\coupondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\dao\\coupondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\systemmanagement\\data\\connectionfabric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\data\\connectionfabric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\data\\connectionfabric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\systemmanagement\\dao\\checkdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\dao\\checkdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\systemmanagement\\dao\\orderdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\dao\\orderdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\systemmanagement\\dao\\basedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\dao\\basedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\systemmanagement\\controllers\\systemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\controllers\\systemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\systemmanagement\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\systemmanagement\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\systemmanagement\\models\\coupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\models\\coupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\models\\coupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\systemmanagement\\models\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\models\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\models\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\systemmanagement\\models\\store.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\models\\store.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\models\\store.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -58,32 +58,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 244,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "SystemController.cs",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Controllers\\SystemController.cs",
               "RelativeDocumentMoniker": "SystemManagement\\Controllers\\SystemController.cs",
               "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Controllers\\SystemController.cs",
               "RelativeToolTip": "SystemManagement\\Controllers\\SystemController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAF8AAAAwAAAA",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAIwFcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-21T22:53:28.04Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "OrderDao.cs",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\OrderDao.cs",
               "RelativeDocumentMoniker": "SystemManagement\\Dao\\OrderDao.cs",
               "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\OrderDao.cs",
               "RelativeToolTip": "SystemManagement\\Dao\\OrderDao.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAkAAAA",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBkAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T22:53:28.617Z"
+              "WhenOpened": "2024-06-21T22:53:28.617Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -99,25 +101,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "BaseDao.cs",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\BaseDao.cs",
               "RelativeDocumentMoniker": "SystemManagement\\Dao\\BaseDao.cs",
               "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\BaseDao.cs",
               "RelativeToolTip": "SystemManagement\\Dao\\BaseDao.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAAAAkAAAABAAAA",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-21T22:53:27.458Z"
+              "WhenOpened": "2024-06-21T22:53:27.458Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "ProductDao.cs",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\ProductDao.cs",
               "RelativeDocumentMoniker": "SystemManagement\\Dao\\ProductDao.cs",
               "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\ProductDao.cs",
               "RelativeToolTip": "SystemManagement\\Dao\\ProductDao.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAAwBUAAAA/AAAA",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA1wEQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-05T12:49:02.391Z",
               "EditorCaption": ""
@@ -136,31 +139,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "CouponDao.cs",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\CouponDao.cs",
               "RelativeDocumentMoniker": "SystemManagement\\Dao\\CouponDao.cs",
-              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\CouponDao.cs*",
-              "RelativeToolTip": "SystemManagement\\Dao\\CouponDao.cs*",
+              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\CouponDao.cs",
+              "RelativeToolTip": "SystemManagement\\Dao\\CouponDao.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-04T19:17:22.431Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "CheckDao.cs",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\CheckDao.cs",
               "RelativeDocumentMoniker": "SystemManagement\\Dao\\CheckDao.cs",
               "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\CheckDao.cs",
               "RelativeToolTip": "SystemManagement\\Dao\\CheckDao.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAgAAAA",
+              "ViewState": "AgIAABEAAAAAAAAAAAAgwDUAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T15:58:23.379Z"
+              "WhenOpened": "2024-10-04T15:58:23.379Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "ConnectionFabric.cs",
               "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Data\\ConnectionFabric.cs",
               "RelativeDocumentMoniker": "SystemManagement\\Data\\ConnectionFabric.cs",

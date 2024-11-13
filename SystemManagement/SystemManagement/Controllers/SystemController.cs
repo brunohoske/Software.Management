@@ -87,6 +87,17 @@ namespace SystemManagement.Controllers
 
         }
 
+
+        [HttpGet("GetPaymetValue")]
+        public IActionResult GetPaymentValue()
+        {
+            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
+            CheckDao checkDao = new CheckDao();
+            int value = checkDao.GetCheckValue(new Table() { Store = new Store() { Cnpj = cnpj }, TableNumber = 1 });
+            return Ok(value);
+
+        }
+
         [HttpGet("SearchCoupon")]
         public IActionResult SearchCouponFromCode()
         {

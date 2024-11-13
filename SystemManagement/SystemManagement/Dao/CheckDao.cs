@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using SystemManagement.Data;
 using SystemManagement.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SystemManagement.Dao
 {
@@ -30,6 +31,33 @@ namespace SystemManagement.Dao
                 f.CloseConnection();
             }
           
+        }
+
+        public int GetCheckValue(Table table)
+        {
+            conexao = f.Connect();
+            int value = 0;
+            string sql = $"SELECT SUM(TOTAL) AS total FROM orders WHERE CHECK_NUMBER = {table.TableNumber} AND ORDER_ACTIVE and = 1 and CNPJ = '{table.Store.Cnpj}'";
+
+            try {
+                using var reader = f.ExecuteCommandReader(sql);
+                while (reader.Read())
+                {
+                     value = Convert.ToInt32(reader["total"]);
+                }
+
+                return value;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                conexao.Close();
+                f.CloseConnection();
+            }
         }
     }
 }

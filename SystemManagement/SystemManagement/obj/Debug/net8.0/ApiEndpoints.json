@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "SystemManagement.Controllers.SystemController",
+    "Method": "CloseCheck",
+    "RelativePath": "CloseCheck",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "table",
+        "Type": "SystemManagement.Models.Table",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SystemManagement.Controllers.SystemController",
     "Method": "CompleteOrder",
     "RelativePath": "CompleteOrder",
     "HttpMethod": "POST",
@@ -65,6 +81,16 @@
     "ContainingType": "SystemManagement.Controllers.SystemController",
     "Method": "GetProducts",
     "RelativePath": "Products",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SystemManagement.Controllers.SystemController",
+    "Method": "SearchCouponFromCode",
+    "RelativePath": "SearchCoupon",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
