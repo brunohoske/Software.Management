@@ -1,0 +1,78 @@
+﻿<h3>Payment</h3>
+@page "/Payment/{Cnpj}/{TableNumber}/Pay"
+@using MercadoPago.Resource.Payment;
+@code {
+    private PaymentUser paymentUser = new PaymentUser();
+    [Parameter]
+    public string Comanda { get; set; }
+    [Parameter]
+    public string Cnpj { get; set; }
+    public PaymentClient paymentClient;
+
+    private Payment payment = new Payment();
+
+    private int value = 0;
+    private bool Sended = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        paymentClient = new PaymentClient(Cnpj);
+        value = await paymentClient.GetPaymentValue();
+    }
+    private async Task HandleValidSubmit()
+    {
+
+        payment= await paymentClient.Payment(paymentUser,value);
+        StateHasChanged();
+    }
+}
+
+<h3>Payment</h3>
+<h2> Valor = @value</h2>
+<EditForm Model="paymentUser" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <div>
+            <label for="payerFirstName">Nome</label>
+            <InputText id="form-checkout__payerFirstName" @bind-Value="paymentUser.Name" />
+        </div>
+        <div>
+            <label for="payerLastName">Sobrenome</label>
+            <InputText id="form-checkout__payerLastName" @bind-Value="paymentUser.LastName" />
+        </div>
+        <div>
+            <label for="email">E-mail</label>
+            <InputText id="form-checkout__email" @bind-Value="paymentUser.Email" />
+        </div>
+        <div>
+            <label for="identificationType">Tipo de documento</label>
+            <InputSelect id="form-checkout__identificationType" @bind-Value="paymentUser.IdentificationType">
+                <option value="CPF">CPF</option>
+                <option value="RG">RG</option>
+                <!-- Adicione outras opções conforme necessário -->
+            </InputSelect>
+        </div>
+        <div>
+            <label for="identificationNumber">Número do documento</label>
+            <InputText id="form-checkout__identificationNumber" @bind-Value="paymentUser.Identification" />
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <InputHidden name="transactionAmount" id="transactionAmount" value="100" />
+            <InputHidden name="description" id="description" value="Nome do Produto" />
+            <br>
+            <button type="submit">Pagar</button>
+        </div>
+    </div>
+</EditForm>
+
+<div style="display: @(Sended ? "block" : "none")">
+    <img src={`data:image/jpeg;base64,${@payment.PointOfInteraction.TransactionData.QrCodeBase64}`} />
+
+    <label for="copiar">Copiar Hash:</label>
+    <input type="text" id="copiar" value={@payment.PointOfInteraction.TransactionData.QrCode} readonly />
+</div>
