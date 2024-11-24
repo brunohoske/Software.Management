@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
             dataGridView1 = new DataGridView();
             button1 = new Button();
             button2 = new Button();
@@ -42,24 +41,13 @@
             checkBox1 = new CheckBox();
             label1 = new Label();
             cbAtivo = new CheckBox();
-            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.BackColor = SystemColors.ActiveBorder;
-            panel1.Controls.Add(dataGridView1);
-            panel1.Location = new Point(259, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(529, 435);
-            panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(6, 6);
+            dataGridView1.Location = new Point(268, 15);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(520, 423);
@@ -182,6 +170,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(dataGridView1);
             Controls.Add(cbAtivo);
             Controls.Add(label1);
             Controls.Add(checkBox1);
@@ -194,19 +183,15 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(panel1);
             Name = "UserMenager";
             Text = "UserMenager";
             Load += UserMenager_Load;
-            panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Panel panel1;
         private DataGridView dataGridView1;
         private Button button1;
         private Button button2;

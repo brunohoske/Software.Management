@@ -1,6 +1,7 @@
 ﻿
 using Restaurante.BLL;
 using Restaurante.DTO;
+using System.Windows.Forms;
 
 
 namespace Restaurante.UI
@@ -10,6 +11,8 @@ namespace Restaurante.UI
         public FeedbackUI()
         {
             InitializeComponent();
+            EstilizarGrid(dtgFeedback);
+            EstilizarGrid(dtgOrders);
         }
         private void LerFeedbacks()
         {

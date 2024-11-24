@@ -1,5 +1,6 @@
 ﻿using Restaurante.BLL;
 using System.Data;
+using System.Windows.Forms;
 
 
 namespace Restaurante.UI
@@ -9,6 +10,7 @@ namespace Restaurante.UI
         public SalePanel()
         {
             InitializeComponent();
+            EstilizarGrid(dtgSalePanel);
         }
 
         private void SalePanel_Load(object sender, EventArgs e)

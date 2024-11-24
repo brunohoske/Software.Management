@@ -22,6 +22,14 @@ namespace Restaurante.UI
         {
             InitializeComponent();
             LerDados();
+            EstilizarGrid(dataGridView1);
+            dataGridView1.Columns[0].HeaderText = "Código";
+            dataGridView1.Columns[1].HeaderText = "Nome";
+            dataGridView1.Columns[2].HeaderText = "Senha";
+            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[4].HeaderText = "Administrador";
+            dataGridView1.Columns[5].HeaderText = "Ativo";
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

@@ -13,6 +13,7 @@ namespace Restaurante.UI
         {
             InitializeComponent();
             LerDados();
+            EstilizarGrid(dtgCoupon);
         }
 
         private void LerDados()

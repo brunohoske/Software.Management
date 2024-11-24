@@ -23,6 +23,8 @@ namespace Restaurante.UI
             InitializeComponent();
             LerProdutos();
             LerDados();
+            EstilizarGrid(dataGridView1);
+            EstilizarGrid(dataGridView2);
         }
 
         private void BntInsert_Click(object sender, EventArgs e)

@@ -13,6 +13,7 @@ namespace Restaurante.UI
         public CheckRegister()
         {
             InitializeComponent();
+            EstilizarGrid(dataGridView1);
         }
 
         private void BntInsert_Click(object sender, EventArgs e)

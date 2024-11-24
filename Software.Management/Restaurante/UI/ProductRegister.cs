@@ -1,9 +1,10 @@
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using Restaurante.BLL;
 using Restaurante.DAL;
 using Restaurante.DTO;
 using Restaurante.UI;
 using System.Data;
+using System.Drawing.Drawing2D;
 
 namespace ProjetoDeSoftware
 {
@@ -12,7 +13,42 @@ namespace ProjetoDeSoftware
         public ProductRegister()
         {
             InitializeComponent();
+         
+
+            EstilizarGrid(dataGridView1);
+
+            DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn
+            {
+                Name = "DeleteColumn",
+                HeaderText = "Excluir",
+                Text = "🗑️", // Ícone ou texto para o botão
+                UseColumnTextForButtonValue = true,
+                FlatStyle = FlatStyle.Flat // Estilo moderno do botão
+            };
+           
+            // Adiciona ao grid
+            dataGridView1.Columns.Add(deleteButtonColumn);
+
+            LerDados();
+            dataGridView1.Columns[0].Width = 75;
+            dataGridView1.Columns[1].HeaderText = "Código";
+            dataGridView1.Columns[1].Width = 75;
+            dataGridView1.Columns[2].HeaderText = "Nome";
+            dataGridView1.Columns[2].Width = 200;
+            dataGridView1.Columns[3].HeaderText = "Descrição";
+            dataGridView1.Columns[3].Width = 250;
+            dataGridView1.Columns[4].HeaderText = "Preço";
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].HeaderText = "Ativo";
+
+
         }
+
+       
+
+
+
+
 
         private void Insert_Click(object sender, EventArgs e)
         {
@@ -37,28 +73,50 @@ namespace ProjetoDeSoftware
                     }
                     else
                     {
-                        MessageBox.Show("Valores negativos n�o s�o permitidos");
+                        MessageBox.Show("Valores negativos não são permitidos");
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show("Todos os campos s�o obrigat�rios");
+                    MessageBox.Show("Todos os campos são obrigatórios");
                 }
 
             }
             catch (FormatException)
             {
-                MessageBox.Show("Pre�o e quantidade devem ser n�meros e devem ser preenchidos");
+                MessageBox.Show("Preço e quantidade devem ser números e devem ser preenchidos");
             }
 
 
         }
 
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Garante que a linha é válida
+            {
+                // Pega a linha atual
+                var row = dataGridView1.Rows[e.RowIndex];
+
+                // Extrai os dados da linha
+                var idProduto = int.Parse(row.Cells["IDPRODUTO"].Value?.ToString()); // ID único do produto
+                var nomeProduto = row.Cells["PRODUCT"].Value?.ToString();
+                var descricao = row.Cells["DESCRIP"].Value?.ToString();
+                var preco = float.Parse(row.Cells["PRICE"].Value?.ToString());
+                var cnpj = row.Cells["CNPJ"].Value?.ToString();
+                var ativo = (row.Cells["ACTIVE"].Value?.ToString() == "1" ? true : false);
+
+                // Atualize no banco de dados
+                Produto al = new Produto(idProduto, nomeProduto, preco, descricao) { IsActive = ativo }; // Construtor
+                DAOProduto daoc = new DAOProduto();
+                daoc.Update(al);
+                LerDados();
+            }
+        }
+
+
         private void Update_Click(object sender, EventArgs e)
         {
-
-
             int id = int.Parse(lblId.Text);
             string nome = txtNome.Text;
             float preco = float.Parse(txtPreco.Text);
@@ -111,18 +169,48 @@ namespace ProjetoDeSoftware
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow drg = dataGridView1.Rows[e.RowIndex];
-            lblId.Text = drg.Cells[0].Value.ToString();
-            txtNome.Text = drg.Cells[1].Value.ToString();
-            txtDescription.Text = drg.Cells[2].Value.ToString();
-            txtPreco.Text = drg.Cells[3].Value.ToString();
+            lblId.Text = drg.Cells[1].Value.ToString();
+            txtNome.Text = drg.Cells[2].Value.ToString();
+            txtDescription.Text = drg.Cells[3].Value.ToString();
+            txtPreco.Text = drg.Cells[4].Value.ToString();
 
-            cbAtivo.Checked = int.Parse(drg.Cells[5].Value.ToString()) == 1 ? true : false;
+            cbAtivo.Checked = int.Parse(drg.Cells[6].Value.ToString()) == 1 ? true : false;
+
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "DeleteColumn")
+            {
+                // Confirmação da exclusão
+                var confirmResult = MessageBox.Show(
+                    "Tem certeza que deseja excluir este registro?",
+                    "Confirmação",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (confirmResult == DialogResult.Yes)
+                {
+                    // Obtém o ID do registro a ser excluído
+                    var idProduto = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["IDPRODUCT"].Value?.ToString());
+
+                    if (!string.IsNullOrEmpty(idProduto.ToString()))
+                    {
+                        // Chama o método para remover do banco
+                        DAOProduto daoc = new DAOProduto();
+                        daoc.Delete(new Produto() { Id = idProduto});
+
+                        // Remove a linha do grid
+                        dataGridView1.Rows.RemoveAt(e.RowIndex);
+
+                        MessageBox.Show("Registro excluído com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
 
         }
 
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            LerDados();
+           
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -152,6 +240,11 @@ namespace ProjetoDeSoftware
             {
                 MessageBox.Show("Invalid product ID. Please enter a valid number.");
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

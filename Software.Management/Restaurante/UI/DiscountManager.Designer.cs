@@ -78,9 +78,9 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(496, 12);
+            dataGridView1.Location = new Point(335, 261);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(644, 449);
+            dataGridView1.Size = new Size(764, 238);
             dataGridView1.TabIndex = 23;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -127,7 +127,7 @@
             lblnum.AutoSize = true;
             lblnum.Location = new Point(13, 14);
             lblnum.Name = "lblnum";
-            lblnum.Size = new Size(77, 15);
+            lblnum.Size = new Size(78, 15);
             lblnum.TabIndex = 7;
             lblnum.Text = "ID PRODUTO:";
             lblnum.Visible = false;
@@ -144,9 +144,9 @@
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(254, 12);
+            dataGridView2.Location = new Point(335, 12);
             dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(236, 449);
+            dataGridView2.Size = new Size(764, 243);
             dataGridView2.TabIndex = 27;
             dataGridView2.CellClick += dataGridView2_CellClick;
             // 

@@ -23,6 +23,7 @@ namespace Restaurante.UI
         {
             InitializeComponent();
             produto = p;
+            EstilizarGrid(dtProduct);
         }
 
         private void StatisticsProduct_Load(object sender, EventArgs e)
