@@ -173,7 +173,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Name = "DiscountManager";
-            Text = "DiscountManager";
+            Text = "Gerenciar Descontos";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

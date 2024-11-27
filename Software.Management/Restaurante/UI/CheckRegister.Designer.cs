@@ -44,10 +44,9 @@
             // 
             // BtnDelete
             // 
-            BtnDelete.Location = new Point(418, 504);
-            BtnDelete.Margin = new Padding(3, 4, 3, 4);
+            BtnDelete.Location = new Point(366, 378);
             BtnDelete.Name = "BtnDelete";
-            BtnDelete.Size = new Size(131, 56);
+            BtnDelete.Size = new Size(115, 42);
             BtnDelete.TabIndex = 17;
             BtnDelete.Text = "Deletar";
             BtnDelete.UseVisualStyleBackColor = true;
@@ -55,10 +54,9 @@
             // 
             // BtnUpdate
             // 
-            BtnUpdate.Location = new Point(237, 504);
-            BtnUpdate.Margin = new Padding(3, 4, 3, 4);
+            BtnUpdate.Location = new Point(207, 378);
             BtnUpdate.Name = "BtnUpdate";
-            BtnUpdate.Size = new Size(131, 56);
+            BtnUpdate.Size = new Size(115, 42);
             BtnUpdate.TabIndex = 16;
             BtnUpdate.Text = "Atualizar";
             BtnUpdate.UseVisualStyleBackColor = true;
@@ -70,36 +68,34 @@
             panel1.Controls.Add(txtNumMesa);
             panel1.Controls.Add(lblnum);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(14, 41);
-            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Location = new Point(12, 31);
             panel1.Name = "panel1";
-            panel1.Size = new Size(248, 395);
+            panel1.Size = new Size(217, 296);
             panel1.TabIndex = 15;
             panel1.Paint += panel1_Paint;
             // 
             // lblnumMesa
             // 
             lblnumMesa.AutoSize = true;
-            lblnumMesa.Location = new Point(142, 19);
+            lblnumMesa.Location = new Point(124, 14);
             lblnumMesa.Name = "lblnumMesa";
-            lblnumMesa.Size = new Size(0, 20);
+            lblnumMesa.Size = new Size(0, 15);
             lblnumMesa.TabIndex = 8;
             lblnumMesa.Visible = false;
             // 
             // txtNumMesa
             // 
-            txtNumMesa.Location = new Point(30, 99);
-            txtNumMesa.Margin = new Padding(3, 4, 3, 4);
+            txtNumMesa.Location = new Point(26, 74);
             txtNumMesa.Name = "txtNumMesa";
-            txtNumMesa.Size = new Size(149, 27);
+            txtNumMesa.Size = new Size(131, 23);
             txtNumMesa.TabIndex = 1;
             // 
             // lblnum
             // 
             lblnum.AutoSize = true;
-            lblnum.Location = new Point(30, 19);
+            lblnum.Location = new Point(26, 14);
             lblnum.Name = "lblnum";
-            lblnum.Size = new Size(105, 20);
+            lblnum.Size = new Size(85, 15);
             lblnum.TabIndex = 7;
             lblnum.Text = "Número Mesa:";
             lblnum.Visible = false;
@@ -107,18 +103,17 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(30, 75);
+            label2.Location = new Point(26, 56);
             label2.Name = "label2";
-            label2.Size = new Size(123, 20);
+            label2.Size = new Size(98, 15);
             label2.TabIndex = 5;
             label2.Text = "Número da Mesa";
             // 
             // BntInsert
             // 
-            BntInsert.Location = new Point(62, 504);
-            BntInsert.Margin = new Padding(3, 4, 3, 4);
+            BntInsert.Location = new Point(54, 378);
             BntInsert.Name = "BntInsert";
-            BntInsert.Size = new Size(131, 56);
+            BntInsert.Size = new Size(115, 42);
             BntInsert.TabIndex = 14;
             BntInsert.Text = "Cadastrar";
             BntInsert.UseVisualStyleBackColor = true;
@@ -127,20 +122,20 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(304, 44);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.Location = new Point(266, 33);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(597, 392);
+            dataGridView1.Size = new Size(522, 294);
             dataGridView1.TabIndex = 13;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // btnGerarQR
             // 
-            btnGerarQR.Location = new Point(771, 443);
+            btnGerarQR.Location = new Point(675, 332);
+            btnGerarQR.Margin = new Padding(3, 2, 3, 2);
             btnGerarQR.Name = "btnGerarQR";
-            btnGerarQR.Size = new Size(131, 56);
+            btnGerarQR.Size = new Size(115, 42);
             btnGerarQR.TabIndex = 9;
             btnGerarQR.Text = "Gerar QR Code";
             btnGerarQR.UseVisualStyleBackColor = true;
@@ -148,18 +143,17 @@
             // 
             // CheckRegister
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(btnGerarQR);
             Controls.Add(BtnDelete);
             Controls.Add(BtnUpdate);
             Controls.Add(panel1);
             Controls.Add(BntInsert);
             Controls.Add(dataGridView1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "CheckRegister";
-            Text = "CheckRegister";
+            Text = "Gerenciar Mesas";
             Load += CheckRegister_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

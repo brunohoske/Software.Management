@@ -1,7 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
-using Restaurante.BLL;
-using Restaurante.DAL;
-using Restaurante.DTO;
+using Restaurante.DAO;
+using Restaurante.Data;
+using Restaurante.Models;
 using System.Data;
 using System.Windows.Forms;
 
@@ -14,6 +14,11 @@ namespace Restaurante.UI
             InitializeComponent();
             LerDados();
             EstilizarGrid(dtgCoupon);
+
+            dtgCoupon.Columns[0].HeaderText = "Identificador";
+            dtgCoupon.Columns[1].HeaderText = "Código do cupom";
+            dtgCoupon.Columns[2].HeaderText = "% de desconto";
+            dtgCoupon.Columns[3].HeaderText = "Ativo";
         }
 
         private void LerDados()

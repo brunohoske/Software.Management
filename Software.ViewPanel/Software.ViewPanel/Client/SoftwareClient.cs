@@ -22,11 +22,11 @@ namespace Software.ViewPanel.Client
                 PropertyNameCaseInsensitive = true
             };
 
-            List<Order> o = System.Text.Json.JsonSerializer.Deserialize<List<Order>>(content, options);
+            List<Order> o = JsonSerializer.Deserialize<List<Order>>(content, options);
 
 
 
-            return o;
+            return o.Where(x=> x.Status != 3).ToList();
         }
 
         

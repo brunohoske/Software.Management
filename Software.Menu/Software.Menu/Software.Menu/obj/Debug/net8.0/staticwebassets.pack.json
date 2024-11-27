@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\Images\\hamburguer1.png"
     },
     {
+      "Id": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\Images\\qrcode_pix.jpg",
+      "PackagePath": "staticwebassets\\Images\\qrcode_pix.jpg"
+    },
+    {
       "Id": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
@@ -39,10 +43,6 @@
     {
       "Id": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\js\\script.js",
       "PackagePath": "staticwebassets\\js\\script.js"
-    },
-    {
-      "Id": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\wwwroot\\product.css",
-      "PackagePath": "staticwebassets\\product.css"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Software.Menu.Microsoft.AspNetCore.StaticWebAssets.props",

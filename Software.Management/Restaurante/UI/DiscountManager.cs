@@ -1,18 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Asn1.Ocsp;
-using Restaurante.BLL;
-using Restaurante.DAL;
-using Restaurante.DTO;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using Restaurante.DAO;
+using Restaurante.Data;
+using Restaurante.Models;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace Restaurante.UI
 {
@@ -25,6 +16,21 @@ namespace Restaurante.UI
             LerDados();
             EstilizarGrid(dataGridView1);
             EstilizarGrid(dataGridView2);
+
+
+            dataGridView2.Columns[0].HeaderText = "Código-Produto";
+            dataGridView2.Columns[1].HeaderText = "Nome";
+            dataGridView2.Columns[2].HeaderText = "Descrição";
+            dataGridView2.Columns[3].HeaderText = "Preço";
+            dataGridView2.Columns[4].Visible = false;
+            dataGridView2.Columns[5].HeaderText = "Ativo";
+
+            dataGridView1.Columns[0].HeaderText = "Código-Desconto";
+            dataGridView1.Columns[1].HeaderText = "Porcentagem de desconto ";
+            dataGridView1.Columns[2].Visible = false;
+            dataGridView1.Columns[3].HeaderText = "Produto Relacionado";
+
+
         }
 
         private void BntInsert_Click(object sender, EventArgs e)

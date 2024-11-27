@@ -184,7 +184,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "UserMenager";
-            Text = "UserMenager";
+            Text = "Gerenciar Usuários";
             Load += UserMenager_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

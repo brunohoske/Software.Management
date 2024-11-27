@@ -1,18 +1,9 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Asn1.Ocsp;
-using Restaurante.BLL;
-using Restaurante.DAL;
-using Restaurante.DTO;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using MySql.Data.MySqlClient;
+using Restaurante.DAO;
+using Restaurante.Data;
+using Restaurante.Models;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace Restaurante.UI
 {
@@ -82,7 +73,7 @@ namespace Restaurante.UI
                     {
                         Users u = new Users(nome, senha, adm) { IsActive = ativo}; // Construtor
 
-                        DALUsers daop = new DALUsers();
+                        DAOUsers daop = new DAOUsers();
 
                         daop.Insert(u);
 
@@ -136,7 +127,7 @@ namespace Restaurante.UI
 
             Users al = new Users(id, nome, senha, adm) { IsActive = ativo }; // Construtor
 
-            DALUsers daoc = new DALUsers();
+            DAOUsers daoc = new DAOUsers();
             daoc.Update(al);
             LerDados();
 
@@ -153,7 +144,7 @@ namespace Restaurante.UI
 
             Users u = new Users(id, nome, senha, adm); ;
 
-            DALUsers daoc = new DALUsers();
+            DAOUsers daoc = new DAOUsers();
             const string message =
             "Deseja deletar?";
             const string caption = "Deletar";

@@ -1,5 +1,5 @@
-using Restaurante.BLL;
-using Restaurante.DTO;
+using Restaurante.DAO;
+using Restaurante.Models;
 using Restaurante.UI;
 
 namespace Restaurante
@@ -9,6 +9,7 @@ namespace Restaurante
         public Form1()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#E74C4C");
         }
 
         public void Logar()
@@ -19,7 +20,7 @@ namespace Restaurante
                 string senhaLogin = TxtSenha.Text;
 
 
-                DALUsers d = new DALUsers();
+                DAOUsers d = new DAOUsers();
                 Users user = d.SearchUser(TxtNome.Text);
 
                 if(user.IsActive == true)

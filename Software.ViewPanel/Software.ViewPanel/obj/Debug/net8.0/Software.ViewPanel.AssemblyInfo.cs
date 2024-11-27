@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Software.ViewPanel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33a88a9a224faa24bfc9816ebc7028c905fb9ec1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb2e216543806bd66a0182167d5eee970ebbbf36")]
 [assembly: System.Reflection.AssemblyProductAttribute("Software.ViewPanel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Software.ViewPanel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

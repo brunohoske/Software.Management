@@ -475,7 +475,6 @@ D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\S
 D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Software.Menu.props
 D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\staticwebassets.pack.json
 D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
-D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\Components\Pages\CloseTable.razor.rz.scp.css
 D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\bundle\Software.Menu.styles.css
 D:\Meus arquivos\Visual Studio\Software.Management\Software.Menu\Software.Menu\Software.Menu\obj\Debug\net8.0\scopedcss\projectbundle\Software.Menu.bundle.scp.css

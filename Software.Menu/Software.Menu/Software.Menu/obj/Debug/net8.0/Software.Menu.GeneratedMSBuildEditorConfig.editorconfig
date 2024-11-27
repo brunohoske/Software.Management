@@ -30,18 +30,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Meus arquivos/Visual Studio/Software.Management/Software.Menu/Software.Menu/Software.Menu/Components/Pages/PaymentPage.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQYXltZW50UGFnZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Meus arquivos/Visual Studio/Software.Management/Software.Menu/Software.Menu/Software.Menu/Components/Pages/SuccessPage.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTdWNjZXNzUGFnZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Meus arquivos/Visual Studio/Software.Management/Software.Menu/Software.Menu/Software.Menu/Components/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Meus arquivos/Visual Studio/Software.Management/Software.Menu/Software.Menu/Software.Menu/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -53,10 +41,6 @@ build_metadata.AdditionalFiles.CssScope =
 [D:/Meus arquivos/Visual Studio/Software.Management/Software.Menu/Software.Menu/Software.Menu/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-9kswf9qgtf
-
-[D:/Meus arquivos/Visual Studio/Software.Management/Software.Menu/Software.Menu/Software.Menu/Components/Layout/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-96n2tax268
 
 [D:/Meus arquivos/Visual Studio/Software.Management/Software.Menu/Software.Menu/Software.Menu/Components/Pages/CloseTable.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDbG9zZVRhYmxlLnJhem9y

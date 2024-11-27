@@ -187,7 +187,7 @@ namespace ProjetoDeSoftware
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             Name = "ProductRegister";
-            Text = "Form1";
+            Text = "Gerenciar Produtos";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

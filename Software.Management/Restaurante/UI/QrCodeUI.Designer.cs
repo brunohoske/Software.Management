@@ -73,7 +73,7 @@
             Controls.Add(pbQrCode);
             Margin = new Padding(3, 2, 3, 2);
             Name = "QrCodeUI";
-            Text = "QrCodeUI";
+            Text = "Gerar QRCode";
             Load += QrCodeUI_Load;
             ((System.ComponentModel.ISupportInitialize)pbQrCode).EndInit();
             ResumeLayout(false);

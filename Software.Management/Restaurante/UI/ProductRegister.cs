@@ -1,10 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
-using Restaurante.BLL;
-using Restaurante.DAL;
-using Restaurante.DTO;
+using Restaurante.DAO;
+using Restaurante.Data;
+using Restaurante.Models;
 using Restaurante.UI;
 using System.Data;
-using System.Drawing.Drawing2D;
 
 namespace ProjetoDeSoftware
 {

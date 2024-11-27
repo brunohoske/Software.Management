@@ -1,9 +1,6 @@
 ﻿using ProjetoDeSoftware;
-using Restaurante.BLL;
-using Restaurante.DTO;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using Restaurante.DAO;
+using Restaurante.Models;
 
 namespace Restaurante.UI
 {

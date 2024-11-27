@@ -115,7 +115,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(3, 65);
             label5.Name = "label5";
-            label5.Size = new Size(101, 15);
+            label5.Size = new Size(102, 15);
             label5.TabIndex = 4;
             label5.Text = "Valor Total Vendas";
             // 
@@ -132,7 +132,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(3, 13);
             label1.Name = "label1";
-            label1.Size = new Size(119, 15);
+            label1.Size = new Size(120, 15);
             label1.TabIndex = 0;
             label1.Text = "Total Receita Produto";
             // 
@@ -156,7 +156,7 @@
             Controls.Add(panel1);
             Controls.Add(dtProduct);
             Name = "StatisticsProduct";
-            Text = "StatisticsProduct";
+            Text = "Estatísticas de produto";
             Load += StatisticsProduct_Load;
             ((System.ComponentModel.ISupportInitialize)dtProduct).EndInit();
             panel1.ResumeLayout(false);

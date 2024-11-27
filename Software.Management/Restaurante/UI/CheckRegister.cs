@@ -1,9 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
-using Restaurante.BLL;
-using Restaurante.DAL;
-using Restaurante.DTO;
+using Restaurante.DAO;
+using Restaurante.Data;
+using Restaurante.Models;
 using System.Data;
-using QRCoder;
 
 
 namespace Restaurante.UI
@@ -14,6 +13,8 @@ namespace Restaurante.UI
         {
             InitializeComponent();
             EstilizarGrid(dataGridView1);
+
+
         }
 
         private void BntInsert_Click(object sender, EventArgs e)
@@ -118,6 +119,8 @@ namespace Restaurante.UI
         private void CheckRegister_Load(object sender, EventArgs e)
         {
             LerDados();
+            dataGridView1.Columns[0].HeaderText = "Número da mesa";
+            dataGridView1.Columns[1].Visible = false;
         }
 
         private void btnGerarQR_Click(object sender, EventArgs e)

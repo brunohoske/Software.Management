@@ -170,7 +170,7 @@
             Controls.Add(dtgCoupon);
             Controls.Add(panel1);
             Name = "CouponManager";
-            Text = "CouponManager";
+            Text = "Gerenciar Cupons";
             ((System.ComponentModel.ISupportInitialize)dtgCoupon).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

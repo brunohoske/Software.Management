@@ -93,7 +93,7 @@
             Controls.Add(dtgOrders);
             Controls.Add(dtgFeedback);
             Name = "FeedbackUI";
-            Text = "FeedbackUI";
+            Text = "Visualizar Feedbacks";
             Load += FeedbackUI_Load;
             ((System.ComponentModel.ISupportInitialize)dtgOrders).EndInit();
             ((System.ComponentModel.ISupportInitialize)dtgFeedback).EndInit();

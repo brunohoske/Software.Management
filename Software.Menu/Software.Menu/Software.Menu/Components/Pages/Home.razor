@@ -1,5 +1,4 @@
 ﻿@using Models;
-@using DAL
 @using System.Text.Json;
 @inject HttpClient _httpClient
 @inject NavigationManager nav
@@ -14,6 +13,8 @@
     public string Comanda { get; set; }
     [Parameter]
     public string Cnpj { get; set; }
+
+    Company Store = new Company();
 
     public List<Product> Produtos { get; set; }
 
@@ -40,14 +41,14 @@
     protected override async Task OnInitializedAsync()
     {
         base.OnInitialized();
-
         await CarregarProdutosAsync();
-    
+        Store = await GetCompanyFromCnpj(Cnpj);
         OrdersInCheck = await GetOrders();
-        DALCompany dc = new DALCompany();
-        @if (dc.CheckExist(Cnpj))
+
+
+        @if (Store.Name != string.Empty)
         {
-            menu = new Menu() { Company = dc.GetCompanyFromCnpj(Cnpj) };
+            menu = new Menu() { Company = Store};
         }
         else
         {
@@ -153,7 +154,7 @@
         <div class="order-status">
             <h4>Pedido: @order.Id</h4>
             <p class="status-text" style="color:@(order.Status == 1 ? "red" : (order.Status == 2 ? "yellow": "green"))">
-                Status: @(order.Status == 1 ? "Enviado à cozinha" : (order.Status == 2 ? "Preparando" : "Pronto para retirada"))
+                Status: @(order.Status == 1 ? "Enviado à cozinha" : (order.Status == 2 ? "Preparando" : "Pedido Pronto"))
             </p>
             <ul>
                 @foreach (var product in order.Products)
@@ -177,6 +178,23 @@
 </section>
 
 @code{
+
+    private async Task<Company> GetCompanyFromCnpj(string cnpj)
+    {
+        HttpResponseMessage response = _httpClient.GetAsync($"Company/{cnpj}").Result;
+        var content = await response.Content.ReadAsStringAsync();
+        var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            if(response.IsSuccessStatusCode)
+            {
+                return System.Text.Json.JsonSerializer.Deserialize<Company>(content, options);
+            }
+            return new Company();
+            
+    }
 
     private async Task SubmitOrder(List<Product> p)
     {
@@ -204,7 +222,7 @@
 
             HttpResponseMessage response = await _httpClient.PostAsync("Orders", httpContent);
             ProductsInOrder.Clear();
-            nav.Refresh();
+            nav.Refresh(true);
 
 
 

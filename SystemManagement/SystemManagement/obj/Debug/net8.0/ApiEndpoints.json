@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "SystemManagement.Controllers.SystemController",
+    "ContainingType": "SystemManagement.Controllers.CheckController",
     "Method": "CloseCheck",
     "RelativePath": "CloseCheck",
     "HttpMethod": "POST",
@@ -16,7 +16,23 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SystemManagement.Controllers.SystemController",
+    "ContainingType": "SystemManagement.Controllers.StoreController",
+    "Method": "GetCompanyFromCnpj",
+    "RelativePath": "Company/{cnpj}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cnpj",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SystemManagement.Controllers.OrderController",
     "Method": "CompleteOrder",
     "RelativePath": "CompleteOrder",
     "HttpMethod": "POST",
@@ -32,7 +48,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SystemManagement.Controllers.SystemController",
+    "ContainingType": "SystemManagement.Controllers.OrderController",
     "Method": "GetOrdersInTable",
     "RelativePath": "GetOrdersInTable",
     "HttpMethod": "GET",
@@ -42,7 +58,33 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SystemManagement.Controllers.SystemController",
+    "ContainingType": "SystemManagement.Controllers.CheckController",
+    "Method": "GetPaymentValue",
+    "RelativePath": "GetPaymetValue",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SystemManagement.Controllers.OrderController",
+    "Method": "GetStatusOrder",
+    "RelativePath": "Order/{idOrder}/Status",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idOrder",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SystemManagement.Controllers.OrderController",
     "Method": "GetOrderNumber",
     "RelativePath": "OrderNumber",
     "HttpMethod": "GET",
@@ -52,7 +94,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SystemManagement.Controllers.SystemController",
+    "ContainingType": "SystemManagement.Controllers.OrderController",
     "Method": "GetOrders",
     "RelativePath": "Orders",
     "HttpMethod": "GET",
@@ -62,7 +104,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SystemManagement.Controllers.SystemController",
+    "ContainingType": "SystemManagement.Controllers.OrderController",
     "Method": "SendOrder",
     "RelativePath": "Orders",
     "HttpMethod": "POST",
@@ -78,7 +120,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SystemManagement.Controllers.SystemController",
+    "ContainingType": "SystemManagement.Controllers.ProductController",
     "Method": "GetProducts",
     "RelativePath": "Products",
     "HttpMethod": "GET",
@@ -88,7 +130,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SystemManagement.Controllers.SystemController",
+    "ContainingType": "SystemManagement.Controllers.CouponController",
     "Method": "SearchCouponFromCode",
     "RelativePath": "SearchCoupon",
     "HttpMethod": "GET",

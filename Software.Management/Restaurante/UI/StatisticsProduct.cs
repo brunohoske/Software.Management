@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.Intrinsics.Arm;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Restaurante.BLL;
-using Restaurante.DAL;
-using Restaurante.DTO;
+﻿using System.Data;
+using Restaurante.DAO;
+using Restaurante.Models;
 
 namespace Restaurante.UI
 {

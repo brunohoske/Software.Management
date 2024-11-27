@@ -1,4 +1,4 @@
-﻿using Restaurante.BLL;
+﻿using Restaurante.DAO;
 using System.Data;
 using System.Windows.Forms;
 
@@ -10,12 +10,23 @@ namespace Restaurante.UI
         public SalePanel()
         {
             InitializeComponent();
+            LerDados();
             EstilizarGrid(dtgSalePanel);
+
+            
+            dtgSalePanel.Columns[0].HeaderText = "Código";
+            dtgSalePanel.Columns[1].Visible = false;
+            dtgSalePanel.Columns[2].HeaderText = "Total";
+            dtgSalePanel.Columns[3].HeaderText = "Data";
+            dtgSalePanel.Columns[4].HeaderText = "Mesa";
+            dtgSalePanel.Columns[5].Visible = false;
+            dtgSalePanel.Columns[6].HeaderText = "Status";
+
         }
 
         private void SalePanel_Load(object sender, EventArgs e)
         {
-            LerDados();
+            
             lblQuant.Text = (dtgSalePanel.Rows.Count - 1).ToString();
             int total = 0;
             for (int i = 0; i < dtgSalePanel.Rows.Count; i++)
@@ -28,7 +39,6 @@ namespace Restaurante.UI
             }
 
             lblTotal.Text = total.ToString();
-
         }
 
         private void LerDados()

@@ -106,7 +106,7 @@
             Controls.Add(dtgSalePanel);
             Margin = new Padding(3, 2, 3, 2);
             Name = "SalePanel";
-            Text = "SalePanel";
+            Text = "Painel de vendas";
             Load += SalePanel_Load;
             ((System.ComponentModel.ISupportInitialize)dtgSalePanel).EndInit();
             panel1.ResumeLayout(false);
