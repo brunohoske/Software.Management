@@ -7,14 +7,14 @@ namespace SystemManagement.Dao
     public class CouponDao
     {
         MySqlConnection conexao = null;
-        ConnectionFabric f = new ConnectionFabric();
+        ConnectionFabric fabric = new ConnectionFabric();
 
         public Coupon SearchCouponFromCode(string code)
         {
             Coupon coupon = new Coupon();
             try
             {
-                using var reader = f.ExecuteCommandReader($"SELECT * FROM COUPON WHERE CODE = '{code}';");
+                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM COUPON WHERE CODE = '{code}';");
                 while (reader.Read())
                 {
                     
@@ -37,7 +37,7 @@ namespace SystemManagement.Dao
             }
             finally
             {
-                f.CloseConnection();
+                fabric.CloseConnection();
             }
         }
     }

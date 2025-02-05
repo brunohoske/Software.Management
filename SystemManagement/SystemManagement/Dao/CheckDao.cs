@@ -8,11 +8,11 @@ namespace SystemManagement.Dao
     public class CheckDao
     {
         MySqlConnection conexao = null;
-        ConnectionFabric f = new ConnectionFabric();
+        ConnectionFabric fabric = new ConnectionFabric();
 
         public int CloseCheck(Table table)
         {
-            conexao = f.Connect();
+            conexao = fabric.Connect();
             string sql = $"UPDATE Orders SET ORDER_ACTIVE = 0 WHERE check_number = {table.TableNumber}";
 
             try
@@ -28,19 +28,19 @@ namespace SystemManagement.Dao
             finally
             {
                 conexao.Close();
-                f.CloseConnection();
+                fabric.CloseConnection();
             }
           
         }
 
         public int GetCheckValue(Table table)
         {
-            conexao = f.Connect();
+            conexao = fabric.Connect();
             int value = 0;
             string sql = $"SELECT SUM(TOTAL) AS total FROM orders WHERE CHECK_NUMBER = {table.TableNumber} AND ORDER_ACTIVE and = 1 and CNPJ = '{table.Store.Cnpj}'";
 
             try {
-                using var reader = f.ExecuteCommandReader(sql);
+                using var reader = fabric.ExecuteCommandReader(sql);
                 while (reader.Read())
                 {
                      value = Convert.ToInt32(reader["total"]);
@@ -56,7 +56,7 @@ namespace SystemManagement.Dao
             finally
             {
                 conexao.Close();
-                f.CloseConnection();
+                fabric.CloseConnection();
             }
         }
     }
