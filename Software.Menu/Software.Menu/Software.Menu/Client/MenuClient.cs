@@ -61,5 +61,20 @@ namespace Software.Menu.Client
            
 
         }
+
+        public async Task<List<Category>> GetCategories()
+        {
+            HttpResponseMessage response = _httpClient.GetAsync("Categories").Result;
+            var content = await response.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            List<Category> categories = JsonSerializer.Deserialize<List<Category>>(content, options);
+            return categories;
+
+
+        }
     }
 }

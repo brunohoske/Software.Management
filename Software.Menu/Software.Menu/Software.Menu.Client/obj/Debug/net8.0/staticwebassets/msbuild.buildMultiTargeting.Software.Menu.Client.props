@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\Software.Menu.Client.props" />
-</Project>

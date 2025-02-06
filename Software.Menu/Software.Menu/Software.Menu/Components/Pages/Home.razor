@@ -7,6 +7,7 @@
 @page "/{Cnpj}/CARDAPIO/M{Comanda}"
 
 @code {
+    public MenuClient _client;
 
     public Menu menu { get; set; }
     [Parameter]
@@ -20,6 +21,7 @@
 
     public List<Product> ProductsInOrder = new List<Product>();
     public List<Order> OrdersInCheck = new List<Order>();
+    public List<Category> Categories = new List<Category>();
 
     public double total;
     public double totalGeral;
@@ -28,7 +30,10 @@
     {
         Produtos = await GetProducts();
     }
-
+    public async Task GetCategories()
+    {
+        Categories = await _client.GetCategories();
+    }
     private void AddProductToOrder(Product produto)
     {
         ProductsInOrder.Add(produto);
@@ -41,9 +46,11 @@
     protected override async Task OnInitializedAsync()
     {
         base.OnInitialized();
+        _client = new MenuClient($"{Cnpj}");
         await CarregarProdutosAsync();
         Store = await GetCompanyFromCnpj(Cnpj);
         OrdersInCheck = await GetOrders();
+        await GetCategories();
 
 
         @if (Store.Name != string.Empty)
@@ -55,6 +62,7 @@
             menu = new Menu();
         }
         CalculateTotalGeral();
+
     }
 
 
@@ -103,7 +111,32 @@
             }
         </div>
     </div>
-    <div class="product-category">
+    @foreach (var category in Categories)
+    {
+        <div class="product-category">
+            <h3 class="category-title">@category.Name</h3>
+            <div class="product-list">
+                @foreach (var item in Produtos)
+                {
+                    @if(item.Category.IdCategory == category.IdCategory)
+                    {
+                        <div class="product-card">
+                            <img src="/Images/hamburguer1.png" alt="Product Image" class="product-image" />
+                            <div class="product-details">
+                                <h4 class="product-name">@item.Name</h4>
+                                <p class="product-description">@item.Description</p>
+                                <div class="product-bottom">
+                                    <span class="product-price">R$ @item.Value</span>
+                                    <button class="add-to-cart" @onclick="() => AddProductToOrder(item)">Adicionar</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    }
+    @* <div class="product-category">
         <h3 class="category-title">Pratos do dia</h3>
         <div class="product-list">
             @foreach (var item in Produtos)
@@ -121,7 +154,7 @@
                 </div>
             }
         </div>
-    </div>
+    </div> *@
 </section>
 
 <section id="cart" class="cart-section">
@@ -248,6 +281,8 @@
 
         return p;
     }
+
+
 
     async Task<int> GetOrderNumber()
     {
