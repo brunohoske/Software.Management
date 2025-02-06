@@ -10,8 +10,6 @@ namespace SystemManagement.Dao
         ConnectionFabric fabric = new ConnectionFabric();
         public Store GetCompanyFromCnpj(string cnpj)
         {
-           
-
             try
             {
 

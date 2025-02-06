@@ -7,13 +7,13 @@ namespace SystemManagement.Dao
     public class ProductDao : BaseDao
     {
         MySqlConnection conexao = null;
-        ConnectionFabric f = new ConnectionFabric();
+        ConnectionFabric fabric = new ConnectionFabric();
         public List<Product> GetProducts(Store s)
         {
             List<Product> products = new List<Product>();
             try
             {
-                using var reader = f.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE CNPJ = {s.Cnpj}");
+                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE CNPJ = {s.Cnpj}");
                 while (reader.Read())
                 {
                     Product p = new Product();
@@ -37,7 +37,7 @@ namespace SystemManagement.Dao
             }
             finally
             {
-                f.CloseConnection();
+                fabric.CloseConnection();
             }
         }
         public Product GetProductFromId(int id)
@@ -45,18 +45,18 @@ namespace SystemManagement.Dao
             try
             {
                 using var reader = f.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE IDPRODUCT = {id}");
-                Product p = new Product();
+                Product product = new Product();
                 while (reader.Read())
                 {
-                    p.Id = Convert.ToInt32(reader["idproduct"].ToString());
-                    p.Name = reader["Product_Name"].ToString();
-                    p.Value = Convert.ToInt32(reader["price"]);
-                    p.Description = reader["description"].ToString();
-                    p.Store = new Store() { Cnpj = reader["cnpj"].ToString() };
+                    product.Id = Convert.ToInt32(reader["idproduct"].ToString());
+                    product.Name = reader["Product_Name"].ToString();
+                    product.Value = Convert.ToInt32(reader["price"]);
+                    product.Description = reader["description"].ToString();
+                    product.Store = new Store() { Cnpj = reader["cnpj"].ToString() };
 
                 }
 
-                return p;
+                return product;
             }
             catch
             {
@@ -64,7 +64,7 @@ namespace SystemManagement.Dao
             }
             finally
             {
-                f.CloseConnection();
+                fabric.CloseConnection();
             }
         }
 
