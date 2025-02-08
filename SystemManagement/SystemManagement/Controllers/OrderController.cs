@@ -34,13 +34,13 @@ namespace SystemManagement.Controllers
             return Ok(number);
         }
 
-        [HttpGet("GetOrdersInTable")]
-        public IActionResult GetOrdersInTable()
+        [HttpGet("GetOrdersInTable/{comanda}")]
+        public IActionResult GetOrdersInTable(int comanda)
         {
             List<Order> orders = new List<Order>();
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
             Store store = new Store() { Cnpj = cnpj };
-            Table table = new Table { TableNumber = 1, Store = store };
+            Table table = new Table { TableNumber = comanda, Store = store };
             Order order = new Order() { Store = store, Table = table };
             orders = order.GetOrdersInTable();
             return Ok(orders);

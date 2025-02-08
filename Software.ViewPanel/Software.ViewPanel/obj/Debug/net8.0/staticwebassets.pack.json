@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Software.ViewPanel.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Software.ViewPanel.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.ViewPanel\\Software.ViewPanel\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Software.ViewPanel.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Software.ViewPanel.props",
+      "PackagePath": "build\\Software.ViewPanel.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Software.ViewPanel.props",
+      "PackagePath": "buildMultiTargeting\\Software.ViewPanel.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Software.ViewPanel.props",
+      "PackagePath": "buildTransitive\\Software.ViewPanel.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

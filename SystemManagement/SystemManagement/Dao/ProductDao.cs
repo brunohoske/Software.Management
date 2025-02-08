@@ -4,29 +4,30 @@ using SystemManagement.Models;
 
 namespace SystemManagement.Dao
 {
-    public class ProductDao : BaseDao
+    public static class ProductDao //: BaseDao
     {
-        MySqlConnection conexao = null;
-        ConnectionFabric fabric = new ConnectionFabric();
-        public List<Product> GetProducts(Store s)
+        static MySqlConnection conexao = null;
+        static ConnectionFabric fabric = new ConnectionFabric();
+        public static List<Product> GetProducts(Store store)
         {
             List<Product> products = new List<Product>();
             try
             {
-                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE CNPJ = {s.Cnpj}");
+                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE CNPJ = {store.Cnpj}");
                 while (reader.Read())
                 {
-                    Product p = new Product();
+                    Product product = new Product();
 
-                    p.Id = reader.GetInt32("IdProduct");
-                    p.Name = reader["Product_name"].ToString();
-                    p.Value = Convert.ToInt32(reader["PRICE"]);
-                    p.Description = reader["DESCRIPTION"].ToString();
-                    p.Category = new Category() { IdCategory = int.Parse(reader["IdCategory"].ToString()) };
-                    p.Store = new Store() { Name = "McDonalds", Cnpj = reader["CNPJ"].ToString() };
+                    product.Id = reader.GetInt32("IdProduct");
+                    product.Name = reader["Product_name"].ToString();
+                    product.Value = Convert.ToInt32(reader["PRICE"]);
+                    product.Description = reader["DESCRIPTION"].ToString();
+                    product.Category = new Category() { IdCategory = int.Parse(reader["IdCategory"].ToString()) };
+                    product.Store = new Store() { Name = "McDonalds", Cnpj = reader["CNPJ"].ToString() };
+                    product.Kcal = Convert.ToDouble(reader["KCAL"]);
+                    product.Image = reader["IMAGE"].ToString();
 
-
-                    products.Add(p);
+                    products.Add(product);
                 }
 
                 return products;
@@ -40,27 +41,36 @@ namespace SystemManagement.Dao
                 fabric.CloseConnection();
             }
         }
-        public Product GetProductFromId(int id)
+        public static Product GetProductFromId(int id,string cnpj)
         {
             try
             {
-                using var reader = f.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE IDPRODUCT = {id}");
+                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE IDPRODUCT = {id} AND CNPJ = '{cnpj}'");
                 Product product = new Product();
-                while (reader.Read())
+                if(reader != null)
                 {
-                    product.Id = Convert.ToInt32(reader["idproduct"].ToString());
-                    product.Name = reader["Product_Name"].ToString();
-                    product.Value = Convert.ToInt32(reader["price"]);
-                    product.Description = reader["description"].ToString();
-                    product.Store = new Store() { Cnpj = reader["cnpj"].ToString() };
-
+                    while (reader.Read())
+                    {
+                        product.Id = Convert.ToInt32(reader["idproduct"].ToString());
+                        product.Name = reader["Product_Name"].ToString();
+                        product.Value = Convert.ToInt32(reader["price"]);
+                        product.Description = reader["description"].ToString();
+                        product.Store = new Store() { Cnpj = reader["cnpj"].ToString() };
+                        product.Kcal = Convert.ToDouble(reader["kcal"]);
+                        product.Image = reader["image"].ToString();
+                    }
                 }
+                else
+                {
+                    return new Product();
+                }
+                
 
                 return product;
             }
             catch
             {
-                return null;
+                return new Product();
             }
             finally
             {

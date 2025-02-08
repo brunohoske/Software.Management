@@ -12,10 +12,17 @@ namespace SystemManagement.Controllers
         {
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
             Store store = new Store() { Cnpj = cnpj };
-            Product product = new Product() { Store = store };
-
-            List<Product> products = product.GetProducts();
+            List<Product> products = ProductDao.GetProducts(store);
             return Ok(products);
+        }
+        [HttpGet("Product/{id}")]
+        public IActionResult GetProductFromID(int id)
+        {
+            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
+            Store store = new Store() { Cnpj = cnpj };
+
+            Product product =  ProductDao.GetProductFromId(id,cnpj);
+            return Ok(product);
         }
 
     }

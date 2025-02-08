@@ -7,6 +7,9 @@ namespace Software.Menu.Client
 {
     public class MenuClient : BaseClient
     {
+        public MenuClient() 
+        {
+        }
         public MenuClient(string cnpj) 
         {
             _httpClient.DefaultRequestHeaders.Add("cnpj", cnpj);
@@ -25,9 +28,9 @@ namespace Software.Menu.Client
             return false;
         }
 
-        public async Task<List<Order>> GetOrders()
+        public async Task<List<Order>> GetOrders(int comanda)
         {
-            HttpResponseMessage response = _httpClient.GetAsync("GetOrdersInTable").Result;
+            HttpResponseMessage response = _httpClient.GetAsync($"GetOrdersInTable/{comanda}").Result;
             var content = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions
             {

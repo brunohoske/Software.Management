@@ -10,13 +10,15 @@ namespace SystemManagement.Models
         public double Value { get; set; }
         public Category Category { get; set; }
         public Store Store { get; set; }
+        public double Kcal { get; set; }
+        public string Image { get; set; }
 
-        public ProductDao dao = new ProductDao();
+        //public ProductDao dao = new ProductDao();
 
-        public List<Product> GetProducts()
-        {
-            return dao.GetProducts(Store); 
-        }
+        //public List<Product> GetProducts()
+        //{
+        //    return dao.GetProducts(Store); 
+        //}
 
     }
 }

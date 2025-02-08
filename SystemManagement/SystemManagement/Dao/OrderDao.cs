@@ -80,7 +80,7 @@ namespace SystemManagement.DAO
                     Order order = new Order();
 
                     order.Id = Convert.ToInt32(reader["idorder"]);
-                    order.Products = GetOrderProduct(order);
+                    order.Products = GetOrderProduct(order,store);
                     order.Value = Convert.ToDouble(reader["total"]);
                     order.Table = new Table() { Store = store, TableNumber = Convert.ToInt32(reader["check_number"]) };
                     order.Date = Convert.ToDateTime(reader["order_date"]);
@@ -101,7 +101,7 @@ namespace SystemManagement.DAO
             }
         }
 
-        public List<Product> GetOrderProduct(Order order)
+        public List<Product> GetOrderProduct(Order order, Store store)
         {
             List<Product> products = new List<Product>();
             List<int> orderProducts = new List<int>();
@@ -115,10 +115,9 @@ namespace SystemManagement.DAO
                 }
 
                foreach (int i in orderProducts)
-                {
-                    ProductDao productDao = new ProductDao();
-                    products.Add(productDao.GetProductFromId(i));
-                }
+               {
+                    products.Add(ProductDao.GetProductFromId(i,store.Cnpj));
+               }
                 
                 return products;
             }
@@ -147,7 +146,7 @@ namespace SystemManagement.DAO
                     Order order = new Order();
 
                     order.Id = Convert.ToInt32(reader["idorder"]);
-                    order.Products = GetOrderProduct(o);
+                    order.Products = GetOrderProduct(order,store);
                     order.Value = Convert.ToDouble(reader["total"]);
                     order.Table = new Table() { Store = store, TableNumber = Convert.ToInt32(reader["check_number"]) };
                     order.Status = Convert.ToInt32(reader["order_status"]);

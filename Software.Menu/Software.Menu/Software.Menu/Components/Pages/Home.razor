@@ -1,4 +1,4 @@
-﻿@using Models;
+﻿@using Software.Menu.Models;
 @using System.Text.Json;
 @inject HttpClient _httpClient
 @inject NavigationManager nav
@@ -17,20 +17,21 @@
 
     Company Store = new Company();
 
-    public List<Product> Produtos { get; set; }
+    private List<Product> Produtos = new List<Product>();
 
-    public List<Product> ProductsInOrder = new List<Product>();
-    public List<Order> OrdersInCheck = new List<Order>();
-    public List<Category> Categories = new List<Category>();
+    private List<Product> ProductsInOrder = new List<Product>();
+    private List<Order> OrdersInCheck = new List<Order>();
+    private List<Category> Categories = new List<Category>();
 
-    public double total;
-    public double totalGeral;
+    private bool _isFirstRender = true;
+    private double total;
+    private double totalGeral;
 
-    public async Task CarregarProdutosAsync()
+    private async Task CarregarProdutosAsync()
     {
         Produtos = await GetProducts();
     }
-    public async Task GetCategories()
+    private async Task GetCategories()
     {
         Categories = await _client.GetCategories();
     }
@@ -38,10 +39,35 @@
     {
         ProductsInOrder.Add(produto);
     }
-
     private void CalculateTotalGeral()
     {
         totalGeral = OrdersInCheck.Sum(order => order.Value);
+    }
+    private void CloseOrder()
+    {
+        nav.NavigateTo($"Payment/{menu.Company.cnpj}/{Comanda}/Close");
+    }
+    private void RemoveProductFromOrder(Product product)
+    {
+        ProductsInOrder.Remove(product);
+    }
+    private async Task GoToProductPage(int id)
+    {
+        nav.NavigateTo($"{menu.Company.cnpj}/Product/{id}/{Comanda}");
+        await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(ProductsInOrder));
+    }
+    private async Task GetSessionCart()
+    {
+        var cartJson = await SessionStorage.GetAsync<string>("cart");
+        if(cartJson.Value != null)
+        {
+            List<Product> products = System.Text.Json.JsonSerializer.Deserialize<List<Product>>(cartJson.Value);
+            foreach (var product in products)
+            {
+                ProductsInOrder.Add(product);
+            }
+        }
+       
     }
     protected override async Task OnInitializedAsync()
     {
@@ -51,6 +77,7 @@
         Store = await GetCompanyFromCnpj(Cnpj);
         OrdersInCheck = await GetOrders();
         await GetCategories();
+       // await GetSessionCart();
 
 
         @if (Store.Name != string.Empty)
@@ -64,16 +91,14 @@
         CalculateTotalGeral();
 
     }
-
-
-    private void CloseOrder()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        nav.NavigateTo($"Payment/{menu.Company.cnpj}/{Comanda}/Close");
-    }
-
-    private void RemoveProductFromOrder(Product product)
-    {
-        ProductsInOrder.Remove(product);
+        if (firstRender)
+        {
+            await GetSessionCart();
+            _isFirstRender = false;
+            StateHasChanged();
+        }
     }
 
 }
@@ -98,12 +123,12 @@
             @foreach (var item in Produtos)
             {
                 <div class="product-card">
-                    <img src="/Images/hamburguer1.png" alt="Product Image" class="product-image" />
+                    <img @onclick="()=>GoToProductPage(item.Id)" src="/Images/hamburguer1.png" alt="Product Image" class="product-image" />
                     <div class="product-details">
                         <h4 class="product-name">@item.Name</h4>
                         <p class="product-description">@item.Description</p>
                         <div class="product-bottom">
-                            <span class="product-price">R$ @item.Value</span>
+                            <span class="product-price">R$ @item.Value.ToString("F2")</span>
                             <button class="add-to-cart" @onclick="() => AddProductToOrder(item)">Adicionar</button>
                         </div>
                     </div>
@@ -120,13 +145,13 @@
                 {
                     @if(item.Category.IdCategory == category.IdCategory)
                     {
-                        <div class="product-card">
+                        <div class="product-card"  @onclick="()=>GoToProductPage(item.Id)">
                             <img src="/Images/hamburguer1.png" alt="Product Image" class="product-image" />
                             <div class="product-details">
                                 <h4 class="product-name">@item.Name</h4>
                                 <p class="product-description">@item.Description</p>
                                 <div class="product-bottom">
-                                    <span class="product-price">R$ @item.Value</span>
+                                    <span class="product-price">R$ @item.Value.ToString("F2")</span>
                                     <button class="add-to-cart" @onclick="() => AddProductToOrder(item)">Adicionar</button>
                                 </div>
                             </div>
@@ -302,7 +327,7 @@
 
     public async Task<List<Order>> GetOrders()
     {
-        HttpResponseMessage response = _httpClient.GetAsync("GetOrdersInTable").Result;
+        HttpResponseMessage response = _httpClient.GetAsync($"GetOrdersInTable/{Comanda}").Result;
         var content = await response.Content.ReadAsStringAsync();
         var options = new JsonSerializerOptions
             {

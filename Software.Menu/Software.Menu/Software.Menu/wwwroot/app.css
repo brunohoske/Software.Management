@@ -79,14 +79,19 @@
     padding: 10px;
     flex-shrink: 0;
     width: 20%;
+    transition: transform .2s;
 }
+    .product-card:hover {
+        transform: scale(1.05)
+        
+    }
 
-.product-image {
-    width: 40%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
+    .product-image {
+        width: 40%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
 
 .product-details {
     text-align: left;

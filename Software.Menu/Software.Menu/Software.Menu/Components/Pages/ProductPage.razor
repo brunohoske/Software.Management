@@ -1,0 +1,97 @@
+﻿@page "/{Cnpj}/Product/{idProduct}/{TableNumber}"
+@using System.Text.Json
+
+@rendermode InteractiveServer
+@inject IJSRuntime js
+
+
+
+@code {
+    [Parameter]
+    public string Cnpj { get; set; } = null!;
+    [Parameter]
+    public string TableNumber { get; set; } = null!;
+    [Parameter]
+    public string idProduct { get; set; } = null!;
+    List<Ingredient> ingredients = new List<Ingredient>();
+    List<Product> ProductsInOrder = new List<Product>();
+    Product selectedProduct;
+    private bool _isFirstRender = true;
+
+    public Table Table { get; set; }
+
+
+    public async Task<Product> GetSelectedProduct(int id)
+    {
+        return await productClient.GetProductFromId(id);
+    }
+    private async Task GetSessionCart()
+    {
+        var cartJson = await SessionStorage.GetAsync<string>("cart");
+        if (cartJson.Value != null)
+        {
+            ProductsInOrder = System.Text.Json.JsonSerializer.Deserialize<List<Product>>(cartJson.Value);
+        }
+
+    }
+    private async Task AddProduct()
+    {
+        if (selectedProduct != null)
+        {
+            //productService.SaveCartToSession(new List<Product>() { selectedProduct });
+            ProductsInOrder.Add(selectedProduct);
+            await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(ProductsInOrder));
+
+        }
+        else
+        {
+            Console.WriteLine("selectedProduct is null");
+        }
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        
+        ingredientClient = new IngredientClient($"{Cnpj}");
+        productClient = new ProductClient($"{Cnpj}");
+        menuClient = new MenuClient($"{Cnpj}");
+        
+
+        ingredients = await ingredientClient.GetProductIngredients(int.Parse(idProduct), Cnpj);
+        selectedProduct = await GetSelectedProduct(int.Parse(idProduct));
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await GetSessionCart();
+            _isFirstRender = false;
+            StateHasChanged();
+        }
+    }
+
+   
+}
+
+<section>
+    <img src="@selectedProduct.Image" alt="@selectedProduct.Name" />
+    <h1>@selectedProduct.Name</h1>
+    <p>@selectedProduct.Description</p>
+    <p><strong>R$</strong> @selectedProduct.Value.ToString("F2")</p>
+    <p> @selectedProduct.Category</p>
+    <p> @selectedProduct.Kcal <strong> Kcal</strong></p>
+</section>
+
+<section id="ingredients">
+    @foreach (var ingredient in ingredients)
+    {
+        <div class="ingredient">
+            <input type="checkbox" id="@ingredient.IdIngredient" name="@ingredient.Name" value="@ingredient.Name" checked>
+            <label for="@ingredient.Name">@ingredient.Name</label>
+        </div>
+    }
+</section>
+
+<button @onclick="AddProduct">Adicionar</button>
+

@@ -8,6 +8,8 @@
         public double Value { get; set; }
         public Category Category { get; set; }
         public Company Store { get; set; }
+        public double Kcal { get; set; }
+        public string Image { get; set; }
 
     }
 }

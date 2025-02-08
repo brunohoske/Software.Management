@@ -10,3 +10,11 @@
 @using Software.Menu.Client
 @using Software.Menu.Components
 @using Software.Menu.Models
+@using Software.Menu.Services
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@inject ProtectedSessionStorage SessionStorage
+@inject MenuClient menuClient
+@inject IngredientClient ingredientClient
+@inject ProductClient productClient
+@inject ProductService productService
+

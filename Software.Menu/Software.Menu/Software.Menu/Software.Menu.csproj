@@ -30,6 +30,7 @@
     <PackageReference Include="mercadopago-sdk" Version="2.4.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.4" />
     <PackageReference Include="MySql.Data" Version="8.4.0" />
+    <PackageReference Include="ProtectedBrowserStorage.NETStandard" Version="1.1.2" />
   </ItemGroup>
 
 </Project>

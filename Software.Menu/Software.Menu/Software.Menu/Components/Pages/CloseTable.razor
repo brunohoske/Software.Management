@@ -23,7 +23,7 @@
     {
         List<Order> Orders = new List<Order>();
         _client = new MenuClient($"{Cnpj}");
-        Orders = await _client.GetOrders();
+        Orders = await _client.GetOrders(int.Parse(TableNumber));
 
         foreach (var order in Orders)
         {

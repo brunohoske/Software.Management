@@ -1,0 +1,183 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\dao\\productdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\dao\\productdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\dao\\orderdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\dao\\orderdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\dao\\basedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\dao\\basedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\dao\\ingrdientdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\dao\\ingrdientdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\models\\ingredient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\models\\ingredient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|d:\\meus arquivos\\visual studio\\software.management\\systemmanagement\\systemmanagement\\controllers\\ingredientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{113D0827-EBB3-4FFD-9294-79536385E0B9}|SystemManagement\\SystemManagement.csproj|solutionrelative:systemmanagement\\controllers\\ingredientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 302,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BaseDao.cs",
+              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\BaseDao.cs",
+              "RelativeDocumentMoniker": "SystemManagement\\Dao\\BaseDao.cs",
+              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\BaseDao.cs",
+              "RelativeToolTip": "SystemManagement\\Dao\\BaseDao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T23:06:51.531Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "SystemManagement\\Models\\Product.cs",
+              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Models\\Product.cs",
+              "RelativeToolTip": "SystemManagement\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T01:06:34.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "SystemManagement\\Controllers\\ProductController.cs",
+              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "SystemManagement\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAwwBQAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T01:05:40.499Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IngrdientDao.cs",
+              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\IngrdientDao.cs",
+              "RelativeDocumentMoniker": "SystemManagement\\Dao\\IngrdientDao.cs",
+              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\IngrdientDao.cs",
+              "RelativeToolTip": "SystemManagement\\Dao\\IngrdientDao.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAqwEEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T00:33:00.105Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Ingredient.cs",
+              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Models\\Ingredient.cs",
+              "RelativeDocumentMoniker": "SystemManagement\\Models\\Ingredient.cs",
+              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Models\\Ingredient.cs",
+              "RelativeToolTip": "SystemManagement\\Models\\Ingredient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T00:32:21.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "SystemManagement\\Controllers\\OrderController.cs",
+              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "SystemManagement\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwCYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T02:44:19.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Program.cs",
+              "RelativeDocumentMoniker": "SystemManagement\\Program.cs",
+              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Program.cs",
+              "RelativeToolTip": "SystemManagement\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T02:32:57.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductDao.cs",
+              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\ProductDao.cs",
+              "RelativeDocumentMoniker": "SystemManagement\\Dao\\ProductDao.cs",
+              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\ProductDao.cs",
+              "RelativeToolTip": "SystemManagement\\Dao\\ProductDao.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAgwDwAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T02:32:16.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrderDao.cs",
+              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\OrderDao.cs",
+              "RelativeDocumentMoniker": "SystemManagement\\Dao\\OrderDao.cs",
+              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Dao\\OrderDao.cs",
+              "RelativeToolTip": "SystemManagement\\Dao\\OrderDao.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAlwHYAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T02:32:09.265Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IngredientController.cs",
+              "DocumentMoniker": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Controllers\\IngredientController.cs",
+              "RelativeDocumentMoniker": "SystemManagement\\Controllers\\IngredientController.cs",
+              "ToolTip": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\SystemManagement\\SystemManagement\\Controllers\\IngredientController.cs",
+              "RelativeToolTip": "SystemManagement\\Controllers\\IngredientController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T01:05:36.369Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
