@@ -155,7 +155,7 @@
     "Parameters": [
       {
         "Name": "order",
-        "Type": "SystemManagement.Models.Order",
+        "Type": "SystemManagement.DTOs.OrderDTO",
         "IsRequired": true
       }
     ],

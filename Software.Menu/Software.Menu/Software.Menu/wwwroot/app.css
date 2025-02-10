@@ -80,6 +80,7 @@
     flex-shrink: 0;
     width: 20%;
     transition: transform .2s;
+    cursor:pointer;
 }
     .product-card:hover {
         transform: scale(1.05)

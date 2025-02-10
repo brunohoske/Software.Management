@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SystemManagement.Dao;
+using SystemManagement.DAO;
+using SystemManagement.DTOs;
 using SystemManagement.Models;
 
 namespace SystemManagement.Controllers
@@ -11,16 +13,14 @@ namespace SystemManagement.Controllers
         {
             List<Order> orders = new List<Order>();
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
-
-            Order order = new Order() { Store = new Store() { Cnpj = cnpj } };
-            orders = order.GetOrders();
+            orders = OrderDao.GetOrders(new Store() { Cnpj = cnpj });
             return Ok(orders);
         }
 
         [HttpPost("Orders")]
-        public IActionResult SendOrder([FromBody] Order order)
+        public IActionResult SendOrder([FromBody] OrderDTO order)
         {
-            order.CreateOrder();
+            OrderDao.CreateOrder(order);
             return Index();
         }
 
@@ -28,8 +28,7 @@ namespace SystemManagement.Controllers
         public IActionResult GetOrderNumber()
         {
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
-            Order order = new Order() { Store = new Store() { Cnpj = cnpj } };
-            int number = order.GetOrderNumber();
+            int number = OrderDao.GetOrderNumber(new Store() { Cnpj = cnpj });
 
             return Ok(number);
         }
@@ -40,9 +39,7 @@ namespace SystemManagement.Controllers
             List<Order> orders = new List<Order>();
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
             Store store = new Store() { Cnpj = cnpj };
-            Table table = new Table { TableNumber = comanda, Store = store };
-            Order order = new Order() { Store = store, Table = table };
-            orders = order.GetOrdersInTable();
+            orders = OrderDao.GetOrdersInTable(store,new Table { TableNumber = comanda, Store = store });
             return Ok(orders);
         }
 
@@ -50,7 +47,7 @@ namespace SystemManagement.Controllers
         public IActionResult CompleteOrder([FromBody] Order order)
         {
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
-            order.CompleteOrder();
+            OrderDao.CompleteOrder(order);
 
             return Ok();
         }

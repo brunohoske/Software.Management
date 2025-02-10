@@ -14,7 +14,7 @@ namespace SystemManagement.Dao
             try
             {
                 using var reader = fabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE CNPJ = {store.Cnpj}");
-                while (reader.Read())
+               while (reader.Read())
                 {
                     Product product = new Product();
 

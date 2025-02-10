@@ -1,18 +1,19 @@
 ﻿using MySql.Data.MySqlClient;
 using SystemManagement.Dao;
 using SystemManagement.Data;
+using SystemManagement.DTOs;
 using SystemManagement.Models;
 
 namespace SystemManagement.DAO
 {
-    public class OrderDao 
+    public static class OrderDao 
 
     {
 
-        MySqlConnection conexao = null;
-        ConnectionFabric fabric = new ConnectionFabric();
+        static MySqlConnection conexao = null;
+        static ConnectionFabric fabric = new ConnectionFabric();
 
-        public int GetOrderNumber(Store store)
+        public static int GetOrderNumber(Store store)
         {
             int number = 0;
             try
@@ -37,20 +38,46 @@ namespace SystemManagement.DAO
 
         }
 
-        public void CreateOrder(Order order)
+
+        public static int GetOrderNumber2(Store store)
+        {
+            int number = 0;
+            try
+            {
+                using var reader = fabric.ExecuteCommandReader($"SELECT IDORDER FROM ORDERS WHERE CNPJ = {store.Cnpj} ORDER BY IDORDER DESC LIMIT 1");
+                while (reader.Read())
+                {
+                    number = Convert.ToInt32(reader["IdOrder"]);
+                }
+
+                return number;
+            }
+
+            catch (Exception ex)
+            {
+                return 0;
+            }
+            finally
+            {
+                fabric.CloseConnection();
+            }
+
+        }
+
+        public static void CreateOrder(OrderDTO order)
         {
             try
             {
-                order.Id = GetOrderNumber(order.Store);
                 string dt = order.Date.ToString("yyyy-MM-dd HH:mm:ss");
                 conexao = fabric.Connect();
                 var command = conexao.CreateCommand();
-                command.CommandText = $"Insert into Orders(idorder,cnpj,total,order_date,check_number,order_active,order_status) Values({order.Id},'{order.Store.Cnpj}',{order.Value},'{dt}',{order.Table.TableNumber},1,1)";
+                command.CommandText = $"Insert into Orders(cnpj,total,order_date,check_number,order_active,order_status) Values('{order.Store.Cnpj}',{order.Value},'{dt}',{order.Table.TableNumber},1,1)";
 
                 command.ExecuteNonQuery();
+                order.Id = GetOrderNumber2(order.Store);
                 for (int i = 0;i < order.Products.Count;i++)
                 {
-                    command.CommandText = $"INSERT INTO order_details(idorder,cnpj,idproduct,item,check_number,price,order_date) VALUES({order.Id},'{order.Store.Cnpj}',{order.Products[i].Id} ,{i+1},{order.Table.TableNumber},{order.Products[i].Value},'{dt}')";
+                    command.CommandText = $"INSERT INTO order_details(idorder,cnpj,idproduct,item,check_number,price,order_date,note) VALUES({order.Id},'{order.Store.Cnpj}',{order.Products[i].Id} ,{i + 1},{order.Table.TableNumber},{order.Products[i].Value},'{dt}','{order.Products[i].Note}')";
                     command.ExecuteNonQuery();
 
                 }
@@ -67,7 +94,7 @@ namespace SystemManagement.DAO
             }
         }
 
-        public List<Order> GetOrders(Store store)
+        public static List<Order> GetOrders(Store store)
         {
             List<Order> orders = new List<Order>();
 
@@ -101,7 +128,7 @@ namespace SystemManagement.DAO
             }
         }
 
-        public List<Product> GetOrderProduct(Order order, Store store)
+        public static List<Product> GetOrderProduct(Order order, Store store)
         {
             List<Product> products = new List<Product>();
             List<int> orderProducts = new List<int>();
@@ -132,7 +159,7 @@ namespace SystemManagement.DAO
         }
 
 
-        public List<Order> GetOrdersInTable(Store store, Table t)
+        public static List<Order> GetOrdersInTable(Store store, Table t)
         {
             List<Order> orders = new List<Order>();
 
@@ -166,7 +193,7 @@ namespace SystemManagement.DAO
             }
         }
 
-        public int CompleteOrder(Order order) 
+        public static int CompleteOrder(Order order) 
         {
 
             try

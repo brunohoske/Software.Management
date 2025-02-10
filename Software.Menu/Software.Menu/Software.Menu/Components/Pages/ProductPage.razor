@@ -14,7 +14,9 @@
     [Parameter]
     public string idProduct { get; set; } = null!;
     List<Ingredient> ingredients = new List<Ingredient>();
-    List<Product> ProductsInOrder = new List<Product>();
+    List<ItemCart> Cart = new List<ItemCart>();
+    List<string> notes = new List<string>();
+    int quantity = 1;
     Product selectedProduct;
     private bool _isFirstRender = true;
 
@@ -30,17 +32,24 @@
         var cartJson = await SessionStorage.GetAsync<string>("cart");
         if (cartJson.Value != null)
         {
-            ProductsInOrder = System.Text.Json.JsonSerializer.Deserialize<List<Product>>(cartJson.Value);
+            Cart = System.Text.Json.JsonSerializer.Deserialize<List<ItemCart>>(cartJson.Value);
         }
 
     }
     private async Task AddProduct()
     {
         if (selectedProduct != null)
-        {
-            //productService.SaveCartToSession(new List<Product>() { selectedProduct });
-            ProductsInOrder.Add(selectedProduct);
-            await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(ProductsInOrder));
+        {;
+            Cart.Add(new ItemCart()
+            {
+                Product = selectedProduct,
+                Store = new Company() { Cnpj = Cnpj },
+                Table = new Table() { TableNumber = int.Parse(TableNumber) },
+                Quantity = quantity,
+                Notes = notes
+            });
+            await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+            nav.NavigateTo($"/{Cnpj}/CARDAPIO/M{TableNumber}");
 
         }
         else
@@ -49,7 +58,35 @@
         }
     }
 
+    private async Task AddNote(string note, bool isIngredient)
+    {
+        notes.Add(note);
 
+    }
+    private async Task RemoveNote(string note)
+    {
+        notes.Remove(note);
+    }
+    private async Task IncrementItem()
+    {
+        quantity++; StateHasChanged();
+    }
+    private async Task DecrementItem()
+    {
+        quantity--; StateHasChanged();
+    }
+
+    private void ChangeIngredient(string note, bool isChecked)
+    {
+        if (!isChecked)
+        {
+            notes.Add("Sem " + note+"\n");
+        }
+        else
+        {
+            notes.Remove("Sem " + note + "\n");
+        }
+    }
     protected override async Task OnInitializedAsync()
     {
         
@@ -87,11 +124,22 @@
     @foreach (var ingredient in ingredients)
     {
         <div class="ingredient">
-            <input type="checkbox" id="@ingredient.IdIngredient" name="@ingredient.Name" value="@ingredient.Name" checked>
+            <input @onchange="(e) => ChangeIngredient(ingredient.Name, e.Value != null && (bool)e.Value)" type="checkbox" id="@ingredient.IdIngredient" name="@ingredient.Name" value="@ingredient.Name" checked>
+
             <label for="@ingredient.Name">@ingredient.Name</label>
         </div>
     }
 </section>
 
-<button @onclick="AddProduct">Adicionar</button>
+<div style="display: flex; flex-direction:row">
+
+    <button @onclick="DecrementItem">-</button>
+    <input type="number" value="@quantity" />
+    <button @onclick="IncrementItem">+</button>
+
+</div>
+<div>
+    <button @onclick="AddProduct">Adicionar</button>
+</div>
+
 
