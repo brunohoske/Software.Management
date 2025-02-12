@@ -109,6 +109,12 @@
     font-size: 0.9rem;
     color: #777;
     margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita a 2 linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 44px;
 }
 
 .product-price {
@@ -183,6 +189,19 @@
     color: #333;
     text-align: right;
     margin-top: 10px;
+}
+
+.quantity-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 67px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .btn-submit-order {

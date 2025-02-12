@@ -7,9 +7,7 @@
         public string Description { get; set; }
         public string Cnpj {  get; set; }
 
-        public Ingredient()
-        {
-        }
+        public Ingredient(){}
 
         public Ingredient(int idIngredient, string name, string description, string cnpj)
         {

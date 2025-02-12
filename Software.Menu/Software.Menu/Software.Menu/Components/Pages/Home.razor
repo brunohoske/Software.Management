@@ -138,7 +138,7 @@
                         <p class="product-description">@item.Description</p>
                         <div class="product-bottom">
                             <span class="product-price">R$ @item.Value.ToString("F2")</span>
-                            <button class="add-to-cart" @onclick="() => AddProductToOrder(item)">Adicionar</button>
+                            <button class="add-to-cart">Adicionar</button>
                         </div>
                     </div>
                 </div>
@@ -161,7 +161,7 @@
                                 <p class="product-description">@item.Description</p>
                                 <div class="product-bottom">
                                     <span class="product-price">R$ @item.Value.ToString("F2")</span>
-                                    <button class="add-to-cart" @onclick="() => AddProductToOrder(item)">Adicionar</button>
+                                    <button class="add-to-cart">Adicionar</button>
                                 </div>
                             </div>
                         </div>
@@ -181,9 +181,9 @@
             {
                 <div class="cart-item">
                     <span class="cart-item-name">@item.Product.Name</span>
-                    <button @onclick="()=>DecrementItem(item)">-</button>
-                    <span class="">X.@item.Quantity </span>
-                    <button @onclick="()=>IncrementItem(item)">+</button>
+                    <button class="quantity-btn" @onclick="()=>DecrementItem(item)">-</button>
+                    <span class="">x.@item.Quantity </span>
+                    <button class="quantity-btn" @onclick="()=>IncrementItem(item)">+</button>
                     <span class="cart-item-price">R$@(item.Product.Value * item.Quantity)</span>
                     @if(item.GetNote() != "")
                     {
