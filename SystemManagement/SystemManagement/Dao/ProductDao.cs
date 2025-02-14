@@ -59,6 +59,7 @@ namespace SystemManagement.Dao
                         product.Store = new Store() { Cnpj = reader["cnpj"].ToString() };
                         product.Kcal = Convert.ToDouble(reader["kcal"]);
                         product.Image = reader["image"].ToString();
+                        product.Category = new Category() { IdCategory = int.Parse(reader["IDCATEGORY"].ToString()) };
                     }
                 }
                 else

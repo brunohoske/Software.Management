@@ -184,7 +184,8 @@
                     <button class="quantity-btn" @onclick="()=>DecrementItem(item)">-</button>
                     <span class="">x.@item.Quantity </span>
                     <button class="quantity-btn" @onclick="()=>IncrementItem(item)">+</button>
-                    <span class="cart-item-price">R$@(item.Product.Value * item.Quantity)</span>
+                    @* <span class="cart-item-price">R$@(item.Product.Value * item.Quantity)</span> *@
+                    <span class="cart-item-price">R$@(item.GetPrice() )</span>
                     @if(item.GetNote() != "")
                     {
                         <span class="cart-item-notes">Observações: @item.GetNote()</span>
@@ -194,7 +195,7 @@
 
                 </div>
             }
-            <h4 class="cart-total">Total: R$ @Cart.Sum(p => p.Product.Value * p.Quantity)</h4>
+            <h4 class="cart-total">Total: R$ @Cart.Sum(p => p.GetPrice())</h4>
             <button class="btn-submit-order" @onclick="() => SubmitOrder(Cart)">Finalizar Pedido</button>
         }
         else
@@ -264,8 +265,17 @@
                 for (int i = 0; i < item.Quantity; i++)
                 {
                     productsDTO.Add(new ProductDTO() { Id = item.Product.Id, Name = item.Product.Name, Value = item.Product.Value, Category = item.Product.Category, Store = item.Product.Store, Image = item.Product.Image, Note = item.GetNote() });
+                    foreach (var acomp in item.Acompanhamentos)
+                    {
+                        for(int index = 0; index < acomp.Quantity; index++)
+                        {
+                            productsDTO.Add(new ProductDTO() { Id = acomp.Product.Id, Name = acomp.Product.Name, Value = acomp.Product.Value, Category = acomp.Product.Category, Store = acomp.Store, Image = acomp.Product.Image, Note = "" });
+                        }
+                        
+                    }
                 }
-                total += item.Product.Value * item.Quantity;
+
+                total += item.GetPrice();
             }
 
             Order order = new Order()

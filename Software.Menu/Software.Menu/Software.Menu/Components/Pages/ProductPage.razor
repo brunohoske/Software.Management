@@ -15,7 +15,8 @@
     public string idProduct { get; set; } = null!;
     List<Ingredient> ingredients = new List<Ingredient>();
     List<Product> selectedAcomps = new List<Product>();
-    List<Product> acomps = new List<Product>();
+    ItemCart itemCart = new ItemCart();
+    List<ItemCart> acomps = new List<ItemCart>();
     List<ItemCart> Cart = new List<ItemCart>();
     List<string> notes = new List<string>();
     int quantity = 1;
@@ -23,6 +24,8 @@
     private bool _isFirstRender = true;
 
     public Table Table { get; set; }
+
+    double total;
 
 
     public async Task<Product> GetSelectedProduct(int id)
@@ -42,17 +45,24 @@
     {
         if (selectedProduct != null)
         {;
-            Cart.Add(new ItemCart()
-            {
-                Product = selectedProduct,
-                Store = new Company() { Cnpj = Cnpj },
-                Table = new Table() { TableNumber = int.Parse(TableNumber) },
-                Quantity = quantity,
-                Acompanhamentos = acomps,
-                Notes = notes
+            itemCart.Product = selectedProduct;
+            itemCart.Quantity = quantity;
+            itemCart.Acompanhamentos = acomps;
+            itemCart.Notes = notes;
+            itemCart.Store = new Company() { Cnpj = Cnpj };
+            itemCart.Table = new Table() { TableNumber = int.Parse(TableNumber) };
+            Cart.Add(itemCart);
+            // Cart.Add(new ItemCart()
+            // {
+            //     Product = selectedProduct,
+            //     Store = new Company() { Cnpj = Cnpj },
+            //     Table = new Table() { TableNumber = int.Parse(TableNumber) },
+            //     Quantity = quantity,
+            //     Acompanhamentos = acomps,
+            //     Notes = notes
 
 
-            });
+            // });
             await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
             nav.NavigateTo($"/{Cnpj}/CARDAPIO/M{TableNumber}#cart");
 
@@ -80,16 +90,41 @@
     {
         if(quantity> 1)quantity--; StateHasChanged();
     }
-    private async Task AddAcompanhamento(Product product, bool isChecked)
+    private async Task AddAcompanhamento(ItemCart item)
     {
-        if (!isChecked)
+        var existingItem = acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id);
+
+        if (existingItem != null)
         {
-            acomps.Add(product);
+            existingItem.Quantity++;
         }
         else
         {
-            acomps.Remove(product);
+            item.Quantity = 1; 
+            acomps.Add(item);
         }
+
+        StateHasChanged();
+    }
+
+    private async Task RemoveAcompanhamento(ItemCart item)
+    {
+        var existingItem = acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id);
+
+        if(existingItem != null)
+        {
+            if (existingItem.Quantity > 1)
+            {
+                existingItem.Quantity--;
+            }
+            else
+            {
+                acomps.Remove(item);
+            }
+        }
+       
+
+        StateHasChanged();
     }
 
     private void ChangeIngredient(string note, bool isChecked)
@@ -110,17 +145,16 @@
         productClient = new ProductClient($"{Cnpj}");
         menuClient = new MenuClient($"{Cnpj}");
 
-
-
         ingredients = await ingredientClient.GetProductIngredients(int.Parse(idProduct), Cnpj);
         selectedProduct = await GetSelectedProduct(int.Parse(idProduct));
-        acomps = await productClient.GetAcompanhamentos(int.Parse(idProduct));
+        selectedAcomps = await productClient.GetAcompanhamentos(int.Parse(idProduct));
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await GetSessionCart();
+
             _isFirstRender = false;
             StateHasChanged();
         }
@@ -142,7 +176,7 @@
     @foreach (var ingredient in ingredients)
     {
         <div class="ingredient">
-            <input @onchange="(e) => ChangeIngredient(ingredient.Name, e.Value != null && (bool)e.Value)" type="checkbox" id="@ingredient.IdIngredient" name="@ingredient.Name" value="@ingredient.Name" checked>
+            <input @onchange="(e) => ChangeIngredient(ingredient.Name, e.Value != null && (bool)e.Value)" type="checkbox" id="@ingredient.IdIngredient" name="@ingredient.Name" value="@ingredient.Name">
 
             <label for="@ingredient.Name">@ingredient.Name</label>
         </div>
@@ -152,9 +186,18 @@
 <div class="acomp-container">
     @foreach (var acomp in selectedAcomps)
     {
-        <p>@acomp.Name</p>
+        ItemCart item = new ItemCart()
+        {
+            Product = acomp,
+            Table = new Table() { TableNumber = int.Parse(TableNumber) },
+            Store = new Company() { Cnpj = Cnpj }
+
+        };
+        <p>@item.Product.Name</p>
         <p>@acomp.Value</p>
-        <input @onchange="(e) => AddAcompanhamento(acomp, e.Value != null && (bool)e.Value)" type="checkbox" id="@acomp.Id" name="@acomp.Name" value="@acomp.Name" checked>
+        <button @onclick="() => { item.DecrementQuantity(); RemoveAcompanhamento(item); StateHasChanged();}">-</button>
+        <input type="text" value="@(acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id) == null ? 0 : acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id).Quantity)" disabled class="quantity-input" />
+        <button @onclick="() => { item.IncrementQuantity(); AddAcompanhamento(item);StateHasChanged(); }">+</button>
     }
 </div>
 
@@ -163,12 +206,13 @@
 <div class="product-container">
     <div class="quantity-price-wrapper">
         <div class="quantity-container">
-            <button @onclick="DecrementItem" class="quantity-btn">-</button>
+            <button @onclick="DecrementItem"  class="quantity-btn">-</button>
             <input type="text" value="@quantity" disabled class="quantity-input" />
             <button @onclick="IncrementItem" class="quantity-btn">+</button>
         </div>
         <div class="price-container">
-            <p>Total: <strong>R$@((selectedProduct.Value * quantity).ToString("F2"))</strong></p>
+            <!--<p>Total: <strong>R$@((selectedProduct.Value * quantity).ToString("F2"))</strong></p>-->
+            <p>Total: <strong>R$@((selectedProduct.Value * quantity) +  (acomps.Sum(t => t.GetPrice())))</strong></p>
         </div>
     </div>
     <div class="add-to-cart-container">
