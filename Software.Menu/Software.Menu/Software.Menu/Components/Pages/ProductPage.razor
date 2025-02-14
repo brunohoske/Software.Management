@@ -113,7 +113,7 @@
 
         if(existingItem != null)
         {
-            if (existingItem.Quantity > 1)
+            if (existingItem.Quantity >= 1)
             {
                 existingItem.Quantity--;
             }
@@ -176,7 +176,7 @@
     @foreach (var ingredient in ingredients)
     {
         <div class="ingredient">
-            <input @onchange="(e) => ChangeIngredient(ingredient.Name, e.Value != null && (bool)e.Value)" type="checkbox" id="@ingredient.IdIngredient" name="@ingredient.Name" value="@ingredient.Name">
+            <input checked @onchange="(e) => ChangeIngredient(ingredient.Name, e.Value != null && (bool)e.Value)" type="checkbox" id="@ingredient.IdIngredient" name="@ingredient.Name" value="@ingredient.Name">
 
             <label for="@ingredient.Name">@ingredient.Name</label>
         </div>
@@ -184,21 +184,34 @@
 </section>
 
 <div class="acomp-container">
-    @foreach (var acomp in selectedAcomps)
-    {
-        ItemCart item = new ItemCart()
+    <h2 style="text-align: center;">Acompanhamentos</h2>
+    <div class="cateogory-acomp">
+        @foreach (var acomp in selectedAcomps)
         {
-            Product = acomp,
-            Table = new Table() { TableNumber = int.Parse(TableNumber) },
-            Store = new Company() { Cnpj = Cnpj }
+            ItemCart item = new ItemCart()
+                {
+                    Product = acomp,
+                    Table = new Table() { TableNumber = int.Parse(TableNumber) },
+                    Store = new Company() { Cnpj = Cnpj }
 
-        };
-        <p>@item.Product.Name</p>
-        <p>@acomp.Value</p>
-        <button @onclick="() => { item.DecrementQuantity(); RemoveAcompanhamento(item); StateHasChanged();}">-</button>
-        <input type="text" value="@(acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id) == null ? 0 : acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id).Quantity)" disabled class="quantity-input" />
-        <button @onclick="() => { item.IncrementQuantity(); AddAcompanhamento(item);StateHasChanged(); }">+</button>
-    }
+                };
+
+            <div class="acomp-item"> 
+                <div class="acomp-item-infos">
+                    <span class="acomp-item-name">@item.Product.Name</span>
+                    <span class="acomp-item-price">+ R$@(item.Product.Value.ToString("F2"))</span>
+                </div>
+                <div class="acomp-item-quantity">
+                    <button @onclick="() => { item.DecrementQuantity(); RemoveAcompanhamento(item); StateHasChanged();}">-</button>
+                    <input type="text" value="@(acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id) == null ? 0 : acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id).Quantity)" disabled class="quantity-input" />
+                    <button @onclick="() => { item.IncrementQuantity(); AddAcompanhamento(item);StateHasChanged(); }">+</button>
+                </div>
+                
+            </div>
+        }
+
+    </div>
+   
 </div>
 
 
@@ -212,13 +225,15 @@
         </div>
         <div class="price-container">
             <!--<p>Total: <strong>R$@((selectedProduct.Value * quantity).ToString("F2"))</strong></p>-->
-            <p>Total: <strong>R$@((selectedProduct.Value * quantity) +  (acomps.Sum(t => t.GetPrice())))</strong></p>
+            <p><strong>R$@((selectedProduct.Value * quantity) +  (acomps.Sum(t => t.GetPrice())))</strong></p>
+        </div>
+        <div class="add-to-cart-container">
+            <button @onclick="AddProduct" class="add-to-cart-btn">Adicionar</button>
         </div>
     </div>
-    <div class="add-to-cart-container">
-        <button @onclick="AddProduct" class="add-to-cart-btn">Adicionar</button>
-    </div>
+
 </div>
+
 
 
 

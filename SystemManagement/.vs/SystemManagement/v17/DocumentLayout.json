@@ -86,8 +86,7 @@
               "RelativeToolTip": "SystemManagement\\Controllers\\CheckController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T03:17:23.483Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T03:17:23.483Z"
             },
             {
               "$type": "Document",
@@ -99,8 +98,7 @@
               "RelativeToolTip": "SystemManagement\\Controllers\\CategoryController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T03:17:21.327Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T03:17:21.327Z"
             },
             {
               "$type": "Document",
@@ -112,8 +110,7 @@
               "RelativeToolTip": "SystemManagement\\Controllers\\BaseController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T03:17:20.681Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T03:17:20.681Z"
             },
             {
               "$type": "Document",
@@ -125,8 +122,7 @@
               "RelativeToolTip": "SystemManagement\\Models\\Ingredient.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T00:32:21.04Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-07T00:32:21.04Z"
             },
             {
               "$type": "Document",
@@ -151,8 +147,7 @@
               "RelativeToolTip": "SystemManagement\\Controllers\\ProductController.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAWwCYAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T01:05:40.499Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-07T01:05:40.499Z"
             },
             {
               "$type": "Document",
@@ -164,8 +159,7 @@
               "RelativeToolTip": "SystemManagement\\Dao\\OrderDao.cs",
               "ViewState": "AgIAAEkAAAAAAAAAAAAnwFAAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T02:32:09.265Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-06T02:32:09.265Z"
             },
             {
               "$type": "Document",
@@ -177,8 +171,7 @@
               "RelativeToolTip": "SystemManagement\\Dao\\IngrdientDao.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAnwEMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T00:33:00.105Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-07T00:33:00.105Z"
             },
             {
               "$type": "Document",
@@ -190,8 +183,7 @@
               "RelativeToolTip": "SystemManagement\\Models\\Order.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAwwA4AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T19:09:11.242Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-08T19:09:11.242Z"
             },
             {
               "$type": "Document",
@@ -203,8 +195,7 @@
               "RelativeToolTip": "SystemManagement\\DTOs\\ProductDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T19:32:33.646Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-08T19:32:33.646Z"
             },
             {
               "$type": "Document",
@@ -216,8 +207,7 @@
               "RelativeToolTip": "SystemManagement\\Controllers\\OrderController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T02:44:19.809Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-06T02:44:19.809Z"
             },
             {
               "$type": "Document",
@@ -229,8 +219,7 @@
               "RelativeToolTip": "SystemManagement\\DTOs\\OrderDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T19:32:40.434Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-08T19:32:40.434Z"
             },
             {
               "$type": "Document",
@@ -242,8 +231,7 @@
               "RelativeToolTip": "SystemManagement\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T02:32:57.165Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-06T02:32:57.165Z"
             },
             {
               "$type": "Document",
@@ -255,8 +243,7 @@
               "RelativeToolTip": "SystemManagement\\Models\\Product.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T01:06:34.035Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-07T01:06:34.035Z"
             },
             {
               "$type": "Document",
@@ -268,8 +255,7 @@
               "RelativeToolTip": "SystemManagement\\Dao\\BaseDao.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T23:06:51.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-07T23:06:51.531Z"
             },
             {
               "$type": "Document",
@@ -281,8 +267,7 @@
               "RelativeToolTip": "SystemManagement\\Controllers\\IngredientController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T01:05:36.369Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-07T01:05:36.369Z"
             }
           ]
         }

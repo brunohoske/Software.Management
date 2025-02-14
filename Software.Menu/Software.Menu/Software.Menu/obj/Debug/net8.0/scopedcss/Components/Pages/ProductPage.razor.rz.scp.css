@@ -68,11 +68,17 @@ button[b-608hvjij9b] {
 
 .product-container[b-608hvjij9b] {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 15px;
     margin-top: 15px;
+    position: fixed;
+    z-index: 100;
+    top: 10px;
+    right: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: #f9f9f9;
 }
 
 .quantity-price-wrapper[b-608hvjij9b] {
@@ -122,27 +128,56 @@ button[b-608hvjij9b] {
     font-size: 18px;
     font-weight: bold;
     color: #333;
+    margin-top: 15px;
 }
 
 .add-to-cart-container[b-608hvjij9b] {
     text-align: center;
-    margin-top: 10px;
 }
 
 .add-to-cart-btn[b-608hvjij9b] {
-    width: 80%;
+    width: 95%;
     max-width: 300px;
     background-color: #ea684b;
     color: #fff;
     border: none;
     padding: 12px;
-    font-size: 18px;
-    border-radius: 10px;
+    font-size: 16px;
+    border-radius: 13px;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
+    height: 50px;
 }
 
     .add-to-cart-btn:hover[b-608hvjij9b] {
         background-color: #bf684b;
         transform: scale(1.05);
     }
+
+.acomp-item[b-608hvjij9b] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.acomp-item-name[b-608hvjij9b] {
+    flex: 1;
+    font-weight: bold;
+}
+
+.acomp-item-price[b-608hvjij9b] {
+    color: #ea684b;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.acomp-item-infos[b-608hvjij9b] {
+    display: flex;
+    flex-direction: column;
+}
+
+.acomp-item-quantity[b-608hvjij9b] {
+    display: flex;
+    gap: 10px;
+}
