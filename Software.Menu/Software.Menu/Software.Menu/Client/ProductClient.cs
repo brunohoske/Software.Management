@@ -37,5 +37,19 @@ namespace Software.Menu.Client
             Product product = System.Text.Json.JsonSerializer.Deserialize<Product>(content, options);
             return product;
         }
+
+        public async Task<List<Product>> GetAcompanhamentos(int id)
+        {
+            HttpResponseMessage response = _httpClient.GetAsync($"Product/{id}/Acompanhamentos").Result;
+            var content = await response.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+            List<Product> acompanhamentos = JsonSerializer.Deserialize<List<Product>>(content, options);
+            return acompanhamentos;
+
+        }
+
     }
 }

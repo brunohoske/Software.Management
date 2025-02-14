@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System.Globalization;
 using SystemManagement.Data;
 using SystemManagement.Models;
 
@@ -78,5 +79,28 @@ namespace SystemManagement.Dao
             }
         }
 
+        public static List<Product> GetAcompanhamentos(int id, string cnpj)
+        {
+            try
+            {
+                Product product = GetProductFromId(id, cnpj);
+                using var reader = fabric.ExecuteCommandReader($"SELECT Product,Acompanhamento\r\nFROM products_acompanhamentos pa\r\nJOIN products p ON p.CNPJ = pa.CNPJ\r\nAND PRODUCT = IDPRODUCT\r\nWHERE PRODUCT = {product.Id}\r\nAND p.CNPJ = '{cnpj}'");
+
+                List<Product> acompanhamentos = new List<Product>();
+                if (reader != null)
+                {
+                    while (reader.Read())
+                    {
+                        int acompanhamento = int.Parse(reader["Acompanhamento"].ToString());
+
+                        acompanhamentos.Add(GetProductFromId(acompanhamento, cnpj));
+                    }
+                    return acompanhamentos;
+                }
+
+                return new List<Product>();
+            }
+            catch { return new List<Product>(); }
+        }
     }
 }

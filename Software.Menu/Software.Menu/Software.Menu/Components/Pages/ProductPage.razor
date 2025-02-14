@@ -14,6 +14,8 @@
     [Parameter]
     public string idProduct { get; set; } = null!;
     List<Ingredient> ingredients = new List<Ingredient>();
+    List<Product> selectedAcomps = new List<Product>();
+    List<Product> acomps = new List<Product>();
     List<ItemCart> Cart = new List<ItemCart>();
     List<string> notes = new List<string>();
     int quantity = 1;
@@ -46,7 +48,10 @@
                 Store = new Company() { Cnpj = Cnpj },
                 Table = new Table() { TableNumber = int.Parse(TableNumber) },
                 Quantity = quantity,
+                Acompanhamentos = acomps,
                 Notes = notes
+
+
             });
             await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
             nav.NavigateTo($"/{Cnpj}/CARDAPIO/M{TableNumber}#cart");
@@ -75,6 +80,17 @@
     {
         if(quantity> 1)quantity--; StateHasChanged();
     }
+    private async Task AddAcompanhamento(Product product, bool isChecked)
+    {
+        if (!isChecked)
+        {
+            acomps.Add(product);
+        }
+        else
+        {
+            acomps.Remove(product);
+        }
+    }
 
     private void ChangeIngredient(string note, bool isChecked)
     {
@@ -89,14 +105,16 @@
     }
     protected override async Task OnInitializedAsync()
     {
-        
+
         ingredientClient = new IngredientClient($"{Cnpj}");
         productClient = new ProductClient($"{Cnpj}");
         menuClient = new MenuClient($"{Cnpj}");
-        
+
+
 
         ingredients = await ingredientClient.GetProductIngredients(int.Parse(idProduct), Cnpj);
         selectedProduct = await GetSelectedProduct(int.Parse(idProduct));
+        acomps = await productClient.GetAcompanhamentos(int.Parse(idProduct));
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -130,6 +148,17 @@
         </div>
     }
 </section>
+
+<div class="acomp-container">
+    @foreach (var acomp in selectedAcomps)
+    {
+        <p>@acomp.Name</p>
+        <p>@acomp.Value</p>
+        <input @onchange="(e) => AddAcompanhamento(acomp, e.Value != null && (bool)e.Value)" type="checkbox" id="@acomp.Id" name="@acomp.Name" value="@acomp.Name" checked>
+    }
+</div>
+
+
 
 <div class="product-container">
     <div class="quantity-price-wrapper">

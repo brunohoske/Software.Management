@@ -178,6 +178,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SystemManagement.Controllers.ProductController",
+    "Method": "GetAcompanhamentos",
+    "RelativePath": "Product/{id}/Acompanhamentos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SystemManagement.Controllers.IngredientController",
     "Method": "GetProductIngredients",
     "RelativePath": "ProductIngredients/{idProduct}",

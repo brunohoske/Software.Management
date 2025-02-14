@@ -24,6 +24,20 @@ namespace SystemManagement.Controllers
             Product product =  ProductDao.GetProductFromId(id,cnpj);
             return Ok(product);
         }
+        [HttpGet("Product/{id}/Acompanhamentos")]
+        public IActionResult GetAcompanhamentos(int id)
+        {
+            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
+            try
+            {
+                return Ok(ProductDao.GetAcompanhamentos(id, cnpj));
+            }
+            catch
+            {
+                return BadRequest();
+            }
+            
+        }
 
     }
 }

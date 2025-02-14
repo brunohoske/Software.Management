@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fztP1BbTJ6k=",
+  "dgSpecHash": "qnbJB5yBjpA=",
   "success": true,
-  "projectFilePath": "D:\\Meus arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
+  "projectFilePath": "C:\\Meus Arquivos\\Visual Studio\\Software.Management\\Software.Menu\\Software.Menu\\Software.Menu\\Software.Menu.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bruno\\.nuget\\packages\\blazored.localstorage\\2.1.6\\blazored.localstorage.2.1.6.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\blazored.sessionstorage\\1.0.12\\blazored.sessionstorage.1.0.12.nupkg.sha512",
