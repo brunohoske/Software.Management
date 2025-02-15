@@ -63,7 +63,7 @@
                     item.Store = new Company() { Cnpj = Cnpj };
                     item.Table = new Table() { TableNumber = int.Parse(TableNumber) };
                     Cart.Add(item);
-            }
+                }
 
             await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
             nav.NavigateTo($"/{Cnpj}/CARDAPIO/M{TableNumber}#cart");
