@@ -264,12 +264,16 @@
             {
                 for (int i = 0; i < item.Quantity; i++)
                 {
-                    productsDTO.Add(new ProductDTO() { Id = item.Product.Id, Name = item.Product.Name, Value = item.Product.Value, Category = item.Product.Category, Store = item.Product.Store, Image = item.Product.Image, Note = item.GetNote() });
+                    var productDto = mapper.Map<ProductDTO>(item.Product);
+                    productDto.Note = item.GetNote();
+                    productsDTO.Add(productDto);
                     foreach (var acomp in item.Acompanhamentos)
                     {
                         for(int index = 0; index < acomp.Quantity; index++)
                         {
-                            productsDTO.Add(new ProductDTO() { Id = acomp.Product.Id, Name = acomp.Product.Name, Value = acomp.Product.Value, Category = acomp.Product.Category, Store = acomp.Store, Image = acomp.Product.Image, Note = "" });
+                            var acompanhamentoDto = mapper.Map<ProductDTO>(acomp.Product);
+                            acompanhamentoDto.Note = "";
+                            productsDTO.Add(acompanhamentoDto);
                         }
                         
                     }

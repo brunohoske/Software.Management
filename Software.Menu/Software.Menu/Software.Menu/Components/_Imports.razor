@@ -1,5 +1,6 @@
 ﻿@using System.Net.Http
 @using System.Net.Http.Json
+@using AutoMapper
 @using Microsoft.AspNetCore.Components.Forms
 @using Microsoft.AspNetCore.Components.Routing
 @using Microsoft.AspNetCore.Components.Web
@@ -14,9 +15,11 @@
 @using Software.Menu.Services
 @using Software.Menu.DTOs;
 @using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+
 @inject ProtectedSessionStorage SessionStorage
 @inject MenuClient menuClient
 @inject IngredientClient ingredientClient
 @inject ProductClient productClient
 @inject ProductService productService
 @inject NavigationManager nav
+@inject IMapper mapper

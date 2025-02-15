@@ -2,6 +2,7 @@ using Software.Menu.Client;
 using Software.Menu.Components;
 using Software.Menu.Services;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+using Software.Menu.Profiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +25,8 @@ builder.Services.AddScoped(sp =>
 builder.Services.AddScoped<MenuClient>();
 builder.Services.AddScoped<IngredientClient>();
 builder.Services.AddScoped<ProductClient>();
-
+builder.Services.AddAutoMapper(typeof(ProductProfile));
+builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
