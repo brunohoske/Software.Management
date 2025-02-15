@@ -23,6 +23,8 @@
     Product selectedProduct;
     private bool _isFirstRender = true;
 
+    List<(int, bool)> _ingredientChecked = new List<(int, bool)>();
+
     public Table Table { get; set; }
 
     double total;
@@ -44,25 +46,25 @@
     private async Task AddProduct()
     {
         if (selectedProduct != null)
-        {;
+        {
             itemCart.Product = selectedProduct;
             itemCart.Quantity = quantity;
-            itemCart.Acompanhamentos = acomps;
+            //itemCart.Acompanhamentos = acomps;
             itemCart.Notes = notes;
             itemCart.Store = new Company() { Cnpj = Cnpj };
             itemCart.Table = new Table() { TableNumber = int.Parse(TableNumber) };
             Cart.Add(itemCart);
-            // Cart.Add(new ItemCart()
-            // {
-            //     Product = selectedProduct,
-            //     Store = new Company() { Cnpj = Cnpj },
-            //     Table = new Table() { TableNumber = int.Parse(TableNumber) },
-            //     Quantity = quantity,
-            //     Acompanhamentos = acomps,
-            //     Notes = notes
+            if (acomps != null)
+                foreach (var acomp in acomps)
+                {
+                    var item = new ItemCart();
+                    item.Product = acomp.Product;
+                    item.Quantity = acomp.Quantity;
+                    item.Store = new Company() { Cnpj = Cnpj };
+                    item.Table = new Table() { TableNumber = int.Parse(TableNumber) };
+                    Cart.Add(item);
+            }
 
-
-            // });
             await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
             nav.NavigateTo($"/{Cnpj}/CARDAPIO/M{TableNumber}#cart");
 
@@ -88,7 +90,7 @@
     }
     private async Task DecrementItem()
     {
-        if(quantity> 1)quantity--; StateHasChanged();
+        if (quantity > 1) quantity--; StateHasChanged();
     }
     private async Task AddAcompanhamento(ItemCart item)
     {
@@ -100,7 +102,7 @@
         }
         else
         {
-            item.Quantity = 1; 
+            item.Quantity = 1;
             acomps.Add(item);
         }
 
@@ -111,7 +113,7 @@
     {
         var existingItem = acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id);
 
-        if(existingItem != null)
+        if (existingItem != null)
         {
             if (existingItem.Quantity >= 1)
             {
@@ -122,7 +124,7 @@
                 acomps.Remove(item);
             }
         }
-       
+
 
         StateHasChanged();
     }
@@ -131,7 +133,7 @@
     {
         if (!isChecked)
         {
-            notes.Add("Sem " + note+"\n");
+            notes.Add("Sem " + note + "\n");
         }
         else
         {
@@ -160,80 +162,194 @@
         }
     }
 
-   
+
 }
-
-<section>
-    <img src="@selectedProduct.Image" alt="@selectedProduct.Name" />
-    <h1>@selectedProduct.Name</h1>
-    <p>@selectedProduct.Description</p>
-    <p><strong>R$</strong> @selectedProduct.Value.ToString("F2")</p>
-    <p> @selectedProduct.Category</p>
-    <p> @selectedProduct.Kcal <strong> Kcal</strong></p>
-</section>
-
-<section id="ingredients">
-    @foreach (var ingredient in ingredients)
-    {
-        <div class="ingredient">
-            <input checked @onchange="(e) => ChangeIngredient(ingredient.Name, e.Value != null && (bool)e.Value)" type="checkbox" id="@ingredient.IdIngredient" name="@ingredient.Name" value="@ingredient.Name">
-
-            <label for="@ingredient.Name">@ingredient.Name</label>
-        </div>
+<style>
+    .quantity-controls button {
+        width: 30px;
+        height: 30px;
+        border: none;
+        background-color: #00a680;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
     }
-</section>
 
-<div class="acomp-container">
-    <h2 style="text-align: center;">Acompanhamentos</h2>
-    <div class="cateogory-acomp">
-        @foreach (var acomp in selectedAcomps)
-        {
-            ItemCart item = new ItemCart()
-                {
-                    Product = acomp,
-                    Table = new Table() { TableNumber = int.Parse(TableNumber) },
-                    Store = new Company() { Cnpj = Cnpj }
-
-                };
-
-            <div class="acomp-item"> 
-                <div class="acomp-item-infos">
-                    <span class="acomp-item-name">@item.Product.Name</span>
-                    <span class="acomp-item-price">+ R$@(item.Product.Value.ToString("F2"))</span>
-                </div>
-                <div class="acomp-item-quantity">
-                    <button @onclick="() => { item.DecrementQuantity(); RemoveAcompanhamento(item); StateHasChanged();}">-</button>
-                    <input type="text" value="@(acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id) == null ? 0 : acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id).Quantity)" disabled class="quantity-input" />
-                    <button @onclick="() => { item.IncrementQuantity(); AddAcompanhamento(item);StateHasChanged(); }">+</button>
-                </div>
-                
-            </div>
+        .quantity-controls button:hover {
+            background-color: #007e5e;
         }
 
+    .quantity-label {
+        min-width: 30px;
+        display: inline-block;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .scroll-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        padding-bottom: 10px;
+    }
+
+    .side-item {
+        min-width: 150px;
+    }
+
+        .side-item img {
+            max-width: 100px;
+        }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+    }
+
+    .product-card {
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+    }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .follow-up-item {
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+        .follow-up-item:hover {
+            transform: translateY(-3px);
+        }
+
+    .ingredient-item {
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #00a680;
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #007e5e;
+        }
+
+    .selected {
+        border: 2px solid #00a680;
+        background-color: rgba(0, 166, 128, 0.1);
+    }
+
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">FoodieExpress</a>
     </div>
-   
+</nav>
+<div class="container my-5">
+    <div class="row">
+        <!-- Product Details -->
+        <div class="col-md-6 text-center">
+            <img src="@selectedProduct.Image" class="img-fluid rounded" alt="Product Image">
+        </div>
+        <div class="col-md-6 mt-3">
+            <h2 class="fw-bold">@selectedProduct.Name</h2>
+            <h4 class="text-success">R$@selectedProduct.Value.ToString("F2")</h4>
+            <p class="text-muted">@selectedProduct.Description</p>
+            <p class="text-muted">@selectedProduct.Category.Name</p>
+            <p class="text-muted">@selectedProduct.Kcal <strong> Kcal</strong></p>
+
+            <!-- Ingredient Customization -->
+            <div class="mt-4" style="border-bottom: inset;">
+                <h5 class="fw-bold">Customize Your Ingredients:</h5>
+                <div class="row">
+
+                    @foreach (var ingredient in ingredients)
+                    {
+                        _ingredientChecked.Add(new(ingredient.IdIngredient, true));
+
+                        int index = _ingredientChecked.FindIndex(x => x.Item1 == ingredient.IdIngredient);
+                        <div class="col-6">
+                            <div class="ingredient-item p-2 border rounded mb-2 @(_ingredientChecked[index].Item2? "selected" : "")" id="@ingredient.IdIngredient" name="@ingredient.Name" @onclick="(e) => ChangeIngredient(ingredient.Name, (_ingredientChecked[index] = (_ingredientChecked[index].Item1, !_ingredientChecked[index].Item2)).Item2 )">
+                                🧀 @ingredient.Name
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="mt-4">
+                <h5 class="fw-bold">Quantidade:</h5>
+                <div class="quantity-controls text-center">
+                    <button @onclick="DecrementItem">-</button>
+                    <span class="quantity-label">@quantity</span>
+                    <button @onclick="IncrementItem">+</button>
+                </div>
+            </div>
+            <!-- Sides Options -->
+            @if (selectedAcomps.Count >= 1)
+            {
+                <div class="container my-5" style="border-bottom: inset;">
+                    <h5 class="fw-bold">Acompanhamentos:</h5>
+                    <div class="scroll-container">
+                        @foreach (var acomp in selectedAcomps)
+                        {
+                            ItemCart item = new ItemCart()
+                    {
+                        Product = acomp,
+                        Table = new Table() { TableNumber = int.Parse(TableNumber) },
+                        Store = new Company() { Cnpj = Cnpj }
+
+                    };
+                            <div class="side-item text-center">
+                                <img src="@item.Product.Image" class="img-fluid rounded mb-2" alt="Fries">
+                                <p class="mb-1">🍟 @item.Product.Name - R$@(item.Product.Value.ToString("F2"))</p>
+                                <div class="quantity-controls">
+                                    <button @onclick="() => { item.DecrementQuantity(); RemoveAcompanhamento(item); StateHasChanged();}">-</button>
+                                    <span class="quantity-label">@(acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id) == null ? 0 : acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id).Quantity)</span>
+                                    <button @onclick="() => { item.IncrementQuantity(); AddAcompanhamento(item);StateHasChanged(); }">+</button>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+
+            
+            }
+            
+            <!-- Action Buttons -->
+            
+            <div class="mt-5"></div>
+            <div class="position-fixed bottom-0 start-0 w-100 bg-white p-3 border-top">
+                <button @onclick="AddProduct" class="btn btn-primary btn-lg w-100">
+                    Add to Cart R$@((selectedProduct.Value * quantity) + (acomps.Sum(t => t.GetPrice())))
+                </button>
+            </div>
+
+        </div>
+    </div>
 </div>
 
 
 
-<div class="product-container">
-    <div class="quantity-price-wrapper">
-        <div class="quantity-container">
-            <button @onclick="DecrementItem"  class="quantity-btn">-</button>
-            <input type="text" value="@quantity" disabled class="quantity-input" />
-            <button @onclick="IncrementItem" class="quantity-btn">+</button>
-        </div>
-        <div class="price-container">
-            <!--<p>Total: <strong>R$@((selectedProduct.Value * quantity).ToString("F2"))</strong></p>-->
-            <p><strong>R$@((selectedProduct.Value * quantity) +  (acomps.Sum(t => t.GetPrice())))</strong></p>
-        </div>
-        <div class="add-to-cart-container">
-            <button @onclick="AddProduct" class="add-to-cart-btn">Adicionar</button>
-        </div>
-    </div>
 
-</div>
+<script>
+    function increment(id) {
+        const element = document.getElementById(id);
+        let value = parseInt(element.innerText);
+        element.innerText = value + 1;
+    }
 
-
-
-
+    function decrement(id) {
+        const element = document.getElementById(id);
+        let value = parseInt(element.innerText);
+        if (value > 0) {
+            element.innerText = value - 1;
+        }
+    }
+    function toggleSelection(element) {
+        element.classList.toggle('selected');
+    }
+</script>

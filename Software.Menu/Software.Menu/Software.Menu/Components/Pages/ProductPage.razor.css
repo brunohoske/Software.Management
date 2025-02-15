@@ -1,183 +1,76 @@
-﻿body {
-}
-section {
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-img {
-    max-width: 100%;
-    border-radius: 10px;
-}
-
-h1 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-p {
-    font-size: 16px;
-    color: #666;
-    margin: 5px 0;
-}
-
-#ingredients {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    flex-direction: column;
-    align-items: center;
-}
-
-.ingredient {
-    background-color: #f8f8f8;
-    padding: 8px 12px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-input[type="checkbox"] {
-    accent-color: #007bff;
-}
-
-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #ea684b;
-    color: #fff;
+﻿.quantity-controls button {
+    width: 30px;
+    height: 30px;
     border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    margin-top: 15px;
-}
-
-    button:hover {
-        background-color: #bf684b;
-    }
-
-.product-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
-    position: fixed;
-    z-index: 100;
-    top: 10px;
-    right: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background: #f9f9f9;
-}
-
-.quantity-price-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: #f9f9f9;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.quantity-container {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.quantity-btn {
-    background-color: #007bff;
+    background-color: #00a680;
     color: white;
-    border: none;
-    padding: 8px 12px;
-    font-size: 16px;
-    border-radius: 67px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-
-    .quantity-btn:hover {
-        background-color: #0056b3;
-        transform: scale(1.05);
-    }
-
-.quantity-input {
-    width: 40px;
-    text-align: center;
-    font-size: 16px;
-    border: 1px solid #ccc;
+    font-weight: bold;
     border-radius: 5px;
-    padding: 5px;
-    background-color: #f8f8f8;
-    margin-top: 14px;
 }
 
-.price-container {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin-top: 15px;
+.quantity-controls button:hover {
+    background-color: #007e5e;
 }
 
-.add-to-cart-container {
+.quantity-label {
+    min-width: 30px;
+    display: inline-block;
     text-align: center;
+    font-weight: bold;
 }
 
-.add-to-cart-btn {
-    width: 95%;
-    max-width: 300px;
-    background-color: #ea684b;
-    color: #fff;
-    border: none;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 13px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    height: 50px;
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 10px;
 }
 
-    .add-to-cart-btn:hover {
-        background-color: #bf684b;
-        transform: scale(1.05);
+.side-item {
+    min-width: 150px;
+}
+.side-item img{
+    max-width: 100px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.product-card {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+    .product-card:hover {
+        transform: translateY(-5px);
     }
 
-.acomp-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+.follow-up-item {
+    transition: 0.3s;
+    cursor: pointer;
 }
 
-.acomp-item-name {
-    flex: 1;
-    font-weight: bold;
+    .follow-up-item:hover {
+        transform: translateY(-3px);
+    }
+
+.ingredient-item {
+    cursor: pointer;
 }
 
-.acomp-item-price {
-    color: #ea684b;
-    font-weight: bold;
-    margin-right: 10px;
-}
-.acomp-item-infos {
-    display: flex;
-    flex-direction: column;
+.btn-primary {
+    background-color: #00a680;
+    border: none;
 }
 
-.acomp-item-quantity {
-    display: flex;
-    gap: 10px;
+    .btn-primary:hover {
+        background-color: #007e5e;
+    }
+
+.selected {
+    border: 2px solid #00a680;
+    background-color: rgba(0, 166, 128, 0.1);
 }
+

@@ -12,10 +12,11 @@
         public string GetNote()
         {
             string notes = "";
-            foreach (var note in Notes)
-            {
-                notes += note + "\n";
-            }
+            if(Notes != null)
+                foreach (var note in Notes)
+                {
+                    notes += note + "\n";
+                }
             return notes;
         }
 
