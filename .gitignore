@@ -1,0 +1,109 @@
+# Ignore Visual Studio-specific files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+
+# Ignore build outputs
+bin/
+obj/
+*.dll
+*.exe
+*.log
+*.pyc
+*.pdb
+*.cache
+*.ilk
+*.lib
+*.ncb
+*.sdf
+*.opensdf
+*.tlog
+
+# Ignore User-Specific Files
+*.rsuser
+*.sln*
+*.suo
+*.user
+*.userosscache
+*.unsaved
+*.pidb
+*.svclog
+*.sln.docstates
+
+# Ignore package dependencies
+packages/
+**/node_modules/
+*.nupkg
+*.snupkg
+
+# Ignore NuGet
+*.nuget/
+.nuget/
+
+# Ignore .NET Core & .NET 5/6/7+
+project.lock.json
+project.fragment.lock.json
+artifacts/
+GeneratedFiles/
+.DS_Store
+
+# Ignore Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore IDE configurations
+.idea/
+.vscode/
+*.code-workspace
+
+# Ignore Environment Variables
+.env
+.env.*
+
+# Ignore Secrets (dotnet user-secrets)
+secrets.json
+
+# Ignore Database files
+*.mdf
+*.ldf
+
+# Ignore Publish outputs
+publish/
+out/
+*.publishsettings
+
+# Ignore Temporary Files
+*.tmp
+*.bak
+*.swp
+*.swo
+*.seed
+
+# Ignore JetBrains Rider files
+.idea/
+*.dotCover
+*.dotSettings
+*.dotTrace
+*.dotMemory
+*.resharper
+
+# Ignore Test Results
+TestResults/
+Coverage/
+coverage/
+*.coverage
+*.coveragexml
+*.coveragejson
+*.trx
+
+# Ignore Docker
+docker-compose.override.yml
+docker-compose.override*.yml
+**/Dockerfile
+**/docker-compose*
