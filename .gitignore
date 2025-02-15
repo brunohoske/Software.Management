@@ -24,6 +24,7 @@ obj/
 
 # Ignore User-Specific Files
 *.rsuser
+*.csproj.user
 *.sln*
 *.suo
 *.user
