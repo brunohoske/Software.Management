@@ -28,19 +28,21 @@ namespace SystemManagement.Dao
             finally
             {
                 conexao.Close();
-                fabric.CloseConnection();
+                
             }
           
         }
 
         public int GetCheckValue(Table table)
         {
-            conexao = fabric.Connect();
+            
             int value = 0;
             string sql = $"SELECT SUM(TOTAL) AS total FROM orders WHERE CHECK_NUMBER = {table.TableNumber} AND ORDER_ACTIVE and = 1 and CNPJ = '{table.Store.Cnpj}'";
 
-            try {
-                using var reader = fabric.ExecuteCommandReader(sql);
+            try 
+            {
+                using var conexao = fabric.Connect();
+                using var reader = fabric.ExecuteCommandReader(sql, conexao);
                 while (reader.Read())
                 {
                      value = Convert.ToInt32(reader["total"]);
@@ -52,11 +54,6 @@ namespace SystemManagement.Dao
             catch (Exception ex)
             {
                 throw;
-            }
-            finally
-            {
-                conexao.Close();
-                fabric.CloseConnection();
             }
         }
     }

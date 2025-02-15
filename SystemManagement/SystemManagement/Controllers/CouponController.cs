@@ -7,11 +7,10 @@ namespace SystemManagement.Controllers
 {
     public class CouponController : BaseController
     {
-        [HttpGet("SearchCoupon")]
-        public IActionResult SearchCouponFromCode()
+        [HttpGet("SearchCoupon/{code}")]
+        public IActionResult SearchCouponFromCode(string code)
         {
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
-            string code = Request.Headers.FirstOrDefault(x => x.Key == "code").Value;
             CouponDao couponDao = new CouponDao();
             Coupon coupon = couponDao.SearchCouponFromCode(code);
 

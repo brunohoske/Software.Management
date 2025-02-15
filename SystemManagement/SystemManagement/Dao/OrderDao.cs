@@ -6,24 +6,24 @@ using SystemManagement.Models;
 
 namespace SystemManagement.DAO
 {
-    public static class OrderDao 
-
+    public class OrderDao 
     {
+        private readonly ConnectionFabric _connectionFabric;
 
-        static MySqlConnection conexao = null;
-        static ConnectionFabric fabric = new ConnectionFabric();
-
-        public static int GetOrderNumber(Store store)
+        public OrderDao(ConnectionFabric connectionFabric)
+        {
+            _connectionFabric = connectionFabric;
+        }
+        public int GetOrderNumber(Store store)
         {
             int number = 0;
             try
             {
-                using var reader = fabric.ExecuteCommandReader($"SELECT IDORDER FROM ORDERS WHERE CNPJ = {store.Cnpj} ORDER BY IDORDER DESC LIMIT 1");
-                while (reader.Read())
-                {
-                    number = Convert.ToInt32(reader["IdOrder"]);
-                }
-
+                using var conexao = _connectionFabric.Connect();
+                using var cmd = conexao.CreateCommand();
+                cmd.CommandText = $"SELECT IDORDER FROM ORDERS WHERE CNPJ = {store.Cnpj} ORDER BY IDORDER DESC LIMIT 1";
+                var result = cmd.ExecuteScalar();
+                number = Convert.ToInt32(result);
                 return number + 10;
             }
             
@@ -31,48 +31,38 @@ namespace SystemManagement.DAO
             {
                 return 0;
             }
-            finally
-            {
-                fabric.CloseConnection();
-            }
 
         }
 
 
-        public static int GetOrderNumber2(Store store)
+        public int GetOrderNumber2(Store store)
         {
             int number = 0;
             try
             {
-                using var reader = fabric.ExecuteCommandReader($"SELECT IDORDER FROM ORDERS WHERE CNPJ = {store.Cnpj} ORDER BY IDORDER DESC LIMIT 1");
-                while (reader.Read())
-                {
-                    number = Convert.ToInt32(reader["IdOrder"]);
-                }
-
-                return number;
+                using var conexao = _connectionFabric.Connect();
+                using var cmd = conexao.CreateCommand();
+                cmd.CommandText = $"SELECT IDORDER FROM ORDERS WHERE CNPJ = {store.Cnpj} ORDER BY IDORDER DESC LIMIT 1";
+                var result = cmd.ExecuteScalar();
+                number = Convert.ToInt32(result);
+                return number + 10;
             }
 
             catch (Exception ex)
             {
                 return 0;
             }
-            finally
-            {
-                fabric.CloseConnection();
-            }
 
         }
 
-        public static void CreateOrder(OrderDTO order)
+        public void CreateOrder(OrderDTO order)
         {
             try
             {
                 string dt = order.Date.ToString("yyyy-MM-dd HH:mm:ss");
-                conexao = fabric.Connect();
-                var command = conexao.CreateCommand();
+                using var conexao = _connectionFabric.Connect();
+                using var command = conexao.CreateCommand();
                 command.CommandText = $"Insert into Orders(cnpj,total,order_date,check_number,order_active,order_status) Values('{order.Store.Cnpj}',{order.Value},'{dt}',{order.Table.TableNumber},1,1)";
-
                 command.ExecuteNonQuery();
                 order.Id = GetOrderNumber2(order.Store);
                 for (int i = 0;i < order.Products.Count;i++)
@@ -87,20 +77,16 @@ namespace SystemManagement.DAO
             {
                 throw new Exception("Erro ao inserir Pedido");
             }
-            finally
-            {
-                conexao.Close();
-                fabric.CloseConnection();
-            }
         }
 
-        public static List<Order> GetOrders(Store store)
+        public List<Order> GetOrders(Store store)
         {
             List<Order> orders = new List<Order>();
 
             try
             {
-                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM ORDERS WHERE CNPJ = '{store.Cnpj}' AND ORDER_ACTIVE = 1");
+                using var conexao = _connectionFabric.Connect();
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM ORDERS WHERE CNPJ = '{store.Cnpj}' AND ORDER_ACTIVE = 1", conexao);
 
                 while (reader.Read())
                 {
@@ -122,28 +108,24 @@ namespace SystemManagement.DAO
             {
                 return null;
             }
-            finally
-            {
-                fabric.CloseConnection();
-            }
         }
 
-        public static List<Product> GetOrderProduct(Order order, Store store)
+        public List<Product> GetOrderProduct(Order order, Store store)
         {
             List<Product> products = new List<Product>();
             List<int> orderProducts = new List<int>();
             try
             {
-              
-                using var reader = fabric.ExecuteCommandReader($"SELECT idproduct FROM order_details where idorder = {order.Id}");
+                using var conexao = _connectionFabric.Connect();
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT idproduct FROM order_details where idorder = {order.Id}", conexao);
                 while (reader.Read())
                 {
                     orderProducts.Add(Convert.ToInt32(reader["idproduct"]));
                 }
 
-               foreach (int i in orderProducts)
+               foreach (int id in orderProducts)
                {
-                    products.Add(ProductDao.GetProductFromId(i,store.Cnpj));
+                    products.Add(ProductDao.GetProductFromId(id, store.Cnpj));
                }
                 
                 return products;
@@ -152,20 +134,17 @@ namespace SystemManagement.DAO
             {
                 return null;
             }
-            finally
-            {
-                fabric.CloseConnection();
-            }
         }
 
 
-        public static List<Order> GetOrdersInTable(Store store, Table t)
+        public List<Order> GetOrdersInTable(Store store, Table t)
         {
             List<Order> orders = new List<Order>();
 
             try
             {
-                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM ORDERS WHERE CNPJ = '{store.Cnpj}' AND ORDER_ACTIVE = 1 AND CHECK_NUMBER = {t.TableNumber}");
+                using var conexao = _connectionFabric.Connect();
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM ORDERS WHERE CNPJ = '{store.Cnpj}' AND ORDER_ACTIVE = 1 AND CHECK_NUMBER = {t.TableNumber}", conexao);
             
 
                 while (reader.Read())
@@ -187,42 +166,23 @@ namespace SystemManagement.DAO
             {
                 return null;
             }
-            finally
-            {
-                fabric.CloseConnection();
-            }
         }
 
-        public static int CompleteOrder(Order order) 
+        public int CompleteOrder(Order order) 
         {
 
             try
             {
-                string com = $"Update orders set order_status = 3 where idorder = {order.Id}";
-                conexao = fabric.Connect();
+                string com = $"update orders set order_status = 3 where idorder = {order.Id}";
+                using var conexao = _connectionFabric.Connect();
                 MySqlCommand cmd = new MySqlCommand(com, conexao);
-
-
                 return cmd.ExecuteNonQuery();
             }
             catch
             {
                 throw;
-
-                return 0;
             }
-            finally
-            {
-                conexao.Close();
-                fabric.CloseConnection();
-            }
-            
 
         }
-
-        
-
-
-
     }
 }

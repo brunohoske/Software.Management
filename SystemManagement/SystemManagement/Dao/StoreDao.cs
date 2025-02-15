@@ -13,8 +13,8 @@ namespace SystemManagement.Dao
             try
             {
 
-                conexao = fabric.Connect();
-                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM COMPANYS WHERE CNPJ = '{cnpj}'");
+                using var conexao = fabric.Connect();
+                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM COMPANYS WHERE CNPJ = '{cnpj}'", conexao);
 
                 string _cnpj = "";
                 string _name = "";
@@ -42,7 +42,7 @@ namespace SystemManagement.Dao
             finally
             {
                 conexao.Close();
-                fabric.CloseConnection();
+                
 
             }
         }
@@ -51,7 +51,8 @@ namespace SystemManagement.Dao
         {
             try
             {
-                using var reader = fabric.ExecuteCommandReader($"SELECT COMPANY_NAME FROM COMPANYS WHERE CNPJ = '{cnpj}'");
+                using var conexao = fabric.Connect();
+                using var reader = fabric.ExecuteCommandReader($"SELECT COMPANY_NAME FROM COMPANYS WHERE CNPJ = '{cnpj}'", conexao);
 
                 string name = "";
                 while (reader.Read())
@@ -75,7 +76,7 @@ namespace SystemManagement.Dao
             }
             finally
             {
-                fabric.CloseConnection();
+                
             }
 
 

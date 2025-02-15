@@ -14,7 +14,8 @@ namespace SystemManagement.Dao
             List<Product> products = new List<Product>();
             try
             {
-                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE CNPJ = {store.Cnpj}");
+                using var conexao = fabric.Connect();
+                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE CNPJ = {store.Cnpj}",conexao);
                while (reader.Read())
                 {
                     Product product = new Product();
@@ -37,16 +38,13 @@ namespace SystemManagement.Dao
             {
                 return null;
             }
-            finally
-            {
-                fabric.CloseConnection();
-            }
         }
         public static Product GetProductFromId(int id,string cnpj)
         {
             try
             {
-                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE IDPRODUCT = {id} AND CNPJ = '{cnpj}'");
+                using var conexao = fabric.Connect();
+                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE IDPRODUCT = {id} AND CNPJ = '{cnpj}'", conexao);
                 Product product = new Product();
                 if(reader != null)
                 {
@@ -74,27 +72,30 @@ namespace SystemManagement.Dao
             {
                 return new Product();
             }
-            finally
-            {
-                fabric.CloseConnection();
-            }
         }
 
         public static List<Product> GetAcompanhamentos(int id, string cnpj)
         {
             try
             {
-                Product product = GetProductFromId(id, cnpj);
-                using var reader = fabric.ExecuteCommandReader($"SELECT Product,Acompanhamento\r\nFROM products_acompanhamentos pa\r\nJOIN products p ON p.CNPJ = pa.CNPJ\r\nAND PRODUCT = IDPRODUCT\r\nWHERE PRODUCT = {product.Id}\r\nAND p.CNPJ = '{cnpj}'");
+                using var conexao = fabric.Connect();
+                using var reader = fabric.ExecuteCommandReader($"SELECT p.* FROM products p JOIN products_acompanhamentos pa ON pa.Acompanhamento = p.IDPRODUCT AND pa.CNPJ = p.CNPJ WHERE pa.PRODUCT = {id} AND p.CNPJ = {cnpj}",conexao);
 
                 List<Product> acompanhamentos = new List<Product>();
                 if (reader != null)
                 {
                     while (reader.Read())
                     {
-                        int acompanhamento = int.Parse(reader["Acompanhamento"].ToString());
-
-                        acompanhamentos.Add(GetProductFromId(acompanhamento, cnpj));
+                        var product = new Product();
+                        product.Id = Convert.ToInt32(reader["idproduct"].ToString());
+                        product.Name = reader["Product_Name"].ToString();
+                        product.Value = Convert.ToInt32(reader["price"]);
+                        product.Description = reader["description"].ToString();
+                        product.Store = new Store() { Cnpj = reader["cnpj"].ToString() };
+                        product.Kcal = Convert.ToDouble(reader["kcal"]);
+                        product.Image = reader["image"].ToString();
+                        product.Category = new Category() { IdCategory = int.Parse(reader["IDCATEGORY"].ToString()) };
+                        acompanhamentos.Add(product);
                     }
                     return acompanhamentos;
                 }

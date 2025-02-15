@@ -6,15 +6,20 @@ namespace SystemManagement.Dao
 {
     public class CategoryDao
     {
-        MySqlConnection conexao = null;
-        ConnectionFabric f = new ConnectionFabric();
+        private readonly ConnectionFabric _connectionFabric;
+        public CategoryDao(ConnectionFabric connectionFabric)
+        {
+            _connectionFabric = connectionFabric;
+        }
+        
 
         public List<Category> GetCategories(Store store)
         {
             List<Category> categories = new List<Category>();
             try
             {
-                using var reader = f.ExecuteCommandReader($"SELECT * FROM CATEGORIES WHERE CNPJ = {store.Cnpj}");
+                using var conexao = _connectionFabric.Connect();
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM CATEGORIES WHERE CNPJ = {store.Cnpj}", conexao);
                 while (reader.Read())
                 {
                     Category category = new Category();
@@ -33,7 +38,7 @@ namespace SystemManagement.Dao
             }
             finally
             {
-                f.CloseConnection();
+                
             }
         }
     }

@@ -9,12 +9,5 @@ namespace SystemManagement.Models
         public string Description { get; set; }
 
         public Store Store { get; set; }
-
-        public CategoryDao dao = new CategoryDao();
-
-        public List<Category> GetProducts()
-        {
-            return dao.GetCategories(Store);
-        }
     }
 }
