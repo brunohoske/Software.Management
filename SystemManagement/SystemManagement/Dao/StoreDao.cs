@@ -39,12 +39,6 @@ namespace SystemManagement.Dao
             {
                 throw new Exception(ex.Message);
             }
-            finally
-            {
-                conexao.Close();
-                
-
-            }
         }
 
         public bool CheckExist(string cnpj)

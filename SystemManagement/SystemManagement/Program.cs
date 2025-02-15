@@ -9,6 +9,7 @@ using SystemManagement.Middlewares;
 using SystemManagement.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<ConnectionFabric>();
 builder.Services.AddSingleton<OrderDao>();
 builder.Services.AddSingleton<CategoryDao>();
