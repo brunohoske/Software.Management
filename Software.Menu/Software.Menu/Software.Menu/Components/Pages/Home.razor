@@ -73,7 +73,6 @@
                 
             }
         }
-       
     }
     protected override async Task OnInitializedAsync()
     {
@@ -145,7 +144,7 @@
             }
         </div>
     </div>
-    @foreach (var category in Categories)
+  @*   @foreach (var category in Categories)
     {
         <div class="product-category">
             <h3 class="category-title">@category.Name</h3>
@@ -168,7 +167,35 @@
                     }
                 }
             </div>
-        </div>
+        </div> *@
+    
+
+
+    @foreach (var category in Categories)
+    {
+        @if(category.IsDisplay == 1)
+        {
+            <div class="product-category">
+                <h3 class="category-title">@category.Name</h3>
+                <div class="product-list">
+                    @foreach (var product in category.Products)
+                    {
+                        <div class="product-card" @onclick="()=>GoToProductPage(product.Id)">
+                            <img src="/Images/hamburguer1.png" alt="Product Image" class="product-image" />
+                            <div class="product-details">
+                                <h4 class="product-name">@product.Name</h4>
+                                <p class="product-description">@product.Description</p>
+                                <div class="product-bottom">
+                                    <span class="product-price">R$ @product.Value.ToString("F2")</span>
+                                    <button class="add-to-cart">Adicionar</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+        
     }
 </section>
 
@@ -180,16 +207,18 @@
             @foreach (var item in Cart.ToList())
             {
                 <div class="cart-item">
-                    <span class="cart-item-name">@item.Product.Name</span>
+
+                    <span class="cart-item-name">@item.Product.Name <br/>
+                        @if (item.GetNote() != "")
+                        {
+                            <span class="cart-item-notes" style="color: #8c8c8c;font-weight: normal;">Observações: @item.GetNote()</span>
+                        }
+                    </span>
                     <button class="quantity-btn" @onclick="()=>DecrementItem(item)">-</button>
                     <span class="">x.@item.Quantity </span>
                     <button class="quantity-btn" @onclick="()=>IncrementItem(item)">+</button>
                     @* <span class="cart-item-price">R$@(item.Product.Value * item.Quantity)</span> *@
                     <span class="cart-item-price">R$@(item.GetPrice() )</span>
-                    @if(item.GetNote() != "")
-                    {
-                        <span class="cart-item-notes">Observações: @item.GetNote()</span>
-                    }
                     <button class="remove-button" @onclick="() => RemoveProductFromOrder(item)">Remover</button>
 
 
@@ -267,16 +296,16 @@
                     var productDto = mapper.Map<ProductDTO>(item.Product);
                     productDto.Note = item.GetNote();
                     productsDTO.Add(productDto);
-                    foreach (var acomp in item.Acompanhamentos)
-                    {
-                        for(int index = 0; index < acomp.Quantity; index++)
-                        {
-                            var acompanhamentoDto = mapper.Map<ProductDTO>(acomp.Product);
-                            acompanhamentoDto.Note = "";
-                            productsDTO.Add(acompanhamentoDto);
-                        }
+                    // foreach (var acomp in item.Acompanhamentos)
+                    // {
+                    //     for(int index = 0; index < acomp.Quantity; index++)
+                    //     {
+                    //         var acompanhamentoDto = mapper.Map<ProductDTO>(acomp.Product);
+                    //         acompanhamentoDto.Note = "";
+                    //         productsDTO.Add(acompanhamentoDto);
+                    //     }
                         
-                    }
+                    // }
                 }
 
                 total += item.GetPrice();

@@ -1,18 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SystemManagement.Dao;
+using SystemManagement.DAO;
 using SystemManagement.Models;
+using SystemManagement.Services;
 
 namespace SystemManagement.Controllers
 {
     public class ProductController : BaseController
     {
+        private readonly ProductDao _productDao;
+        private readonly HeaderService _headerService;
+
+        public ProductController(ProductDao productDao, HeaderService headerService)
+        {
+            _productDao = productDao;
+            _headerService = headerService;
+        }
 
         [HttpGet("Products")]
         public IActionResult GetProducts()
         {
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
             Store store = new Store() { Cnpj = cnpj };
-            List<Product> products = ProductDao.GetProducts(store);
+            List<Product> products = _productDao.GetProducts(store);
             return Ok(products);
         }
         [HttpGet("Product/{id}")]
@@ -21,7 +31,7 @@ namespace SystemManagement.Controllers
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
             Store store = new Store() { Cnpj = cnpj };
 
-            Product product =  ProductDao.GetProductFromId(id,cnpj);
+            Product product = _productDao.GetProductFromId(id,cnpj);
             return Ok(product);
         }
         [HttpGet("Product/{id}/Acompanhamentos")]
@@ -30,7 +40,7 @@ namespace SystemManagement.Controllers
             string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
             try
             {
-                return Ok(ProductDao.GetAcompanhamentos(id, cnpj));
+                return Ok(_productDao.GetAcompanhamentos(id, cnpj));
             }
             catch
             {

@@ -7,12 +7,15 @@ namespace SystemManagement.Dao
 {
     public class CheckDao
     {
-        MySqlConnection conexao = null;
-        ConnectionFabric fabric = new ConnectionFabric();
+        private readonly ConnectionFabric _connectionFabric;
+        public CheckDao(ConnectionFabric connectionFabric)
+        {
+            _connectionFabric = connectionFabric;
+        }
 
         public int CloseCheck(Table table)
         {
-            conexao = fabric.Connect();
+            using var conexao = _connectionFabric.Connect();
             string sql = $"UPDATE Orders SET ORDER_ACTIVE = 0 WHERE check_number = {table.TableNumber}";
 
             try
@@ -41,8 +44,8 @@ namespace SystemManagement.Dao
 
             try 
             {
-                using var conexao = fabric.Connect();
-                using var reader = fabric.ExecuteCommandReader(sql, conexao);
+                using var conexao = _connectionFabric.Connect();
+                using var reader = _connectionFabric.ExecuteCommandReader(sql, conexao);
                 while (reader.Read())
                 {
                      value = Convert.ToInt32(reader["total"]);

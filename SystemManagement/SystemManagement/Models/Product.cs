@@ -11,14 +11,9 @@ namespace SystemManagement.Models
         public Category Category { get; set; }
         public Store Store { get; set; }
         public double Kcal { get; set; }
-        public string Image { get; set; }
-
-        //public ProductDao dao = new ProductDao();
-
-        //public List<Product> GetProducts()
-        //{
-        //    return dao.GetProducts(Store); 
-        //}
+        public string BarCode { get; set; }
+        public string Image { get; set; }   
+        public List<Category> CategoriesRecommended { get; set; }
 
     }
 }

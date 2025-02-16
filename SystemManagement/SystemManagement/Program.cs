@@ -13,7 +13,10 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<ConnectionFabric>();
 builder.Services.AddSingleton<OrderDao>();
 builder.Services.AddSingleton<CategoryDao>();
+builder.Services.AddSingleton<ProductDao>();
+builder.Services.AddSingleton<CheckDao>();
 builder.Services.AddSingleton<HeaderService>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddEndpointsApiExplorer();

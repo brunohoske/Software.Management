@@ -34,7 +34,7 @@ namespace Software.Menu.Client
             {
                 PropertyNameCaseInsensitive = true
             };
-            Product product = System.Text.Json.JsonSerializer.Deserialize<Product>(content, options);
+            Product product = JsonSerializer.Deserialize<Product>(content, options);
             return product;
         }
 

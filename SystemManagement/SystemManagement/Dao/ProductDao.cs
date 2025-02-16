@@ -5,21 +5,27 @@ using SystemManagement.Models;
 
 namespace SystemManagement.Dao
 {
-    public static class ProductDao //: BaseDao
+    public  class ProductDao 
     {
-        static MySqlConnection conexao = null;
-        static ConnectionFabric fabric = new ConnectionFabric();
-        public static List<Product> GetProducts(Store store)
+
+        private readonly ConnectionFabric _connectionFabric;
+        private readonly CategoryDao _categoryDao;
+        public ProductDao(ConnectionFabric connectionFabric,CategoryDao categoryDao)
         {
+            _connectionFabric = connectionFabric;
+           _categoryDao = categoryDao;
+        }
+        public  List<Product> GetProducts(Store store)
+        {
+
             List<Product> products = new List<Product>();
             try
             {
-                using var conexao = fabric.Connect();
-                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE CNPJ = {store.Cnpj}",conexao);
+                using var conexao = _connectionFabric.Connect();
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE CNPJ = {store.Cnpj}",conexao);
                while (reader.Read())
                 {
                     Product product = new Product();
-
                     product.Id = reader.GetInt32("IdProduct");
                     product.Name = reader["Product_name"].ToString();
                     product.Value = Convert.ToInt32(reader["PRICE"]);
@@ -28,7 +34,12 @@ namespace SystemManagement.Dao
                     product.Store = new Store() { Name = "McDonalds", Cnpj = reader["CNPJ"].ToString() };
                     product.Kcal = Convert.ToDouble(reader["KCAL"]);
                     product.Image = reader["IMAGE"].ToString();
-
+                    product.BarCode = reader["BarCode"].ToString();
+                    product.CategoriesRecommended = _categoryDao.GetCategoriesRecommended(product.Id, store.Cnpj);
+                    foreach(var category in product.CategoriesRecommended)
+                    {
+                        category.Products = _categoryDao.GetProductCategories(store.Cnpj, category.IdCategory);
+                    }
                     products.Add(product);
                 }
 
@@ -39,12 +50,12 @@ namespace SystemManagement.Dao
                 return null;
             }
         }
-        public static Product GetProductFromId(int id,string cnpj)
+        public Product GetProductFromId(int id,string cnpj)
         {
             try
             {
-                using var conexao = fabric.Connect();
-                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE IDPRODUCT = {id} AND CNPJ = '{cnpj}'", conexao);
+                using var conexao = _connectionFabric.Connect();
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE IDPRODUCT = {id} AND CNPJ = '{cnpj}'", conexao);
                 Product product = new Product();
                 if(reader != null)
                 {
@@ -58,6 +69,12 @@ namespace SystemManagement.Dao
                         product.Kcal = Convert.ToDouble(reader["kcal"]);
                         product.Image = reader["image"].ToString();
                         product.Category = new Category() { IdCategory = int.Parse(reader["IDCATEGORY"].ToString()) };
+                        product.BarCode = reader["BarCode"].ToString();
+                        product.CategoriesRecommended = _categoryDao.GetCategoriesRecommended(product.Id, cnpj);
+                        foreach (var category in product.CategoriesRecommended)
+                        {
+                            category.Products = _categoryDao.GetProductCategories(cnpj, category.IdCategory);
+                        }
                     }
                 }
                 else
@@ -74,12 +91,12 @@ namespace SystemManagement.Dao
             }
         }
 
-        public static List<Product> GetAcompanhamentos(int id, string cnpj)
+        public List<Product> GetAcompanhamentos(int id, string cnpj)
         {
             try
             {
-                using var conexao = fabric.Connect();
-                using var reader = fabric.ExecuteCommandReader($"SELECT p.* FROM products p JOIN products_acompanhamentos pa ON pa.Acompanhamento = p.IDPRODUCT AND pa.CNPJ = p.CNPJ WHERE pa.PRODUCT = {id} AND p.CNPJ = {cnpj}",conexao);
+                using var conexao = _connectionFabric.Connect();
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT p.* FROM products p JOIN products_acompanhamentos pa ON pa.Acompanhamento = p.IDPRODUCT AND pa.CNPJ = p.CNPJ WHERE pa.PRODUCT = {id} AND p.CNPJ = {cnpj}",conexao);
 
                 List<Product> acompanhamentos = new List<Product>();
                 if (reader != null)
@@ -94,6 +111,7 @@ namespace SystemManagement.Dao
                         product.Store = new Store() { Cnpj = reader["cnpj"].ToString() };
                         product.Kcal = Convert.ToDouble(reader["kcal"]);
                         product.Image = reader["image"].ToString();
+                        product.BarCode = reader["BarCode"].ToString();
                         product.Category = new Category() { IdCategory = int.Parse(reader["IDCATEGORY"].ToString()) };
                         acompanhamentos.Add(product);
                     }

@@ -133,12 +133,18 @@
     {
         if (!isChecked)
         {
-            notes.Add("Sem " + note + "\n");
+            notes.Add("Sem " + note + ",\n");
         }
         else
         {
-            notes.Remove("Sem " + note + "\n");
+            notes.Remove("Sem " + note + ",\n");
         }
+    }
+
+    private async Task GoToProductPage(int id)
+    {
+        nav.NavigateTo($"{Cnpj}/Product/{id}/{TableNumber}");
+        await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
     }
     protected override async Task OnInitializedAsync()
     {
@@ -161,6 +167,7 @@
             StateHasChanged();
         }
     }
+
 
 
 }
@@ -319,16 +326,52 @@
             
             }
             
+
+
+            
             <!-- Action Buttons -->
             
             <div class="mt-5"></div>
-            <div class="position-fixed bottom-0 start-0 w-100 bg-white p-3 border-top">
+            <div class="position-fixed bottom-0 start-0 w-100 bg-white p-3 border-top" style="z-index: 1;">
                 <button @onclick="AddProduct" class="btn btn-primary btn-lg w-100">
                     Add to Cart R$@((selectedProduct.Value * quantity) + (acomps.Sum(t => t.GetPrice())))
                 </button>
             </div>
 
         </div>
+
+        <h1>Recomendados</h1>
+        <section id="menu" class="menu-section" style="background-color: transparent; box-shadow:none">
+
+            @foreach (var category in selectedProduct.CategoriesReccomended)
+            {
+                <div class="product-category" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff;">
+                    <h3 class="category-title" style="margin-left: 10px;padding-top: 10px;">
+                        @category.Name
+                    </h3>
+                    <div class="product-list">
+                        @foreach (var product in category.Products)
+                        {
+                            @if(product.Id != selectedProduct.Id)
+                            {
+                                <div class="product-card" @onclick="()=>GoToProductPage(product.Id)">
+                                    <img src="/Images/hamburguer1.png" alt="Product Image" class="product-image" />
+                                    <div class="product-details">
+                                        <h4 class="product-name">@product.Name</h4>
+                                        <p class="product-description">@product.Description</p>
+                                        <div class="product-bottom">
+                                            <span class="product-price">R$ @product.Value.ToString("F2")</span>
+                                            <button class="add-to-cart">Adicionar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            
+                        }
+                    </div>
+                </div>
+            }
+        </section>
     </div>
 </div>
 

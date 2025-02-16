@@ -23,5 +23,21 @@ namespace SystemManagement.Controllers
             return Ok(categories);
         }
 
+        [HttpGet("Categories/{id}/Products")]
+        public IActionResult GetCategories(int id)
+        {
+            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
+            List<Product> products = _categoryDao.GetProductCategories(cnpj,id);
+            return Ok(products);
+        }
+
+        [HttpGet("Product/{id}/Reccomended")]
+        public IActionResult GetReccomendations(int id)
+        {
+            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
+            List<Product> products = _categoryDao.GetProductCategories(cnpj, id);
+            return Ok(products);
+        }
+
     }
 }

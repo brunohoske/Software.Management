@@ -9,12 +9,14 @@ namespace SystemManagement.DAO
     public class OrderDao 
     {
         private readonly ConnectionFabric _connectionFabric;
+        private readonly ProductDao _productDao;
 
-        public OrderDao(ConnectionFabric connectionFabric)
+        public OrderDao(ConnectionFabric connectionFabric,ProductDao productDao)
         {
             _connectionFabric = connectionFabric;
+            _productDao = productDao;
         }
-        public int GetOrderNumber(Store store)
+        public int _GetOrderNumber(Store store)
         {
             int number = 0;
             try
@@ -35,7 +37,7 @@ namespace SystemManagement.DAO
         }
 
 
-        public int GetOrderNumber2(Store store)
+        public int GetOrderNumber(Store store)
         {
             int number = 0;
             try
@@ -45,7 +47,7 @@ namespace SystemManagement.DAO
                 cmd.CommandText = $"SELECT IDORDER FROM ORDERS WHERE CNPJ = {store.Cnpj} ORDER BY IDORDER DESC LIMIT 1";
                 var result = cmd.ExecuteScalar();
                 number = Convert.ToInt32(result);
-                return number + 10;
+                return number;
             }
 
             catch (Exception ex)
@@ -64,7 +66,7 @@ namespace SystemManagement.DAO
                 using var command = conexao.CreateCommand();
                 command.CommandText = $"Insert into Orders(cnpj,total,order_date,check_number,order_active,order_status) Values('{order.Store.Cnpj}',{order.Value},'{dt}',{order.Table.TableNumber},1,1)";
                 command.ExecuteNonQuery();
-                order.Id = GetOrderNumber2(order.Store);
+                order.Id = GetOrderNumber(order.Store);
                 for (int i = 0;i < order.Products.Count;i++)
                 {
                     command.CommandText = $"INSERT INTO order_details(idorder,cnpj,idproduct,item,check_number,price,order_date,note) VALUES({order.Id},'{order.Store.Cnpj}',{order.Products[i].Id} ,{i + 1},{order.Table.TableNumber},{order.Products[i].Value},'{dt}','{order.Products[i].Note}')";
@@ -125,7 +127,7 @@ namespace SystemManagement.DAO
 
                foreach (int id in orderProducts)
                {
-                    products.Add(ProductDao.GetProductFromId(id, store.Cnpj));
+                    products.Add(_productDao.GetProductFromId(id, store.Cnpj));
                }
                 
                 return products;

@@ -1,4 +1,6 @@
-﻿namespace Software.Menu.Models
+﻿using System.Text.Json.Serialization;
+
+namespace Software.Menu.Models
 {
     public class Product
     {
@@ -10,6 +12,9 @@
         public Company Store { get; set; }
         public double Kcal { get; set; }
         public string Image { get; set; }
+        public string BarCode { get; set; }
+        [JsonPropertyName("categoriesRecommended")]
+        public List<Category> CategoriesReccomended { get; set; }
 
     }
 }
