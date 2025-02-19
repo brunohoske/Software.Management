@@ -250,7 +250,7 @@
     }
 
 </style>
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+<nav class=" position-fixed navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm" style="width: 100%;">
     <div class="container">
         <a class="navbar-brand fw-bold" href="#">FoodieExpress</a>
     </div>
@@ -259,11 +259,11 @@
     <div class="row">
         <!-- Product Details -->
         <div class="col-md-6 text-center">
-            <img src="@selectedProduct.Image" class="img-fluid rounded" alt="Product Image">
+            <img src="@selectedProduct.Image" class="img-fluid rounded" style="width: 450px; height: 305px; object-fit: contain;" alt="Product Image">
         </div>
         <div class="col-md-6 mt-3">
             <h2 class="fw-bold">@selectedProduct.Name</h2>
-            <h4 class="text-success">R$@selectedProduct.Value.ToString("F2")</h4>
+            <h4 class="">R$@selectedProduct.Value.ToString("F2")</h4>
             <p class="text-muted">@selectedProduct.Description</p>
             <p class="text-muted">@selectedProduct.Category.Name</p>
             <p class="text-muted">@selectedProduct.Kcal <strong> Kcal</strong></p>
