@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   CONSTRAINT `companys_fk` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`) ON DELETE SET NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.categories: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.categories: ~3 rows (aproximadamente)
 INSERT INTO `categories` (`IDCATEGORY`, `NAME`, `DESCRIPTION`, `DisplayMainPage`, `CNPJ`) VALUES
 	(1, 'Carne', 'Hamburguers de carne', 1, '42591651000143'),
 	(2, 'Frango', 'Hamburguers de Frango', 1, '42591651000143'),
@@ -54,6 +54,75 @@ INSERT INTO `checks` (`CHECK_NUMBER`, `CNPJ`) VALUES
 	(4, '42591651000143'),
 	(5, '42591651000143'),
 	(6, '42591651000143');
+
+-- Copiando estrutura para tabela menusystem.combos
+CREATE TABLE IF NOT EXISTS `combos` (
+  `IDCOMBO` int NOT NULL AUTO_INCREMENT,
+  `COMBO_NAME` varchar(60) NOT NULL,
+  `COMBO_DESCRIPTION` varchar(150) DEFAULT NULL,
+  `PRICE` double NOT NULL,
+  `KCAL` double NOT NULL,
+  `IMAGE` varchar(300) NOT NULL,
+  `BARCODE` varchar(20) NOT NULL,
+  `CNPJ` varchar(20) NOT NULL,
+  PRIMARY KEY (`IDCOMBO`),
+  KEY `CNPJ` (`CNPJ`),
+  CONSTRAINT `combos_ibfk_1` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela menusystem.combos: ~0 rows (aproximadamente)
+INSERT INTO `combos` (`IDCOMBO`, `COMBO_NAME`, `COMBO_DESCRIPTION`, `PRICE`, `KCAL`, `IMAGE`, `BARCODE`, `CNPJ`) VALUES
+	(1, 'Burguer+Refri 2L', 'Hamburguer de carne + um refrigerante de 2L', 35.99, 70, 'https://www.otempo.com.br/content/dam/otempo/editorias/economia/2023/3/economia-preco-do-big-mac-minas-gerais-big-mac-mais-barato-big-mac-qual-big-mac-mais-barato-do-brasil-big-mac-mais-barato-do-mundo-1708498837.jpeg', '000000000000', '42591651000143');
+
+-- Copiando estrutura para tabela menusystem.combos_categories
+CREATE TABLE IF NOT EXISTS `combos_categories` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `IDCOMBO` int NOT NULL,
+  `IDCATEGORY` int NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `IDCOMBO` (`IDCOMBO`),
+  KEY `IDCATEGORY` (`IDCATEGORY`),
+  CONSTRAINT `combos_categories_ibfk_1` FOREIGN KEY (`IDCOMBO`) REFERENCES `combos` (`IDCOMBO`),
+  CONSTRAINT `combos_categories_ibfk_2` FOREIGN KEY (`IDCATEGORY`) REFERENCES `categories` (`IDCATEGORY`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela menusystem.combos_categories: ~0 rows (aproximadamente)
+INSERT INTO `combos_categories` (`ID`, `IDCOMBO`, `IDCATEGORY`) VALUES
+	(1, 1, 1),
+	(2, 1, 3);
+
+-- Copiando estrutura para tabela menusystem.combos_grupos
+CREATE TABLE IF NOT EXISTS `combos_grupos` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `IDCOMBO` int NOT NULL,
+  `IDGRUPO` int NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `IDGRUPO` (`IDGRUPO`),
+  KEY `IDCOMBO` (`IDCOMBO`),
+  CONSTRAINT `combos_grupos_ibfk_1` FOREIGN KEY (`IDGRUPO`) REFERENCES `grupos` (`IDGRUPO`),
+  CONSTRAINT `combos_grupos_ibfk_2` FOREIGN KEY (`IDCOMBO`) REFERENCES `combos` (`IDCOMBO`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela menusystem.combos_grupos: ~0 rows (aproximadamente)
+INSERT INTO `combos_grupos` (`ID`, `IDCOMBO`, `IDGRUPO`) VALUES
+	(1, 1, 1);
+
+-- Copiando estrutura para tabela menusystem.combos_products
+CREATE TABLE IF NOT EXISTS `combos_products` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `IDCOMBO` int NOT NULL,
+  `IDPRODUCT` int NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `IDCOMBO` (`IDCOMBO`),
+  KEY `IDPRODUCT` (`IDPRODUCT`),
+  CONSTRAINT `combos_products_ibfk_1` FOREIGN KEY (`IDCOMBO`) REFERENCES `combos` (`IDCOMBO`),
+  CONSTRAINT `combos_products_ibfk_2` FOREIGN KEY (`IDPRODUCT`) REFERENCES `products` (`IDPRODUCT`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela menusystem.combos_products: ~0 rows (aproximadamente)
+INSERT INTO `combos_products` (`ID`, `IDCOMBO`, `IDPRODUCT`) VALUES
+	(1, 1, 3),
+	(3, 1, 10);
 
 -- Copiando estrutura para tabela menusystem.companys
 CREATE TABLE IF NOT EXISTS `companys` (
@@ -100,6 +169,40 @@ CREATE TABLE IF NOT EXISTS `discount` (
 
 -- Copiando dados para a tabela menusystem.discount: ~0 rows (aproximadamente)
 
+-- Copiando estrutura para tabela menusystem.grupos
+CREATE TABLE IF NOT EXISTS `grupos` (
+  `IDGRUPO` int NOT NULL AUTO_INCREMENT,
+  `GROUP_NAME` varchar(80) NOT NULL,
+  `VIEWNAME` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `DESCRIPTION` varchar(300) NOT NULL,
+  `CNPJ` varchar(20) NOT NULL,
+  PRIMARY KEY (`IDGRUPO`),
+  KEY `CNPJ` (`CNPJ`),
+  CONSTRAINT `grupos_ibfk_1` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela menusystem.grupos: ~1 rows (aproximadamente)
+INSERT INTO `grupos` (`IDGRUPO`, `GROUP_NAME`, `VIEWNAME`, `DESCRIPTION`, `CNPJ`) VALUES
+	(1, 'Refrigerantes 2L', 'Refrigerante 2L', 'Refrigerantes 2L', '42591651000143');
+
+-- Copiando estrutura para tabela menusystem.grupos_products
+CREATE TABLE IF NOT EXISTS `grupos_products` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `IDGRUPO` int NOT NULL,
+  `IDPRODUCT` int NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `IDGRUPO` (`IDGRUPO`),
+  KEY `IDPRODUCT` (`IDPRODUCT`),
+  CONSTRAINT `grupos_products_ibfk_1` FOREIGN KEY (`IDGRUPO`) REFERENCES `grupos` (`IDGRUPO`),
+  CONSTRAINT `grupos_products_ibfk_2` FOREIGN KEY (`IDPRODUCT`) REFERENCES `products` (`IDPRODUCT`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela menusystem.grupos_products: ~3 rows (aproximadamente)
+INSERT INTO `grupos_products` (`ID`, `IDGRUPO`, `IDPRODUCT`) VALUES
+	(1, 1, 12),
+	(2, 1, 13),
+	(3, 1, 14);
+
 -- Copiando estrutura para tabela menusystem.ingredients
 CREATE TABLE IF NOT EXISTS `ingredients` (
   `IdIngredient` int NOT NULL AUTO_INCREMENT,
@@ -136,7 +239,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.orders: ~4 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.orders: ~1 rows (aproximadamente)
 INSERT INTO `orders` (`IDORDER`, `CNPJ`, `TOTAL`, `ORDER_DATE`, `CHECK_NUMBER`, `ORDER_ACTIVE`, `ORDER_STATUS`) VALUES
 	(36, '42591651000143', 40, '2025-02-16 02:13:59', 1, 1, 1);
 
@@ -162,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `order_details` (
   CONSTRAINT `order_details_ibfk_5` FOREIGN KEY (`IDORDER`) REFERENCES `orders` (`IDORDER`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1553 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.order_details: ~1.083 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.order_details: ~0 rows (aproximadamente)
 INSERT INTO `order_details` (`ID`, `IDORDER`, `CNPJ`, `IDPRODUCT`, `ITEM`, `CHECK_NUMBER`, `PRICE`, `ORDER_DATE`, `Note`) VALUES
 	(1552, 36, '42591651000143', 3, 1, 1, 40, '2025-02-16 02:13:59', '');
 
@@ -175,29 +278,32 @@ CREATE TABLE IF NOT EXISTS `products` (
   `DESCRIPTION` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `PRICE` float NOT NULL,
   `KCAL` float DEFAULT (0),
-  `IMAGE` varchar(200) DEFAULT NULL,
+  `IMAGE` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `BARCODE` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '00000000000000000000',
   `ACTIVE` smallint NOT NULL DEFAULT (0),
-  `SALEPRODUCT` smallint NOT NULL,
+  `SALEPRODUCT` smallint NOT NULL DEFAULT (1),
   PRIMARY KEY (`IDPRODUCT`),
   KEY `CNPJ` (`CNPJ`),
   KEY `categories_fk` (`IDCATEGORY`),
   CONSTRAINT `categories_fk` FOREIGN KEY (`IDCATEGORY`) REFERENCES `categories` (`IDCATEGORY`) ON DELETE SET NULL,
   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.products: ~7 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.products: ~10 rows (aproximadamente)
 INSERT INTO `products` (`IDPRODUCT`, `PRODUCT_NAME`, `IDCATEGORY`, `CNPJ`, `DESCRIPTION`, `PRICE`, `KCAL`, `IMAGE`, `BARCODE`, `ACTIVE`, `SALEPRODUCT`) VALUES
-	(1, 'McOferta McChicken', 1, '42591651000143', 'Um delicioso hamburguer de frango', 30, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '', 1, 0),
-	(2, 'BK Whopper', 1, '53060216000109', 'Um delicioso hamburguer', 40, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '', 1, 0),
-	(3, 'McOferta BigMac', 2, '42591651000143', 'Dois hambúrgueres (100% carne bovina), alface americana, queijo processado sabor cheddar, molho especial, cebola, picles e pão com gergelim.', 40, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '', 1, 0),
-	(4, 'McLancheFeliz', 1, '42591651000143', 'O melhor para criançada', 20.2, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '', 1, 0),
-	(5, 'BK Whopper Plantas', 1, '53060216000109', 'Um delicioso hamburguer com o dobro de salada', 35.99, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '', 1, 0),
-	(7, 'teste', 1, '42591651000143', 'teste', 123, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '', 1, 0),
-	(8, 'BK Whopper', 1, '42591651000143', 'Um delicioso hamburguer', 40, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '', 1, 0),
-	(9, 'McFritas - Média', 1, '42591651000143', '50g de Fritas', 10, 0, 'https://png.pngtree.com/png-vector/20240130/ourmid/pngtree-french-fried-chips-isolated-png-png-image_11572782.png', '', 1, 1),
-	(10, 'McFritas - Grande', 1, '42591651000143', '70g de Fritas', 13, 20, 'https://png.pngtree.com/png-vector/20240130/ourmid/pngtree-french-fried-chips-isolated-png-png-image_11572782.png', '', 1, 1),
-	(11, 'McFritas - Pequena', 1, '42591651000143', '30g de Fritas', 7, 10, 'https://png.pngtree.com/png-vector/20240130/ourmid/pngtree-french-fried-chips-isolated-png-png-image_11572782.png', '', 1, 1);
+	(1, 'McOferta McChicken', 1, '42591651000143', 'Um delicioso hamburguer de frango', 30, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
+	(2, 'BK Whopper', 1, '53060216000109', 'Um delicioso hamburguer', 40, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
+	(3, 'McOferta BigMac', 2, '42591651000143', 'Dois hambúrgueres (100% carne bovina), alface americana, queijo processado sabor cheddar, molho especial, cebola, picles e pão com gergelim.', 40, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
+	(4, 'McLancheFeliz', 1, '42591651000143', 'O melhor para criançada', 20.2, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
+	(5, 'BK Whopper Plantas', 1, '53060216000109', 'Um delicioso hamburguer com o dobro de salada', 35.99, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
+	(7, 'teste', 1, '42591651000143', 'teste', 123, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
+	(8, 'BK Whopper', 1, '42591651000143', 'Um delicioso hamburguer', 40, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
+	(9, 'McFritas - Média', 1, '42591651000143', '50g de Fritas', 10, 0, 'https://png.pngtree.com/png-vector/20240130/ourmid/pngtree-french-fried-chips-isolated-png-png-image_11572782.png', '00000000000000000000', 1, 1),
+	(10, 'McFritas - Grande', 1, '42591651000143', '70g de Fritas', 13, 20, 'https://png.pngtree.com/png-vector/20240130/ourmid/pngtree-french-fried-chips-isolated-png-png-image_11572782.png', '00000000000000000000', 1, 1),
+	(11, 'McFritas - Pequena', 1, '42591651000143', '30g de Fritas', 7, 10, 'https://png.pngtree.com/png-vector/20240130/ourmid/pngtree-french-fried-chips-isolated-png-png-image_11572782.png', '00000000000000000000', 1, 1),
+	(12, 'Refrigerante Coca-Cola 2L', 1, '42591651000143', 'Refrigerante de 2L', 9.99, 10, NULL, '00000000000000000000', 1, 1),
+	(13, 'Refrigerante Guarana 2L', 1, '42591651000143', 'Refrigerante de 2L', 8.99, 10, NULL, '00000000000000000000', 1, 1),
+	(14, 'Refrigerante Pepsi 2L', 1, '42591651000143', 'Refrigerante de 2L', 8.99, 10, NULL, '00000000000000000000', 1, 1);
 
 -- Copiando estrutura para tabela menusystem.products_acompanhamentos
 CREATE TABLE IF NOT EXISTS `products_acompanhamentos` (
@@ -214,7 +320,7 @@ CREATE TABLE IF NOT EXISTS `products_acompanhamentos` (
   CONSTRAINT `products_acompanhamentos_ibfk_3` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.products_acompanhamentos: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.products_acompanhamentos: ~4 rows (aproximadamente)
 INSERT INTO `products_acompanhamentos` (`ID`, `PRODUCT`, `ACOMPANHAMENTO`, `CNPJ`) VALUES
 	(3, 1, 11, '42591651000143'),
 	(4, 1, 9, '42591651000143'),
@@ -235,7 +341,7 @@ CREATE TABLE IF NOT EXISTS `products_categories` (
   CONSTRAINT `products_categories_ibfk_3` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.products_categories: ~7 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.products_categories: ~6 rows (aproximadamente)
 INSERT INTO `products_categories` (`ID`, `PRODUCT`, `CATEGORY`, `CNPJ`) VALUES
 	(1, 1, 1, '42591651000143'),
 	(2, 1, 2, '42591651000143'),
@@ -260,7 +366,7 @@ CREATE TABLE IF NOT EXISTS `products_ingrdients` (
   CONSTRAINT `products_ingrdients_ibfk_2` FOREIGN KEY (`idIngredient`) REFERENCES `ingredients` (`IdIngredient`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.products_ingrdients: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.products_ingrdients: ~5 rows (aproximadamente)
 INSERT INTO `products_ingrdients` (`id`, `idProduct`, `idIngredient`, `Cnpj`) VALUES
 	(6, 1, 2, '42591651000143'),
 	(7, 3, 3, '42591651000143'),
