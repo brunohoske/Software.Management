@@ -8,6 +8,8 @@
 
 @code {
     public MenuClient _client;
+    public CompanyClient _companyClient;
+    
 
     public Menu menu { get; set; }
     [Parameter]
@@ -78,8 +80,9 @@
     {
         base.OnInitialized();
         _client = new MenuClient($"{Cnpj}");
+        _companyClient = new CompanyClient($"{Cnpj}");
         await CarregarProdutosAsync();
-        Store = await GetCompanyFromCnpj(Cnpj);
+        Store = await  _companyClient.GetCompanyFromCnpj(Cnpj);
         OrdersInCheck = await GetOrders();
         await GetCategories();
 
@@ -99,6 +102,7 @@
     {
         if (firstRender)
         {
+           
             await GetSessionCart();
             _isFirstRender = false;
             StateHasChanged();
@@ -150,33 +154,7 @@
             }
         </div>
     </div>
-  @*   @foreach (var category in Categories)
-    {
-        <div class="product-category">
-            <h3 class="category-title">@category.Name</h3>
-            <div class="product-list">
-                @foreach (var item in Produtos)
-                {
-                    @if(item.Category.IdCategory == category.IdCategory)
-                    {
-                        <div class="product-card"  @onclick="()=>GoToProductPage(item.Id)">
-                            <img src="/Images/hamburguer1.png" alt="Product Image" class="product-image" />
-                            <div class="product-details">
-                                <h4 class="product-name">@item.Name</h4>
-                                <p class="product-description">@item.Description</p>
-                                <div class="product-bottom">
-                                    <span class="product-price">R$ @item.Value.ToString("F2")</span>
-                                    <button class="add-to-cart">Adicionar</button>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                }
-            </div>
-        </div> *@
     
-
-
     @foreach (var category in Categories)
     {
         @if(category.IsDisplay == 1)
@@ -278,22 +256,7 @@
 
 @code{
 
-    private async Task<Company> GetCompanyFromCnpj(string cnpj)
-    {
-        HttpResponseMessage response = _httpClient.GetAsync($"Company/{cnpj}").Result;
-        var content = await response.Content.ReadAsStringAsync();
-        var options = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            };
-
-        if(response.IsSuccessStatusCode)
-        {
-            return System.Text.Json.JsonSerializer.Deserialize<Company>(content, options);
-        }
-        return new Company();
-
-    }
+    
 
     private async Task SubmitOrder(List<ItemCart> itens)
     {

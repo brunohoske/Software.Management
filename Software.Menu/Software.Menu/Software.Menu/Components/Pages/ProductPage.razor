@@ -13,6 +13,8 @@
     public string TableNumber { get; set; } = null!;
     [Parameter]
     public string idProduct { get; set; } = null!;
+
+    Company store = new Company();
     List<Ingredient> ingredients = new List<Ingredient>();
     List<Product> selectedAcomps = new List<Product>();
     ItemCart itemCart = new ItemCart();
@@ -162,6 +164,7 @@
         if (firstRender)
         {
             await GetSessionCart();
+            
 
             _isFirstRender = false;
             StateHasChanged();
@@ -252,7 +255,7 @@
 </style>
 <nav class=" position-fixed navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm" style="width: 100%;">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#">FoodieExpress</a>
+        <a class="navbar-brand fw-bold" href="#">Foodie Express</a>
     </div>
 </nav>
 <div class="container my-5">
