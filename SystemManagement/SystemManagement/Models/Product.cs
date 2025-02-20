@@ -14,6 +14,7 @@ namespace SystemManagement.Models
         public string BarCode { get; set; }
         public string Image { get; set; }   
         public List<Category> CategoriesRecommended { get; set; }
+        public List<Product> Acompanhamentos { get; set; }
 
     }
 }

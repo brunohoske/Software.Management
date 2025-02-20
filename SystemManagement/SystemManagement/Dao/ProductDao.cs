@@ -24,24 +24,9 @@ namespace SystemManagement.Dao
                 using var conexao = _connectionFabric.Connect();
                 using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE CNPJ = {store.Cnpj}",conexao);
                while (reader.Read())
-                {
-                    Product product = new Product();
-                    product.Id = reader.GetInt32("IdProduct");
-                    product.Name = reader["Product_name"].ToString();
-                    product.Value = Convert.ToInt32(reader["PRICE"]);
-                    product.Description = reader["DESCRIPTION"].ToString();
-                    product.Category = new Category() { IdCategory = int.Parse(reader["IdCategory"].ToString()) };
-                    product.Store = new Store() { Name = "McDonalds", Cnpj = reader["CNPJ"].ToString() };
-                    product.Kcal = Convert.ToDouble(reader["KCAL"]);
-                    product.Image = reader["IMAGE"].ToString();
-                    product.BarCode = reader["BarCode"].ToString();
-                    product.CategoriesRecommended = _categoryDao.GetCategoriesRecommended(product.Id, store.Cnpj);
-                    foreach(var category in product.CategoriesRecommended)
-                    {
-                        category.Products = _categoryDao.GetProductCategories(store.Cnpj, category.IdCategory);
-                    }
-                    products.Add(product);
-                }
+               {
+                    products.Add(GetProductFromId(Convert.ToInt32(reader["idproduct"].ToString()), store.Cnpj));
+               }
 
                 return products;
             }
@@ -70,6 +55,7 @@ namespace SystemManagement.Dao
                         product.Image = reader["image"].ToString();
                         product.Category = new Category() { IdCategory = int.Parse(reader["IDCATEGORY"].ToString()) };
                         product.BarCode = reader["BarCode"].ToString();
+                        product.Acompanhamentos = GetAcompanhamentos(product.Id, cnpj);
                         product.CategoriesRecommended = _categoryDao.GetCategoriesRecommended(product.Id, cnpj);
                         foreach (var category in product.CategoriesRecommended)
                         {

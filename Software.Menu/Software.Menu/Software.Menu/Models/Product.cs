@@ -13,6 +13,7 @@ namespace Software.Menu.Models
         public double Kcal { get; set; }
         public string Image { get; set; }
         public string BarCode { get; set; }
+        public List<Product> Acompanhamentos { get; set; }
         [JsonPropertyName("categoriesRecommended")]
         public List<Category> CategoriesReccomended { get; set; }
 
