@@ -55,8 +55,10 @@ namespace SystemManagement.Dao
                     category.Description = reader["Description"].ToString();
                     category.IdCategory = int.Parse(reader["IdCategory"].ToString());
                     category.Products = GetProductCategories(cnpj, category.IdCategory);
+                    category.Combos = GetComboCategories(cnpj, category.IdCategory);
                     category.IsDisplay = Convert.ToInt16(reader["DisplayMainPage"]);
                     categories.Add(category);
+                    
                 }
 
                 return categories;
@@ -98,7 +100,39 @@ namespace SystemManagement.Dao
 
         }
 
+        public List<Combo> GetComboCategories(string cnpj, int idCategory)
+        {
+            List<Combo> combos = new List<Combo>();
+            try
+            {
+                using var conexao = _connectionFabric.Connect();
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT C.* FROM combos C JOIN combos_categories CC ON C.IDCOMBO = CC.IDCOMBO JOIN categories CA ON CA.IDCATEGORY = CC.IDCATEGORY WHERE CA.IDCATEGORY = {idCategory} AND CA.CNPJ = '{cnpj}';", conexao);
+                while (reader.Read())
+                {
+                    Combo combo = new Combo();
 
-       
+                    combo.Id = reader.GetInt32("IdCombo");
+                    combo.Name = reader["Combo_name"].ToString();
+                    combo.Value = Convert.ToInt32(reader["PRICE"]);
+                    combo.Description = reader["DESCRIPTION"].ToString();
+                    combo.Store = new Store() { Name = "McDonalds", Cnpj = reader["CNPJ"].ToString() };
+                    combo.Kcal = Convert.ToDouble(reader["KCAL"]);
+                    combo.Image = reader["IMAGE"].ToString();
+                    combo.BarCode = reader["BarCode"].ToString();
+
+                    combos.Add(combo);
+                }
+
+                return combos;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
+
+
     }
 }

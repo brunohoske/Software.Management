@@ -2,7 +2,7 @@
 -- Servidor:                     127.0.0.1
 -- Versão do servidor:           8.2.0 - MySQL Community Server - GPL
 -- OS do Servidor:               Win64
--- HeidiSQL Versão:              12.6.0.6765
+-- HeidiSQL Versão:              12.7.0.6850
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `combos_categories` (
   CONSTRAINT `combos_categories_ibfk_2` FOREIGN KEY (`IDCATEGORY`) REFERENCES `categories` (`IDCATEGORY`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.combos_categories: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.combos_categories: ~2 rows (aproximadamente)
 INSERT INTO `combos_categories` (`ID`, `IDCOMBO`, `IDCATEGORY`) VALUES
 	(1, 1, 1),
 	(2, 1, 3);
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `combos_grupos` (
   PRIMARY KEY (`ID`),
   KEY `IDGRUPO` (`IDGRUPO`),
   KEY `IDCOMBO` (`IDCOMBO`),
-  CONSTRAINT `combos_grupos_ibfk_1` FOREIGN KEY (`IDGRUPO`) REFERENCES `grupos` (`IDGRUPO`),
+  CONSTRAINT `combos_grupos_ibfk_1` FOREIGN KEY (`IDGRUPO`) REFERENCES `grupos` (`IDGROUP`),
   CONSTRAINT `combos_grupos_ibfk_2` FOREIGN KEY (`IDCOMBO`) REFERENCES `combos` (`IDCOMBO`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `combos_products` (
   CONSTRAINT `combos_products_ibfk_2` FOREIGN KEY (`IDPRODUCT`) REFERENCES `products` (`IDPRODUCT`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.combos_products: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.combos_products: ~2 rows (aproximadamente)
 INSERT INTO `combos_products` (`ID`, `IDCOMBO`, `IDPRODUCT`) VALUES
 	(1, 1, 3),
 	(3, 1, 10);
@@ -171,34 +171,48 @@ CREATE TABLE IF NOT EXISTS `discount` (
 
 -- Copiando estrutura para tabela menusystem.grupos
 CREATE TABLE IF NOT EXISTS `grupos` (
-  `IDGRUPO` int NOT NULL AUTO_INCREMENT,
+  `IDGROUP` int NOT NULL AUTO_INCREMENT,
   `GROUP_NAME` varchar(80) NOT NULL,
   `VIEWNAME` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `DESCRIPTION` varchar(300) NOT NULL,
   `CNPJ` varchar(20) NOT NULL,
-  PRIMARY KEY (`IDGRUPO`),
+  PRIMARY KEY (`IDGROUP`) USING BTREE,
   KEY `CNPJ` (`CNPJ`),
   CONSTRAINT `grupos_ibfk_1` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.grupos: ~1 rows (aproximadamente)
-INSERT INTO `grupos` (`IDGRUPO`, `GROUP_NAME`, `VIEWNAME`, `DESCRIPTION`, `CNPJ`) VALUES
+-- Copiando dados para a tabela menusystem.grupos: ~0 rows (aproximadamente)
+INSERT INTO `grupos` (`IDGROUP`, `GROUP_NAME`, `VIEWNAME`, `DESCRIPTION`, `CNPJ`) VALUES
 	(1, 'Refrigerantes 2L', 'Refrigerante 2L', 'Refrigerantes 2L', '42591651000143');
+
+-- Copiando estrutura para tabela menusystem.grupos_combos
+CREATE TABLE IF NOT EXISTS `grupos_combos` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `IDGROUP` int NOT NULL,
+  `IDCOMBO` int NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `IDGROUP` (`IDGROUP`),
+  KEY `IDCOMBO` (`IDCOMBO`),
+  CONSTRAINT `grupos_combos_ibfk_1` FOREIGN KEY (`IDGROUP`) REFERENCES `grupos` (`IDGROUP`),
+  CONSTRAINT `grupos_combos_ibfk_2` FOREIGN KEY (`IDCOMBO`) REFERENCES `combos` (`IDCOMBO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela menusystem.grupos_combos: ~0 rows (aproximadamente)
 
 -- Copiando estrutura para tabela menusystem.grupos_products
 CREATE TABLE IF NOT EXISTS `grupos_products` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `IDGRUPO` int NOT NULL,
+  `IDGROUP` int NOT NULL,
   `IDPRODUCT` int NOT NULL,
   PRIMARY KEY (`ID`),
-  KEY `IDGRUPO` (`IDGRUPO`),
   KEY `IDPRODUCT` (`IDPRODUCT`),
-  CONSTRAINT `grupos_products_ibfk_1` FOREIGN KEY (`IDGRUPO`) REFERENCES `grupos` (`IDGRUPO`),
+  KEY `IDGRUPO` (`IDGROUP`) USING BTREE,
+  CONSTRAINT `grupos_products_ibfk_1` FOREIGN KEY (`IDGROUP`) REFERENCES `grupos` (`IDGROUP`),
   CONSTRAINT `grupos_products_ibfk_2` FOREIGN KEY (`IDPRODUCT`) REFERENCES `products` (`IDPRODUCT`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Copiando dados para a tabela menusystem.grupos_products: ~3 rows (aproximadamente)
-INSERT INTO `grupos_products` (`ID`, `IDGRUPO`, `IDPRODUCT`) VALUES
+INSERT INTO `grupos_products` (`ID`, `IDGROUP`, `IDPRODUCT`) VALUES
 	(1, 1, 12),
 	(2, 1, 13),
 	(3, 1, 14);
@@ -239,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.orders: ~1 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.orders: ~0 rows (aproximadamente)
 INSERT INTO `orders` (`IDORDER`, `CNPJ`, `TOTAL`, `ORDER_DATE`, `CHECK_NUMBER`, `ORDER_ACTIVE`, `ORDER_STATUS`) VALUES
 	(36, '42591651000143', 40, '2025-02-16 02:13:59', 1, 1, 1);
 
@@ -289,7 +303,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.products: ~10 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.products: ~13 rows (aproximadamente)
 INSERT INTO `products` (`IDPRODUCT`, `PRODUCT_NAME`, `IDCATEGORY`, `CNPJ`, `DESCRIPTION`, `PRICE`, `KCAL`, `IMAGE`, `BARCODE`, `ACTIVE`, `SALEPRODUCT`) VALUES
 	(1, 'McOferta McChicken', 1, '42591651000143', 'Um delicioso hamburguer de frango', 30, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
 	(2, 'BK Whopper', 1, '53060216000109', 'Um delicioso hamburguer', 40, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
@@ -320,7 +334,7 @@ CREATE TABLE IF NOT EXISTS `products_acompanhamentos` (
   CONSTRAINT `products_acompanhamentos_ibfk_3` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.products_acompanhamentos: ~4 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.products_acompanhamentos: ~3 rows (aproximadamente)
 INSERT INTO `products_acompanhamentos` (`ID`, `PRODUCT`, `ACOMPANHAMENTO`, `CNPJ`) VALUES
 	(3, 1, 11, '42591651000143'),
 	(4, 1, 9, '42591651000143'),
@@ -341,7 +355,7 @@ CREATE TABLE IF NOT EXISTS `products_categories` (
   CONSTRAINT `products_categories_ibfk_3` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.products_categories: ~6 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.products_categories: ~7 rows (aproximadamente)
 INSERT INTO `products_categories` (`ID`, `PRODUCT`, `CATEGORY`, `CNPJ`) VALUES
 	(1, 1, 1, '42591651000143'),
 	(2, 1, 2, '42591651000143'),

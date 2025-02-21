@@ -182,6 +182,27 @@
                             </div>
                         </div>
                     }
+
+                    @foreach (var combo in category.Combos)
+                    {
+                        <div class="product-card" @onclick="()=>GoToProductPage(combo.Id)">
+                            <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center">
+
+                                <svg style="fill: #00a680;" viewBox="0 0 16 16" width="1em" height="1em" role="presentation" focusable="false" aria-hidden="true">
+                                    <path d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z"></path>
+                                </svg>
+                            </button>
+                            <img src="/Images/hamburguer1.png" alt="Product Image" class="product-image" />
+                            <div class="product-details">
+                                <h4 class="product-name">@combo.Name</h4>
+                                <p class="product-description">@combo.Description</p>
+                                <div class="product-bottom">
+                                    <span class="product-price">R$ @combo.Value.ToString("F2")</span>
+                                    @* <button class="add-to-cart">Adicionar</button> *@
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         }

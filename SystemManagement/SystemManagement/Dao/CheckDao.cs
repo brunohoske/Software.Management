@@ -1,7 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using SystemManagement.Data;
 using SystemManagement.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SystemManagement.Dao
 {

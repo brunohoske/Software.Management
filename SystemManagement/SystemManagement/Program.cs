@@ -14,7 +14,9 @@ builder.Services.AddSingleton<ConnectionFabric>();
 builder.Services.AddSingleton<OrderDao>();
 builder.Services.AddSingleton<CategoryDao>();
 builder.Services.AddSingleton<ProductDao>();
+builder.Services.AddSingleton<GrupoDao>();
 builder.Services.AddSingleton<CheckDao>();
+builder.Services.AddSingleton<ComboDao>();
 builder.Services.AddSingleton<HeaderService>();
 
 builder.Services.AddControllers();

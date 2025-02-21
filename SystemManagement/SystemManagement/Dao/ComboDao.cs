@@ -9,11 +9,13 @@ namespace SystemManagement.Dao
         private readonly ConnectionFabric _connectionFabric;
         private readonly CategoryDao _categoryDao;
         private readonly ProductDao _productDao;
-        public ComboDao(ConnectionFabric connectionFabric, CategoryDao categoryDao, ProductDao productDao)
+        private readonly GrupoDao _groupDao;
+        public ComboDao(ConnectionFabric connectionFabric, CategoryDao categoryDao, ProductDao productDao, GrupoDao grupoDao)
         {
             _connectionFabric = connectionFabric;
             _categoryDao = categoryDao;
             _productDao = productDao;
+            _groupDao = grupoDao;
         }
 
 
@@ -57,7 +59,7 @@ namespace SystemManagement.Dao
                     combo.Image = reader["IMAGE"].ToString();
                     combo.BarCode = reader["BarCode"].ToString();
                     combo.Products = GetComboProducts(cnpj, IdCombo);
-                    combo.Groups = ;
+                    combo.Groups = GetComboGroups(cnpj,IdCombo);
                     //combo.CategoriesRecommended = _categoryDao.GetCategoriesRecommended(combo.Id, store.Cnpj);
                     //foreach (var category in combo.CategoriesRecommended)
                     //{
@@ -95,27 +97,27 @@ namespace SystemManagement.Dao
             }
             catch { return new List<Product>(); }
         }
-        public List<Product> GetComboGroups(string cnpj, int idCombo)
+        public List<Grupo> GetComboGroups(string cnpj, int idCombo)
         {
             try
             {
                 using var conexao = _connectionFabric.Connect();
                 using var reader = _connectionFabric.ExecuteCommandReader($"SELECT g.* FROM COMBOS C JOIN COMBOS_GRUPOS CG ON C.IDCOMBO = CG.IDCOMBO JOIN GRUPOS G ON CG.IDGRUPO = G.IDGRUPO WHERE C.IDCOMBO = {idCombo} AND c.cnpj = '{cnpj}';", conexao);
 
-                List<Product> products = new List<Product>();
+                List<Grupo> groups = new List<Grupo>();
                 if (reader != null)
                 {
                     while (reader.Read())
                     {
-                        products.Add(_groupDao.GetGroupFromID(Convert.ToInt32(reader["IDPRODUCT"].ToString()), cnpj));
+                        groups.Add(_groupDao.GetGroupFromId(Convert.ToInt32(reader["IDPRODUCT"].ToString()), cnpj));
 
                     }
-                    return products;
+                    return groups;
                 }
 
-                return new List<Product>();
+                return new List<Grupo>();
             }
-            catch { return new List<Product>(); }
+            catch { return new List<Grupo>(); }
         }
     }
   
