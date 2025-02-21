@@ -1,4 +1,4 @@
-﻿@page "/{Cnpj}/Product/{idProduct}/{TableNumber}"
+﻿@page "/{Cnpj}/Combo/{idCombo}/{TableNumber}"
 @using System.Text.Json
 
 @rendermode InteractiveServer
@@ -12,7 +12,7 @@
     [Parameter]
     public string TableNumber { get; set; } = null!;
     [Parameter]
-    public string idProduct { get; set; } = null!;
+    public string idCombo { get; set; } = null!;
 
 
     Company store = new Company();
@@ -23,7 +23,8 @@
     List<ItemCart> Cart = new List<ItemCart>();
     List<string> notes = new List<string>();
     int quantity = 1;
-    Product selectedProduct;
+    //Product selectedProduct;
+    Combo selectedCombo;
     private bool _isFirstRender = true;
 
     List<(int, bool)> _ingredientChecked = new List<(int, bool)>();
@@ -37,6 +38,12 @@
     {
         return await productClient.GetProductFromId(id);
     }
+
+    public async Task<Combo> GetSelectedCombo(int id)
+    {
+        return await comboClient.GetComboFromId(id);
+    }
+
     private async Task GetSessionCart()
     {
         var cartJson = await SessionStorage.GetAsync<string>("cart");
@@ -48,9 +55,9 @@
     }
     private async Task AddProduct()
     {
-        if (selectedProduct != null)
+        if (selectedCombo != null)
         {
-            itemCart.Product = selectedProduct;
+            itemCart.Combo = selectedCombo;
             itemCart.Quantity = quantity;
             //itemCart.Acompanhamentos = acomps;
             itemCart.Notes = notes;
@@ -69,8 +76,12 @@
                     Cart.Add(item);
                 }
             }
+           
 
-
+            if (Cart.Any(p => p == null))
+            {
+                itemCart.Product = new Product();
+            }
 
             await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
             nav.NavigateTo($"/{Cnpj}/CARDAPIO/M{TableNumber}#cart");
@@ -78,7 +89,7 @@
         }
         else
         {
-            Console.WriteLine("selectedProduct is null");
+            Console.WriteLine("Combo is null");
         }
     }
 
@@ -159,17 +170,16 @@
         ingredientClient = new IngredientClient($"{Cnpj}");
         productClient = new ProductClient($"{Cnpj}");
         menuClient = new MenuClient($"{Cnpj}");
-
-        ingredients = await ingredientClient.GetProductIngredients(int.Parse(idProduct), Cnpj);
-        selectedProduct = await GetSelectedProduct(int.Parse(idProduct));
-        selectedAcomps = await productClient.GetAcompanhamentos(int.Parse(idProduct));
+        comboClient = new ComboClient($"{Cnpj}");
+        selectedCombo = await GetSelectedCombo(int.Parse(idCombo));
+        selectedAcomps.AddRange(selectedCombo.Products.SelectMany(p => p.Acompanhamentos));
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await GetSessionCart();
-            
+
 
             _isFirstRender = false;
             StateHasChanged();
@@ -267,31 +277,60 @@
     <div class="row">
         <!-- Product Details -->
         <div class="col-md-6 text-center">
-            <img src="@selectedProduct.Image" class="img-fluid rounded" style="width: 450px; height: 305px; object-fit: contain;" alt="Product Image">
+            <img src="@selectedCombo.Image" class="img-fluid rounded" style="width: 450px; height: 305px; object-fit: contain;" alt="Product Image">
         </div>
         <div class="col-md-6 mt-3">
-            <h2 class="fw-bold">@selectedProduct.Name</h2>
-            <h4 class="">R$@selectedProduct.Value.ToString("F2")</h4>
-            <p class="text-muted">@selectedProduct.Description</p>
-            <p class="text-muted">@selectedProduct.Category.Name</p>
-            <p class="text-muted">@selectedProduct.Kcal <strong> Kcal</strong></p>
+            <h2 class="fw-bold">@selectedCombo.Name</h2>
+            <h4 class="">R$@selectedCombo.Value.ToString("F2")</h4>
+            <p class="text-muted">@selectedCombo.Description</p>
+            <p class="text-muted">@selectedCombo.Kcal <strong> Kcal</strong></p>
 
             <!-- Ingredient Customization -->
             <div class="mt-4" style="border-bottom: inset;">
-                <h5 class="fw-bold">Customize Your Ingredients:</h5>
+                <h5 class="fw-bold">Customize seu combo:</h5>
                 <div class="row">
 
-                    @foreach (var ingredient in ingredients)
+                    @foreach (var product in selectedCombo.Products)
                     {
-                        _ingredientChecked.Add(new(ingredient.IdIngredient, true));
-
-                        int index = _ingredientChecked.FindIndex(x => x.Item1 == ingredient.IdIngredient);
-                        <div class="col-6">
-                            <div class="ingredient-item p-2 border rounded mb-2 @(_ingredientChecked[index].Item2? "selected" : "")" id="@ingredient.IdIngredient" name="@ingredient.Name" @onclick="(e) => ChangeIngredient(ingredient.Name, (_ingredientChecked[index] = (_ingredientChecked[index].Item1, !_ingredientChecked[index].Item2)).Item2 )">
-                                🧀 @ingredient.Name
+                        <div class="col-md-6">
+                            <div class="card mb-3" style="background-color: transparent;border: none;">
+                                <img src="@product.Image" class="card-img-top" style="width: 150px;height: 100px;" alt="@product.Name">
+                                <div class="card-body">
+                                    <h5 class="card-title">@product.Name</h5>
+                                    <a href="@product.Id" @onclick="() => GoToProductPage(product.Id)" class="btn btn-primary">Customizar</a>
+                                </div>
                             </div>
                         </div>
                     }
+
+                    @foreach (var group in selectedCombo.Groups)
+                    {
+                        <div class="col-md-6">
+                            <div class="card mb-3 shadow-sm">
+                                <div class="card-body">
+                                    <h6 class="card-title">Selecione o @group.ViewName</h6>
+                                    <div class="list-group">
+                                        @foreach (var product in group.Products)
+                                        {
+                                            <label class="list-group-item d-flex align-items-center">
+                                                <input type="checkbox" id="@product.Id" class="form-check-input me-2" @onchange="() => ChangeIngredient(product.Name, _ingredientChecked.FirstOrDefault(i => i.Item1 == product.Id).Item2)" />
+                                                <img src="@product.Image" class="rounded-circle me-2" width="50" height="50" alt="@product.Name">
+                                                <span>@product.Name</span>
+                                            </label>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="mt-4">
+                <h5 class="fw-bold">Quantidade:</h5>
+                <div class="quantity-controls text-center">
+                    <button @onclick="DecrementItem">-</button>
+                    <span class="quantity-label">@quantity</span>
+                    <button @onclick="IncrementItem">+</button>
                 </div>
             </div>
             <!-- Sides Options -->
@@ -323,15 +362,16 @@
                     </div>
                 </div>
 
-            
+
             }
-            
 
 
-            
+
+
             <!-- Action Buttons -->
-            
+
             <div class="mt-5"></div>
+
             <div class="position-fixed bottom-0 start-0 w-100 bg-white p-3 border-top" style="z-index: 1;display: flex;align-items: center;">
                 <div class="col-4">
                     <div class="quantity-controls text-center ">
@@ -340,8 +380,8 @@
                         <button @onclick="IncrementItem">+</button>
                     </div>
                 </div>
-                <button @onclick="AddProduct" class="btn btn-primary btn-lg w-100">
-                    Add to Cart R$@((selectedProduct.Value * quantity) + (acomps.Sum(t => t.GetPrice())))
+                <button @onclick="AddProduct"  class="btn btn-primary btn-lg w-100">
+                    Add to Cart R$@((selectedCombo.Value * quantity) + (acomps.Sum(t => t.GetPrice())))
                 </button>
 
 
@@ -352,7 +392,7 @@
         <h1>Recomendados</h1>
         <section id="menu" class="menu-section" style="background-color: transparent; box-shadow:none">
 
-            @foreach (var category in selectedProduct.CategoriesReccomended)
+           @*  @foreach (var category in selectedProduct.CategoriesReccomended)
             {
                 <div class="product-category" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff;">
                     <h3 class="category-title" style="margin-left: 10px;padding-top: 10px;">
@@ -361,7 +401,7 @@
                     <div class="product-list">
                         @foreach (var product in category.Products)
                         {
-                            @if(product.Id != selectedProduct.Id)
+                            @if (product.Id != selectedProduct.Id)
                             {
                                 <div class="product-card" @onclick="()=>GoToProductPage(product.Id)">
                                     <img src="@product.Image" alt="Product Image" class="product-image" />
@@ -375,11 +415,11 @@
                                     </div>
                                 </div>
                             }
-                            
+
                         }
                     </div>
                 </div>
-            }
+            } *@
         </section>
     </div>
 </div>

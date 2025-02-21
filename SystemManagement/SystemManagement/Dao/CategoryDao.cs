@@ -29,6 +29,7 @@ namespace SystemManagement.Dao
                     category.IdCategory = int.Parse(reader["IdCategory"].ToString());
                     category.Products = GetProductCategories(store.Cnpj, category.IdCategory);
                     category.IsDisplay = Convert.ToInt16(reader["DisplayMainPage"]);
+                    category.Combos = GetComboCategories(store.Cnpj, category.IdCategory);
                     categories.Add(category);
                 }
 
@@ -114,7 +115,7 @@ namespace SystemManagement.Dao
                     combo.Id = reader.GetInt32("IdCombo");
                     combo.Name = reader["Combo_name"].ToString();
                     combo.Value = Convert.ToInt32(reader["PRICE"]);
-                    combo.Description = reader["DESCRIPTION"].ToString();
+                    combo.Description = reader["COMBO_DESCRIPTION"].ToString();
                     combo.Store = new Store() { Name = "McDonalds", Cnpj = reader["CNPJ"].ToString() };
                     combo.Kcal = Convert.ToDouble(reader["KCAL"]);
                     combo.Image = reader["IMAGE"].ToString();

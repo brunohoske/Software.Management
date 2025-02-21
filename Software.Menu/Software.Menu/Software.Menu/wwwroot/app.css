@@ -94,12 +94,13 @@
         
     }
 
-    .product-image {
-        width: 40%;
-        height: auto;
-        border-radius: 8px;
-        margin-bottom: 10px;
-    }
+.product-image {
+    width: 150px;
+    height: 120px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
 
 
 

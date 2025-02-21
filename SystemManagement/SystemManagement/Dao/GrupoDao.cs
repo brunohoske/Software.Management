@@ -44,13 +44,13 @@ namespace SystemManagement.Dao
             try
             {
                 using var conexao = _connectionFabric.Connect();
-                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM grupos WHERE IDCOMBO = {idGroup} AND CNPJ = {cnpj}", conexao);
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM grupos WHERE IDGROUP = {idGroup} AND CNPJ = {cnpj}", conexao);
                 Grupo group = new Grupo();
                 while (reader.Read())
                 {
-                    group.Id = reader.GetInt32("id");
-                    group.Name = reader.GetString("name");
-                    group.Description = reader.GetString("description");
+                    group.Id = reader.GetInt32("idGroup");
+                    group.Name = reader.GetString("Group_name");
+                    group.Description = reader.GetString("Group_description");
                     group.Products = GetGroupsProducts(group.Id, cnpj);
                     group.ViewName = reader.GetString("viewName");
                     group.Combos = GetGroupsCombos(group.Id,cnpj); 

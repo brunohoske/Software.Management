@@ -2,7 +2,8 @@
 {
     public class ItemCart
     {
-        public Product Product { get; set; }
+        public Product Product { get; set; } = new Product();
+        public Combo Combo { get; set; }
         public int Quantity { get; set; }
         public List<string> Notes { get; set; }
         public List<ItemCart> Acompanhamentos {  get; set; }

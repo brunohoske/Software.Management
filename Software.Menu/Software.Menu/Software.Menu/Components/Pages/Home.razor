@@ -60,6 +60,12 @@
         nav.NavigateTo($"{menu.Company.Cnpj}/Product/{id}/{Comanda}");
         await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
     }
+
+        private async Task GoToComboPage(int id)
+    {
+        nav.NavigateTo($"{menu.Company.Cnpj}/Combo/{id}/{Comanda}");
+        await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+    }
     private async Task GetSessionCart()
     {
         var cartJson = await SessionStorage.GetAsync<string>("cart");
@@ -141,7 +147,7 @@
                             <path d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z"></path>
                         </svg>
                     </button>
-                    <img src="/Images/hamburguer1.png" alt="Product Image" class="product-image" />
+                    <img src="@item.Image" alt="Product Image" class="product-image" />
                     <div class="product-details">
                         <h4 class="product-name">@item.Name</h4>
                         <p class="product-description">@item.Description</p>
@@ -171,7 +177,7 @@
                                     <path d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z"></path>
                                 </svg>
                             </button>
-                            <img src="/Images/hamburguer1.png" alt="Product Image" class="product-image" />
+                            <img src="@product.Image" alt="Product Image" class="product-image" />
                             <div class="product-details">
                                 <h4 class="product-name">@product.Name</h4>
                                 <p class="product-description">@product.Description</p>
@@ -185,14 +191,14 @@
 
                     @foreach (var combo in category.Combos)
                     {
-                        <div class="product-card" @onclick="()=>GoToProductPage(combo.Id)">
+                        <div class="product-card" @onclick="()=>GoToComboPage(combo.Id)">
                             <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center">
 
                                 <svg style="fill: #00a680;" viewBox="0 0 16 16" width="1em" height="1em" role="presentation" focusable="false" aria-hidden="true">
                                     <path d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z"></path>
                                 </svg>
                             </button>
-                            <img src="/Images/hamburguer1.png" alt="Product Image" class="product-image" />
+                            <img src="@combo.Image" alt="Product Image" class="product-image" />
                             <div class="product-details">
                                 <h4 class="product-name">@combo.Name</h4>
                                 <p class="product-description">@combo.Description</p>
@@ -218,13 +224,28 @@
             @foreach (var item in Cart.ToList())
             {
                 <div class="cart-item">
-
-                    <span class="cart-item-name">@item.Product.Name <br/>
-                        @if (item.GetNote() != "")
-                        {
-                            <span class="cart-item-notes" style="color: #8c8c8c;font-weight: normal;">Observações: @item.GetNote()</span>
-                        }
-                    </span>
+                    @if(item.Product != null)
+                    {
+                        <span class="cart-item-name">
+                            @item.Product.Name <br />
+                            @if (item.GetNote() != "")
+                            {
+                                <span class="cart-item-notes" style="color: #8c8c8c;font-weight: normal;">Observações: @item.GetNote()</span>
+                            }
+                        </span>
+                    }
+                    else if(item.Combo != null)
+                    {
+                        <span class="cart-item-name">
+                            @item.Combo.Name <br />
+                            @if (item.GetNote() != "")
+                            {
+                                <span class="cart-item-notes" style="color: #8c8c8c;font-weight: normal;">Observações: @item.GetNote()</span>
+                            }
+                        </span>
+                    }
+                    
+                  
                     <button class="quantity-btn" @onclick="()=>DecrementItem(item)">-</button>
                     <span class="">x.@item.Quantity </span>
                     <button class="quantity-btn" @onclick="()=>IncrementItem(item)">+</button>

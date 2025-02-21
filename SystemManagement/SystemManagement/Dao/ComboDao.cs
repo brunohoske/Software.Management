@@ -53,7 +53,7 @@ namespace SystemManagement.Dao
                     combo.Id = reader.GetInt32("IdCombo");
                     combo.Name = reader["Combo_name"].ToString();
                     combo.Value = Convert.ToInt32(reader["PRICE"]);
-                    combo.Description = reader["DESCRIPTION"].ToString();
+                    combo.Description = reader["COMBO_DESCRIPTION"].ToString();
                     combo.Store = new Store() { Name = "McDonalds", Cnpj = reader["CNPJ"].ToString() };
                     combo.Kcal = Convert.ToDouble(reader["KCAL"]);
                     combo.Image = reader["IMAGE"].ToString();
@@ -102,14 +102,14 @@ namespace SystemManagement.Dao
             try
             {
                 using var conexao = _connectionFabric.Connect();
-                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT g.* FROM COMBOS C JOIN COMBOS_GRUPOS CG ON C.IDCOMBO = CG.IDCOMBO JOIN GRUPOS G ON CG.IDGRUPO = G.IDGRUPO WHERE C.IDCOMBO = {idCombo} AND c.cnpj = '{cnpj}';", conexao);
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT g.* FROM COMBOS C JOIN COMBOS_GRUPOS CG ON C.IDCOMBO = CG.IDCOMBO JOIN GRUPOS G ON CG.IDGROUP = G.IDGROUP WHERE C.IDCOMBO = {idCombo} AND c.cnpj = '{cnpj}';", conexao);
 
                 List<Grupo> groups = new List<Grupo>();
                 if (reader != null)
                 {
                     while (reader.Read())
                     {
-                        groups.Add(_groupDao.GetGroupFromId(Convert.ToInt32(reader["IDPRODUCT"].ToString()), cnpj));
+                        groups.Add(_groupDao.GetGroupFromId(Convert.ToInt32(reader["IDGROUP"].ToString()), cnpj));
 
                     }
                     return groups;
