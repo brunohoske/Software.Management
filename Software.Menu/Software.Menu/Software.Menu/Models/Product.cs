@@ -2,6 +2,7 @@
 
 namespace Software.Menu.Models
 {
+    [JsonDerivedType(typeof(Combo), "combo")]
     public class Product
     {
         public int Id { get; set; }

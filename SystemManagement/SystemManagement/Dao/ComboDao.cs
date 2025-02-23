@@ -60,11 +60,11 @@ namespace SystemManagement.Dao
                     combo.BarCode = reader["BarCode"].ToString();
                     combo.Products = GetComboProducts(cnpj, IdCombo);
                     combo.Groups = GetComboGroups(cnpj,IdCombo);
-                    //combo.CategoriesRecommended = _categoryDao.GetCategoriesRecommended(combo.Id, store.Cnpj);
-                    //foreach (var category in combo.CategoriesRecommended)
-                    //{
-                    //    category.Products = _categoryDao.GetProductCategories(store.Cnpj, category.IdCategory);
-                    //}
+                    combo.CategoriesRecommended = _categoryDao.GetCategoriesRecommended(combo, cnpj);
+                    foreach (var category in combo.CategoriesRecommended)
+                    {
+                        category.Products = _categoryDao.GetProductCategories(cnpj, category.IdCategory);
+                    }
                 }
 
                 return combo;

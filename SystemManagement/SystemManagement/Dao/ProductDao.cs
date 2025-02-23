@@ -56,7 +56,7 @@ namespace SystemManagement.Dao
                         product.Category = new Category() { IdCategory = int.Parse(reader["IDCATEGORY"].ToString()) };
                         product.BarCode = reader["BarCode"].ToString();
                         product.Acompanhamentos = GetAcompanhamentos(product.Id, cnpj);
-                        product.CategoriesRecommended = _categoryDao.GetCategoriesRecommended(product.Id, cnpj);
+                        product.CategoriesRecommended = _categoryDao.GetCategoriesRecommended(product, cnpj);
                         foreach (var category in product.CategoriesRecommended)
                         {
                             category.Products = _categoryDao.GetProductCategories(cnpj, category.IdCategory);

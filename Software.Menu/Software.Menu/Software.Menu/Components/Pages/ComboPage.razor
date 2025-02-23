@@ -1,5 +1,6 @@
 ﻿@page "/{Cnpj}/Combo/{idCombo}/{TableNumber}"
 @using System.Text.Json
+@using System.Text.Json.Serialization.Metadata
 
 @rendermode InteractiveServer
 @inject IJSRuntime js
@@ -14,9 +15,11 @@
     [Parameter]
     public string idCombo { get; set; } = null!;
 
+    List<Product> productsSelectedsGroup = new List<Product>();
+
 
     Company store = new Company();
-    List<Ingredient> ingredients = new List<Ingredient>();
+    //List<Ingredient> ingredients = new List<Ingredient>();
     List<Product> selectedAcomps = new List<Product>();
     ItemCart itemCart = new ItemCart();
     List<ItemCart> acomps = new List<ItemCart>();
@@ -27,7 +30,7 @@
     Combo selectedCombo;
     private bool _isFirstRender = true;
 
-    List<(int, bool)> _ingredientChecked = new List<(int, bool)>();
+    List<(int, bool)> _productCheck = new List<(int, bool)>();
 
     public Table Table { get; set; }
 
@@ -57,15 +60,20 @@
     {
         if (selectedCombo != null)
         {
-            itemCart.Combo = selectedCombo;
+            foreach (var product in productsSelectedsGroup)
+            {
+                selectedCombo.Products.Add(product);
+            }
+
+            itemCart.Product = (Combo)selectedCombo;
             itemCart.Quantity = quantity;
             //itemCart.Acompanhamentos = acomps;
             itemCart.Notes = notes;
             itemCart.Store = new Company() { Cnpj = Cnpj };
             itemCart.Table = new Table() { TableNumber = int.Parse(TableNumber) };
-            Cart.Add(itemCart);
             if (acomps != null)
             {
+                Cart.Add(itemCart);
                 foreach (var acomp in acomps)
                 {
                     var item = new ItemCart();
@@ -75,15 +83,19 @@
                     item.Table = new Table() { TableNumber = int.Parse(TableNumber) };
                     Cart.Add(item);
                 }
-            }
-           
 
-            if (Cart.Any(p => p == null))
+       
+            }
+
+
+            var options = new JsonSerializerOptions
             {
-                itemCart.Product = new Product();
-            }
+                TypeInfoResolver = JsonTypeInfoResolver.Combine(
+                new DefaultJsonTypeInfoResolver() )
+            };
 
-            await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+
+            await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart,options));
             nav.NavigateTo($"/{Cnpj}/CARDAPIO/M{TableNumber}#cart");
 
         }
@@ -159,11 +171,35 @@
         }
     }
 
+    private void ToggleSelectionGroup(Grupo  group, Product product)
+    {
+        // Encontrar um item já selecionado dentro do grupo
+        var existingProduct = productsSelectedsGroup.FirstOrDefault(p => group.Products.Contains(p));
+
+        // Se houver um produto já marcado no grupo, remove
+        if (existingProduct != null)
+        {
+            productsSelectedsGroup.Remove(existingProduct);
+        }
+
+        // Adiciona o novo produto selecionado
+        productsSelectedsGroup.Add(product);
+    }
+
+    private bool IsChecked(Grupo group, Product product) =>
+        productsSelectedsGroup.Any(p => p.Id == product.Id);
+
     private async Task GoToProductPage(int id)
     {
         nav.NavigateTo($"{Cnpj}/Product/{id}/{TableNumber}");
         await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
     }
+    private async Task GoToComboPage(int id)
+    {
+        nav.NavigateTo($"{Cnpj}/Combo/{id}/{TableNumber}");
+        await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+    }
+
     protected override async Task OnInitializedAsync()
     {
 
@@ -290,49 +326,61 @@
                 <h5 class="fw-bold">Customize seu combo:</h5>
                 <div class="row">
 
-                    @foreach (var product in selectedCombo.Products)
-                    {
-                        <div class="col-md-6">
-                            <div class="card mb-3" style="background-color: transparent;border: none;">
-                                <img src="@product.Image" class="card-img-top" style="width: 150px;height: 100px;" alt="@product.Name">
-                                <div class="card-body">
-                                    <h5 class="card-title">@product.Name</h5>
-                                    <a href="@product.Id" @onclick="() => GoToProductPage(product.Id)" class="btn btn-primary">Customizar</a>
-                                </div>
-                            </div>
-                        </div>
-                    }
+                    <div class="container py-4">
+                        <h2 class="text-center">Monte seu Combo</h2>
 
-                    @foreach (var group in selectedCombo.Groups)
-                    {
-                        <div class="col-md-6">
-                            <div class="card mb-3 shadow-sm">
-                                <div class="card-body">
-                                    <h6 class="card-title">Selecione o @group.ViewName</h6>
-                                    <div class="list-group">
-                                        @foreach (var product in group.Products)
-                                        {
-                                            <label class="list-group-item d-flex align-items-center">
-                                                <input type="checkbox" id="@product.Id" class="form-check-input me-2" @onchange="() => ChangeIngredient(product.Name, _ingredientChecked.FirstOrDefault(i => i.Item1 == product.Id).Item2)" />
-                                                <img src="@product.Image" class="rounded-circle me-2" width="50" height="50" alt="@product.Name">
-                                                <span>@product.Name</span>
-                                            </label>
-                                        }
+                        <div class="mb-4">
+                            @foreach (var product in selectedCombo.Products)
+                            {
+                                <h4>Selecione o Produto:</h4>
+                                <div class="item">
+                                    <img src="@product.Image" alt="produto">
+                                    <div class="info">
+                                        <h5>@product.Name</h5>
+                                        <p>R$ @product.Value.ToString("F2")</p>
                                     </div>
+                                    <input type="radio" name="burguer" class="form-check-input" id="burguer1">
                                 </div>
-                            </div>
+                            }
+
+
+                            @foreach (var group in selectedCombo.Groups)
+                            {
+
+                                <div style="margin-top: 10px;">
+                                    <h4>Selecione o @group.ViewName:</h4>
+                                    @foreach (var product in group.Products)
+                                    {
+
+
+                                        <div class="item">
+                                            <img src="@product.Image" alt="produto">
+                                            <div class="info">
+                                                <h5>@product.Name</h5>
+                                                <p>R$ @product.Value.ToString("F2")</p>
+                                            </div>
+                                            <input type="radio"
+                                                   name="grupo-product-@group.Id"
+                                                   id="@product.Id"
+                                                   class="form-check-input me-2"
+                                                   checked="@IsChecked(group, product)"
+                                                   @onchange="(e) => ToggleSelectionGroup(group, product)" />
+                                        </div>
+                                    }
+                                </div>
+
+                            }
+                          
+
+
                         </div>
-                    }
+                        
+
+                   
+                    </div>
                 </div>
-            </div>
-            <div class="mt-4">
-                <h5 class="fw-bold">Quantidade:</h5>
-                <div class="quantity-controls text-center">
-                    <button @onclick="DecrementItem">-</button>
-                    <span class="quantity-label">@quantity</span>
-                    <button @onclick="IncrementItem">+</button>
-                </div>
-            </div>
+
+
             <!-- Sides Options -->
             @if (selectedAcomps.Count >= 1)
             {
@@ -372,7 +420,7 @@
 
             <div class="mt-5"></div>
 
-            <div class="position-fixed bottom-0 start-0 w-100 bg-white p-3 border-top" style="z-index: 1;display: flex;align-items: center;">
+            <div class="position-fixed bottom-0 start-0 w-100 bg-white p-3 border-top" style="z-index: 1;display: flex;align-items: center;gap: 15px;">
                 <div class="col-4">
                     <div class="quantity-controls text-center ">
                         <button @onclick="DecrementItem">-</button>
@@ -389,38 +437,39 @@
 
         </div>
 
-        <h1>Recomendados</h1>
-        <section id="menu" class="menu-section" style="background-color: transparent; box-shadow:none">
-
-           @*  @foreach (var category in selectedProduct.CategoriesReccomended)
-            {
-                <div class="product-category" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff;">
-                    <h3 class="category-title" style="margin-left: 10px;padding-top: 10px;">
-                        @category.Name
-                    </h3>
-                    <div class="product-list">
-                        @foreach (var product in category.Products)
-                        {
-                            @if (product.Id != selectedProduct.Id)
+            <h1>Sugestões</h1>
+            <section id="menu" class="menu-section" style="background-color: transparent; box-shadow:none">
+                        
+                @foreach (var category in selectedCombo.CategoriesReccomended)
+                {
+                    <div class="product-category" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff;">
+                        <h3 class="category-title" style="margin-left: 10px;padding-top: 10px;">
+                            @category.Name
+                        </h3>
+                        <div class="product-list">
+                            @foreach (var product in category.Products)
                             {
-                                <div class="product-card" @onclick="()=>GoToProductPage(product.Id)">
-                                    <img src="@product.Image" alt="Product Image" class="product-image" />
-                                    <div class="product-details">
-                                        <h4 class="product-name">@product.Name</h4>
-                                        <p class="product-description">@product.Description</p>
-                                        <div class="product-bottom">
-                                            <span class="product-price">R$ @product.Value.ToString("F2")</span>
-                                            <button class="add-to-cart">Adicionar</button>
+                                @if (product.Id != selectedCombo.Id || product is not Combo)
+                                {
+                                    <div class="product-card" @onclick="()=> product is Combo ? GoToComboPage(product.Id) : GoToProductPage(product.Id)">
+                                        <img src="@product.Image" alt="Product Image" class="product-image" />
+                                        <div class="product-details">
+                                            <h4 class="product-name">@product.Name</h4>
+                                            <p class="product-description">@product.Description</p>
+                                            <div class="product-bottom">
+                                                <span class="product-price">R$ @product.Value.ToString("F2")</span>
+                                                <button class="add-to-cart">Adicionar</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            }
+                                }
 
-                        }
+                            }
+                        </div>
                     </div>
-                </div>
-            } *@
-        </section>
+                }
+            </section>
+    </div>
     </div>
 </div>
 
@@ -432,6 +481,14 @@
         const element = document.getElementById(id);
         let value = parseInt(element.innerText);
         element.innerText = value + 1;
+    }
+
+    function selecionarUnico(selecionado) {
+        document.querySelectorAll('input[name="grupo-product"]').forEach(checkbox => {
+            if (checkbox !== selecionado) {
+                checkbox.checked = false;
+            }
+        });
     }
 
     function decrement(id) {

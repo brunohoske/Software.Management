@@ -1,7 +1,9 @@
-﻿using SystemManagement.Dao;
+﻿using System.Text.Json.Serialization;
+using SystemManagement.Dao;
 
 namespace SystemManagement.Models
 {
+    [JsonDerivedType(typeof(Combo), "combo")]
     public class Product
     {
         public int Id { get; set; }

@@ -2,7 +2,7 @@
 -- Servidor:                     127.0.0.1
 -- Versão do servidor:           8.2.0 - MySQL Community Server - GPL
 -- OS do Servidor:               Win64
--- HeidiSQL Versão:              12.7.0.6850
+-- HeidiSQL Versão:              12.6.0.6765
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -95,17 +95,18 @@ INSERT INTO `combos_categories` (`ID`, `IDCOMBO`, `IDCATEGORY`) VALUES
 CREATE TABLE IF NOT EXISTS `combos_grupos` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `IDCOMBO` int NOT NULL,
-  `IDGRUPO` int NOT NULL,
+  `IDGROUP` int NOT NULL,
   PRIMARY KEY (`ID`),
-  KEY `IDGRUPO` (`IDGRUPO`),
   KEY `IDCOMBO` (`IDCOMBO`),
-  CONSTRAINT `combos_grupos_ibfk_1` FOREIGN KEY (`IDGRUPO`) REFERENCES `grupos` (`IDGROUP`),
+  KEY `IDGRUPO` (`IDGROUP`) USING BTREE,
+  CONSTRAINT `combos_grupos_ibfk_1` FOREIGN KEY (`IDGROUP`) REFERENCES `grupos` (`IDGROUP`),
   CONSTRAINT `combos_grupos_ibfk_2` FOREIGN KEY (`IDCOMBO`) REFERENCES `combos` (`IDCOMBO`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.combos_grupos: ~0 rows (aproximadamente)
-INSERT INTO `combos_grupos` (`ID`, `IDCOMBO`, `IDGRUPO`) VALUES
-	(1, 1, 1);
+-- Copiando dados para a tabela menusystem.combos_grupos: ~2 rows (aproximadamente)
+INSERT INTO `combos_grupos` (`ID`, `IDCOMBO`, `IDGROUP`) VALUES
+	(1, 1, 1),
+	(2, 1, 2);
 
 -- Copiando estrutura para tabela menusystem.combos_products
 CREATE TABLE IF NOT EXISTS `combos_products` (
@@ -119,10 +120,25 @@ CREATE TABLE IF NOT EXISTS `combos_products` (
   CONSTRAINT `combos_products_ibfk_2` FOREIGN KEY (`IDPRODUCT`) REFERENCES `products` (`IDPRODUCT`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.combos_products: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.combos_products: ~1 rows (aproximadamente)
 INSERT INTO `combos_products` (`ID`, `IDCOMBO`, `IDPRODUCT`) VALUES
-	(1, 1, 3),
-	(3, 1, 10);
+	(1, 1, 3);
+
+-- Copiando estrutura para tabela menusystem.combos_recommendations
+CREATE TABLE IF NOT EXISTS `combos_recommendations` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `IDCOMBO` int NOT NULL,
+  `IDCATEGORY` int NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `IDCOMBO` (`IDCOMBO`),
+  KEY `IDCATEGORY` (`IDCATEGORY`),
+  CONSTRAINT `combos_recommendations_ibfk_1` FOREIGN KEY (`IDCOMBO`) REFERENCES `combos` (`IDCOMBO`),
+  CONSTRAINT `combos_recommendations_ibfk_2` FOREIGN KEY (`IDCATEGORY`) REFERENCES `categories` (`IDCATEGORY`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela menusystem.combos_recommendations: ~1 rows (aproximadamente)
+INSERT INTO `combos_recommendations` (`ID`, `IDCOMBO`, `IDCATEGORY`) VALUES
+	(1, 1, 1);
 
 -- Copiando estrutura para tabela menusystem.companys
 CREATE TABLE IF NOT EXISTS `companys` (
@@ -174,16 +190,17 @@ CREATE TABLE IF NOT EXISTS `grupos` (
   `IDGROUP` int NOT NULL AUTO_INCREMENT,
   `GROUP_NAME` varchar(80) NOT NULL,
   `VIEWNAME` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `DESCRIPTION` varchar(300) NOT NULL,
+  `GROUP_DESCRIPTION` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `CNPJ` varchar(20) NOT NULL,
   PRIMARY KEY (`IDGROUP`) USING BTREE,
   KEY `CNPJ` (`CNPJ`),
   CONSTRAINT `grupos_ibfk_1` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.grupos: ~0 rows (aproximadamente)
-INSERT INTO `grupos` (`IDGROUP`, `GROUP_NAME`, `VIEWNAME`, `DESCRIPTION`, `CNPJ`) VALUES
-	(1, 'Refrigerantes 2L', 'Refrigerante 2L', 'Refrigerantes 2L', '42591651000143');
+-- Copiando dados para a tabela menusystem.grupos: ~2 rows (aproximadamente)
+INSERT INTO `grupos` (`IDGROUP`, `GROUP_NAME`, `VIEWNAME`, `GROUP_DESCRIPTION`, `CNPJ`) VALUES
+	(1, 'Refrigerantes 2L', 'Refrigerante 2L', 'Refrigerantes 2L', '42591651000143'),
+	(2, 'Batatas Fritas', 'McFritas', 'Fritas', '42591651000143');
 
 -- Copiando estrutura para tabela menusystem.grupos_combos
 CREATE TABLE IF NOT EXISTS `grupos_combos` (
@@ -209,13 +226,16 @@ CREATE TABLE IF NOT EXISTS `grupos_products` (
   KEY `IDGRUPO` (`IDGROUP`) USING BTREE,
   CONSTRAINT `grupos_products_ibfk_1` FOREIGN KEY (`IDGROUP`) REFERENCES `grupos` (`IDGROUP`),
   CONSTRAINT `grupos_products_ibfk_2` FOREIGN KEY (`IDPRODUCT`) REFERENCES `products` (`IDPRODUCT`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.grupos_products: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.grupos_products: ~6 rows (aproximadamente)
 INSERT INTO `grupos_products` (`ID`, `IDGROUP`, `IDPRODUCT`) VALUES
 	(1, 1, 12),
 	(2, 1, 13),
-	(3, 1, 14);
+	(3, 1, 14),
+	(4, 2, 11),
+	(5, 2, 9),
+	(6, 2, 10);
 
 -- Copiando estrutura para tabela menusystem.ingredients
 CREATE TABLE IF NOT EXISTS `ingredients` (
@@ -251,11 +271,12 @@ CREATE TABLE IF NOT EXISTS `orders` (
   KEY `CNPJ` (`CNPJ`),
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`CHECK_NUMBER`) REFERENCES `checks` (`CHECK_NUMBER`),
   CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.orders: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.orders: ~10 rows (aproximadamente)
 INSERT INTO `orders` (`IDORDER`, `CNPJ`, `TOTAL`, `ORDER_DATE`, `CHECK_NUMBER`, `ORDER_ACTIVE`, `ORDER_STATUS`) VALUES
-	(36, '42591651000143', 40, '2025-02-16 02:13:59', 1, 1, 1);
+	(56, '42591651000143', 40, '2025-02-23 03:55:25', 1, 1, 1),
+	(57, '42591651000143', 76, '2025-02-23 14:25:27', 1, 1, 1);
 
 -- Copiando estrutura para tabela menusystem.order_details
 CREATE TABLE IF NOT EXISTS `order_details` (
@@ -277,11 +298,15 @@ CREATE TABLE IF NOT EXISTS `order_details` (
   CONSTRAINT `order_details_ibfk_3` FOREIGN KEY (`IDPRODUCT`) REFERENCES `products` (`IDPRODUCT`),
   CONSTRAINT `order_details_ibfk_4` FOREIGN KEY (`CHECK_NUMBER`) REFERENCES `checks` (`CHECK_NUMBER`),
   CONSTRAINT `order_details_ibfk_5` FOREIGN KEY (`IDORDER`) REFERENCES `orders` (`IDORDER`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1553 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1612 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.order_details: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.order_details: ~35 rows (aproximadamente)
 INSERT INTO `order_details` (`ID`, `IDORDER`, `CNPJ`, `IDPRODUCT`, `ITEM`, `CHECK_NUMBER`, `PRICE`, `ORDER_DATE`, `Note`) VALUES
-	(1552, 36, '42591651000143', 3, 1, 1, 40, '2025-02-16 02:13:59', '');
+	(1607, 56, '42591651000143', 3, 1, 1, 40, '2025-02-23 03:55:25', ''),
+	(1608, 57, '42591651000143', 3, 1, 1, 40, '2025-02-23 14:25:27', ''),
+	(1609, 57, '42591651000143', 3, 2, 1, 40, '2025-02-23 14:25:27', ''),
+	(1610, 57, '42591651000143', 13, 3, 1, 9, '2025-02-23 14:25:27', ''),
+	(1611, 57, '42591651000143', 11, 4, 1, 7, '2025-02-23 14:25:27', '');
 
 -- Copiando estrutura para tabela menusystem.products
 CREATE TABLE IF NOT EXISTS `products` (
@@ -305,19 +330,19 @@ CREATE TABLE IF NOT EXISTS `products` (
 
 -- Copiando dados para a tabela menusystem.products: ~13 rows (aproximadamente)
 INSERT INTO `products` (`IDPRODUCT`, `PRODUCT_NAME`, `IDCATEGORY`, `CNPJ`, `DESCRIPTION`, `PRICE`, `KCAL`, `IMAGE`, `BARCODE`, `ACTIVE`, `SALEPRODUCT`) VALUES
-	(1, 'McOferta McChicken', 1, '42591651000143', 'Um delicioso hamburguer de frango', 30, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
+	(1, 'McOferta McChicken', 1, '42591651000143', 'Um delicioso hamburguer de frango', 30, 0, 'https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$keX4W7gr/200/200/original?country=br', '00000000000000000000', 1, 0),
 	(2, 'BK Whopper', 1, '53060216000109', 'Um delicioso hamburguer', 40, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
-	(3, 'McOferta BigMac', 2, '42591651000143', 'Dois hambúrgueres (100% carne bovina), alface americana, queijo processado sabor cheddar, molho especial, cebola, picles e pão com gergelim.', 40, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
-	(4, 'McLancheFeliz', 1, '42591651000143', 'O melhor para criançada', 20.2, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
+	(3, 'McOferta BigMac', 2, '42591651000143', 'Dois hambúrgueres (100% carne bovina), alface americana, queijo processado sabor cheddar, molho especial, cebola, picles e pão com gergelim.', 40, 0, 'https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kzXCTbnv/200/200/original?country=br', '00000000000000000000', 1, 0),
+	(4, 'McLancheFeliz', 1, '42591651000143', 'O melhor para criançada', 20.2, 0, 'https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kJXZljtR/200/200/original?country=br', '00000000000000000000', 1, 0),
 	(5, 'BK Whopper Plantas', 1, '53060216000109', 'Um delicioso hamburguer com o dobro de salada', 35.99, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
-	(7, 'teste', 1, '42591651000143', 'teste', 123, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
-	(8, 'BK Whopper', 1, '42591651000143', 'Um delicioso hamburguer', 40, 0, 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png', '00000000000000000000', 1, 0),
+	(7, 'teste', 1, '42591651000143', 'teste', 123, 0, 'https://mcdonalds.bg/wp-content/uploads/2023/01/BG_CSO_9108.png', '00000000000000000000', 1, 0),
+	(8, 'BK Whopper', 1, '42591651000143', 'Um delicioso hamburguer', 40, 0, 'https://d3sn2rlrwxy0ce.cloudfront.net/_800x600_crop_center-center_none/whopper-thumb_2021-09-16-125319_mppe.png?mtime=20210916125320&focal=none&tmtime=20241024164409', '00000000000000000000', 1, 0),
 	(9, 'McFritas - Média', 1, '42591651000143', '50g de Fritas', 10, 0, 'https://png.pngtree.com/png-vector/20240130/ourmid/pngtree-french-fried-chips-isolated-png-png-image_11572782.png', '00000000000000000000', 1, 1),
 	(10, 'McFritas - Grande', 1, '42591651000143', '70g de Fritas', 13, 20, 'https://png.pngtree.com/png-vector/20240130/ourmid/pngtree-french-fried-chips-isolated-png-png-image_11572782.png', '00000000000000000000', 1, 1),
 	(11, 'McFritas - Pequena', 1, '42591651000143', '30g de Fritas', 7, 10, 'https://png.pngtree.com/png-vector/20240130/ourmid/pngtree-french-fried-chips-isolated-png-png-image_11572782.png', '00000000000000000000', 1, 1),
-	(12, 'Refrigerante Coca-Cola 2L', 1, '42591651000143', 'Refrigerante de 2L', 9.99, 10, NULL, '00000000000000000000', 1, 1),
-	(13, 'Refrigerante Guarana 2L', 1, '42591651000143', 'Refrigerante de 2L', 8.99, 10, NULL, '00000000000000000000', 1, 1),
-	(14, 'Refrigerante Pepsi 2L', 1, '42591651000143', 'Refrigerante de 2L', 8.99, 10, NULL, '00000000000000000000', 1, 1);
+	(12, 'Refrigerante Coca-Cola 2L', 1, '42591651000143', 'Refrigerante de 2L', 9.99, 10, 'https://ibassets.com.br/ib.item.image.large/l-6914a2bb4f5945e096287835120c831e.png', '00000000000000000000', 1, 1),
+	(13, 'Refrigerante Guarana 2L', 1, '42591651000143', 'Refrigerante de 2L', 8.99, 10, 'https://choppbrahmaexpress.vtexassets.com/arquivos/ids/155720/guaran_2.png?v=637353454730230000', '00000000000000000000', 1, 1),
+	(14, 'Refrigerante Pepsi 2L', 1, '42591651000143', 'Refrigerante de 2L', 8.99, 10, 'https://thepetitpizzaria.com.br/parobe/wp-content/uploads/2021/06/foto_original.png', '00000000000000000000', 1, 1);
 
 -- Copiando estrutura para tabela menusystem.products_acompanhamentos
 CREATE TABLE IF NOT EXISTS `products_acompanhamentos` (
@@ -332,13 +357,14 @@ CREATE TABLE IF NOT EXISTS `products_acompanhamentos` (
   CONSTRAINT `products_acompanhamentos_ibfk_1` FOREIGN KEY (`PRODUCT`) REFERENCES `products` (`IDPRODUCT`),
   CONSTRAINT `products_acompanhamentos_ibfk_2` FOREIGN KEY (`ACOMPANHAMENTO`) REFERENCES `products` (`IDPRODUCT`),
   CONSTRAINT `products_acompanhamentos_ibfk_3` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Copiando dados para a tabela menusystem.products_acompanhamentos: ~3 rows (aproximadamente)
 INSERT INTO `products_acompanhamentos` (`ID`, `PRODUCT`, `ACOMPANHAMENTO`, `CNPJ`) VALUES
 	(3, 1, 11, '42591651000143'),
 	(4, 1, 9, '42591651000143'),
-	(5, 1, 10, '42591651000143');
+	(5, 1, 10, '42591651000143'),
+	(6, 3, 4, '42591651000143');
 
 -- Copiando estrutura para tabela menusystem.products_categories
 CREATE TABLE IF NOT EXISTS `products_categories` (
@@ -401,12 +427,13 @@ CREATE TABLE IF NOT EXISTS `products_recommendations` (
   CONSTRAINT `products_recommendations_ibfk_1` FOREIGN KEY (`IDPRODUCT`) REFERENCES `products` (`IDPRODUCT`),
   CONSTRAINT `products_recommendations_ibfk_2` FOREIGN KEY (`IDCATEGORY`) REFERENCES `categories` (`IDCATEGORY`),
   CONSTRAINT `products_recommendations_ibfk_3` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.products_recommendations: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.products_recommendations: ~3 rows (aproximadamente)
 INSERT INTO `products_recommendations` (`ID`, `IDPRODUCT`, `IDCATEGORY`, `CNPJ`) VALUES
 	(1, 1, 3, '42591651000143'),
-	(4, 1, 2, '42591651000143');
+	(4, 1, 2, '42591651000143'),
+	(5, 1, 1, '42591651000143');
 
 -- Copiando estrutura para tabela menusystem.users
 CREATE TABLE IF NOT EXISTS `users` (

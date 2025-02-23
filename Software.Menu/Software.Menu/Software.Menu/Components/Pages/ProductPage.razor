@@ -153,6 +153,11 @@
         nav.NavigateTo($"{Cnpj}/Product/{id}/{TableNumber}");
         await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
     }
+    private async Task GoToComboPage(int id)
+    {
+        nav.NavigateTo($"{Cnpj}/Combo/{id}/{TableNumber}");
+        await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+    }
     protected override async Task OnInitializedAsync()
     {
 
@@ -332,7 +337,7 @@
             <!-- Action Buttons -->
             
             <div class="mt-5"></div>
-            <div class="position-fixed bottom-0 start-0 w-100 bg-white p-3 border-top" style="z-index: 1;display: flex;align-items: center;">
+            <div class="position-fixed bottom-0 start-0 w-100 bg-white p-3 border-top" style="z-index: 1;display: flex;align-items: center;gap: 15px;">
                 <div class="col-4">
                     <div class="quantity-controls text-center ">
                         <button @onclick="DecrementItem">-</button>
@@ -349,7 +354,7 @@
 
         </div>
 
-        <h1>Recomendados</h1>
+        <h1>Sugestões</h1>
         <section id="menu" class="menu-section" style="background-color: transparent; box-shadow:none">
 
             @foreach (var category in selectedProduct.CategoriesReccomended)
@@ -361,9 +366,9 @@
                     <div class="product-list">
                         @foreach (var product in category.Products)
                         {
-                            @if(product.Id != selectedProduct.Id)
+                            @if (product.Id != selectedProduct.Id || product is Combo)
                             {
-                                <div class="product-card" @onclick="()=>GoToProductPage(product.Id)">
+                                <div class="product-card" @onclick="()=> product is Combo ? GoToComboPage(product.Id) : GoToProductPage(product.Id)">
                                     <img src="@product.Image" alt="Product Image" class="product-image" />
                                     <div class="product-details">
                                         <h4 class="product-name">@product.Name</h4>

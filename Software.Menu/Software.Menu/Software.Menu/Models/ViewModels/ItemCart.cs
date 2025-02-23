@@ -2,13 +2,23 @@
 {
     public class ItemCart
     {
+        
         public Product Product { get; set; } = new Product();
-        public Combo Combo { get; set; }
+        //public Combo Combo { get; set; }
         public int Quantity { get; set; }
         public List<string> Notes { get; set; }
         public List<ItemCart> Acompanhamentos {  get; set; }
         public Company Store { get; set; }
         public Table Table { get; set; }
+
+        public ItemCart() { }
+        public ItemCart(Product product, int quantity, int table)
+        {
+            Product = product;
+            Quantity = quantity;
+            Store = product.Store;
+            Table = new Table() { Store = product.Store, TableNumber = table };
+        }
 
         public string GetNote()
         {
