@@ -143,10 +143,14 @@
 
 <div class="category-menu">
         <div class="container-fluid" style="margin-bottom: 50px;">
-            <div class="category-container container" style="box-shadow: none !important;background-color: transparent; ">
+        <div class="category-container container" style="box-shadow: none !important;background-color: transparent;padding: 8px; ">
             @foreach(var category in Categories)    
             {
-                <div class="category-item" href="#@category.Name">@category.Name</div>
+                if(category.IsDisplay == 1)
+                {
+                    <a style="text-decoration:none;color: black;" href="@($" /{Cnpj}/CARDAPIO/M{Comanda}/#{category.Name}")"> <div class="category-item">@category.Name</div></a>
+                }
+               
             }
             </div>
         </div>
@@ -192,12 +196,12 @@
     {
         @if(category.IsDisplay == 1)
         {
-            <div class="product-category">
+            <div class="product-category" id="@category.Name">
                 <h3 class="category-title">@category.Name</h3>
                 <div class="product-list">
                     @foreach (var product in category.Products)
                     {
-                        <div class="product-card" id="@category.Name" @onclick="()=> product is Combo ? GoToComboPage(product.Id) : GoToProductPage(product.Id)">
+                        <div class="product-card"  @onclick="()=> product is Combo ? GoToComboPage(product.Id) : GoToProductPage(product.Id)">
                             <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center">
 
                                 <svg style="fill: #00a680;" viewBox="0 0 16 16" width="1em" height="1em" role="presentation" focusable="false" aria-hidden="true">
@@ -229,8 +233,8 @@
 
 
 
-<div class="container mt-4">
-    <div class="dropdown">
+<div class="container mt-4" style="box-shadow: none;">
+    <div class="dropdown" >
         <button class="btn btn-primary" type="button" id="cartButton" style="border-radius: 20px;background-color: white;border-color: black;">
             <svg style="width:80%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="24" height="24">
                 <path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path>
@@ -357,18 +361,13 @@
 </section>
 
 
+@if(OrdersInCheck.Select(x => x.Status == 3).Count() > 0)
+{
+    <button class="fixed-button" type="button" data-bs-toggle="collapse" data-bs-target="#pedidoMenu" aria-expanded="false" aria-controls="pedidoMenu">
+        <img src="/Images/orders/cooking.gif" alt="Pedidos">
+    </button>
+}
 
-<button class="fixed-button" type="button" data-bs-toggle="collapse" data-bs-target="#pedidoMenu" aria-expanded="false" aria-controls="pedidoMenu">
-       
-        @if(OrdersInCheck.Select(x => x.Status == 3).Count() >0)
-        {
-         <img src="/Images/orders/cooking.gif" alt="Pedidos">
-        }
-        else
-        {
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M416 0C400 0 288 32 288 176l0 112c0 35.3 28.7 64 64 64l32 0 0 128c0 17.7 14.3 32 32 32s32-14.3 32-32l0-128 0-112 0-208c0-17.7-14.3-32-32-32zM64 16C64 7.8 57.9 1 49.7 .1S34.2 4.6 32.4 12.5L2.1 148.8C.7 155.1 0 161.5 0 167.9c0 45.9 35.1 83.6 80 87.7L80 480c0 17.7 14.3 32 32 32s32-14.3 32-32l0-224.4c44.9-4.1 80-41.8 80-87.7c0-6.4-.7-12.8-2.1-19.1L191.6 12.5c-1.8-8-9.3-13.3-17.4-12.4S160 7.8 160 16l0 134.2c0 5.4-4.4 9.8-9.8 9.8c-5.1 0-9.3-3.9-9.8-9L127.9 14.6C127.2 6.3 120.3 0 112 0s-15.2 6.3-15.9 14.6L83.7 151c-.5 5.1-4.7 9-9.8 9c-5.4 0-9.8-4.4-9.8-9.8L64 16zm48.3 152l-.3 0-.3 0 .3-.7 .3 .7z"/></svg>
-        }
-</button
 
 
 <div class="menu-container">
@@ -400,7 +399,6 @@
                                             </div>
                                         </li>
                                     }
-                                    
                                 </ul>
                             </div>
                         </div>

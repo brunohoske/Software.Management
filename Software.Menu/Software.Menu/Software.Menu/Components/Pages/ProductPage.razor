@@ -160,13 +160,14 @@
     }
     protected override async Task OnInitializedAsync()
     {
-
+        companyClient = new CompanyClient($"{Cnpj}");
         ingredientClient = new IngredientClient($"{Cnpj}");
         productClient = new ProductClient($"{Cnpj}");
         menuClient = new MenuClient($"{Cnpj}");
 
         ingredients = await ingredientClient.GetProductIngredients(int.Parse(idProduct), Cnpj);
         selectedProduct = await GetSelectedProduct(int.Parse(idProduct));
+        selectedProduct.Store = await companyClient.GetCompanyFromCnpj(Cnpj);
         selectedAcomps = await productClient.GetAcompanhamentos(int.Parse(idProduct));
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -263,12 +264,12 @@
     }
 
 </style>
-<nav class=" position-fixed navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm" style="width: 100%;">
+<nav class=" position-fixed navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm " style="width: 100%;z-index: 1000;">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#">Foodie Express</a>
+        <a class="navbar-brand fw-bold" href="#">@(selectedProduct.Store.Name)</a>
     </div>
 </nav>
-<div class="container my-5">
+<div class="container my-5" style="margin-top: 7rem !important;">
     <div class="row">
         <!-- Product Details -->
         <div class="col-md-6 text-center">
@@ -292,8 +293,8 @@
 
                         int index = _ingredientChecked.FindIndex(x => x.Item1 == ingredient.IdIngredient);
                         <div class="col-6">
-                            <div class="ingredient-item p-2 border rounded mb-2 @(_ingredientChecked[index].Item2? "selected" : "")" id="@ingredient.IdIngredient" name="@ingredient.Name" @onclick="(e) => ChangeIngredient(ingredient.Name, (_ingredientChecked[index] = (_ingredientChecked[index].Item1, !_ingredientChecked[index].Item2)).Item2 )">
-                                🧀 @ingredient.Name
+                            <div class="ingredient-item p-2 border rounded mb-2 @(_ingredientChecked[index].Item2? "" : "selected")" id="@ingredient.IdIngredient" name="@ingredient.Name" @onclick="(e) => ChangeIngredient(ingredient.Name, (_ingredientChecked[index] = (_ingredientChecked[index].Item1, !_ingredientChecked[index].Item2)).Item2 )">
+                                🧀Sem @ingredient.Name
                             </div>
                         </div>
                     }

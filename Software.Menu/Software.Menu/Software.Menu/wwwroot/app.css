@@ -435,7 +435,7 @@
 
     .btn-close-order:hover {
         background-color: #4cae4c;
-    }       
+    }
 
 .fixed-button {
     position: fixed;
@@ -448,6 +448,7 @@
     background: none;
     border: none;
     padding: 0;
+    border: solid;
 }
     .fixed-button img {
         width: 100%;
@@ -534,9 +535,9 @@
 }
 
 @media only screen and (max-width: 588px) {
-    .category-container {
+/*    .category-container {
         align-items: normal;
         justify-content: normal;
-    }
+    }*/
 }
 

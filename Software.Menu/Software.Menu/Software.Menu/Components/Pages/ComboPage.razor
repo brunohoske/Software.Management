@@ -84,7 +84,7 @@
                     Cart.Add(item);
                 }
 
-       
+
             }
 
 
@@ -207,8 +207,11 @@
         productClient = new ProductClient($"{Cnpj}");
         menuClient = new MenuClient($"{Cnpj}");
         comboClient = new ComboClient($"{Cnpj}");
+        companyClient = new CompanyClient($"{Cnpj}");
         selectedCombo = await GetSelectedCombo(int.Parse(idCombo));
         selectedAcomps.AddRange(selectedCombo.Products.SelectMany(p => p.Acompanhamentos));
+
+         selectedCombo.Store = await companyClient.GetCompanyFromCnpj(Cnpj);
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -304,12 +307,13 @@
     }
 
 </style>
-<nav class=" position-fixed navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm" style="width: 100%;">
+<nav class=" position-fixed navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm" style="width: 100%;z-index: 1000;
+">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#">Foodie Express</a>
+        <a class="navbar-brand fw-bold" href="#">@selectedCombo.Store.Name</a>
     </div>
 </nav>
-<div class="container my-5">
+<div class="container my-5" style="margin-top: 7rem !important">
     <div class="row">
         <!-- Product Details -->
         <div class="col-md-6 text-center">
