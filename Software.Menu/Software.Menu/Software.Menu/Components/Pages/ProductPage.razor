@@ -56,18 +56,24 @@
             itemCart.Notes = notes;
             itemCart.Store = new Company() { Cnpj = Cnpj };
             itemCart.Table = new Table() { TableNumber = int.Parse(TableNumber) };
+            itemCart.Table = new Table() { TableNumber = int.Parse(TableNumber) };
             Cart.Add(itemCart);
             if (acomps != null)
             {
-                foreach (var acomp in acomps)
+                
+                for( int i =0; i < quantity; i++)
                 {
-                    var item = new ItemCart();
-                    item.Product = acomp.Product;
-                    item.Quantity = acomp.Quantity;
-                    item.Store = new Company() { Cnpj = Cnpj };
-                    item.Table = new Table() { TableNumber = int.Parse(TableNumber) };
-                    Cart.Add(item);
+                    foreach (var acomp in acomps)
+                    {
+                        var item = new ItemCart();
+                        item.Product = acomp.Product;
+                        item.Quantity = acomp.Quantity;
+                        item.Store = new Company() { Cnpj = Cnpj };
+                        item.Table = new Table() { TableNumber = int.Parse(TableNumber) };
+                        Cart.Add(item);
+                    }
                 }
+                
             }
 
 
@@ -276,8 +282,8 @@
 
 </style>
 <nav class=" position-fixed navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm " style="width: 100%;z-index: 1000;">
-    <div class="container" style="box-shadow: none !important;">
-        <svg @onclick="ReturnPage" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 20px;margin-bottom: 5px;margin-right: 12px;"><path d="M48 256a208 208 0 1 1 416 0A208 208 0 1 1 48 256zm464 0A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM217.4 376.9c4.2 4.5 10.1 7.1 16.3 7.1c12.3 0 22.3-10 22.3-22.3l0-57.7 96 0c17.7 0 32-14.3 32-32l0-32c0-17.7-14.3-32-32-32l-96 0 0-57.7c0-12.3-10-22.3-22.3-22.3c-6.2 0-12.1 2.6-16.3 7.1L117.5 242.2c-3.5 3.8-5.5 8.7-5.5 13.8s2 10.1 5.5 13.8l99.9 107.1z"></path></svg>
+    <div class="container" style="box-shadow: none !important;justify-content: flex-start;">
+        <svg @onclick="ReturnPage" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 20px;margin-bottom: 5px;margin-right: 12px; cursor:pointer"><path d="M48 256a208 208 0 1 1 416 0A208 208 0 1 1 48 256zm464 0A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM217.4 376.9c4.2 4.5 10.1 7.1 16.3 7.1c12.3 0 22.3-10 22.3-22.3l0-57.7 96 0c17.7 0 32-14.3 32-32l0-32c0-17.7-14.3-32-32-32l-96 0 0-57.7c0-12.3-10-22.3-22.3-22.3c-6.2 0-12.1 2.6-16.3 7.1L117.5 242.2c-3.5 3.8-5.5 8.7-5.5 13.8s2 10.1 5.5 13.8l99.9 107.1z"></path></svg>
         <a class="navbar-brand fw-bold" href="#">@(selectedProduct.Store.Name)</a>
     </div>
 </nav>
@@ -359,7 +365,7 @@
                     </div>
                 </div>
                 <button @onclick="AddProduct" class="btn btn-primary btn-lg w-100">
-                    Add to Cart R$@((selectedProduct.Value * quantity) + (acomps.Sum(t => t.GetPrice())))
+                    Add to Cart R$@((selectedProduct.Value  * quantity)+ acomps.Sum(t => t.GetPrice() * quantity))
                 </button>
 
 
