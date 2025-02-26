@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using SystemManagement.Data;
 using SystemManagement.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SystemManagement.Dao
 {
@@ -10,6 +11,20 @@ namespace SystemManagement.Dao
         public CheckDao(ConnectionFabric connectionFabric)
         {
             _connectionFabric = connectionFabric;
+        }
+
+        public bool CheckExists(int idCheck, string cnpj)
+        {
+            using var conexao = _connectionFabric.Connect();
+            using var cmd = conexao.CreateCommand();
+            cmd.CommandText = $"SELECT CHECK_NUMBER FROM Checks WHERE CNPJ = {cnpj} LIMIT 1";
+            var result = cmd.ExecuteScalar();
+            var number = Convert.ToInt32(result);
+            if (result != null && number == idCheck)
+            {
+                return true;
+            }
+            return false;
         }
 
         public int CloseCheck(Table table)

@@ -34,7 +34,7 @@
 
     public async void CloseCheck()
     {
-        if( await _client.CloseCheck(new Table() { TableNumber = int.Parse(TableNumber), Store = new Company("MCDONALDS") { Cnpj = Cnpj } }))
+        if( await checkClient.CloseCheck(new Table() { TableNumber = int.Parse(TableNumber), Store = new Company("MCDONALDS") { Cnpj = Cnpj } }))
         {
             Done = 1;
         }

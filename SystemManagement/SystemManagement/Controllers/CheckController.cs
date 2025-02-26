@@ -17,6 +17,17 @@ namespace SystemManagement.Controllers
             _headerService = headerService;
         }
 
+        [HttpGet("CheckExists/{id}")]
+        public IActionResult CheckExists(int id)
+        {
+            var cnpj = _headerService.GetCnpj();
+            if(_checkDao.CheckExists(id,cnpj))
+            {
+                return Ok(true);
+            }
+            return BadRequest();
+        }
+
         [HttpPost("CloseCheck")]
         public IActionResult CloseCheck([FromBody] Table table)
         {

@@ -164,6 +164,7 @@
         ingredientClient = new IngredientClient($"{Cnpj}");
         productClient = new ProductClient($"{Cnpj}");
         menuClient = new MenuClient($"{Cnpj}");
+        checkClient = new CheckClient($"{Cnpj}");
 
         ingredients = await ingredientClient.GetProductIngredients(int.Parse(idProduct), Cnpj);
         selectedProduct = await GetSelectedProduct(int.Parse(idProduct));
@@ -174,6 +175,10 @@
     {
         if (firstRender)
         {
+            if (!await checkClient.CheckExists(int.Parse(TableNumber)))
+            {
+                nav.NavigateTo("/", true);
+            }
             await GetSessionCart();
             
 

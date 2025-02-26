@@ -208,6 +208,7 @@
         menuClient = new MenuClient($"{Cnpj}");
         comboClient = new ComboClient($"{Cnpj}");
         companyClient = new CompanyClient($"{Cnpj}");
+        checkClient = new CheckClient($"{Cnpj}");
         selectedCombo = await GetSelectedCombo(int.Parse(idCombo));
         selectedAcomps.AddRange(selectedCombo.Products.SelectMany(p => p.Acompanhamentos));
 
@@ -217,7 +218,12 @@
     {
         if (firstRender)
         {
+            if (!await checkClient.CheckExists(int.Parse(TableNumber)))
+            {
+                nav.NavigateTo("/", true);
+            }
             await GetSessionCart();
+
 
 
             _isFirstRender = false;

@@ -27,6 +27,7 @@ builder.Services.AddScoped<IngredientClient>();
 builder.Services.AddScoped<ProductClient>();
 builder.Services.AddScoped<CompanyClient>();
 builder.Services.AddScoped<ComboClient>();
+builder.Services.AddScoped<CheckClient>();
 builder.Services.AddAutoMapper(typeof(ProductProfile));
 builder.Services.AddHttpContextAccessor();
 var app = builder.Build();

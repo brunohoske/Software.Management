@@ -15,18 +15,7 @@ namespace Software.Menu.Client
             _httpClient.DefaultRequestHeaders.Add("cnpj", cnpj);
         }
 
-        public async Task<bool> CloseCheck(Table table)
-        {
-            string jsonbody = JsonSerializer.Serialize(table);
-            HttpContent content = new StringContent(jsonbody,System.Text.Encoding.UTF8,"application/json");
-            HttpResponseMessage response = await _httpClient.PostAsync("CloseCheck",content);
-
-            if(response.IsSuccessStatusCode)
-            {
-                return true;
-            }
-            return false;
-        }
+        
 
         public async Task<List<Order>> GetOrders(int comanda)
         {
