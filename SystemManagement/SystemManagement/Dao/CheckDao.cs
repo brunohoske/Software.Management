@@ -17,7 +17,7 @@ namespace SystemManagement.Dao
         {
             using var conexao = _connectionFabric.Connect();
             using var cmd = conexao.CreateCommand();
-            cmd.CommandText = $"SELECT CHECK_NUMBER FROM Checks WHERE CNPJ = {cnpj} LIMIT 1";
+            cmd.CommandText = $"SELECT CHECK_NUMBER FROM Checks WHERE CHECK_NUMBER = {idCheck} and CNPJ = {cnpj} LIMIT 1";
             var result = cmd.ExecuteScalar();
             var number = Convert.ToInt32(result);
             if (result != null && number == idCheck)

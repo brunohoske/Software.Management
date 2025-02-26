@@ -239,6 +239,22 @@
     gap: 10px;
 }
 
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: 0px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .remove-button {
     background-color: #d9534f;
     color: #fff;
