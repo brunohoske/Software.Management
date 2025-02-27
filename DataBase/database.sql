@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `combos` (
   CONSTRAINT `combos_ibfk_1` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.combos: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.combos: ~1 rows (aproximadamente)
 INSERT INTO `combos` (`IDCOMBO`, `COMBO_NAME`, `COMBO_DESCRIPTION`, `PRICE`, `KCAL`, `IMAGE`, `BARCODE`, `CNPJ`) VALUES
 	(1, 'Burguer+Refri 2L', 'Hamburguer de carne + um refrigerante de 2L', 35.99, 70, 'https://www.otempo.com.br/content/dam/otempo/editorias/economia/2023/3/economia-preco-do-big-mac-minas-gerais-big-mac-mais-barato-big-mac-qual-big-mac-mais-barato-do-brasil-big-mac-mais-barato-do-mundo-1708498837.jpeg', '000000000000', '42591651000143');
 
@@ -113,6 +113,7 @@ CREATE TABLE IF NOT EXISTS `combos_products` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `IDCOMBO` int NOT NULL,
   `IDPRODUCT` int NOT NULL,
+  `PRICE` decimal(10,2) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `IDCOMBO` (`IDCOMBO`),
   KEY `IDPRODUCT` (`IDPRODUCT`),
@@ -121,8 +122,8 @@ CREATE TABLE IF NOT EXISTS `combos_products` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Copiando dados para a tabela menusystem.combos_products: ~1 rows (aproximadamente)
-INSERT INTO `combos_products` (`ID`, `IDCOMBO`, `IDPRODUCT`) VALUES
-	(1, 1, 3);
+INSERT INTO `combos_products` (`ID`, `IDCOMBO`, `IDPRODUCT`, `PRICE`) VALUES
+	(1, 1, 3, 20.00);
 
 -- Copiando estrutura para tabela menusystem.combos_recommendations
 CREATE TABLE IF NOT EXISTS `combos_recommendations` (
@@ -221,6 +222,7 @@ CREATE TABLE IF NOT EXISTS `grupos_products` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `IDGROUP` int NOT NULL,
   `IDPRODUCT` int NOT NULL,
+  `PRICE` decimal(10,2) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `IDPRODUCT` (`IDPRODUCT`),
   KEY `IDGRUPO` (`IDGROUP`) USING BTREE,
@@ -229,13 +231,13 @@ CREATE TABLE IF NOT EXISTS `grupos_products` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Copiando dados para a tabela menusystem.grupos_products: ~6 rows (aproximadamente)
-INSERT INTO `grupos_products` (`ID`, `IDGROUP`, `IDPRODUCT`) VALUES
-	(1, 1, 12),
-	(2, 1, 13),
-	(3, 1, 14),
-	(4, 2, 11),
-	(5, 2, 9),
-	(6, 2, 10);
+INSERT INTO `grupos_products` (`ID`, `IDGROUP`, `IDPRODUCT`, `PRICE`) VALUES
+	(1, 1, 12, 11.00),
+	(2, 1, 13, 10.00),
+	(3, 1, 14, 10.00),
+	(4, 2, 11, 6.00),
+	(5, 2, 9, 8.00),
+	(6, 2, 10, 10.00);
 
 -- Copiando estrutura para tabela menusystem.ingredients
 CREATE TABLE IF NOT EXISTS `ingredients` (
@@ -271,12 +273,18 @@ CREATE TABLE IF NOT EXISTS `orders` (
   KEY `CNPJ` (`CNPJ`),
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`CHECK_NUMBER`) REFERENCES `checks` (`CHECK_NUMBER`),
   CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`CNPJ`) REFERENCES `companys` (`CNPJ`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.orders: ~10 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.orders: ~8 rows (aproximadamente)
 INSERT INTO `orders` (`IDORDER`, `CNPJ`, `TOTAL`, `ORDER_DATE`, `CHECK_NUMBER`, `ORDER_ACTIVE`, `ORDER_STATUS`) VALUES
-	(56, '42591651000143', 40, '2025-02-23 03:55:25', 1, 1, 1),
-	(57, '42591651000143', 76, '2025-02-23 14:25:27', 1, 1, 1);
+	(56, '42591651000143', 40, '2025-02-23 03:55:25', 1, 0, 1),
+	(57, '42591651000143', 76, '2025-02-23 14:25:27', 1, 0, 1),
+	(58, '42591651000143', 56, '2025-02-24 00:47:30', 1, 0, 1),
+	(59, '42591651000143', 36, '2025-02-24 23:14:31', 1, 1, 1),
+	(61, '42591651000143', 30, '2025-02-25 01:15:56', 2, 1, 1),
+	(62, '42591651000143', 37, '2025-02-25 01:16:01', 1, 1, 1),
+	(63, '42591651000143', 180, '2025-02-25 01:27:04', 1, 1, 1),
+	(64, '42591651000143', 37, '2025-02-27 00:21:41', 1, 1, 1);
 
 -- Copiando estrutura para tabela menusystem.order_details
 CREATE TABLE IF NOT EXISTS `order_details` (
@@ -298,15 +306,32 @@ CREATE TABLE IF NOT EXISTS `order_details` (
   CONSTRAINT `order_details_ibfk_3` FOREIGN KEY (`IDPRODUCT`) REFERENCES `products` (`IDPRODUCT`),
   CONSTRAINT `order_details_ibfk_4` FOREIGN KEY (`CHECK_NUMBER`) REFERENCES `checks` (`CHECK_NUMBER`),
   CONSTRAINT `order_details_ibfk_5` FOREIGN KEY (`IDORDER`) REFERENCES `orders` (`IDORDER`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1612 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1629 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Copiando dados para a tabela menusystem.order_details: ~35 rows (aproximadamente)
+-- Copiando dados para a tabela menusystem.order_details: ~22 rows (aproximadamente)
 INSERT INTO `order_details` (`ID`, `IDORDER`, `CNPJ`, `IDPRODUCT`, `ITEM`, `CHECK_NUMBER`, `PRICE`, `ORDER_DATE`, `Note`) VALUES
 	(1607, 56, '42591651000143', 3, 1, 1, 40, '2025-02-23 03:55:25', ''),
 	(1608, 57, '42591651000143', 3, 1, 1, 40, '2025-02-23 14:25:27', ''),
 	(1609, 57, '42591651000143', 3, 2, 1, 40, '2025-02-23 14:25:27', ''),
 	(1610, 57, '42591651000143', 13, 3, 1, 9, '2025-02-23 14:25:27', ''),
-	(1611, 57, '42591651000143', 11, 4, 1, 7, '2025-02-23 14:25:27', '');
+	(1611, 57, '42591651000143', 11, 4, 1, 7, '2025-02-23 14:25:27', ''),
+	(1612, 58, '42591651000143', 3, 1, 1, 40, '2025-02-24 00:47:30', ''),
+	(1613, 58, '42591651000143', 11, 2, 1, 7, '2025-02-24 00:47:30', ''),
+	(1614, 58, '42591651000143', 13, 3, 1, 9, '2025-02-24 00:47:30', ''),
+	(1615, 58, '42591651000143', 4, 4, 1, 20, '2025-02-24 00:47:30', ''),
+	(1616, 59, '42591651000143', 3, 1, 1, 40, '2025-02-24 23:14:31', ''),
+	(1617, 61, '42591651000143', 1, 1, 2, 30, '2025-02-25 01:15:56', ''),
+	(1618, 62, '42591651000143', 1, 1, 1, 30, '2025-02-25 01:16:01', 'Sem Frango,\n\n'),
+	(1619, 62, '42591651000143', 11, 2, 1, 7, '2025-02-25 01:16:01', ''),
+	(1620, 63, '42591651000143', 1, 1, 1, 30, '2025-02-25 01:27:04', ''),
+	(1621, 63, '42591651000143', 1, 2, 1, 30, '2025-02-25 01:27:04', ''),
+	(1622, 63, '42591651000143', 1, 3, 1, 30, '2025-02-25 01:27:04', ''),
+	(1623, 63, '42591651000143', 1, 4, 1, 30, '2025-02-25 01:27:04', ''),
+	(1624, 63, '42591651000143', 1, 5, 1, 30, '2025-02-25 01:27:04', ''),
+	(1625, 63, '42591651000143', 1, 6, 1, 30, '2025-02-25 01:27:04', ''),
+	(1626, 64, '42591651000143', 3, 1, 1, 20, '2025-02-27 00:21:41', ''),
+	(1627, 64, '42591651000143', 12, 2, 1, 11, '2025-02-27 00:21:41', ''),
+	(1628, 64, '42591651000143', 11, 3, 1, 6, '2025-02-27 00:21:41', '');
 
 -- Copiando estrutura para tabela menusystem.products
 CREATE TABLE IF NOT EXISTS `products` (

@@ -38,12 +38,20 @@
             {
                 for (int i = 0; i < Quantity; i++)
                 {
+                    if(Product is Combo combo)
+                    {
+                        total += (combo.Products.Sum(p => p.Value)) + (Acompanhamentos.Sum(a => (a.Product.Value * a.Quantity)));
+                    }
                     total += (Product.Value) + (Acompanhamentos.Sum(a => (a.Product.Value * a.Quantity)));
                 }
               
             }
             else
             {
+                if (Product is Combo combo)
+                {
+                    return combo.Products.Sum(p => p.Value) * Quantity;
+                }
                 return Product.Value * Quantity;
             }
             return total;

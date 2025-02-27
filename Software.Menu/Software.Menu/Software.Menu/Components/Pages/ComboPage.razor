@@ -360,9 +360,9 @@
                                     <img src="@product.Image" alt="produto">
                                     <div class="info">
                                         <h5>@product.Name</h5>
-                                        <p>R$ @product.Value.ToString("F2")</p>
+                                        <p>+ R$ @product.Value.ToString("F2")</p>
                                     </div>
-                                    <input type="radio" name="burguer" class="form-check-input" id="burguer1">
+                                    <input  type="radio" name="burguer" class="form-check-input" id="burguer1" checked>
                                 </div>
                             }
 
@@ -380,7 +380,7 @@
                                             <img src="@product.Image" alt="produto">
                                             <div class="info">
                                                 <h5>@product.Name</h5>
-                                                <p>R$ @product.Value.ToString("F2")</p>
+                                                <p>+ R$ @product.Value.ToString("F2")</p>
                                             </div>
                                             <input type="radio"
                                                    name="grupo-product-@group.Id"
@@ -452,7 +452,9 @@
                     </div>
                 </div>
                 <button @onclick="AddProduct"  class="btn btn-primary btn-lg w-100">
-                    Add to Cart R$@((selectedCombo.Value  * quantity)+ acomps.Sum(t => t.GetPrice() * quantity))
+                    Add to Cart R$@(((productsSelectedsGroup.Sum(p => p.Value) + selectedCombo.Products.Sum(p => p.Value)) * quantity) + acomps.Sum(t => t.GetPrice() * quantity))
+                    @* @((selectedCombo.Value  * quantity)+ acomps.Sum(t => t.GetPrice() * quantity)) *@
+                                    
                 </button>
 
 

@@ -70,14 +70,17 @@ namespace SystemManagement.Dao
             try
             {
                 using var conexao = _connectionFabric.Connect();
-                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT P.* FROM grupos g JOIN grupos_products gp ON g.IDGROUP = gp.IDGROUP JOIN products p ON gp.IDPRODUCT = p.IDPRODUCT WHERE G.IDGROUP = {idGroup} AND G.CNPJ = '{cnpj}';", conexao);
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT P.*,gp.price as price_group FROM grupos g JOIN grupos_products gp ON g.IDGROUP = gp.IDGROUP JOIN products p ON gp.IDPRODUCT = p.IDPRODUCT WHERE G.IDGROUP = {idGroup} AND G.CNPJ = '{cnpj}';", conexao);
 
                 List<Product> products = new List<Product>();
                 if (reader != null)
                 {
                     while (reader.Read())
                     {
-                        products.Add(_productDao.GetProductFromId(Convert.ToInt32(reader["IDPRODUCT"].ToString()), cnpj));
+                        Product product = new Product();
+                        product = _productDao.GetProductFromId(Convert.ToInt32(reader["IDPRODUCT"].ToString()), cnpj);
+                        product.Value = Convert.ToDouble(reader["price_group"]);
+                        products.Add(product);
 
                     }
                     return products;

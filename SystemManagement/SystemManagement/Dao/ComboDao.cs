@@ -80,14 +80,26 @@ namespace SystemManagement.Dao
             try
             {
                 using var conexao = _connectionFabric.Connect();
-                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT p.* FROM COMBOS C JOIN COMBOS_PRODUCTS CP ON C.IDCOMBO = CP.IDCOMBO JOIN PRODUCTS P ON CP.IDPRODUCT = P.IDPRODUCT WHERE c.IDCOMBO = {idCombo} and c.cnpj = '{cnpj}';", conexao);
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT p.*,cp.Price as Price_Combo FROM COMBOS C JOIN COMBOS_PRODUCTS CP ON C.IDCOMBO = CP.IDCOMBO JOIN PRODUCTS P ON CP.IDPRODUCT = P.IDPRODUCT WHERE c.IDCOMBO = {idCombo} and c.cnpj = '{cnpj}';", conexao);
 
                 List<Product> products = new List<Product>();
                 if (reader != null)
                 {
                     while (reader.Read())
                     {
-                        products.Add(_productDao.GetProductFromId(Convert.ToInt32(reader["IDPRODUCT"].ToString()), cnpj));
+                        //products.Add(_productDao.GetProductFromId(Convert.ToInt32(reader["IDPRODUCT"].ToString()), cnpj));
+                        Product product = new Product();
+                        product.Id = Convert.ToInt32(reader["idproduct"].ToString());
+                        product.Name = reader["Product_Name"].ToString();
+                        product.Value = Convert.ToInt32(reader["price_combo"]);
+                        product.Description = reader["description"].ToString();
+                        product.Store = new Store() { Cnpj = reader["cnpj"].ToString() };
+                        product.Kcal = Convert.ToDouble(reader["kcal"]);
+                        product.Image = reader["image"].ToString();
+                        product.Category = new Category() { IdCategory = int.Parse(reader["IDCATEGORY"].ToString()) };
+                        product.BarCode = reader["BarCode"].ToString();
+                        product.Acompanhamentos = _productDao.GetAcompanhamentos(product.Id, cnpj);
+                        products.Add(product);
 
                     }
                     return products;

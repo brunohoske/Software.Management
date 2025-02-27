@@ -1,21 +1,23 @@
-﻿using MySql.Data.MySqlClient;
-using SystemManagement.Data;
+﻿using SystemManagement.Data;
 using SystemManagement.Models;
 
 namespace SystemManagement.Dao
 {
-    public static class IngrdientDao
+    public class IngredientDao
     {
-        static MySqlConnection conexao = null;
-        static ConnectionFabric fabric = new ConnectionFabric();
+        private readonly ConnectionFabric _connectionFabric;
 
-        public static List<Ingredient> GetIngredients(string cnpj)
+        public IngredientDao(ConnectionFabric connectionFabric)
+        {
+            _connectionFabric = connectionFabric;
+        }
+        public List<Ingredient> GetIngredients(string cnpj)
         {
             List<Ingredient> ingredients = new List<Ingredient>();
             try
             {
-                using var conexao = fabric.Connect();
-                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM INGREDIENTS WHERE CNPJ = {cnpj}",conexao);
+                using var conexao = _connectionFabric.Connect();
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM INGREDIENTS WHERE CNPJ = {cnpj}",conexao);
                 while (reader.Read())
                 {
                     Ingredient ingredient = new Ingredient();
@@ -38,12 +40,12 @@ namespace SystemManagement.Dao
                 
             }
         }
-        public static Ingredient GetIngredientFromId(int id, string cnpj)
+        public Ingredient GetIngredientFromId(int id, string cnpj)
         {
             try
             {
-                using var conexao = fabric.Connect();
-                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM INGREDIENTS WHERE IDINGREDIENT = {id} and CNPJ = '{cnpj}'", conexao);
+                using var conexao = _connectionFabric.Connect();
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM INGREDIENTS WHERE IDINGREDIENT = {id} and CNPJ = '{cnpj}'", conexao);
                 Ingredient ingredient = new Ingredient();
                 while (reader.Read())
                 {
@@ -64,12 +66,12 @@ namespace SystemManagement.Dao
             }
         }
 
-        public static List<Ingredient> GetProductIngredients(int idProduct,string cnpj)
+        public List<Ingredient> GetProductIngredients(int idProduct,string cnpj)
         {
             try
             {
-                using var conexao = fabric.Connect();
-                using var reader = fabric.ExecuteCommandReader($"SELECT i.IdIngredient, i.NAME, i.Description,pin.idProduct, i.Cnpj FROM ingredients i\r\nJOIN products_ingrdients pin\r\nJOIN products p \r\nON p.IDPRODUCT = pin.idProduct  AND i.IdIngredient = pin.idIngredient\r\nWHERE pin.idproduct = {idProduct}\r\nAND pin.CNPJ = '{cnpj}';",conexao);
+                using var conexao = _connectionFabric.Connect();
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT i.IdIngredient, i.NAME, i.Description,pin.idProduct, i.Cnpj FROM ingredients i\r\nJOIN products_ingrdients pin\r\nJOIN products p \r\nON p.IDPRODUCT = pin.idProduct  AND i.IdIngredient = pin.idIngredient\r\nWHERE pin.idproduct = {idProduct}\r\nAND pin.CNPJ = '{cnpj}';",conexao);
                 List<Ingredient> ingredients = new List<Ingredient>();
                 while (reader.Read())
                 {

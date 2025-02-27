@@ -9,6 +9,7 @@ namespace Software.Menu.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public double Value { get; set; }
+        public List<Ingredient> Ingredients { get; set; } = new();
         public Category Category { get; set; }
         public Company Store { get; set; }
         public double Kcal { get; set; }

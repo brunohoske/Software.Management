@@ -10,6 +10,7 @@ namespace SystemManagement.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public double Value { get; set; }
+        public List<Ingredient> Ingredients { get; set; }
         public Category Category { get; set; }
         public Store Store { get; set; }
         public double Kcal { get; set; }

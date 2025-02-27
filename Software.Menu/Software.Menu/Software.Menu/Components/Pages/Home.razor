@@ -9,7 +9,7 @@
 @code {
     public MenuClient _client;
     public CompanyClient _companyClient;
-    
+
 
     public Menu menu { get; set; }
     [Parameter]
@@ -40,6 +40,7 @@
     }
     private void AddProductToOrder(Product product)
     {
+        if (product.Ingredients.Any()) return;
         Cart.Add(new ItemCart() { Product = product, Quantity = 1, Notes = new List<string>(), Table = new Table() { TableNumber = int.Parse(Comanda) }, Store = new Company() { Cnpj = Cnpj } });
     }
     private void CalculateTotalGeral()
@@ -138,6 +139,7 @@
         }
     }
 
+
 }
 
 <PageTitle>Home</PageTitle>
@@ -179,7 +181,7 @@
             @foreach (var item in Produtos)
             {
                 <div class="product-card" @onclick="()=>GoToProductPage(item.Id)">
-                    <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center">
+                    <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center" @onclick:stopPropagation="(item.Ingredients.Count <= 0 ? true : false)" @onclick="() =>  AddProductToOrder(item)">
 
                         <svg style="fill: #00a680;" viewBox="0 0 16 16" width="1em" height="1em" role="presentation" focusable="false" aria-hidden="true">
                             <path d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z"></path>
@@ -272,7 +274,9 @@
                                     }
                                     <li>- Acompanhamento 1</li>
                                     <li>- Acompanhamento 2</li>
-                                    <li>- R$@item.GetPrice().ToString("F2")</li >
+                                    <li>- R$@* @item.GetPrice().ToString("F2") *@
+                                            @((combo.Products.Sum(p=> p.Value)).ToString("F2"))
+                                    </li >
                                 </ul>
                             </div>
                             <div class="quantity-controls">

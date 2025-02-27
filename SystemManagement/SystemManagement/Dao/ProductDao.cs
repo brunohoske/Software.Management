@@ -10,10 +10,12 @@ namespace SystemManagement.Dao
 
         private readonly ConnectionFabric _connectionFabric;
         private readonly CategoryDao _categoryDao;
-        public ProductDao(ConnectionFabric connectionFabric,CategoryDao categoryDao)
+        private readonly IngredientDao _ingredientDao;
+        public ProductDao(ConnectionFabric connectionFabric,CategoryDao categoryDao,IngredientDao ingrdientDao)
         {
             _connectionFabric = connectionFabric;
-           _categoryDao = categoryDao;
+            _categoryDao = categoryDao;
+            _ingredientDao = ingrdientDao;
         }
         public  List<Product> GetProducts(Store store)
         {
@@ -57,6 +59,7 @@ namespace SystemManagement.Dao
                         product.BarCode = reader["BarCode"].ToString();
                         product.Acompanhamentos = GetAcompanhamentos(product.Id, cnpj);
                         product.CategoriesRecommended = _categoryDao.GetCategoriesRecommended(product, cnpj);
+                        product.Ingredients = _ingredientDao.GetProductIngredients(product.Id, cnpj);
                         foreach (var category in product.CategoriesRecommended)
                         {
                             category.Products = _categoryDao.GetProductCategories(cnpj, category.IdCategory);
