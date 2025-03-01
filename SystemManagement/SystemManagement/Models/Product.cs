@@ -9,7 +9,10 @@ namespace SystemManagement.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public double Value { get; set; }
+        public Decimal Value { get; set; }
+        public string Note { get; set; }
+        public Decimal DiscountPercentual { get; set; }
+        public Decimal DiscountPrice { get; set; }
         public List<Ingredient> Ingredients { get; set; }
         public Category Category { get; set; }
         public Store Store { get; set; }

@@ -7,9 +7,11 @@ namespace SystemManagement.Dao
     public class CategoryDao
     {
         private readonly ConnectionFabric _connectionFabric;
-        public CategoryDao(ConnectionFabric connectionFabric)
+        private readonly IngredientDao _ingredientDao;
+        public CategoryDao(ConnectionFabric connectionFabric, IngredientDao ingredientDao)
         {
             _connectionFabric = connectionFabric;
+            _ingredientDao = ingredientDao;
         }
         
 
@@ -106,17 +108,21 @@ namespace SystemManagement.Dao
 
                     product.Id = reader.GetInt32("IdProduct");
                     product.Name = reader["Product_name"].ToString();
-                    product.Value = Convert.ToInt32(reader["PRICE"]);
+                    product.Value = Convert.ToDecimal(reader["PRICE"]);
                     product.Description = reader["DESCRIPTION"].ToString();
+                    product.DiscountPercentual = Convert.ToDecimal(reader["DISCOUNT_PERCENTUAL"]);
+                    product.DiscountPrice = Convert.ToDecimal(reader["DISCOUNT_PRICE"]);
                     product.Category = new Category() { IdCategory = int.Parse(reader["IdCategory"].ToString()) };
                     product.Store = new Store() { Name = "McDonalds", Cnpj = reader["CNPJ"].ToString() };
                     product.Kcal = Convert.ToDouble(reader["KCAL"]);
                     product.Image = reader["IMAGE"].ToString();
+                    product.Ingredients = _ingredientDao.GetProductIngredients(product.Id, cnpj);
                     products.Add(product);
                 }
 
                 foreach (var combo in GetComboCategories(cnpj, idCategory))
                 {
+                    combo.Ingredients = new();
                     products.Add(combo);
                 }
 
@@ -143,7 +149,7 @@ namespace SystemManagement.Dao
 
                     combo.Id = reader.GetInt32("IdCombo");
                     combo.Name = reader["Combo_name"].ToString();
-                    combo.Value = Convert.ToInt32(reader["PRICE"]);
+                    combo.Value = Convert.ToDecimal(reader["PRICE"]);
                     combo.Description = reader["COMBO_DESCRIPTION"].ToString();
                     combo.Store = new Store() { Name = "McDonalds", Cnpj = reader["CNPJ"].ToString() };
                     combo.Kcal = Convert.ToDouble(reader["KCAL"]);

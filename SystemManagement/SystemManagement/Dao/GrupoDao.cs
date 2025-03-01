@@ -79,7 +79,7 @@ namespace SystemManagement.Dao
                     {
                         Product product = new Product();
                         product = _productDao.GetProductFromId(Convert.ToInt32(reader["IDPRODUCT"].ToString()), cnpj);
-                        product.Value = Convert.ToDouble(reader["price_group"]);
+                        product.Value = Convert.ToDecimal(reader["price_group"]);
                         products.Add(product);
 
                     }

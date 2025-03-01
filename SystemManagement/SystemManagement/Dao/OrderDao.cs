@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System.Globalization;
 using SystemManagement.Dao;
 using SystemManagement.Data;
 using SystemManagement.DTOs;
@@ -44,7 +45,7 @@ namespace SystemManagement.DAO
             {
                 using var conexao = _connectionFabric.Connect();
                 using var cmd = conexao.CreateCommand();
-                cmd.CommandText = $"SELECT IDORDER FROM ORDERS WHERE CNPJ = {store.Cnpj} ORDER BY IDORDER DESC LIMIT 1";
+                cmd.CommandText = $"SELECT if(IDORDER = 0, 1, idorder) FROM ORDERS WHERE CNPJ = {store.Cnpj} ORDER BY IDORDER DESC LIMIT 1";
                 var result = cmd.ExecuteScalar();
                 number = Convert.ToInt32(result);
                 return number;
@@ -59,25 +60,41 @@ namespace SystemManagement.DAO
 
         public void CreateOrder(OrderDTO order)
         {
+            using var conexao = _connectionFabric.Connect();
+            using var transaction = conexao.BeginTransaction();
             try
             {
                 string dt = order.Date.ToString("yyyy-MM-dd HH:mm:ss");
-                using var conexao = _connectionFabric.Connect();
+                
+                
                 using var command = conexao.CreateCommand();
-                command.CommandText = $"Insert into Orders(cnpj,total,order_date,check_number,order_active,order_status) Values('{order.Store.Cnpj}',{order.Value},'{dt}',{order.Table.TableNumber},1,1)";
+                command.CommandText = $"Insert into Orders(cnpj,total,order_date,check_number,order_active,order_status) Values(@cnpj,@value,@data,@table_number,1,1)";
+
+                command.Parameters.AddWithValue("@cnpj", order.Store.Cnpj);
+                command.Parameters.AddWithValue("@value", order.Value);
+                command.Parameters.AddWithValue("@data", dt);
+                command.Parameters.AddWithValue("@table_number", order.Table.TableNumber);
                 command.ExecuteNonQuery();
-                order.Id = GetOrderNumber(order.Store);
+                order.Id = (int)command.LastInsertedId;
+                command.Parameters.AddWithValue("@idorder", order.Id);
                 for (int i = 0;i < order.Products.Count;i++)
                 {
-                    command.CommandText = $"INSERT INTO order_details(idorder,cnpj,idproduct,item,check_number,price,order_date,note) VALUES({order.Id},'{order.Store.Cnpj}',{order.Products[i].Id} ,{i + 1},{order.Table.TableNumber},{order.Products[i].Value},'{dt}','{order.Products[i].Note}')";
+                    command.CommandText = $"INSERT INTO order_details (idorder,cnpj,idproduct,item,check_number,price,order_date,note) VALUES(@idorder,@cnpj,@idproduct{i} ,@item{i},@table_number,@price{i},@data,@note{i})";
+                    
+                    command.Parameters.AddWithValue("@idproduct"+i, order.Products[i].Id);
+                    command.Parameters.AddWithValue("@item"+i, i + 1);
+                    command.Parameters.AddWithValue("@price"+i, order.Products[i].Value);
+                    command.Parameters.AddWithValue("@note"+i, order.Products[i].Note);
                     command.ExecuteNonQuery();
 
                 }
-                
+                transaction.Commit();
+
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao inserir Pedido");
+                transaction.Rollback();
+                throw;
             }
         }
 
@@ -96,7 +113,8 @@ namespace SystemManagement.DAO
 
                     order.Id = Convert.ToInt32(reader["idorder"]);
                     order.Products = GetOrderProduct(order,store);
-                    order.Value = Convert.ToDouble(reader["total"]);
+                    
+                    order.Value = Convert.ToDecimal(reader["total"]);    
                     order.Table = new Table() { Store = store, TableNumber = Convert.ToInt32(reader["check_number"]) };
                     order.Date = Convert.ToDateTime(reader["order_date"]);
                     order.Status = Convert.ToInt32(reader["order_status"]);
@@ -112,24 +130,11 @@ namespace SystemManagement.DAO
             }
         }
 
-        public List<Product> GetOrderProduct(Order order, Store store)
+        public IEnumerable<Product> GetOrderProduct(Order order, Store store)
         {
-            List<Product> products = new List<Product>();
-            List<int> orderProducts = new List<int>();
             try
             {
-                using var conexao = _connectionFabric.Connect();
-                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT idproduct FROM order_details where idorder = {order.Id}", conexao);
-                while (reader.Read())
-                {
-                    orderProducts.Add(Convert.ToInt32(reader["idproduct"]));
-                }
-
-               foreach (int id in orderProducts)
-               {
-                    products.Add(_productDao.GetProductFromId(id, store.Cnpj));
-               }
-                
+                var products = _productDao.GetProductsFromOrder(order.Id, store.Cnpj);
                 return products;
             }
             catch (Exception ex)
@@ -138,7 +143,15 @@ namespace SystemManagement.DAO
             }
         }
 
-
+        public string GetProductNote(int idProduct, int idOrder, string cnpj)
+        {
+            using var conexao = _connectionFabric.Connect();
+            using var cmd = conexao.CreateCommand();
+            cmd.CommandText = $"SELECT note FROM order_details WHERE idproduct = {idProduct} AND idorder = {idOrder} AND cnpj = '{cnpj}'";
+            var result = cmd.ExecuteScalar();
+            string note = Convert.ToString(result);
+            return note;
+        }
         public List<Order> GetOrdersInTable(Store store, Table t)
         {
             List<Order> orders = new List<Order>();
@@ -146,8 +159,10 @@ namespace SystemManagement.DAO
             try
             {
                 using var conexao = _connectionFabric.Connect();
-                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM ORDERS WHERE CNPJ = '{store.Cnpj}' AND ORDER_ACTIVE = 1 AND CHECK_NUMBER = {t.TableNumber}", conexao);
-            
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM ORDERS o" +
+                    $" WHERE CNPJ = '{store.Cnpj}' AND ORDER_ACTIVE = 1 AND CHECK_NUMBER = {t.TableNumber}", conexao);
+
+
 
                 while (reader.Read())
                 {
@@ -155,7 +170,7 @@ namespace SystemManagement.DAO
 
                     order.Id = Convert.ToInt32(reader["idorder"]);
                     order.Products = GetOrderProduct(order,store);
-                    order.Value = Convert.ToDouble(reader["total"]);
+                    order.Value = Convert.ToDecimal(reader["total"]);
                     order.Table = new Table() { Store = store, TableNumber = Convert.ToInt32(reader["check_number"]) };
                     order.Status = Convert.ToInt32(reader["order_status"]);
                     order.Date = Convert.ToDateTime(reader["order_date"]);

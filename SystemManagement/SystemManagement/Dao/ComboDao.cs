@@ -52,7 +52,7 @@ namespace SystemManagement.Dao
                     
                     combo.Id = reader.GetInt32("IdCombo");
                     combo.Name = reader["Combo_name"].ToString();
-                    combo.Value = Convert.ToInt32(reader["PRICE"]);
+                    combo.Value = Convert.ToDecimal(reader["PRICE"]);
                     combo.Description = reader["COMBO_DESCRIPTION"].ToString();
                     combo.Store = new Store() { Name = "McDonalds", Cnpj = reader["CNPJ"].ToString() };
                     combo.Kcal = Convert.ToDouble(reader["KCAL"]);
@@ -91,7 +91,7 @@ namespace SystemManagement.Dao
                         Product product = new Product();
                         product.Id = Convert.ToInt32(reader["idproduct"].ToString());
                         product.Name = reader["Product_Name"].ToString();
-                        product.Value = Convert.ToInt32(reader["price_combo"]);
+                        product.Value = Convert.ToDecimal(reader["price_combo"]);    
                         product.Description = reader["description"].ToString();
                         product.Store = new Store() { Cnpj = reader["cnpj"].ToString() };
                         product.Kcal = Convert.ToDouble(reader["kcal"]);
@@ -109,6 +109,8 @@ namespace SystemManagement.Dao
             }
             catch { return new List<Product>(); }
         }
+
+
         public List<Grupo> GetComboGroups(string cnpj, int idCombo)
         {
             try

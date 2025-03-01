@@ -15,7 +15,9 @@
 @using Software.Menu.Services
 @using Software.Menu.DTOs;
 @using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
-
+@using System.Text.Json
+@using System.Text.Json.Serialization.Metadata
+@inject IJSRuntime js
 @inject ProtectedSessionStorage SessionStorage
 @inject MenuClient menuClient
 @inject IngredientClient ingredientClient
@@ -24,5 +26,7 @@
 @inject ProductService productService
 @inject CompanyClient companyClient
 @inject CheckClient checkClient
+@inject OrderClient orderClient
 @inject NavigationManager nav
+
 @inject IMapper mapper

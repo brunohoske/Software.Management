@@ -1,34 +1,66 @@
-﻿const mp = new MercadoPago("YOUR_PUBLIC_KEY");
+﻿    
 
+document.getElementById("cartButton").addEventListener("click", function (event) {
+    event.stopPropagation();
+    let cartDropdown = document.getElementById("cartDropdown");
+    cartDropdown.style.display = cartDropdown.style.display === "block" ? "none" : "block";
+});
 
-(async function getIdentificationTypes() {
-    try {
-        const identificationTypes = await mp.getIdentificationTypes();
-        const identificationTypeElement = document.getElementById('form-checkout__identificationType');
-
-        createSelectOptions(identificationTypeElement, identificationTypes);
-    } catch (e) {
-        return console.error('Error getting identificationTypes: ', e);
+document.addEventListener("click", function (event) {
+    let cartDropdown = document.getElementById("cartDropdown");
+    if (!document.getElementById("cartButton").contains(event.target) && !cartDropdown.contains(event.target)) {
+        cartDropdown.style.display = "none";
     }
-})();
+});
 
-function createSelectOptions(elem, options, labelsAndKeys = { label: "name", value: "id" }) {
-    const { label, value } = labelsAndKeys;
+function increaseQuantity(button) {
+    let span = button.previousElementSibling;
+    span.textContent = parseInt(span.textContent) + 1;
+}
 
-    elem.options.length = 0;
+function decreaseQuantity(button) {
+    let span = button.nextElementSibling;
+    let currentValue = parseInt(span.textContent);
+    if (currentValue > 1) {
+        span.textContent = currentValue - 1;
+    }
+}
 
-    const tempOptions = document.createDocumentFragment();
+document.addEventListener('click', function (event) {
+    var menu = document.getElementById('pedidoMenu');
+    var button = document.querySelector('.fixed-button');
+    if (!menu.contains(event.target) && !button.contains(event.target)) {
+        var bsCollapse = new bootstrap.Collapse(menu, { toggle: false });
+        bsCollapse.hide();
+    }
+});
 
-    options.forEach(option => {
-        const optValue = option[value];
-        const optLabel = option[label];
+window.onload = function () {
+    window.scrollTo(0, 0);
+};
 
-        const opt = document.createElement('option');
-        opt.value = optValue;
-        opt.textContent = optLabel;
+function showNotification(message) {
+    let notificationContainer = document.getElementById('notification-container');
 
-        tempOptions.appendChild(opt);
-    });
+    // Se ainda não existir o contêiner de notificações, criamos um
+    if (!notificationContainer) {
+        notificationContainer = document.createElement('div');
+        notificationContainer.id = 'notification-container';
 
-    elem.appendChild(tempOptions);
+        document.body.appendChild(notificationContainer);
+    }
+
+    // Criar a notificação
+    let notification = document.createElement('div');
+    notification.className = 'notification-success';
+
+    notification.textContent = message;
+
+    // Adicionar a notificação ao contêiner
+    notificationContainer.appendChild(notification);
+
+    // Remover a notificação após 5 segundos
+    setTimeout(() => {
+        notification.remove();
+    }, 5000);
 }

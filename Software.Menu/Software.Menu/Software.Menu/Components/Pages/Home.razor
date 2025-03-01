@@ -1,5 +1,6 @@
 ﻿@using Software.Menu.Models;
 @using System.Text.Json;
+@using System.Text
 @inject HttpClient _httpClient
 @inject NavigationManager nav
 @rendermode InteractiveServer
@@ -36,12 +37,45 @@
     }
     private async Task GetCategories()
     {
+
         Categories = await _client.GetCategories();
+        Categories.Insert(0, new Category() { Name = "Todos os produtos", IsDisplay = 1, Products = Produtos, Store = Store });
     }
-    private void AddProductToOrder(Product product)
+    private async Task AddProductToOrder(Product product)
     {
         if (product.Ingredients.Any()) return;
-        Cart.Add(new ItemCart() { Product = product, Quantity = 1, Notes = new List<string>(), Table = new Table() { TableNumber = int.Parse(Comanda) }, Store = new Company() { Cnpj = Cnpj } });
+        if (product is Combo) return;
+        var item = new ItemCart()
+            {
+                Product = product,
+                Quantity = 1,
+                Notes = new List<string>(),
+                TableNumber = int.Parse(Comanda),
+                Cnpj = this.Cnpj
+            };
+
+
+        var index = Cart.FindIndex(item => item.Product.Id == product.Id);
+        if (index != -1)
+        {
+            Cart[index].Quantity++;
+            await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!");
+        }
+        else
+        {
+            Cart.Add(item);
+            if (Cart.Contains(item))
+            {
+                await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!");
+            }
+            else
+            {
+                await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} não foi adicionado! Erro ocorrido");
+            }
+            
+            await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+
+        }
     }
     private void CalculateTotalGeral()
     {
@@ -69,42 +103,70 @@
     }
     private async Task GetSessionCart()
     {
-        var cartJson = await SessionStorage.GetAsync<string>("cart");
-        if(cartJson.Value != null)
+        try
         {
-            List<ItemCart> cart = System.Text.Json.JsonSerializer.Deserialize<List<ItemCart>>(cartJson.Value);
-            foreach (var item in cart)
+            var cartJson = await SessionStorage.GetAsync<string>("cart");
+            if (cartJson.Value != null)
             {
-                if(item.Table.TableNumber == int.Parse(Comanda) && item.Store.Cnpj == Cnpj)
+                List<ItemCart> cart = System.Text.Json.JsonSerializer.Deserialize<List<ItemCart>>(cartJson.Value);
+                foreach (var item in cart)
                 {
-                    Cart.Add(item);
+                    if (item.TableNumber == int.Parse(Comanda) && item.Cnpj == Cnpj)
+                    {
+                        Cart.Add(item);
+                    }
+
                 }
-                
+                byte[] bytes = Encoding.UTF8.GetBytes(cartJson.Value);
+
+                double tamanhoMB = bytes.Length / (1024.0 * 1024.0); // Convertendo para MB
+
+                Console.WriteLine($"Tamanho do JSON: {tamanhoMB:F6} MB");
+            }
+            else
+            {
+                Console.WriteLine(cartJson.Value);
             }
         }
+        catch(Exception ex)
+        {
+            Console.WriteLine("Erro ao ler o CarrinhoSession"+ex);
+        }
+
     }
     protected override async Task OnInitializedAsync()
     {
         base.OnInitialized();
-        _client = new MenuClient($"{Cnpj}");
-        _companyClient = new CompanyClient($"{Cnpj}");
-        checkClient = new CheckClient($"{Cnpj}");
-
-        await CarregarProdutosAsync();
-        Store = await  _companyClient.GetCompanyFromCnpj(Cnpj);
-        OrdersInCheck = await GetOrders();
-        await GetCategories();
-
-
-        @if (Store.Name != string.Empty)
+        try
         {
-            menu = new Menu() { Company = Store};
+            _client = new MenuClient($"{Cnpj}");
+            _companyClient = new CompanyClient($"{Cnpj}");
+            checkClient = new CheckClient($"{Cnpj}");
+            orderClient = new OrderClient($"{Cnpj}", mapper);
+
+            await CarregarProdutosAsync();
+            Store = await _companyClient.GetCompanyFromCnpj(Cnpj);
+            OrdersInCheck = await GetOrders();
+
+            await GetCategories();
+
+
+            @if (Store.Name != string.Empty)
+            {
+                menu = new Menu() { Company = Store };
+            }
+            else
+            {
+                menu = new Menu();
+            }
+            CalculateTotalGeral();
         }
-        else
+        catch(Exception ex)
         {
-            menu = new Menu();
+            Console.WriteLine("Erro na inicialização da Home" + ex);
+            throw;
         }
-        CalculateTotalGeral();
+
 
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -175,31 +237,6 @@
 <h2 class="menu-title">@menu.Company.Name - Cardápio</h2>
 
 <section id="menu" class="menu-section">
-    <div class="product-category">
-        <h3 class="category-title">Todos os Produtos</h3>
-        <div class="product-list">
-            @foreach (var item in Produtos)
-            {
-                <div class="product-card" @onclick="()=>GoToProductPage(item.Id)">
-                    <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center" @onclick:stopPropagation="(item.Ingredients.Count <= 0 ? true : false)" @onclick="() =>  AddProductToOrder(item)">
-
-                        <svg style="fill: #00a680;" viewBox="0 0 16 16" width="1em" height="1em" role="presentation" focusable="false" aria-hidden="true">
-                            <path d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z"></path>
-                        </svg>
-                    </button>
-                    <img src="@item.Image" alt="Product Image" class="product-image" />
-                    <div class="product-details">
-                        <h4 class="product-name">@item.Name</h4>
-                        <p class="product-description">@item.Description</p>
-                        <div class="product-bottom">
-                            <span class="product-price">R$ @item.Value.ToString("F2")</span>
-                            @* <button class="add-to-cart">Adicionar</button> *@
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
     
     @foreach (var category in Categories)
     {
@@ -211,7 +248,8 @@
                     @foreach (var product in category.Products)
                     {
                         <div class="product-card"  @onclick="()=> product is Combo ? GoToComboPage(product.Id) : GoToProductPage(product.Id)">
-                            <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center" style="z-index=100">
+                            <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center" @onclick:stopPropagation="product.Ingredients.Count <= 0"
+                                    @onclick="() => AddProductToOrder(product)">
 
                                 <svg style="fill: #00a680;" viewBox="0 0 16 16" width="1em" height="1em" role="presentation" focusable="false" aria-hidden="true">
                                     <path d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z"></path>
@@ -222,7 +260,7 @@
                                 <h4 class="product-name">@product.Name</h4>
                                 <p class="product-description">@product.Description</p>
                                 <div class="product-bottom">
-                                    <span class="product-price">R$ @product.Value.ToString("F2")</span>
+                                    <span class="product-price">R$ @product.GetPrice().ToString("F2")</span>
                                     @* <button class="add-to-cart">Adicionar</button> *@
                                 </div>
                             </div>
@@ -272,8 +310,8 @@
                                     {
                                         <li>- @item.GetNote()</li>
                                     }
-                                    <li>- Acompanhamento 1</li>
-                                    <li>- Acompanhamento 2</li>
+@*                                     <li>- Acompanhamento 1</li>
+                                    <li>- Acompanhamento 2</li> *@
                                     <li>- R$@* @item.GetPrice().ToString("F2") *@
                                             @((combo.Products.Sum(p=> p.Value)).ToString("F2"))
                                     </li >
@@ -303,7 +341,7 @@
                                 <strong>@item.Product.Name</strong>
                                 <ul class="list-unstyled ms-3">
                                     <li>- @item.Product.Name</li>
-                                    @if (item.GetNote() != "")
+                                    @if (item.GetNote() != "" && item.GetNote() != null)
                                     {
                                         <li>- @item.GetNote()</li>
                                     }
@@ -340,26 +378,6 @@
         </ul>
     </div>
 </div>
-
-@* <section class="order-status-section">
-    <h3>Status dos Pedidos</h3>
-    @foreach (var order in OrdersInCheck)
-    {
-        <div class="order-status">
-            <h4>Pedido: @order.Id</h4>
-           
-            <p class="status-text" style="color:@(order.Status == 1 ? "red" : (order.Status == 2 ? "yellow": "green"))">
-                Status: @(order.Status == 1 ? "Enviado à cozinha" : (order.Status == 2 ? "Preparando" : "Pedido Pronto"))
-            </p>
-            <ul>
-                @foreach (var product in order.Products)
-                {
-                    <li>@product.Name - R$ @product.Value</li>
-                }
-            </ul>
-        </div>
-    }
-</section> *@
  
 <section id="summary">
     <section id="order-summary" class="order-summary-section">
@@ -405,7 +423,12 @@
                                                 <div>
                                                     @product.Name
                                                     <ul>
-                                                        <li>Observações: Sem cebola</li>
+                                                        <li>R$ @product.GetPrice().ToString("F2")</li>
+                                                        @if(product.Note != null && product.Note != string.Empty)
+                                                        {
+                                                            <li>@product.Note</li>
+                                                        }
+                                                        
                                                     </ul>
                                                 </div>
                                             </div>
@@ -467,7 +490,7 @@
 
 
 
-    private async Task SubmitOrder(List<ItemCart> itens)
+    private async Task _SubmitOrder(List<ItemCart> itens)
     {
         try
         {
@@ -517,7 +540,7 @@
                         // }
                     }
                 }
-                
+
 
                 total += item.GetPrice();
             }
@@ -559,6 +582,15 @@
         }
     }
 
+    private async Task SubmitOrder(List<ItemCart> itens)
+    {
+        orderClient.SubmitOrder(itens,int.Parse(Comanda), Cnpj);
+
+        Cart.Clear();
+        await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+        nav.Refresh(true);
+
+    }
     async Task<List<Product>> GetProducts()
     {
         HttpResponseMessage response = _httpClient.GetAsync("Products").Result;

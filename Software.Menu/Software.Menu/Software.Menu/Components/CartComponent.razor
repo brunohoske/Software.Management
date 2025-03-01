@@ -1,0 +1,207 @@
+﻿<h3>CartComponent</h3>
+
+@code {
+
+    [Parameter, EditorRequired]
+    public string Comanda { get; set; } 
+    [Parameter, EditorRequired]
+    public string Cnpj { get; set; }
+
+    private bool _isFirstRender = true;
+    List<ItemCart> Cart = new List<ItemCart>();
+    private async Task GetSessionCart()
+    {
+        var cartJson = await SessionStorage.GetAsync<string>("cart");
+        if (cartJson.Value != null)
+        {
+            List<ItemCart> cart = System.Text.Json.JsonSerializer.Deserialize<List<ItemCart>>(cartJson.Value);
+            foreach (var item in cart)
+            {
+                if (item.TableNumber == int.Parse(Comanda) && item.Cnpj == this.Cnpj)
+                {
+                    Cart.Add(item);
+                }
+
+            }
+        }
+    }
+    private void RemoveProductFromOrder(ItemCart item)
+    {
+        // ProductsInOrder.Remove(product);
+        Cart.Remove(item);
+    }
+    private async Task IncrementItem(ItemCart item)
+    {
+        item.Quantity++; StateHasChanged();
+    }
+    private async Task DecrementItem(ItemCart item)
+    {
+        if (item.Quantity == 1)
+        {
+            RemoveProductFromOrder(item);
+        }
+        else
+        {
+            item.Quantity--; StateHasChanged();
+        }
+    }
+    protected override async Task OnInitializedAsync()
+    {
+       
+        orderClient = new OrderClient(Cnpj, mapper);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+
+
+            await GetSessionCart();
+            StateHasChanged();
+        }
+    }
+
+
+}
+
+<div class="container mt-4" style="box-shadow: none;@(Cart.Count() > 0 ? "" : "display: none;");">
+    <div class="dropdown">
+        <button class="btn btn-primary" type="button" id="cartButton" style="border-radius: 20px;background-color: white;border-color: black;">
+            <svg style="width:80%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="24" height="24">
+                <path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path>
+            </svg>
+            <span id="cartCount" class="cart-badge">@Cart.Count()</span>
+        </button>
+        <ul class="dropdown-menu p-3" id="cartDropdown">
+            <h5> Carrinho</h5>
+            @if (Cart.Any())
+            {
+                @foreach (var item in Cart.ToList())
+                {
+                    @if (item.Product is Combo combo)
+                    {
+                        <div class="cart-item">
+
+                            <img src="@combo.Image" alt="Produto">
+                            <div class="cart-details ms-3">
+                                <strong>@combo.Name</strong>
+                                <ul class="list-unstyled ms-3">
+                                    @foreach (var product in combo.Products)
+                                    {
+                                        <li>- @product.Name</li>
+                                    }
+                                    @if (item.GetNote() != "")
+                                    {
+                                        <li>- @item.GetNote()</li>
+                                    }
+                                    @*                                     <li>- Acompanhamento 1</li>
+                        <li>- Acompanhamento 2</li> *@
+                                    <li>
+                                        - R$@* @item.GetPrice().ToString("F2") *@
+                                        @((combo.Products.Sum(p => p.Value)).ToString("F2"))
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="quantity-controls">
+                                <button @onclick="()=>DecrementItem(item)">
+                                    @if (item.Quantity > 1)
+                                    {
+                                        <span>-</span>
+                                    }
+                                    else
+                                    {
+                                        <svg style="width:50%; fill:white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M170.5 51.6L151.5 80l145 0-19-28.4c-1.5-2.2-4-3.6-6.7-3.6l-93.7 0c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80 368 80l48 0 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-8 0 0 304c0 44.2-35.8 80-80 80l-224 0c-44.2 0-80-35.8-80-80l0-304-8 0c-13.3 0-24-10.7-24-24S10.7 80 24 80l8 0 48 0 13.8 0 36.7-55.1C140.9 9.4 158.4 0 177.1 0l93.7 0c18.7 0 36.2 9.4 46.6 24.9zM80 128l0 304c0 17.7 14.3 32 32 32l224 0c17.7 0 32-14.3 32-32l0-304L80 128zm80 64l0 208c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-208c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0l0 208c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-208c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0l0 208c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-208c0-8.8 7.2-16 16-16s16 7.2 16 16z" /></svg>
+                                    }
+                                </button>
+                                <span>@item.Quantity</span>
+                                <button @onclick="()=>IncrementItem(item)">+</button>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="cart-item">
+                            <img src="@item.Product.Image" alt="Produto">
+                            <div class="cart-details ms-3">
+                                <strong>@item.Product.Name</strong>
+                                <ul class="list-unstyled ms-3">
+                                    <li>- @item.Product.Name</li>
+                                    @if (item.GetNote() != "" && item.GetNote() != null)
+                                    {
+                                        <li>- @item.GetNote()</li>
+                                    }
+                                    <li>- Acompanhamento 1</li>
+                                    <li>- Acompanhamento 2</li>
+                                    <li>- R$@item.GetPrice().ToString("F2")</li>
+                                </ul>
+                            </div>
+                            <div class="quantity-controls">
+                                <button @onclick="()=>DecrementItem(item)">
+                                    @if (item.Quantity > 1)
+                                    {
+                                        <span>-</span>
+                                    }
+                                    else
+                                    {
+                                        <svg style="width:50%; fill:white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M170.5 51.6L151.5 80l145 0-19-28.4c-1.5-2.2-4-3.6-6.7-3.6l-93.7 0c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80 368 80l48 0 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-8 0 0 304c0 44.2-35.8 80-80 80l-224 0c-44.2 0-80-35.8-80-80l0-304-8 0c-13.3 0-24-10.7-24-24S10.7 80 24 80l8 0 48 0 13.8 0 36.7-55.1C140.9 9.4 158.4 0 177.1 0l93.7 0c18.7 0 36.2 9.4 46.6 24.9zM80 128l0 304c0 17.7 14.3 32 32 32l224 0c17.7 0 32-14.3 32-32l0-304L80 128zm80 64l0 208c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-208c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0l0 208c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-208c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0l0 208c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-208c0-8.8 7.2-16 16-16s16 7.2 16 16z" /></svg>
+                                    }
+                                </button>
+                                <span>@item.Quantity</span>
+                                <button @onclick="()=>IncrementItem(item)">+</button>
+                            </div>
+                        </div>
+
+
+                    }
+
+                }
+                <div class="cart-footer">
+                    <span>Total: R$@Cart.Sum(p => p.GetPrice()).ToString("F2") <span id="totalValue"></span></span>
+                    <button @onclick="() => orderClient.SubmitOrder(Cart,int.Parse(Comanda),Cnpj)">Finalizar Compra</button>
+                </div>
+
+
+            }
+
+        </ul>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById("cartButton").addEventListener("click", function (event) {
+        event.stopPropagation();
+        let cartDropdown = document.getElementById("cartDropdown");
+        cartDropdown.style.display = cartDropdown.style.display === "block" ? "none" : "block";
+    });
+
+    document.addEventListener("click", function (event) {
+        let cartDropdown = document.getElementById("cartDropdown");
+        if (!document.getElementById("cartButton").contains(event.target) && !cartDropdown.contains(event.target)) {
+            cartDropdown.style.display = "none";
+        }
+    });
+
+    function increaseQuantity(button) {
+        let span = button.previousElementSibling;
+        span.textContent = parseInt(span.textContent) + 1;
+    }
+
+    function decreaseQuantity(button) {
+        let span = button.nextElementSibling;
+        let currentValue = parseInt(span.textContent);
+        if (currentValue > 1) {
+            span.textContent = currentValue - 1;
+        }
+    }
+
+    document.addEventListener('click', function (event) {
+        var menu = document.getElementById('pedidoMenu');
+        var button = document.querySelector('.fixed-button');
+        if (!menu.contains(event.target) && !button.contains(event.target)) {
+            var bsCollapse = new bootstrap.Collapse(menu, { toggle: false });
+            bsCollapse.hide();
+        }
+    });
+</script>

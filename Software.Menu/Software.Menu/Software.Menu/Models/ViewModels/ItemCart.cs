@@ -8,16 +8,16 @@
         public int Quantity { get; set; }
         public List<string> Notes { get; set; }
         public List<ItemCart> Acompanhamentos {  get; set; }
-        public Company Store { get; set; }
-        public Table Table { get; set; }
+        public string Cnpj { get; set; }
+        public int TableNumber { get; set; }
 
         public ItemCart() { }
-        public ItemCart(Product product, int quantity, int table)
+        public ItemCart(Product product, int quantity, int table,string cnpj)
         {
             Product = product;
             Quantity = quantity;
-            Store = product.Store;
-            Table = new Table() { Store = product.Store, TableNumber = table };
+            Cnpj = cnpj;
+            TableNumber = table;
         }
 
         public string GetNote()

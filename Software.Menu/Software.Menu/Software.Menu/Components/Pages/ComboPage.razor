@@ -1,9 +1,8 @@
 ﻿@page "/{Cnpj}/Combo/{idCombo}/{TableNumber}"
-@using System.Text.Json
-@using System.Text.Json.Serialization.Metadata
+
 
 @rendermode InteractiveServer
-@inject IJSRuntime js
+
 
 
 
@@ -35,6 +34,7 @@
     public Table Table { get; set; }
 
     double total;
+    string customNote;
 
 
     public async Task<Product> GetSelectedProduct(int id)
@@ -58,6 +58,22 @@
     }
     private async Task AddProduct()
     {
+
+        // var index = Cart.FindIndex(item =>
+        //     item.Product.Id == itemCart.Product.Id &&
+        //     item.Product.Name == itemCart.Product.Name &&
+        //     string.Join("", item.Notes) == itemCart.Product.Note
+        // );
+        // if (index != -1) // Se encontrar um item com os mesmos atributos
+        // {
+        //     Cart[index].Quantity++;
+        // }
+        // else
+        // {
+        //     Cart.Add(itemCart);
+        // }
+
+
         if(productsSelectedsGroup.Count == (selectedCombo.Groups.Count))
         {
             if (selectedCombo != null)
@@ -71,8 +87,9 @@
                 itemCart.Quantity = quantity;
                 //itemCart.Acompanhamentos = acomps;
                 itemCart.Notes = notes;
-                itemCart.Store = new Company() { Cnpj = Cnpj };
-                itemCart.Table = new Table() { TableNumber = int.Parse(TableNumber) };
+                itemCart.Notes.Add(customNote);
+                itemCart.Cnpj = this.Cnpj;
+                itemCart.TableNumber = int.Parse(TableNumber);
                 if (acomps != null)
                 {
                     Cart.Add(itemCart);
@@ -81,8 +98,8 @@
                         var item = new ItemCart();
                         item.Product = acomp.Product;
                         item.Quantity = acomp.Quantity;
-                        item.Store = new Company() { Cnpj = Cnpj };
-                        item.Table = new Table() { TableNumber = int.Parse(TableNumber) };
+                        item.Cnpj = Cnpj;
+                        item.TableNumber =  int.Parse(TableNumber);
                         Cart.Add(item);
                     }
 
@@ -147,17 +164,18 @@
 
     private async Task RemoveAcompanhamento(ItemCart item)
     {
-        var existingItem = acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id);
+        var index = acomps.FindIndex(a => a.Product.Id == item.Product.Id);
 
-        if (existingItem != null)
+        if (index != -1)
         {
-            if (existingItem.Quantity >= 1)
+
+            if (acomps[index].Quantity > 1)
             {
-                existingItem.Quantity--;
+                acomps[index].Quantity--;
             }
             else
             {
-                acomps.Remove(item);
+                acomps.RemoveAt(index);
             }
         }
 
@@ -211,6 +229,16 @@
         await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
         await js.InvokeVoidAsync("history.back");
     }
+    private double CalcularTotal()
+    {
+        var SomaGrupos = productsSelectedsGroup.Sum(p => p.GetPrice());
+        var somaAcomanhamentos = acomps.Sum(t => t.GetPrice());
+        var precoProduto = selectedCombo.Products.Sum(p => p.GetPrice());
+
+        return Math.Round(((precoProduto + somaAcomanhamentos + SomaGrupos) * quantity),2); StateHasChanged();
+
+
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -224,7 +252,7 @@
         selectedCombo = await GetSelectedCombo(int.Parse(idCombo));
         selectedAcomps.AddRange(selectedCombo.Products.SelectMany(p => p.Acompanhamentos));
 
-         selectedCombo.Store = await companyClient.GetCompanyFromCnpj(Cnpj);
+        selectedCombo.Store = await companyClient.GetCompanyFromCnpj(Cnpj);
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -243,6 +271,50 @@
         }
     }
 
+    private async Task AddProductToOrder(Product product)
+    {
+        if (product.Ingredients.Any()) return;
+        if (product is Combo) return;
+        var item = new ItemCart()
+            {
+                Product = product,
+                Quantity = 1,
+                Notes = new List<string>(),
+                TableNumber = int.Parse(TableNumber),
+                Cnpj = this.Cnpj 
+            };
+        var index = Cart.FindIndex(item => item.Product.Id == product.Id);
+        if (index != -1)
+        {
+            Cart[index].Quantity++;
+            await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!");
+        }
+        else
+        {
+            Cart.Add(item);
+            if (Cart.Contains(item))
+            {
+                await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!");
+            }
+            else
+            {
+                await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} não foi adicionado! Erro ocorrido");
+            }
+
+          
+        }
+        
+        var options = new JsonSerializerOptions
+            {
+                TypeInfoResolver = JsonTypeInfoResolver.Combine(
+            new DefaultJsonTypeInfoResolver())
+            };
+        await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart, options));
+       
+
+
+        
+    }
 
 
 }
@@ -360,7 +432,7 @@
                                     <img src="@product.Image" alt="produto">
                                     <div class="info">
                                         <h5>@product.Name</h5>
-                                        <p>+ R$ @product.Value.ToString("F2")</p>
+                                        <p>+ R$ @product.GetPrice().ToString("F2")</p>
                                     </div>
                                     <input  type="radio" name="burguer" class="form-check-input" id="burguer1" checked>
                                 </div>
@@ -380,7 +452,7 @@
                                             <img src="@product.Image" alt="produto">
                                             <div class="info">
                                                 <h5>@product.Name</h5>
-                                                <p>+ R$ @product.Value.ToString("F2")</p>
+                                                <p>+ R$ @product.GetPrice().ToString("F2")</p>
                                             </div>
                                             <input type="radio"
                                                    name="grupo-product-@group.Id"
@@ -413,12 +485,12 @@
                         @foreach (var acomp in selectedAcomps)
                         {
                             ItemCart item = new ItemCart()
-                    {
-                        Product = acomp,
-                        Table = new Table() { TableNumber = int.Parse(TableNumber) },
-                        Store = new Company() { Cnpj = Cnpj }
+                            {
+                                Product = acomp,
+                                TableNumber =  int.Parse(TableNumber),
+                                Cnpj = this.Cnpj 
 
-                    };
+                            };
                             <div class="side-item text-center">
                                 <img src="@item.Product.Image" class="img-fluid rounded mb-2" alt="Fries">
                                 <p class="mb-1">🍟 @item.Product.Name - R$@(item.Product.Value.ToString("F2"))</p>
@@ -452,7 +524,7 @@
                     </div>
                 </div>
                 <button @onclick="AddProduct"  class="btn btn-primary btn-lg w-100">
-                    Add to Cart R$@(((productsSelectedsGroup.Sum(p => p.Value) + selectedCombo.Products.Sum(p => p.Value)) * quantity) + acomps.Sum(t => t.GetPrice() * quantity))
+                        Add to Cart R$@CalcularTotal().ToString("F2")
                     @* @((selectedCombo.Value  * quantity)+ acomps.Sum(t => t.GetPrice() * quantity)) *@
                                     
                 </button>
@@ -461,42 +533,56 @@
             </div>
 
         </div>
-
+            <div class="container mt-4">
+                <label for="observacoes" class="form-label">Observações</label>
+                <textarea maxlength="80" @bind="customNote" class="form-control" id="observacoes" rows="3" placeholder="Digite aqui..."></textarea>
+            </div>
             <h1>Sugestões</h1>
             <section id="menu" class="menu-section" style="background-color: transparent; box-shadow:none">
                         
                 @foreach (var category in selectedCombo.CategoriesReccomended)
                 {
-                    <div class="product-category" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff;">
-                        <h3 class="category-title" style="margin-left: 10px;padding-top: 10px;">
-                            @category.Name
-                        </h3>
+                    <div class="product-category" id="@category.Name">
+                        <h3 class="category-title">@category.Name</h3>
                         <div class="product-list">
                             @foreach (var product in category.Products)
                             {
                                 @if (product.Id != selectedCombo.Id || product is not Combo)
                                 {
                                     <div class="product-card" @onclick="()=> product is Combo ? GoToComboPage(product.Id) : GoToProductPage(product.Id)">
-                                        <img src="@product.Image" alt="Product Image" class="product-image" />
-                                        <div class="product-details">
-                                            <h4 class="product-name">@product.Name</h4>
-                                            <p class="product-description">@product.Description</p>
-                                            <div class="product-bottom">
-                                                <span class="product-price">R$ @product.Value.ToString("F2")</span>
-                                                <button class="add-to-cart">Adicionar</button>
-                                            </div>
+                                    <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center" @onclick:stopPropagation="product.Ingredients.Count <= 0"
+                                            @onclick="() => AddProductToOrder(product)">
+
+                                        <svg style="fill: #00a680;" viewBox="0 0 16 16" width="1em" height="1em" role="presentation" focusable="false" aria-hidden="true">
+                                            <path d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z"></path>
+                                        </svg>
+                                    </button>
+                                    <img src="@product.Image" alt="Product Image" class="product-image" />
+                                    <div class="product-details">
+                                        <h4 class="product-name">@product.Name</h4>
+                                        <p class="product-description">@product.Description</p>
+                                        <div class="product-bottom">
+                                            <span class="product-price">R$ @product.GetPrice().ToString("F2")</span>
+                                            @* <button class="add-to-cart">Adicionar</button> *@
                                         </div>
                                     </div>
+                                </div>
                                 }
 
-                            }
+
+
+                        }
+
+
                         </div>
                     </div>
                 }
             </section>
     </div>
+        <CartComponent Cnpj="@Cnpj" Comanda="@TableNumber" />
     </div>
 </div>
+
 
 
 
@@ -526,4 +612,5 @@
     function toggleSelection(element) {
         element.classList.toggle('selected');
     }
+
 </script>

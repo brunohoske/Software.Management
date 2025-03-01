@@ -73,6 +73,10 @@ namespace SystemManagement.Dao
                 using var conexao = _connectionFabric.Connect();
                 using var reader = _connectionFabric.ExecuteCommandReader($"SELECT i.IdIngredient, i.NAME, i.Description,pin.idProduct, i.Cnpj FROM ingredients i\r\nJOIN products_ingrdients pin\r\nJOIN products p \r\nON p.IDPRODUCT = pin.idProduct  AND i.IdIngredient = pin.idIngredient\r\nWHERE pin.idproduct = {idProduct}\r\nAND pin.CNPJ = '{cnpj}';",conexao);
                 List<Ingredient> ingredients = new List<Ingredient>();
+                if(reader.FieldCount == 0)
+                {
+                    return new();
+                }
                 while (reader.Read())
                 {
                     var ingredient = new Ingredient()
