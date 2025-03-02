@@ -39,10 +39,9 @@ window.onload = function () {
     window.scrollTo(0, 0);
 };
 
-function showNotification(message) {
+function showNotification(message,type) {
     let notificationContainer = document.getElementById('notification-container');
 
-    // Se ainda não existir o contêiner de notificações, criamos um
     if (!notificationContainer) {
         notificationContainer = document.createElement('div');
         notificationContainer.id = 'notification-container';
@@ -52,8 +51,18 @@ function showNotification(message) {
 
     // Criar a notificação
     let notification = document.createElement('div');
-    notification.className = 'notification-success';
 
+    if (type == 'error')
+    {
+        notification.className = 'notification-error';
+    }
+    if (type == 'warning') {
+        notification.className = 'notification-warning';
+    }
+    if (type == 'success') {
+        notification.className = 'notification-success';
+    }
+    
     notification.textContent = message;
 
     // Adicionar a notificação ao contêiner

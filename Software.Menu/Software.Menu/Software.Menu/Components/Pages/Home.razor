@@ -20,7 +20,6 @@
 
     Company Store = new Company();
 
-
     private List<Product> Produtos = new List<Product>();
 
     private List<ItemCart> Cart = new List<ItemCart>();
@@ -59,21 +58,21 @@
         if (index != -1)
         {
             Cart[index].Quantity++;
-            await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!");
+            await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!", "success");
         }
         else
         {
             Cart.Add(item);
             if (Cart.Contains(item))
             {
-                await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!");
+                await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!", "success");
             }
             else
             {
-                await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} não foi adicionado! Erro ocorrido");
+                await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} não foi adicionado! Erro ocorrido","error");
             }
-            
-            await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+
+            await menuService.SetSessionCart(Cart, sessionStorageBlazored, int.Parse(Comanda), Cnpj);
 
         }
     }
@@ -93,45 +92,32 @@
     private async Task GoToProductPage(int id)
     {
         nav.NavigateTo($"{menu.Company.Cnpj}/Product/{id}/{Comanda}");
-        await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+        //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+        await SetSessionCart(Cart);
     }
 
     private async Task GoToComboPage(int id)
     {
         nav.NavigateTo($"{menu.Company.Cnpj}/Combo/{id}/{Comanda}");
-        await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+        // await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+        await SetSessionCart(Cart);
     }
     private async Task GetSessionCart()
     {
         try
         {
-            var cartJson = await SessionStorage.GetAsync<string>("cart");
-            if (cartJson.Value != null)
-            {
-                List<ItemCart> cart = System.Text.Json.JsonSerializer.Deserialize<List<ItemCart>>(cartJson.Value);
-                foreach (var item in cart)
-                {
-                    if (item.TableNumber == int.Parse(Comanda) && item.Cnpj == Cnpj)
-                    {
-                        Cart.Add(item);
-                    }
-
-                }
-                byte[] bytes = Encoding.UTF8.GetBytes(cartJson.Value);
-
-                double tamanhoMB = bytes.Length / (1024.0 * 1024.0); // Convertendo para MB
-
-                Console.WriteLine($"Tamanho do JSON: {tamanhoMB:F6} MB");
-            }
-            else
-            {
-                Console.WriteLine(cartJson.Value);
-            }
+            Cart = await menuService.GetSessionCart(sessionStorageBlazored, int.Parse(Comanda), Cnpj);
         }
         catch(Exception ex)
         {
             Console.WriteLine("Erro ao ler o CarrinhoSession"+ex);
         }
+
+    }
+
+    private async Task SetSessionCart(List<ItemCart> itemCarts)
+    {
+        await menuService.SetSessionCart(itemCarts, sessionStorageBlazored, int.Parse(Comanda), Cnpj);
 
     }
     protected override async Task OnInitializedAsync()
@@ -260,7 +246,20 @@
                                 <h4 class="product-name">@product.Name</h4>
                                 <p class="product-description">@product.Description</p>
                                 <div class="product-bottom">
-                                    <span class="product-price">R$ @product.GetPrice().ToString("F2")</span>
+                                    @if(product.GetPrice() == product.Value)
+                                    {
+                                        <span class="product-price">R$ @product.GetPrice().ToString("F2")</span>
+                                    }
+                                    else
+                                    {
+                                        <div style="display: flex;flex-direction: column;/*! font-size: 10px; */">
+                                            <span class="product-price" style="text-decoration: line-through;font-size: 12px;color: gray;">R$ @product.Value.ToString("F2")</span>
+                                            <span class="product-price">R$ @product.GetPrice().ToString("F2")</span>
+                                        </div>
+                                    }
+
+
+                                    
                                     @* <button class="add-to-cart">Adicionar</button> *@
                                 </div>
                             </div>
@@ -379,7 +378,7 @@
     </div>
 </div>
  
-<section id="summary">
+@* <section id="summary">
     <section id="order-summary" class="order-summary-section">
         <h3>Resumo dos Pedidos</h3>
         <div class="order-summary">
@@ -388,7 +387,7 @@
         </div>
         <button class="btn-close-order" @onclick="CloseOrder">Fechar Comanda</button>
     </section>
-</section>
+</section> *@
 
 
 @if(OrdersInCheck.Select(x => x.Status == 3).Count() > 0)
@@ -423,7 +422,8 @@
                                                 <div>
                                                     @product.Name
                                                     <ul>
-                                                        <li>R$ @product.GetPrice().ToString("F2")</li>
+                                                        @* //Não utilize GetPrice(), pois na OrderInCheck ele pega o valor pago *@
+                                                        <li>R$ @product.Value.ToString("F2")</li>
                                                         @if(product.Note != null && product.Note != string.Empty)
                                                         {
                                                             <li>@product.Note</li>

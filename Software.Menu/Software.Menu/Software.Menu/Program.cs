@@ -3,6 +3,8 @@ using Software.Menu.Components;
 using Software.Menu.Services;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Software.Menu.Profiles;
+using Blazored.SessionStorage;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,18 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddScoped<ProtectedSessionStorage>();
 builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<MenuService>();
+
+builder.Services.AddBlazoredSessionStorage(config => {
+    config.JsonSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
+    config.JsonSerializerOptions.IgnoreNullValues = true;
+    config.JsonSerializerOptions.IgnoreReadOnlyProperties = true;
+    config.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+    config.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+    config.JsonSerializerOptions.ReadCommentHandling = JsonCommentHandling.Skip;
+    config.JsonSerializerOptions.WriteIndented = false;
+}
+);
 
 builder.Services.AddScoped(sp =>
 {

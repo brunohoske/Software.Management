@@ -75,7 +75,7 @@ namespace SystemManagement.Dao
         public IEnumerable<Product> GetProductsFromOrder(int orderId, string cnpj) 
         {
             using var conexao = _connectionFabric.Connect();
-            using var reader = _connectionFabric.ExecuteCommandReader($"SELECT p.*, od.note FROM order_details od " +
+            using var reader = _connectionFabric.ExecuteCommandReader($"SELECT p.*, od.note,od.price as PayValue FROM order_details od " +
                 $"inner join products p on od.idproduct = p.idproduct where idorder = {orderId}", conexao);
             List<Product> products = new List<Product>();
             if (reader != null)
@@ -85,7 +85,7 @@ namespace SystemManagement.Dao
                     Product product = new Product();
                     product.Id = Convert.ToInt32(reader["idproduct"].ToString());
                     product.Name = reader["Product_Name"].ToString();
-                    product.Value = Convert.ToDecimal(reader["price"]);
+                    product.Value = Convert.ToDecimal(reader["PayValue"]);
                     product.Description = reader["description"].ToString();
                     product.DiscountPercentual = Convert.ToDecimal(reader["DISCOUNT_PERCENTUAL"]);
                     product.DiscountPrice = Convert.ToDecimal(reader["DISCOUNT_PRICE"]);

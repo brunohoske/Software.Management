@@ -35,7 +35,7 @@
 
     double total;
     string customNote;
-
+    decimal totalPayment;
 
     public async Task<Product> GetSelectedProduct(int id)
     {
@@ -47,33 +47,40 @@
         return await comboClient.GetComboFromId(id);
     }
 
-    private async Task GetSessionCart()
+    private async Task SetSessionCart(List<ItemCart> itemCarts)
     {
-        var cartJson = await SessionStorage.GetAsync<string>("cart");
-        if (cartJson.Value != null)
-        {
-            Cart = System.Text.Json.JsonSerializer.Deserialize<List<ItemCart>>(cartJson.Value);
-        }
+        await menuService.SetSessionCart(itemCarts, sessionStorageBlazored, int.Parse(TableNumber), Cnpj);
 
     }
+    private async Task GetSessionCart()
+    {
+        Cart = await menuService.GetSessionCart(sessionStorageBlazored, int.Parse(TableNumber), Cnpj);
+
+    }
+    public static bool AreCombosEqual(Combo combo1, Combo combo2)
+    {
+        if (combo1 == null || combo2 == null)
+            return false;
+        if (combo1.Id != combo2.Id || combo1.Name != combo2.Name)
+            return false;
+        if (combo1.Products == null && combo2.Products == null)
+            return true;
+        if (combo1.Products == null || combo2.Products == null)
+            return false;
+        if (combo1.Products.Count != combo2.Products.Count)
+            return false;
+        for (int i = 0; i < combo1.Products.Count; i++)
+        {
+            if (combo1.Products[i].Id != combo2.Products[i].Id || combo1.Products[i].Name != combo2.Products[i].Name)
+                return false;
+        }
+
+        return true;
+    }
+    private bool clicked = false;
     private async Task AddProduct()
     {
-
-        // var index = Cart.FindIndex(item =>
-        //     item.Product.Id == itemCart.Product.Id &&
-        //     item.Product.Name == itemCart.Product.Name &&
-        //     string.Join("", item.Notes) == itemCart.Product.Note
-        // );
-        // if (index != -1) // Se encontrar um item com os mesmos atributos
-        // {
-        //     Cart[index].Quantity++;
-        // }
-        // else
-        // {
-        //     Cart.Add(itemCart);
-        // }
-
-
+        if (clicked == true) return;
         if(productsSelectedsGroup.Count == (selectedCombo.Groups.Count))
         {
             if (selectedCombo != null)
@@ -87,12 +94,34 @@
                 itemCart.Quantity = quantity;
                 //itemCart.Acompanhamentos = acomps;
                 itemCart.Notes = notes;
-                itemCart.Notes.Add(customNote);
+                if (customNote != "" && customNote != null)
+                {
+                    itemCart.Notes.Add(customNote);
+                }
                 itemCart.Cnpj = this.Cnpj;
                 itemCart.TableNumber = int.Parse(TableNumber);
-                if (acomps != null)
+
+                var index = Cart.FindIndex(item =>
+                   item.Product.Id == itemCart.Product.Id &&
+                   item.Product.Name == itemCart.Product.Name &&
+                   item.Notes.SequenceEqual(itemCart.Notes) &&
+                   AreCombosEqual((Combo)item.Product, (Combo)itemCart.Product)
+                   
+
+                );
+                if (index != -1) 
+                {
+                    Cart[index].Quantity++;
+                }
+                else
                 {
                     Cart.Add(itemCart);
+                }
+    
+
+                if (acomps != null)
+                {
+                    
                     foreach (var acomp in acomps)
                     {
                         var item = new ItemCart();
@@ -105,17 +134,9 @@
 
 
                 }
-
-
-                var options = new JsonSerializerOptions
-                    {
-                        TypeInfoResolver = JsonTypeInfoResolver.Combine(
-                        new DefaultJsonTypeInfoResolver())
-                    };
-
-
-                await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart, options));
-                //nav.NavigateTo($"/{Cnpj}/CARDAPIO/M{TableNumber}#cart");
+                clicked = true;
+                StateHasChanged();
+                await SetSessionCart(Cart);
                 await js.InvokeVoidAsync("history.back");
 
 
@@ -124,6 +145,10 @@
             {
                 Console.WriteLine("Combo is null");
             }
+        }
+        else
+        {
+            await js.InvokeVoidAsync("showNotification", $"Selecione todos os itens obrigatórios!", "warning");
         }
 
     }
@@ -158,8 +183,9 @@
             item.Quantity = 1;
             acomps.Add(item);
         }
-
+        await UpdateTotal();
         StateHasChanged();
+
     }
 
     private async Task RemoveAcompanhamento(ItemCart item)
@@ -179,7 +205,7 @@
             }
         }
 
-
+        await UpdateTotal();
         StateHasChanged();
     }
 
@@ -195,7 +221,7 @@
         }
     }
 
-    private void ToggleSelectionGroup(Grupo  group, Product product)
+    private async Task ToggleSelectionGroup(Grupo  group, Product product)
     {
         // Encontrar um item já selecionado dentro do grupo
         var existingProduct = productsSelectedsGroup.FirstOrDefault(p => group.Products.Contains(p));
@@ -208,6 +234,7 @@
 
         // Adiciona o novo produto selecionado
         productsSelectedsGroup.Add(product);
+        await UpdateTotal();
     }
 
     private bool IsChecked(Grupo group, Product product) =>
@@ -216,29 +243,37 @@
     private async Task GoToProductPage(int id)
     {
         nav.NavigateTo($"{Cnpj}/Product/{id}/{TableNumber}");
-        await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+        //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+        await SetSessionCart(Cart);
     }
     private async Task GoToComboPage(int id)
     {
         nav.NavigateTo($"{Cnpj}/Combo/{id}/{TableNumber}");
-        await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+        //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+        await SetSessionCart(Cart);
     }
     private async Task ReturnPage()
     {
 
-        await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+        //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+        await SetSessionCart(Cart);
         await js.InvokeVoidAsync("history.back");
     }
-    private double CalcularTotal()
+
+    private async Task UpdateTotal()
     {
+
         var SomaGrupos = productsSelectedsGroup.Sum(p => p.GetPrice());
         var somaAcomanhamentos = acomps.Sum(t => t.GetPrice());
         var precoProduto = selectedCombo.Products.Sum(p => p.GetPrice());
 
-        return Math.Round(((precoProduto + somaAcomanhamentos + SomaGrupos) * quantity),2); StateHasChanged();
+        totalPayment = Convert.ToDecimal(Math.Round(((precoProduto + somaAcomanhamentos + SomaGrupos) * quantity),2)); 
+
 
 
     }
+
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -253,6 +288,7 @@
         selectedAcomps.AddRange(selectedCombo.Products.SelectMany(p => p.Acompanhamentos));
 
         selectedCombo.Store = await companyClient.GetCompanyFromCnpj(Cnpj);
+        await UpdateTotal();
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -287,18 +323,18 @@
         if (index != -1)
         {
             Cart[index].Quantity++;
-            await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!");
+            await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!", "success");
         }
         else
         {
             Cart.Add(item);
             if (Cart.Contains(item))
             {
-                await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!");
+                await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!", "success");
             }
             else
             {
-                await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} não foi adicionado! Erro ocorrido");
+                await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} não foi adicionado! Erro ocorrido","error");
             }
 
           
@@ -309,7 +345,8 @@
                 TypeInfoResolver = JsonTypeInfoResolver.Combine(
             new DefaultJsonTypeInfoResolver())
             };
-        await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart, options));
+        //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart, options));
+        await SetSessionCart(Cart);
        
 
 
@@ -524,7 +561,7 @@
                     </div>
                 </div>
                 <button @onclick="AddProduct"  class="btn btn-primary btn-lg w-100">
-                        Add to Cart R$@CalcularTotal().ToString("F2")
+                        Add to Cart R$@totalPayment.ToString("F2")
                     @* @((selectedCombo.Value  * quantity)+ acomps.Sum(t => t.GetPrice() * quantity)) *@
                                     
                 </button>
@@ -537,49 +574,53 @@
                 <label for="observacoes" class="form-label">Observações</label>
                 <textarea maxlength="80" @bind="customNote" class="form-control" id="observacoes" rows="3" placeholder="Digite aqui..."></textarea>
             </div>
-            <h1>Sugestões</h1>
-            <section id="menu" class="menu-section" style="background-color: transparent; box-shadow:none">
-                        
-                @foreach (var category in selectedCombo.CategoriesReccomended)
-                {
-                    <div class="product-category" id="@category.Name">
-                        <h3 class="category-title">@category.Name</h3>
-                        <div class="product-list">
-                            @foreach (var product in category.Products)
-                            {
-                                @if (product.Id != selectedCombo.Id || product is not Combo)
-                                {
-                                    <div class="product-card" @onclick="()=> product is Combo ? GoToComboPage(product.Id) : GoToProductPage(product.Id)">
-                                    <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center" @onclick:stopPropagation="product.Ingredients.Count <= 0"
-                                            @onclick="() => AddProductToOrder(product)">
 
-                                        <svg style="fill: #00a680;" viewBox="0 0 16 16" width="1em" height="1em" role="presentation" focusable="false" aria-hidden="true">
-                                            <path d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z"></path>
-                                        </svg>
-                                    </button>
-                                    <img src="@product.Image" alt="Product Image" class="product-image" />
-                                    <div class="product-details">
-                                        <h4 class="product-name">@product.Name</h4>
-                                        <p class="product-description">@product.Description</p>
-                                        <div class="product-bottom">
-                                            <span class="product-price">R$ @product.GetPrice().ToString("F2")</span>
-                                            @* <button class="add-to-cart">Adicionar</button> *@
+            @if (selectedCombo.CategoriesReccomended.Any() && selectedCombo.CategoriesReccomended != null)
+            {
+                <h1>Sugestões</h1>
+                <section id="menu" class="menu-section" style="background-color: transparent; box-shadow:none">
+                        
+                    @foreach (var category in selectedCombo.CategoriesReccomended)
+                    {
+                        <div class="product-category" id="@category.Name">
+                            <h3 class="category-title">@category.Name</h3>
+                            <div class="product-list">
+                                @foreach (var product in category.Products)
+                                {
+                                    @if (product.Id != selectedCombo.Id || product is not Combo)
+                                    {
+                                        <div class="product-card" @onclick="()=> product is Combo ? GoToComboPage(product.Id) : GoToProductPage(product.Id)">
+                                        <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center" @onclick:stopPropagation="product.Ingredients.Count <= 0"
+                                                @onclick="() => AddProductToOrder(product)">
+
+                                            <svg style="fill: #00a680;" viewBox="0 0 16 16" width="1em" height="1em" role="presentation" focusable="false" aria-hidden="true">
+                                                <path d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z"></path>
+                                            </svg>
+                                        </button>
+                                        <img src="@product.Image" alt="Product Image" class="product-image" />
+                                        <div class="product-details">
+                                            <h4 class="product-name">@product.Name</h4>
+                                            <p class="product-description">@product.Description</p>
+                                            <div class="product-bottom">
+                                                <span class="product-price">R$ @product.GetPrice().ToString("F2")</span>
+                                                @* <button class="add-to-cart">Adicionar</button> *@
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                }
+                                    }
 
 
 
-                        }
+                            }
 
 
+                            </div>
                         </div>
-                    </div>
-                }
-            </section>
+                    }
+                </section>
+            }
     </div>
-        <CartComponent Cnpj="@Cnpj" Comanda="@TableNumber" />
+        @* <CartComponent Cnpj="@Cnpj" Comanda="@TableNumber" /> *@
     </div>
 </div>
 
