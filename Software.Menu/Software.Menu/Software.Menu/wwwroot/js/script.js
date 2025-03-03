@@ -35,7 +35,19 @@ document.addEventListener('click', function (event) {
     }
 });
 
-window.onload = function () {
+if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+}
+
+// Garante que toda página inicie no topo
+window.addEventListener("load", function () {
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 100); // Pequeno delay para garantir que tudo foi renderizado
+});
+
+// Força o scroll no topo ao sair da página (ajuda no botão "voltar")
+window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 };
 

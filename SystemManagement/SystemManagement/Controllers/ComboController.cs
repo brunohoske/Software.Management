@@ -20,7 +20,7 @@ namespace SystemManagement.Controllers
         public IActionResult GetCombos()
         {
             string cnpj = _headerService.GetCnpj();
-            List<Combo> combos = _comboDao.GetCombos(cnpj);
+            List<Combo> combos = _comboDao. GetCombos(cnpj);
             return Ok(combos);
         }
         [HttpGet("Combos/{id}")]

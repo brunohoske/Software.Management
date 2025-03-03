@@ -389,7 +389,7 @@
             <h2 class="fw-bold">@selectedProduct.Name</h2>
             @if (@selectedProduct.GetPrice() != selectedProduct.Value)
             {
-                <h6 style="text-decoration: line-through;color: gray;"> R$@selectedProduct.Value    .ToString("F2") </h6>
+                <h6 style="text-decoration: line-through;color: gray;"> R$@selectedProduct.Value.ToString("F2") </h6>
             }
             <h4 class="">R$@selectedProduct.GetPrice().ToString("F2")</h4>
             <p class="text-muted">@selectedProduct.Description</p>
