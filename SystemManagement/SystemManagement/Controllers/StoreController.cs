@@ -1,24 +1,43 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Mysqlx.Crud;
+using System.Net;
 using SystemManagement.Dao;
+using SystemManagement.DTOs;
 using SystemManagement.Models;
+using SystemManagement.Services;
 
 namespace SystemManagement.Controllers
 {
     public class StoreController : BaseController
     {
-        StoreDao storeDao = new StoreDao();
+        private readonly StoreDao _storeDao;
+        private readonly HeaderService _headerService;
+
+        public StoreController(StoreDao storeDao, HeaderService headerService)
+        {
+            _storeDao = storeDao;
+            _headerService = headerService;
+        }
         [HttpGet("Company/{cnpj}")]
         public IActionResult  GetCompanyFromCnpj(string cnpj)
         {
-            if(storeDao.CheckExist(cnpj))
+            try
             {
-                return Ok(storeDao.GetCompanyFromCnpj(cnpj));
+                if (_storeDao.CheckExist(cnpj))
+                {
+                    return Ok(_storeDao.GetCompanyFromCnpj(cnpj));
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
-            else
+            catch
             {
-                return BadRequest("Loja não encontrada");
+                return BadRequest();
             }
+            
+           
             
             
         }

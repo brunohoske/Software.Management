@@ -2,17 +2,27 @@
 using Org.BouncyCastle.Asn1.Ocsp;
 using SystemManagement.Dao;
 using SystemManagement.Models;
+using SystemManagement.Services;
 
 namespace SystemManagement.Controllers
 {
     public class CouponController : BaseController
     {
+
+        private readonly CouponDao _coupanDao;
+        private readonly HeaderService _headerService;
+
+        public CouponController(CouponDao coupanDao, HeaderService headerService)
+        {
+            _coupanDao = coupanDao;
+            _headerService = headerService;
+        }
+
         [HttpGet("SearchCoupon/{code}")]
         public IActionResult SearchCouponFromCode(string code)
         {
-            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
-            CouponDao couponDao = new CouponDao();
-            Coupon coupon = couponDao.SearchCouponFromCode(code);
+            Store store = _headerService.GetCnpj();
+            Coupon coupon = _coupanDao.SearchCouponFromCode(code,store);
 
             if (coupon != null)
             {

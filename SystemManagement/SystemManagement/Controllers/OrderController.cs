@@ -21,8 +21,8 @@ namespace SystemManagement.Controllers
         public IActionResult GetOrders()
         {
             List<Order> orders = new List<Order>();
-            string cnpj = _headerService.GetCnpj();
-            orders = _orderDao.GetOrders(new Store() { Cnpj = cnpj });
+            Store store = _headerService.GetCnpj();
+            orders = _orderDao.GetOrders(store);
             return Ok(orders);
         }
 
@@ -36,8 +36,8 @@ namespace SystemManagement.Controllers
         [HttpGet("OrderNumber")]
         public IActionResult GetOrderNumber()
         {
-            string cnpj = _headerService.GetCnpj();
-            int number = _orderDao.GetOrderNumber(new Store() { Cnpj = cnpj });
+            Store store = _headerService.GetCnpj();
+            int number = _orderDao.GetOrderNumber(store);
 
             return Ok(number);
         }
@@ -46,8 +46,7 @@ namespace SystemManagement.Controllers
         public IActionResult GetOrdersInTable(int comanda)
         {
             List<Order> orders = new List<Order>();
-            string cnpj = _headerService.GetCnpj();
-            Store store = new Store() { Cnpj = cnpj };
+            Store store = _headerService.GetCnpj();
             orders = _orderDao.GetOrdersInTable(store,new Table { TableNumber = comanda, Store = store });
             return Ok(orders);
         }
@@ -55,8 +54,8 @@ namespace SystemManagement.Controllers
         [HttpPost("CompleteOrder")]
         public IActionResult CompleteOrder([FromBody] Order order)
         {
-            string cnpj = _headerService.GetCnpj();
-            _orderDao.CompleteOrder(order);
+            Store store = _headerService.GetCnpj();
+            _orderDao.CompleteOrder(order,store);
 
             return Ok();
         }
@@ -64,7 +63,7 @@ namespace SystemManagement.Controllers
         [HttpGet("Order/{idOrder}/Status")]
         public IActionResult GetStatusOrder(int idOrder)
         {
-            string cnpj = _headerService.GetCnpj();
+            Store store = _headerService.GetCnpj();
             return Ok();
         }
     }

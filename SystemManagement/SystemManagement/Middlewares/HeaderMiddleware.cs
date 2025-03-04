@@ -23,7 +23,8 @@
                 return;
             }
 
-            // Check for 'cnpj' header
+            // Check for '
+            // ' header
             if (!context.Request.Headers.ContainsKey("cnpj"))
             {
                 context.Response.StatusCode = StatusCodes.Status400BadRequest;

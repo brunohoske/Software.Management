@@ -20,8 +20,8 @@ namespace SystemManagement.Controllers
         [HttpGet("CheckExists/{id}")]
         public IActionResult CheckExists(int id)
         {
-            var cnpj = _headerService.GetCnpj();
-            if(_checkDao.CheckExists(id,cnpj))
+            Store store = _headerService.GetCnpj();
+            if (_checkDao.CheckExists(id,store))
             {
                 return Ok(true);
             }
@@ -31,8 +31,8 @@ namespace SystemManagement.Controllers
         [HttpPost("CloseCheck")]
         public IActionResult CloseCheck([FromBody] Table table)
         {
-            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
-            if (_checkDao.CloseCheck(table) == 1)
+            Store store = _headerService.GetCnpj();
+            if (_checkDao.CloseCheck(table,store) == 1)
             {
                 return Ok();
             }
@@ -47,8 +47,8 @@ namespace SystemManagement.Controllers
         [HttpGet("GetPaymetValue")]
         public IActionResult GetPaymentValue()
         {
-            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
-            int value = _checkDao.GetCheckValue(new Table() { Store = new Store() { Cnpj = cnpj }, TableNumber = 1 });
+            Store store = _headerService.GetCnpj();
+            int value = _checkDao.GetCheckValue(new Table() { Store = store, TableNumber = 1 });
             return Ok(value);
 
         }

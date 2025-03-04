@@ -6,20 +6,26 @@ namespace SystemManagement.Dao
 {
     public class StoreDao
     {
-        MySqlConnection conexao = null;
-        ConnectionFabric fabric = new ConnectionFabric();
+        private readonly ConnectionFabric _connectionFabric;
+
+        public StoreDao(ConnectionFabric connectionFabric)
+        {
+            _connectionFabric = connectionFabric;
+        }
         public Store GetCompanyFromCnpj(string cnpj)
         {
             try
             {
 
-                using var conexao = fabric.Connect();
-                using var reader = fabric.ExecuteCommandReader($"SELECT * FROM COMPANYS WHERE CNPJ = '{cnpj}'", conexao);
+                using var conexao = _connectionFabric.Connect();
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM COMPANYS WHERE CNPJ = '{cnpj}'", conexao);
 
+                int id = 0;
                 string _cnpj = "";
                 string _name = "";
                 while (reader.Read())
                 {
+                    id = int.Parse(reader["IDCOMPANY"].ToString());
                     _cnpj = reader["CNPJ"].ToString();
                     _name = reader["COMPANY_NAME"].ToString();
                 }
@@ -27,7 +33,7 @@ namespace SystemManagement.Dao
 
                 if (_cnpj != "")
                 {
-                    Store company = new Store() { Cnpj = _cnpj, Name = _name };
+                    Store company = new Store() { Cnpj = _cnpj, Name = _name, Id = id };
                     return company;
                 }
                 else
@@ -37,7 +43,7 @@ namespace SystemManagement.Dao
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
 
@@ -45,8 +51,8 @@ namespace SystemManagement.Dao
         {
             try
             {
-                using var conexao = fabric.Connect();
-                using var reader = fabric.ExecuteCommandReader($"SELECT COMPANY_NAME FROM COMPANYS WHERE CNPJ = '{cnpj}'", conexao);
+                using var conexao = _connectionFabric.Connect();
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT COMPANY_NAME FROM COMPANYS WHERE CNPJ = '{cnpj}'", conexao);
 
                 string name = "";
                 while (reader.Read())
@@ -65,16 +71,9 @@ namespace SystemManagement.Dao
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw;
 
             }
-            finally
-            {
-                
-            }
-
-
-
         }
     }
 }

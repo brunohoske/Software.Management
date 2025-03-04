@@ -19,15 +19,15 @@ namespace SystemManagement.Controllers
         [HttpGet("Combos")]
         public IActionResult GetCombos()
         {
-            string cnpj = _headerService.GetCnpj();
-            List<Combo> combos = _comboDao. GetCombos(cnpj);
+            Store store = _headerService.GetCnpj();
+            List<Combo> combos = _comboDao. GetCombos(store);
             return Ok(combos);
         }
         [HttpGet("Combos/{id}")]
         public IActionResult GetComboFromId(int id)
         {
-            string cnpj = _headerService.GetCnpj();
-            Combo combo = _comboDao.GetCombosFromId(id, cnpj);
+            Store store = _headerService.GetCnpj();
+            Combo combo = _comboDao.GetCombosFromId(id, store);
             return Ok(combo);
         }
     }

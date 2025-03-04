@@ -20,27 +20,25 @@ namespace SystemManagement.Controllers
         [HttpGet("Products")]
         public IActionResult GetProducts()
         {
-            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
-            Store store = new Store() { Cnpj = cnpj };
+            Store store = _headerService.GetCnpj();
             List<Product> products = _productDao.GetProducts(store);
             return Ok(products);
         }
         [HttpGet("Product/{id}")]
         public IActionResult GetProductFromID(int id)
         {
-            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
-            Store store = new Store() { Cnpj = cnpj };
+            Store store = _headerService.GetCnpj();
 
-            Product product = _productDao.GetProductFromId(id,cnpj);
+            Product product = _productDao.GetProductFromId(id,store);
             return Ok(product);
         }
         [HttpGet("Product/{id}/Acompanhamentos")]
         public IActionResult GetAcompanhamentos(int id)
         {
-            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
+            Store store = _headerService.GetCnpj();
             try
             {
-                return Ok(_productDao.GetAcompanhamentos(id, cnpj));
+                return Ok(_productDao.GetAcompanhamentos(id, store));
             }
             catch
             {

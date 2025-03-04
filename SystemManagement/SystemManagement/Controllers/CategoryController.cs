@@ -1,22 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SystemManagement.Dao;
 using SystemManagement.Models;
+using SystemManagement.Services;
 
 namespace SystemManagement.Controllers
 {
     public class CategoryController : BaseController
     {
         private readonly CategoryDao _categoryDao;
+        private readonly HeaderService _headerService;
 
-        public CategoryController(CategoryDao categoryDao)
+        public CategoryController(CategoryDao categoryDao, HeaderService headerService)
         {
             _categoryDao = categoryDao;
+            _headerService = headerService;
         }
         [HttpGet("Categories")]
         public IActionResult GetCategories()
         {
-            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
-            Store store = new Store() { Cnpj = cnpj };
+            Store store = _headerService.GetCnpj();
             Category category = new Category() { Store = store };
 
             List<Category> categories = _categoryDao.GetCategories(store);
@@ -26,16 +28,16 @@ namespace SystemManagement.Controllers
         [HttpGet("Categories/{id}/Products")]
         public IActionResult GetCategories(int id)
         {
-            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
-            List<Product> products = _categoryDao.GetProductCategories(cnpj,id);
+            Store store = _headerService.GetCnpj();
+            List<Product> products = _categoryDao.GetProductCategories(store,id);
             return Ok(products);
         }
 
         [HttpGet("Product/{id}/Reccomended")]
         public IActionResult GetReccomendations(int id)
         {
-            string cnpj = Request.Headers.FirstOrDefault(x => x.Key == "cnpj").Value;
-            List<Product> products = _categoryDao.GetProductCategories(cnpj, id);
+            Store store = _headerService.GetCnpj();
+            List<Product> products = _categoryDao.GetProductCategories(store, id);
             return Ok(products);
         }
 

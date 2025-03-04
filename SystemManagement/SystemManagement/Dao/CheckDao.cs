@@ -13,11 +13,11 @@ namespace SystemManagement.Dao
             _connectionFabric = connectionFabric;
         }
 
-        public bool CheckExists(int idCheck, string cnpj)
+        public bool CheckExists(int idCheck, Store store)
         {
             using var conexao = _connectionFabric.Connect();
             using var cmd = conexao.CreateCommand();
-            cmd.CommandText = $"SELECT CHECK_NUMBER FROM Checks WHERE CHECK_NUMBER = {idCheck} and CNPJ = {cnpj} LIMIT 1";
+            cmd.CommandText = $"SELECT CHECK_NUMBER FROM Checks WHERE CHECK_NUMBER = {idCheck} and idCompany = {store.Id} LIMIT 1";
             var result = cmd.ExecuteScalar();
             var number = Convert.ToInt32(result);
             if (result != null && number == idCheck)
@@ -27,11 +27,10 @@ namespace SystemManagement.Dao
             return false;
         }
 
-        public int CloseCheck(Table table)
+        public int CloseCheck(Table table, Store store)
         {
             using var conexao = _connectionFabric.Connect();
-            string sql = $"UPDATE Orders SET ORDER_ACTIVE = 0 WHERE check_number = {table.TableNumber}";
-
+            string sql = $"UPDATE Orders SET ORDER_ACTIVE = 0 WHERE check_number = {table.TableNumber} and idcompany = {store.Id}";
             try
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conexao);
@@ -54,8 +53,7 @@ namespace SystemManagement.Dao
         {
             
             int value = 0;
-            string sql = $"SELECT SUM(TOTAL) AS total FROM orders WHERE CHECK_NUMBER = {table.TableNumber} AND ORDER_ACTIVE and = 1 and CNPJ = '{table.Store.Cnpj}'";
-
+            string sql = $"SELECT SUM(TOTAL) AS total FROM orders WHERE CHECK_NUMBER = {table.TableNumber} AND ORDER_ACTIVE and = 1 and idCompany = {table.Store.Id}";
             try 
             {
                 using var conexao = _connectionFabric.Connect();

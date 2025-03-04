@@ -22,7 +22,7 @@ namespace Software.Menu.Client
 
         }
 
-        public async Task SubmitOrder(List<ItemCart> itens,int comanda, string cnpj)
+        public async Task SubmitOrder(List<ItemCart> itens,int comanda, int idCompany)
         {
             try
             {
@@ -81,8 +81,8 @@ namespace Software.Menu.Client
                 {
                     Id = await GetOrderNumber(),
                     Date = System.DateTime.Now,
-                    Store = new Company() { Cnpj = cnpj },
-                    Table = new Table() { TableNumber = comanda, Store = new Company() { Cnpj = cnpj } },
+                    Store = new Company() { Id = idCompany },
+                    Table = new Table() { TableNumber = comanda, Store = new Company() { Id = idCompany } },
                     Value = total
 
                 };

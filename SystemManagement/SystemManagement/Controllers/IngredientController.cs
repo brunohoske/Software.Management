@@ -19,24 +19,24 @@ namespace SystemManagement.Controllers
         [HttpGet("Ingredient")]
         public IActionResult GetIngredients()
         {
-            string cnpj = _headerService.GetCnpj();
-            List<Ingredient> ingredients = _ingredientDao.GetIngredients(cnpj);
+            Store store = _headerService.GetCnpj();
+            List<Ingredient> ingredients = _ingredientDao.GetIngredients(store);
             return Ok(ingredients);
         }
 
         [HttpGet("Ingredient/{id}")]
         public IActionResult GetIngredientFromId(int id)
         {
-            string cnpj = _headerService.GetCnpj();
-            Ingredient ingredient = _ingredientDao.GetIngredientFromId(id, cnpj);
+            Store store = _headerService.GetCnpj();
+            Ingredient ingredient = _ingredientDao.GetIngredientFromId(id, store);
             return Ok(ingredient);
         }
 
         [HttpGet("ProductIngredients/{idProduct}")]
         public IActionResult GetProductIngredients(int idProduct)
         {
-            string cnpj = _headerService.GetCnpj();
-            List<Ingredient> ingredients = _ingredientDao.GetProductIngredients(idProduct, cnpj);
+            Store store = _headerService.GetCnpj();
+            List<Ingredient> ingredients = _ingredientDao.GetProductIngredients(idProduct, store);
             return Ok(ingredients);
         }
 

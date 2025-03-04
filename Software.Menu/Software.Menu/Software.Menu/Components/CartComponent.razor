@@ -158,7 +158,7 @@
                 }
                 <div class="cart-footer">
                     <span>Total: R$@Cart.Sum(p => p.GetPrice()).ToString("F2") <span id="totalValue"></span></span>
-                    <button @onclick="() => orderClient.SubmitOrder(Cart,int.Parse(Comanda),Cnpj)">Finalizar Compra</button>
+                    <button @onclick="() => orderClient.SubmitOrder(Cart,int.Parse(Comanda),idCompany:1)">Finalizar Compra</button>
                 </div>
 
 

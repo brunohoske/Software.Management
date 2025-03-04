@@ -579,7 +579,7 @@
 
     private async Task SubmitOrder(List<ItemCart> itens)
     {
-        orderClient.SubmitOrder(itens,int.Parse(Comanda), Cnpj);
+        orderClient.SubmitOrder(itens, int.Parse(Comanda), Store.Id);
 
         Cart.Clear();
         await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));

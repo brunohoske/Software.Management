@@ -5,16 +5,16 @@
         public int IdIngredient { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Cnpj {  get; set; }
+        public Store Store {  get; set; }
 
         public Ingredient(){}
 
-        public Ingredient(int idIngredient, string name, string description, string cnpj)
+        public Ingredient(int idIngredient, string name, string description, Store store)
         {
             IdIngredient = idIngredient;
             Name = name;
             Description = description;
-            Cnpj = cnpj;
+            Store = store;
         }
     }
 }

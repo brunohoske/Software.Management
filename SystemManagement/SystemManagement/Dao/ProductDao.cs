@@ -1,9 +1,6 @@
-﻿using MySql.Data.MySqlClient;
-using Mysqlx.Crud;
-using System.Globalization;
-using SystemManagement.Data;
+﻿using SystemManagement.Data;
 using SystemManagement.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace SystemManagement.Dao
 {
@@ -26,10 +23,10 @@ namespace SystemManagement.Dao
             try
             {
                 using var conexao = _connectionFabric.Connect();
-                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE CNPJ = {store.Cnpj}",conexao);
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE IDCOMPANY =  {store.Id}",conexao);
                while (reader.Read())
                {
-                    products.Add(GetProductFromId(Convert.ToInt32(reader["idproduct"].ToString()), store.Cnpj));
+                    products.Add(GetProductFromId(Convert.ToInt32(reader["idproduct"].ToString()), store));
                }
                foreach(var combo in GetCombos(store) )
                {
@@ -50,7 +47,7 @@ namespace SystemManagement.Dao
             try
             {
                 using var conexao = _connectionFabric.Connect();
-                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM COMBOS WHERE CNPJ = {store.Cnpj}", conexao);
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM COMBOS WHERE  IDCOMPANY = {store.Id}", conexao);
                 while (reader.Read())
                 {
                     Combo combo = new Combo();
@@ -58,7 +55,7 @@ namespace SystemManagement.Dao
                     combo.Name = reader["Combo_name"].ToString();
                     combo.Value = Convert.ToDecimal(reader["PRICE"]);
                     combo.Description = reader["COMBO_DESCRIPTION"].ToString();
-                    combo.Store = new Store() { Cnpj = reader["CNPJ"].ToString() };
+                    combo.Store = store;
                     combo.Ingredients = new();
                     combo.Image = reader["IMAGE"].ToString();
                     combos.Add(combo);
@@ -72,7 +69,7 @@ namespace SystemManagement.Dao
             }
         }
 
-        public IEnumerable<Product> GetProductsFromOrder(int orderId, string cnpj) 
+        public IEnumerable<Product> GetProductsFromOrder(int orderId, Store store) 
         {
             using var conexao = _connectionFabric.Connect();
             using var reader = _connectionFabric.ExecuteCommandReader($"SELECT p.*, od.note,od.price as PayValue FROM order_details od " +
@@ -89,18 +86,18 @@ namespace SystemManagement.Dao
                     product.Description = reader["description"].ToString();
                     product.DiscountPercentual = Convert.ToDecimal(reader["DISCOUNT_PERCENTUAL"]);
                     product.DiscountPrice = Convert.ToDecimal(reader["DISCOUNT_PRICE"]);
-                    product.Store = new Store() { Cnpj = reader["cnpj"].ToString() };
+                    product.Store = store;
                     product.Kcal = Convert.ToDouble(reader["kcal"]);
                     product.Image = reader["image"].ToString();
                     product.Category = new Category() { IdCategory = int.Parse(reader["IDCATEGORY"].ToString()) };
                     product.BarCode = reader["BarCode"].ToString();
-                    product.Acompanhamentos = GetAcompanhamentos(product.Id, cnpj);
-                    product.CategoriesRecommended = _categoryDao.GetCategoriesRecommended(product, cnpj);
-                    product.Ingredients = _ingredientDao.GetProductIngredients(product.Id, cnpj);
+                    product.Acompanhamentos = GetAcompanhamentos(product.Id, store);
+                    product.CategoriesRecommended = _categoryDao.GetCategoriesRecommended(product, store);
+                    product.Ingredients = _ingredientDao.GetProductIngredients(product.Id, store);
                     product.Note = reader["Note"].ToString();
                     foreach (var category in product.CategoriesRecommended)
                     {
-                        category.Products = _categoryDao.GetProductCategories(cnpj, category.IdCategory);
+                        category.Products = _categoryDao.GetProductCategories(store, category.IdCategory);
                     }
                     products.Add(product);
                 }
@@ -111,12 +108,12 @@ namespace SystemManagement.Dao
                 return Enumerable.Empty<Product>();
             }
         }
-        public Product GetProductFromId(int id,string cnpj)
+        public Product GetProductFromId(int id,Store store)
         {
             try
             {
                 using var conexao = _connectionFabric.Connect();
-                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE IDPRODUCT = {id} AND CNPJ = '{cnpj}'", conexao);
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM PRODUCTS WHERE IDPRODUCT = {id} AND IDCOMPANY = {store.Id}", conexao);
                 Product product = new Product();
                 if(reader != null)
                 {
@@ -128,17 +125,17 @@ namespace SystemManagement.Dao
                         product.Description = reader["description"].ToString();
                         product.DiscountPercentual = Convert.ToDecimal(reader["DISCOUNT_PERCENTUAL"]);
                         product.DiscountPrice = Convert.ToDecimal(reader["DISCOUNT_PRICE"]);
-                        product.Store = new Store() { Cnpj = reader["cnpj"].ToString() };
+                        product.Store = store;
                         product.Kcal = Convert.ToDouble(reader["kcal"]);
                         product.Image = reader["image"].ToString();
                         product.Category = new Category() { IdCategory = int.Parse(reader["IDCATEGORY"].ToString()) };
                         product.BarCode = reader["BarCode"].ToString();
-                        product.Acompanhamentos = GetAcompanhamentos(product.Id, cnpj);
-                        product.CategoriesRecommended = _categoryDao.GetCategoriesRecommended(product, cnpj);
-                        product.Ingredients = _ingredientDao.GetProductIngredients(product.Id, cnpj);
+                        product.Acompanhamentos = GetAcompanhamentos(product.Id, store);
+                        product.CategoriesRecommended = _categoryDao.GetCategoriesRecommended(product, store);
+                        product.Ingredients = _ingredientDao.GetProductIngredients(product.Id, store);
                         foreach (var category in product.CategoriesRecommended)
                         {
-                            category.Products = _categoryDao.GetProductCategories(cnpj, category.IdCategory);
+                            category.Products = _categoryDao.GetProductCategories(store, category.IdCategory);
                         }
                     }
                 }
@@ -156,12 +153,12 @@ namespace SystemManagement.Dao
             }
         }
 
-        public List<Product> GetAcompanhamentos(int id, string cnpj)
+        public List<Product> GetAcompanhamentos(int id, Store store)
         {
             try
             {
                 using var conexao = _connectionFabric.Connect();
-                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT p.* FROM products p JOIN products_acompanhamentos pa ON pa.Acompanhamento = p.IDPRODUCT AND pa.CNPJ = p.CNPJ WHERE pa.PRODUCT = {id} AND p.CNPJ = {cnpj}",conexao);
+                using var reader = _connectionFabric.ExecuteCommandReader($"SELECT p.* FROM products p JOIN products_acompanhamentos pa ON pa.Acompanhamento = p.IDPRODUCT AND p.idCompany = p.idCompany WHERE pa.PRODUCT = {id} AND p.IDCOMPANY = {store.Id}",conexao);
 
                 List<Product> acompanhamentos = new List<Product>();
                 if (reader != null)
@@ -175,7 +172,7 @@ namespace SystemManagement.Dao
                         product.Description = reader["description"].ToString();
                         product.DiscountPercentual = Convert.ToDecimal(reader["DISCOUNT_PERCENTUAL"]);
                         product.DiscountPrice = Convert.ToDecimal(reader["DISCOUNT_PRICE"]);
-                        product.Store = new Store() { Cnpj = reader["cnpj"].ToString() };
+                        product.Store = store;
                         product.Kcal = Convert.ToDouble(reader["kcal"]);
                         product.Image = reader["image"].ToString();
                         product.BarCode = reader["BarCode"].ToString();
