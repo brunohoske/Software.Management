@@ -33,20 +33,37 @@
     double total;
     string customNote;
     decimal totalPayment;
+    string cartToken;
 
 
     public async Task<Product> GetSelectedProduct(int id)
     {
         return await productClient.GetProductFromId(id);
     }
-    private async Task GetSessionCart()
+    private async Task GetCartToken()
     {
-        Cart = await menuService.GetSessionCart(sessionStorageBlazored, int.Parse(TableNumber), Cnpj);
+        try
+        {
+            cartToken = await menuService.GetCartToken(sessionStorageBlazored, int.Parse(TableNumber), Cnpj);
+            Cart = _cartService.GetCart(cartToken);
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erro ao ler o Session com token" + ex);
+        }
 
     }
-    private async Task SetSessionCart(List<ItemCart> itemCarts)
+
+    private async Task AddToCart(ItemCart item)
     {
-        await menuService.SetSessionCart(itemCarts, sessionStorageBlazored,int.Parse(TableNumber),Cnpj);
+        if (cartToken == null || cartToken == string.Empty)
+        {
+            cartToken = Guid.NewGuid().ToString();
+        }
+        _cartService.AddToCart(cartToken, item);
+        await menuService.SetCartToken(cartToken, sessionStorageBlazored, int.Parse(TableNumber), Cnpj);
+
 
     }
     private bool clicked = false;
@@ -56,56 +73,41 @@
         if (selectedProduct != null)
         {
             itemCart.Product = selectedProduct;
-            selectedProduct.Value = selectedProduct.GetPrice();
+            itemCart.Product.Value = selectedProduct.GetPrice();
             itemCart.Quantity = quantity;
-            //itemCart.Acompanhamentos = acomps;
             itemCart.Notes = notes;
             if (customNote != "" && customNote != null) 
             {
                 itemCart.Notes.Add(customNote) ;  
             }
-
             itemCart.Cnpj = Cnpj;
             itemCart.TableNumber = int.Parse(TableNumber);
             //itemCart.Table = new Table() { TableNumber = int.Parse(TableNumber) };
-            var index = Cart.FindIndex(item =>
-                   item.Product.Id == itemCart.Product.Id &&
-                   item.Product.Name == itemCart.Product.Name &&
-                   item.Notes.SequenceEqual(itemCart.Notes)
-               );
-            if (index != -1)
-            {
-                Cart[index].Quantity++;
-            }
-            else
-            {
-                Cart.Add(itemCart);
-            }
 
+            await AddToCart(itemCart);
+           
             if (acomps != null)
             {
-
-                for( int i =0; i < quantity; i++)
+                foreach (var acomp in acomps)
                 {
-                    foreach (var acomp in acomps)
-                    {
-                        var item = new ItemCart();
-                        item.Product = acomp.Product;
-                        item.Quantity = acomp.Quantity;
-                        item.Cnpj = this.Cnpj ;
-                        item.TableNumber = int.Parse(TableNumber);
-                        Cart.Add(item);
-                    }
+                    var item = new ItemCart();
+                    item.Product = acomp.Product;
+                    item.Quantity = acomp.Quantity;
+                    item.Cnpj = this.Cnpj ;
+                    item.TableNumber = int.Parse(TableNumber);
+                    //Cart.Add(item);
+                    await AddToCart(item);
                 }
-
             }
 
             clicked = true;
 
             //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
-            await SetSessionCart(Cart);
+            //await SetSessionCart(Cart);
             //nav.NavigateTo($"/{Cnpj}/CARDAPIO/M{TableNumber}#cart");
             await js.InvokeVoidAsync("history.back");
+
+            
 
         }
         else
@@ -185,18 +187,18 @@
     {
         nav.NavigateTo($"{Cnpj}/Product/{id}/{TableNumber}");
         //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
-        await SetSessionCart(Cart);
+        //await SetSessionCart(Cart);
     }
     private async Task GoToComboPage(int id)
     {
         nav.NavigateTo($"{Cnpj}/Combo/{id}/{TableNumber}");
         //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
-        await SetSessionCart(Cart);
+        //await SetSessionCart(Cart);
     }
     private async Task ReturnPage()
     {
         //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
-        await SetSessionCart(Cart);
+        //await SetSessionCart(Cart);
         await js.InvokeVoidAsync("history.back");
     }
     protected override async Task OnInitializedAsync()
@@ -221,7 +223,7 @@
             {
                 nav.NavigateTo("/404", true);
             }
-            await GetSessionCart();
+            await GetCartToken();
 
 
             _isFirstRender = false;
@@ -244,16 +246,15 @@
 
                 };
 
-            var index = Cart.FindIndex(item => item.Product.Id == product.Id);
+            await AddToCart(item);
+            var index = _cartService.GetCart(cartToken).FindIndex(item => item.Product.Id == product.Id);
             if (index != -1)
             {
-                Cart[index].Quantity++;
                 await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!", "success");
             }
             else
             {
-                Cart.Add(item);
-                if (Cart.Contains(item))
+                if (_cartService.GetCart(cartToken).Contains(item))
                 {
                     await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!", "success");
                 }
@@ -265,8 +266,8 @@
 
             }
             //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart, options));
-            await SetSessionCart(Cart);
-            
+           
+
         }
         catch(Exception ex)
         {

@@ -7,6 +7,7 @@
         //public Combo Combo { get; set; }
         public int Quantity { get; set; }
         public List<string> Notes { get; set; }
+        public string NotesText { get { return String.Join("\n", Notes); } }
         public List<ItemCart> Acompanhamentos {  get; set; }
         public string Cnpj { get; set; }
         public int TableNumber { get; set; }
@@ -22,6 +23,7 @@
 
         public string GetNote()
         {
+            
             string notes = "";
             if(Notes != null)
                 foreach (var note in Notes)

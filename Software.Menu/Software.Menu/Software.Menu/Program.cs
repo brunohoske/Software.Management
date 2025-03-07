@@ -17,7 +17,8 @@ builder.Services.AddRazorComponents()
 builder.Services.AddScoped<ProtectedSessionStorage>();
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<MenuService>();
-
+builder.Services.AddMemoryCache();
+builder.Services.AddScoped<CartService>();
 builder.Services.AddBlazoredSessionStorage(config => {
     config.JsonSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
     config.JsonSerializerOptions.IgnoreNullValues = true;

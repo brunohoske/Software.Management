@@ -8,11 +8,12 @@ namespace Software.Menu.Services
 {
     public class MenuService
     {
-        public async Task SetSessionCart(List<ItemCart> itemCarts, ISessionStorageService sessionStorageBlazored, int tableNumber, string cnpj)
+
+        public async Task SetCartToken(string token, ISessionStorageService sessionStorageBlazored, int tableNumber, string cnpj)
         {
             try
             {
-                await sessionStorageBlazored.SetItemAsStringAsync($"cart-{cnpj}-{tableNumber}", JsonSerializer.Serialize(itemCarts));
+                await sessionStorageBlazored.SetItemAsStringAsync($"cart-{cnpj}-{tableNumber}", token);
             }
             catch (Exception ex)
             {
@@ -22,36 +23,29 @@ namespace Software.Menu.Services
 
         }
 
-        public async Task<List<ItemCart>> GetSessionCart(ISessionStorageService sessionStorageBlazored,int tableNumber, string cnpj)
+        public async Task<string> GetCartToken(ISessionStorageService sessionStorageBlazored, int tableNumber, string cnpj)
         {
             try
             {
-                var cartJson = await sessionStorageBlazored.GetItemAsStringAsync($"cart-{cnpj}-{tableNumber}");
-                if (cartJson != null)
+                var token = await sessionStorageBlazored.GetItemAsStringAsync($"cart-{cnpj}-{tableNumber}");
+                if (token != null)
                 {
-                    List<ItemCart> cart = JsonSerializer.Deserialize<List<ItemCart>>(cartJson);
-                    byte[] bytes = Encoding.UTF8.GetBytes(cartJson);
-
-                    double tamanhoMB = bytes.Length / (1024.0 * 1024.0);
-
-                    Console.WriteLine($"Tamanho do JSON: {tamanhoMB:F6} MB");
-                    return cart;
-
-                    
+                    return token;
                 }
                 else
                 {
-                    Console.WriteLine(cartJson);
-                    return new List<ItemCart>();
+                    return string.Empty;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Erro ao ler o CarrinhoSession" + ex);
-                return new List<ItemCart>();
+                Console.WriteLine("Erro ao ler o TokenSession" + ex);
+                return string.Empty;
                 throw;
             }
 
         }
+
+
     }
 }

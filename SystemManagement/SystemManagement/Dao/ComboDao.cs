@@ -115,6 +115,7 @@ namespace SystemManagement.Dao
         {
             try
             {
+
                 using var conexao = _connectionFabric.Connect();
                 using var reader = _connectionFabric.ExecuteCommandReader($"SELECT g.* FROM COMBOS C JOIN COMBOS_GRUPOS CG ON C.IDCOMBO = CG.IDCOMBO JOIN GRUPOS G ON CG.IDGROUP = G.IDGROUP WHERE C.IDCOMBO = {idCombo} AND c.idcompany = {store.Id};", conexao);
 

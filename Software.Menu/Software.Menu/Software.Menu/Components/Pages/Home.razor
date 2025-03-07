@@ -20,6 +20,8 @@
 
     Company Store = new Company();
 
+    string cartToken;
+
     private List<Product> Produtos = new List<Product>();
 
     private List<ItemCart> Cart = new List<ItemCart>();
@@ -72,8 +74,7 @@
                 await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} não foi adicionado! Erro ocorrido","error");
             }
 
-            await menuService.SetSessionCart(Cart, sessionStorageBlazored, int.Parse(Comanda), Cnpj);
-
+            await AddToCart(item);
         }
     }
     private void CalculateTotalGeral()
@@ -88,36 +89,51 @@
     {
         // ProductsInOrder.Remove(product);
         Cart.Remove(item);
+        _cartService.RemoveFromCart(cartToken, item.Product.Id);
+        if (!Cart.Any())
+        {
+            _cartService.ClearCart(cartToken);
+        }
     }
     private async Task GoToProductPage(int id)
     {
         nav.NavigateTo($"{menu.Company.Cnpj}/Product/{id}/{Comanda}");
         //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
-        await SetSessionCart(Cart);
+        // await SetSessionCart(Cart);
     }
 
     private async Task GoToComboPage(int id)
     {
         nav.NavigateTo($"{menu.Company.Cnpj}/Combo/{id}/{Comanda}");
         // await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
-        await SetSessionCart(Cart);
+        // await SetSessionCart(Cart);
     }
-    private async Task GetSessionCart()
+
+
+    private async Task GetCartToken()
     {
         try
         {
-            Cart = await menuService.GetSessionCart(sessionStorageBlazored, int.Parse(Comanda), Cnpj);
+            cartToken = await menuService.GetCartToken(sessionStorageBlazored,int.Parse(Comanda),Cnpj);
+            Cart = _cartService.GetCart(cartToken);
+
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
-            Console.WriteLine("Erro ao ler o CarrinhoSession"+ex);
+            Console.WriteLine("Erro ao ler o Session com token" + ex);
         }
 
     }
 
-    private async Task SetSessionCart(List<ItemCart> itemCarts)
+    private async Task AddToCart(ItemCart item)
     {
-        await menuService.SetSessionCart(itemCarts, sessionStorageBlazored, int.Parse(Comanda), Cnpj);
+        if (cartToken == null || cartToken == string.Empty)
+        {
+            cartToken = Guid.NewGuid().ToString();
+        }
+        _cartService.AddToCart(cartToken, item);
+        await menuService.SetCartToken(cartToken, sessionStorageBlazored, int.Parse(Comanda), Cnpj);
+
 
     }
     protected override async Task OnInitializedAsync()
@@ -165,7 +181,8 @@
             }
 
 
-            await GetSessionCart();
+            await GetCartToken();         
+            
             _isFirstRender = false;
             StateHasChanged();
         }
@@ -579,10 +596,11 @@
 
     private async Task SubmitOrder(List<ItemCart> itens)
     {
-        orderClient.SubmitOrder(itens, int.Parse(Comanda), Store.Id);
+        await orderClient.SubmitOrder(itens, int.Parse(Comanda), Store.Id);
 
         Cart.Clear();
-        await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
+        //await SetSessionCart(Cart);
+        _cartService.ClearCart(cartToken);
         nav.Refresh(true);
 
     }
