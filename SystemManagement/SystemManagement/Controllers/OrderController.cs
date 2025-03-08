@@ -30,7 +30,7 @@ namespace SystemManagement.Controllers
         public IActionResult SendOrder([FromBody] OrderDTO order)
         {
             _orderDao.CreateOrder(order);
-            return Index();
+            return Ok();
         }
 
         [HttpGet("OrderNumber")]

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
+using Software.Menu.Models;
 using Software.Menu.Models.ViewModels;
 
 namespace Software.Menu.Services
@@ -27,21 +28,61 @@ namespace Software.Menu.Services
             string cacheKey = _cartKey + token;
             return _memoryCache.Get<List<ItemCart>>(cacheKey) ?? new List<ItemCart>();
         }
+        public static bool AreCombosEqual(Combo combo1, Combo combo2)
+        {
+            if (combo1 == null || combo2 == null)
+                return false;
+            if (combo1.Id != combo2.Id || combo1.Name != combo2.Name)
+                return false;
+            if (combo1.Products == null && combo2.Products == null)
+                return true;
+            if (combo1.Products == null || combo2.Products == null)
+                return false;
+            if (combo1.Products.Count != combo2.Products.Count)
+                return false;
+            for (int i = 0; i < combo1.Products.Count; i++)
+            {
+                if (combo1.Products[i].Id != combo2.Products[i].Id || combo1.Products[i].Name != combo2.Products[i].Name)
+                    return false;
+            }
 
+            return true;
+        }
         public void AddToCart(string token, ItemCart item)
         {
             string cacheKey = _cartKey + token;
             var cart = GetCart(token);
 
-            var existingItem = cart.FirstOrDefault(p => p.Product.Id == item.Product.Id);
-            if (existingItem != null)
+            if(item.Product is Combo combo)
             {
-                existingItem.Quantity += item.Quantity;
+                var index = cart.FindIndex(p =>
+                   p.Product.Id == item.Product.Id &&
+                   p.Product.Name == item.Product.Name &&
+                   p.Notes.SequenceEqual(item.Notes) &&
+                   AreCombosEqual((Combo)p.Product, (Combo)item.Product));
+
+                if (index != -1)
+                {
+                    cart[index].Quantity++;
+                }
+                else
+                {
+                    cart.Add(item);
+                }
             }
             else
             {
-                cart.Add(item);
+                var existingItem = cart.FirstOrDefault(p => p.Product.Id == item.Product.Id);
+                if (existingItem != null)
+                {
+                    existingItem.Quantity += item.Quantity;
+                }
+                else
+                {
+                    cart.Add(item);
+                }
             }
+
 
             // Store cart with expiration policy
             _memoryCache.Set(cacheKey, cart, _cacheOptions);
