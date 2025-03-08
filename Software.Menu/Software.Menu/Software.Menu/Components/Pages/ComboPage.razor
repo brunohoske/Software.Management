@@ -162,11 +162,11 @@
     }
     private async Task IncrementItem()
     {
-        quantity++; StateHasChanged();
+        quantity++; StateHasChanged();UpdateTotal();
     }
     private async Task DecrementItem()
     {
-        if (quantity > 1) quantity--; StateHasChanged();
+        if (quantity > 1) quantity--; StateHasChanged(); UpdateTotal();
     }
     private async Task AddAcompanhamento(ItemCart item)
     {
@@ -241,20 +241,14 @@
     private async Task GoToProductPage(int id)
     {
         nav.NavigateTo($"{Cnpj}/Product/{id}/{TableNumber}");
-        //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
-        //await SetSessionCart(Cart);
     }
     private async Task GoToComboPage(int id)
     {
         nav.NavigateTo($"{Cnpj}/Combo/{id}/{TableNumber}");
-        //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
-        //await SetSessionCart(Cart);
     }
     private async Task ReturnPage()
     {
 
-        //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
-        //await SetSessionCart(Cart);
         await js.InvokeVoidAsync("history.back");
     }
 
@@ -266,7 +260,6 @@
         var precoProduto = selectedCombo.Products.Sum(p => p.GetPrice());
 
         totalPayment = Convert.ToDecimal(Math.Round(((precoProduto + somaAcomanhamentos + SomaGrupos) * quantity),2)); 
-
 
 
     }
@@ -286,6 +279,10 @@
         selectedAcomps.AddRange(selectedCombo.Products.SelectMany(p => p.Acompanhamentos));
 
         selectedCombo.Store = await companyClient.GetCompanyFromCnpj(Cnpj);
+        if (selectedCombo.Store == null)
+        {
+            nav.NavigateTo("/404", true);
+        }
         await UpdateTotal();
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -437,7 +434,7 @@
 ">
     <div class="container" style="box-shadow: none !important;justify-content: flex-start;">
         <svg @onclick="ReturnPage" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 20px;margin-bottom: 5px;margin-right: 12px;cursor:pointer"><path d="M48 256a208 208 0 1 1 416 0A208 208 0 1 1 48 256zm464 0A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM217.4 376.9c4.2 4.5 10.1 7.1 16.3 7.1c12.3 0 22.3-10 22.3-22.3l0-57.7 96 0c17.7 0 32-14.3 32-32l0-32c0-17.7-14.3-32-32-32l-96 0 0-57.7c0-12.3-10-22.3-22.3-22.3c-6.2 0-12.1 2.6-16.3 7.1L117.5 242.2c-3.5 3.8-5.5 8.7-5.5 13.8s2 10.1 5.5 13.8l99.9 107.1z"></path></svg>
-        <a class="navbar-brand fw-bold" href="#">@selectedCombo.Store.Name</a>
+        <a class="navbar-brand fw-bold" href="@($"/{Cnpj}/CARDAPIO/M{TableNumber}")">@selectedCombo.Store.Name</a>
     </div>
 </nav>
 <div class="container my-5" style="margin-top: 7rem !important">
@@ -470,7 +467,7 @@
                                         <h5>@product.Name</h5>
                                         <p>+ R$ @product.GetPrice().ToString("F2")</p>
                                     </div>
-                                    <input  type="radio" name="burguer" class="form-check-input" id="burguer1" checked>
+                                    <input type="radio" name="burguer" class="form-check-input" id="burguer1" checked>
                                 </div>
                             }
 
@@ -560,7 +557,7 @@
                     </div>
                 </div>
                 <button @onclick="AddProduct"  class="btn btn-primary btn-lg w-100">
-                        Add to Cart R$@totalPayment.ToString("F2")
+                        Adicionar - R$@totalPayment.ToString("F2")
                     @* @((selectedCombo.Value  * quantity)+ acomps.Sum(t => t.GetPrice() * quantity)) *@
                                     
                 </button>

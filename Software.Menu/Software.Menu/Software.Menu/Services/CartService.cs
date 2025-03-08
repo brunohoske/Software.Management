@@ -72,7 +72,7 @@ namespace Software.Menu.Services
             }
             else
             {
-                var existingItem = cart.FirstOrDefault(p => p.Product.Id == item.Product.Id);
+                var existingItem = cart.FirstOrDefault(p => p.Product.Id == item.Product.Id && p.Product is not Combo);
                 if (existingItem != null)
                 {
                     existingItem.Quantity += item.Quantity;
@@ -88,12 +88,12 @@ namespace Software.Menu.Services
             _memoryCache.Set(cacheKey, cart, _cacheOptions);
         }
 
-        public void RemoveFromCart(string token, int productId)
+        public void RemoveFromCart(string token, ItemCart item)
         {
             string cacheKey = _cartKey + token;
             var cart = GetCart(token);
 
-            cart.RemoveAll(p => p.Product.Id == productId);
+            cart.Remove(item);
 
             if (cart.Any())
                 _memoryCache.Set(cacheKey, cart, _cacheOptions);
@@ -105,6 +105,15 @@ namespace Software.Menu.Services
         {
             string cacheKey = _cartKey + token;
             _memoryCache.Remove(cacheKey);
+        }
+
+        public void ClearAll()
+        {
+            if (_memoryCache is MemoryCache memoryCache)
+            {
+                memoryCache.Compact(1.0); 
+            }
+
         }
 
         private void OnCacheItemRemoved(object key, object value, EvictionReason reason, object state)

@@ -89,7 +89,7 @@
     {
         // ProductsInOrder.Remove(product);
         Cart.Remove(item);
-        _cartService.RemoveFromCart(cartToken, item.Product.Id);
+        _cartService.RemoveFromCart(cartToken, item);
         if (!Cart.Any())
         {
             _cartService.ClearCart(cartToken);
@@ -148,6 +148,10 @@
 
             await CarregarProdutosAsync();
             Store = await _companyClient.GetCompanyFromCnpj(Cnpj);
+            if(Store == null)
+            {
+                nav.NavigateTo("/404", true);
+            }
             OrdersInCheck = await GetOrders();
 
             await GetCategories();
@@ -207,12 +211,31 @@
 
 }
 
+<style>
+    .banner{
+        background: url('@menu.Company.Banner') no-repeat center center;
+        background-size: cover;
+    }
+  
+</style>
+
 <PageTitle>Home</PageTitle>
 
-<div class="banner">
-    <img src="@(menu.Company.Name.ToLower() == "mcdonalds" ? @"Images/McDonalds-Banner.png" : @"Images/BurgerKing-Banner.jpg")" alt="Restaurant Banner">
-</div>
 
+
+<body>
+    <div class="banner">
+        <div class="overlay"></div>
+        <div class="content">
+            <img src="@Store.Image" alt="Logo" class="logo mb-2">
+            <h2>@menu.Company.Name</h2>
+            <div class="stars">
+                &#9733; &#9733; &#9733; &#9733; &#9733;
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 
 
 <div class="category-menu">

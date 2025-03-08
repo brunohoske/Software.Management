@@ -11,21 +11,36 @@ namespace Software.Menu.Client
             _httpClient.DefaultRequestHeaders.Add("cnpj", cnpj);
         }
 
-
-        public async Task<Company> GetCompanyFromCnpj(string cnpj)
+        public async Task<bool> CheckStoreExists(string cnpj)
         {
-            HttpResponseMessage response = _httpClient.GetAsync($"Company/{cnpj}").Result;
+            HttpResponseMessage response = _httpClient.GetAsync($"Check/Store/{cnpj}").Result;
             var content = await response.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            };
-
             if (response.IsSuccessStatusCode)
             {
-                return System.Text.Json.JsonSerializer.Deserialize<Company>(content, options);
+                return true;
             }
-            return new Company();
+            return false;
+        }
+        public async Task<Company> GetCompanyFromCnpj(string cnpj)
+        {
+            if (CheckStoreExists(cnpj).Result)
+            {
+                HttpResponseMessage response = _httpClient.GetAsync($"Company/{cnpj}").Result;
+                var content = await response.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return JsonSerializer.Deserialize<Company>(content, options);
+                }
+            }
+           
+           
+            return null;
+            
 
         }
     }

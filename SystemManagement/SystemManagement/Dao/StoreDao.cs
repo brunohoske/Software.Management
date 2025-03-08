@@ -12,6 +12,28 @@ namespace SystemManagement.Dao
         {
             _connectionFabric = connectionFabric;
         }
+
+
+        public bool CheckStoreExists(string cnpj)
+        {
+            using var conexao = _connectionFabric.Connect();
+            using var cmd = conexao.CreateCommand();
+            cmd.CommandText = $"SELECT CNPJ FROM Companys WHERE cnpj = '{cnpj}' LIMIT 1";
+            var result = cmd.ExecuteScalar();
+            
+
+            if (result != null)
+            {
+                var exist = result.ToString();
+                if(exist == cnpj)
+                {
+                    return true;
+                }
+               
+            }
+            return false;
+        }
+
         public Store GetCompanyFromCnpj(string cnpj)
         {
             try
@@ -20,21 +42,19 @@ namespace SystemManagement.Dao
                 using var conexao = _connectionFabric.Connect();
                 using var reader = _connectionFabric.ExecuteCommandReader($"SELECT * FROM COMPANYS WHERE CNPJ = '{cnpj}'", conexao);
 
-                int id = 0;
-                string _cnpj = "";
-                string _name = "";
+                Store store = new Store();
                 while (reader.Read())
                 {
-                    id = int.Parse(reader["IDCOMPANY"].ToString());
-                    _cnpj = reader["CNPJ"].ToString();
-                    _name = reader["COMPANY_NAME"].ToString();
+                    store.Id = int.Parse(reader["IDCOMPANY"].ToString());
+                    store.Cnpj = reader["CNPJ"].ToString();
+                    store.Name = reader["COMPANY_NAME"].ToString();
+                    store.Image = reader["IMAGE"].ToString();
+                    store.Banner = reader["Banner"].ToString();
+
                 }
-
-
-                if (_cnpj != "")
+                if (store.Cnpj != "")
                 {
-                    Store company = new Store() { Cnpj = _cnpj, Name = _name, Id = id };
-                    return company;
+                    return store;
                 }
                 else
                 {

@@ -18,6 +18,17 @@ namespace SystemManagement.Controllers
             _storeDao = storeDao;
             _headerService = headerService;
         }
+
+        [HttpGet("Check/Store/{cnpj}")]
+        public IActionResult CheckExists(string cnpj)
+        {
+            if (_storeDao.CheckStoreExists(cnpj))
+            {
+                return Ok(true);
+            }
+            return BadRequest();
+        }
+
         [HttpGet("Company/{cnpj}")]
         public IActionResult  GetCompanyFromCnpj(string cnpj)
         {
