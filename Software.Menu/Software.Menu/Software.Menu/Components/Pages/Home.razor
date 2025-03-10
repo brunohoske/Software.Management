@@ -44,8 +44,17 @@
     }
     private async Task AddProductToOrder(Product product)
     {
-        if (product.Ingredients.Any()) return;
-        if (product is Combo) return;
+        if (product.Ingredients.Any() && product is not Combo)
+        {
+            await GoToProductPage(product.Id);
+            return;            
+        }
+        if (product is Combo)
+        {
+            await GoToComboPage(product.Id);
+            return;            
+        }
+
         var item = new ItemCart()
             {
                 Product = product,
@@ -273,7 +282,7 @@
                     @foreach (var product in category.Products)
                     {
                         <div class="product-card"  @onclick="()=> product is Combo ? GoToComboPage(product.Id) : GoToProductPage(product.Id)">
-                            <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center" @onclick:stopPropagation="product.Ingredients.Count <= 0"
+                            <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center" @onclick:stopPropagation="product.Ingredients.Count <= 0 || product is Combo"
                                     @onclick="() => AddProductToOrder(product)">
 
                                 <svg style="fill: #00a680;" viewBox="0 0 16 16" width="1em" height="1em" role="presentation" focusable="false" aria-hidden="true">
@@ -484,6 +493,11 @@
 
 
 <script>
+        window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+    });
     document.getElementById("cartButton").addEventListener("click", function (event) {
         event.stopPropagation();
         let cartDropdown = document.getElementById("cartDropdown");
@@ -503,120 +517,27 @@
         span.textContent = parseInt(span.textContent) + 1;
     }
 
-    function decreaseQuantity(button) {
-        let span = button.nextElementSibling;
-        let currentValue = parseInt(span.textContent);
-        if (currentValue > 1) {
-            span.textContent = currentValue - 1;
-        }
-    }
 
-    document.addEventListener('click', function (event) {
-        var menu = document.getElementById('pedidoMenu');
-        var button = document.querySelector('.fixed-button');
-        if (!menu.contains(event.target) && !button.contains(event.target)) {
-            var bsCollapse = new bootstrap.Collapse(menu, { toggle: false });
-            bsCollapse.hide();
-        }
+       document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".accordion-button").forEach(button => {
+            button.addEventListener("click", function () {
+                var targetId = this.getAttribute("data-bs-target");
+                var targetCollapse = document.querySelector(targetId);
+                var bsCollapse = bootstrap.Collapse.getOrCreateInstance(targetCollapse);
+
+                if (targetCollapse.classList.contains("show")) {
+                    bsCollapse.hide();
+                } else {
+                    bsCollapse.show();
+                }
+            });
+        });
     });
+
+
 </script>
 
 @code{
-
-
-
-    private async Task _SubmitOrder(List<ItemCart> itens)
-    {
-        try
-        {
-            double total = 0;
-            List<ProductDTO> productsDTO = new List<ProductDTO>();
-
-            foreach(var item in itens)
-            {
-                if(item.Product is Combo combo)
-                {
-                    foreach(var comboProduct in combo.Products)
-                    {
-                        for (int i = 0; i < item.Quantity; i++)
-                        {
-                            var productDto = mapper.Map<ProductDTO>(comboProduct);
-                            productDto.Note = item.GetNote();
-                            productsDTO.Add(productDto);
-                            // foreach (var acomp in item.Acompanhamentos)
-                            // {
-                            //     for(int index = 0; index < acomp.Quantity; index++)
-                            //     {
-                            //         var acompanhamentoDto = mapper.Map<ProductDTO>(acomp.Product);
-                            //         acompanhamentoDto.Note = "";
-                            //         productsDTO.Add(acompanhamentoDto);
-                            //     }
-
-                            // }
-                        }
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i < item.Quantity; i++)
-                    {
-                        var productDto = mapper.Map<ProductDTO>(item.Product);
-                        productDto.Note = item.GetNote();
-                        productsDTO.Add(productDto);
-                        // foreach (var acomp in item.Acompanhamentos)
-                        // {
-                        //     for(int index = 0; index < acomp.Quantity; index++)
-                        //     {
-                        //         var acompanhamentoDto = mapper.Map<ProductDTO>(acomp.Product);
-                        //         acompanhamentoDto.Note = "";
-                        //         productsDTO.Add(acompanhamentoDto);
-                        //     }
-
-                        // }
-                    }
-                }
-
-
-                total += item.GetPrice();
-            }
-
-            Order order = new Order()
-                {
-                    Id = await GetOrderNumber(),
-                    Date = System.DateTime.Now,
-                    Store = new Company("McDonalds") { Cnpj = Cnpj },
-                    Table = new Table() { TableNumber = int.Parse(Comanda), Store = new Company("McDonalds") { Cnpj = Cnpj } },
-                    Value = total
-
-                };
-
-            OrderDTO orderDTO = new OrderDTO()
-            {
-                Id = order.Id,
-                Products = productsDTO,
-                Date = order.Date,
-                Store = order.Store,
-                Table = order.Table,
-                Value = order.Value
-            };
-
-            string jsonBody = System.Text.Json.JsonSerializer.Serialize(orderDTO);
-            HttpContent httpContent = new StringContent(jsonBody, System.Text.Encoding.UTF8, "application/json");
-
-            HttpResponseMessage response = await _httpClient.PostAsync("Orders", httpContent);
-            Cart.Clear();
-            await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
-            nav.Refresh(true);
-
-
-
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Erro ao enviar pedido"+ex.Message);
-        }
-    }
-
     private async Task SubmitOrder(List<ItemCart> itens)
     {
         await orderClient.SubmitOrder(itens, int.Parse(Comanda), Store.Id);
