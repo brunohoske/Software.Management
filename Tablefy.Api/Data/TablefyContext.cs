@@ -2,7 +2,18 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using System.Text.RegularExpressions;
-using Tablefy.Api.Entities;
+using Tablefy.Api.Auth;
+using Tablefy.Api.Category;
+using Tablefy.Api.Check;
+using Tablefy.Api.Company;
+using Tablefy.Api.Coupon;
+using Tablefy.Api.Employee;
+using Tablefy.Api.Employee.Relations;
+using Tablefy.Api.Ingredient;
+using Tablefy.Api.Order;
+using Tablefy.Api.Order.Relations;
+using Tablefy.Api.Product.Entities;
+using Tablefy.Api.Product.Entities.Relations;
 
 namespace Tablefy.Api.Data
 {
@@ -13,7 +24,7 @@ namespace Tablefy.Api.Data
         public DbSet<CompanyEntity> Companies { get; set; }
         public DbSet<EmployeeEntity> Employees { get; set; }
         public DbSet<ProductEntity> Products { get; set; }
-        public DbSet<CompanyProductEntity> CompanyProducts { get; set; }
+        public DbSet<ProductCompanyEntity> ProductsCompany { get; set; }
         public DbSet<CategoryEntity> Categories { get; set; }
         public DbSet<CheckEntity> Checks { get; set; }
         public DbSet<IngredientEntity> Ingredients { get; set; }
@@ -55,15 +66,15 @@ namespace Tablefy.Api.Data
             .WithMany(g => g.Companies)
             .HasForeignKey(f => f.CompaniesGroupId);
 
-            modelBuilder.Entity<CompanyProductEntity>()
+            modelBuilder.Entity<ProductCompanyEntity>()
             .HasKey(fp => new { fp.CompanyId, fp.ProductId });
 
-            modelBuilder.Entity<CompanyProductEntity>()
+            modelBuilder.Entity<ProductCompanyEntity>()
             .HasOne(fp => fp.Company)
             .WithMany(f => f.CompanyProducts)
             .HasForeignKey(fp => fp.CompanyId);
 
-            modelBuilder.Entity<CompanyProductEntity>()
+            modelBuilder.Entity<ProductCompanyEntity>()
             .HasOne(fp => fp.Product)
             .WithMany(p => p.CompanyProducts)
             .HasForeignKey(fp => fp.ProductId);

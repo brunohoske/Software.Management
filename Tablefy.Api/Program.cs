@@ -1,6 +1,6 @@
 using AutoMapper;
 using Tablefy.Api.Data;
-using Tablefy.Api.Services;
+using Tablefy.Api.Product.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
