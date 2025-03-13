@@ -13,7 +13,6 @@ namespace Software.Menu.Models
         public double DiscountPercentual { get; set; }
         public double DiscountPrice { get; set; }
         public List<Ingredient> Ingredients { get; set; } = new();
-        public Category Category { get; set; }
         public Company Store { get; set; }
         public double Kcal { get; set; }
         public string Image { get; set; }

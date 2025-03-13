@@ -9,7 +9,7 @@ namespace Software.Menu.Models
         [JsonPropertyName("code")]
         public string Code { get; set; }
         [JsonPropertyName("discount")]
-        public double Discount { get; set; }
+        public decimal Discount { get; set; }
         [JsonPropertyName("active")]
         public bool Active { get; set; }
     }

@@ -3,8 +3,7 @@
     public class ItemCart
     {
         
-        public Product Product { get; set; } = new Product();
-        //public Combo Combo { get; set; }
+        public ProductSimpleModel Product { get; set; }
         public int Quantity { get; set; }
         public List<string> Notes { get; set; }
         public string NotesText { get { return String.Join("\n", Notes); } }
@@ -13,7 +12,7 @@
         public int TableNumber { get; set; }
 
         public ItemCart() { }
-        public ItemCart(Product product, int quantity, int table,string cnpj)
+        public ItemCart(ProductSimpleModel product, int quantity, int table,string cnpj)
         {
             Product = product;
             Quantity = quantity;
@@ -33,28 +32,28 @@
             return notes;
         }
 
-        public double GetPrice()
+        public decimal GetPrice()
         {
-            double total = 0;
+            decimal total = 0;
             if(Acompanhamentos != null)
             {
                 for (int i = 0; i < Quantity; i++)
                 {
-                    if(Product is Combo combo)
+                    if(Product.IsCombo == true)
                     {
-                        total += (combo.Products.Sum(p => p.Value)) + (Acompanhamentos.Sum(a => (a.Product.Value * a.Quantity)));
+                        total += (Product.comboProducts.Sum(p => p.Price)) + (Acompanhamentos.Sum(a => (a.Product.Price * a.Quantity)));
                     }
-                    total += (Product.Value) + (Acompanhamentos.Sum(a => (a.Product.Value * a.Quantity)));
+                    total += (Product.Price) + (Acompanhamentos.Sum(a => (a.Product.Price * a.Quantity)));
                 }
               
             }
             else
             {
-                if (Product is Combo combo)
+                if (Product.IsCombo)
                 {
-                    return combo.Products.Sum(p => p.Value) * Quantity;
+                    return Product.comboProducts.Sum(p => p.Price) * Quantity;
                 }
-                return Product.Value * Quantity;
+                return Product.Price * Quantity;
             }
             return total;
         }

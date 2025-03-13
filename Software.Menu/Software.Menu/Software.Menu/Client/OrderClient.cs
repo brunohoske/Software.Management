@@ -26,14 +26,14 @@ namespace Software.Menu.Client
         {
             try
             {
-                double total = 0;
+                decimal total = 0;
                 List<ProductDTO> productsDTO = new List<ProductDTO>();
 
                 foreach (var item in itens)
                 {
-                    if (item.Product is Combo combo)
+                    if (item.Product.IsCombo)
                     {
-                        foreach (var comboProduct in combo.Products)
+                        foreach (var comboProduct in item.Product.comboProducts)
                         {
                             for (int i = 0; i < item.Quantity; i++)
                             {

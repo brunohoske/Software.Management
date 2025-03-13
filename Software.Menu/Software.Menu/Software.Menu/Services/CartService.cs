@@ -28,21 +28,21 @@ namespace Software.Menu.Services
             string cacheKey = _cartKey + token;
             return _memoryCache.Get<List<ItemCart>>(cacheKey) ?? new List<ItemCart>();
         }
-        public static bool AreCombosEqual(Combo combo1, Combo combo2)
+        public static bool AreCombosEqual(ProductSimpleModel combo1, ProductSimpleModel combo2)
         {
             if (combo1 == null || combo2 == null)
                 return false;
-            if (combo1.Id != combo2.Id || combo1.Name != combo2.Name)
+            if (combo1.Id != combo2.Id || combo1.ProductName != combo2.ProductName)
                 return false;
-            if (combo1.Products == null && combo2.Products == null)
+            if (combo1.comboProducts == null && combo2.comboProducts == null)
                 return true;
-            if (combo1.Products == null || combo2.Products == null)
+            if (combo1.comboProducts == null || combo2.comboProducts == null)
                 return false;
-            if (combo1.Products.Count != combo2.Products.Count)
+            if (combo1.comboProducts.Count != combo2.comboProducts.Count)
                 return false;
-            for (int i = 0; i < combo1.Products.Count; i++)
+            for (int i = 0; i < combo1.comboProducts.Count; i++)
             {
-                if (combo1.Products[i].Id != combo2.Products[i].Id || combo1.Products[i].Name != combo2.Products[i].Name)
+                if (combo1.comboProducts[i].Id != combo2.comboProducts[i].Id || combo1.comboProducts[i].ProductName != combo2.comboProducts[i].ProductName)
                     return false;
             }
 
@@ -53,13 +53,13 @@ namespace Software.Menu.Services
             string cacheKey = _cartKey + token;
             var cart = GetCart(token);
 
-            if(item.Product is Combo combo)
+            if(item.Product.IsCombo)
             {
                 var index = cart.FindIndex(p =>
                    p.Product.Id == item.Product.Id &&
-                   p.Product.Name == item.Product.Name &&
+                   p.Product.ProductName == item.Product.ProductName &&
                    p.Notes.SequenceEqual(item.Notes) &&
-                   AreCombosEqual((Combo)p.Product, (Combo)item.Product));
+                   AreCombosEqual(p.Product, item.Product));
 
                 if (index != -1)
                 {
@@ -72,7 +72,7 @@ namespace Software.Menu.Services
             }
             else
             {
-                var existingItem = cart.FirstOrDefault(p => p.Product.Id == item.Product.Id && p.Product is not Combo);
+                var existingItem = cart.FirstOrDefault(p => p.Product.Id == item.Product.Id && !p.Product.IsCombo);
                 if (existingItem != null)
                 {
                     existingItem.Quantity += item.Quantity;

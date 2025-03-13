@@ -32,7 +32,7 @@ builder.Services.AddBlazoredSessionStorage(config => {
 
 builder.Services.AddScoped(sp =>
 {
-    var httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:7289") };
+    var httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:7265") };
     httpClient.DefaultRequestHeaders.Add("cnpj", "42591651000143");
     return httpClient;
 });
