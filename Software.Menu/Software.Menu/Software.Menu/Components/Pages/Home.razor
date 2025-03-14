@@ -5,23 +5,22 @@
 @inject NavigationManager nav
 @rendermode InteractiveServer
 
-@page "/{Cnpj}/CARDAPIO/M{Comanda}"
+@page "/{idCompany:int}/CARDAPIO/M{tableNumber:int}"
 
 @code {
-    public MenuClient _client;
-    public CompanyClient _companyClient;
-
-
     public Menu menu { get; set; }
     [Parameter]
-    public string Comanda { get; set; }
+    public int tableNumber { get; set; }
     [Parameter]
     public string Cnpj { get; set; }
+    [Parameter]
+    public int idCompany { get; set; }
 
     private Company Store = new Company();
     private List<ItemCart> Cart = new List<ItemCart>();
-    private List<Order> OrdersInCheck = new List<Order>();
+    public List<OrderDisplayModel> Orders = new List<OrderDisplayModel>();
     private List<DisplayCatalogModel> catalogs = new List<DisplayCatalogModel>();
+
 
     string cartToken;
     private decimal total;
@@ -35,25 +34,21 @@
         catalogs = await productClient.GetCatalog(Store.Id);
         //Categories.Insert(0, new Category() { Name = "Todos os produtos", IsDisplay = 1, Products = Produtos, Store = Store });
     }
-    private async Task AddProductToOrder(ProductSimpleModel product)
+
+    private async Task GetOrders()
     {
-        // if (product.Ingredients.Any() && product is not Combo)
-        // {
-        //     await GoToProductPage(product.Id);
-        //     return;            
-        // }
-        // if (product is Combo)
-        // {
-        //     await GoToComboPage(product.Id);
-        //     return;            
-        // }
+        Orders = await orderClient.GetOrders(Store.Id);
+    }
+
+    private async Task AddProductToOrder(ProductCartModel product)
+    {
 
         var item = new ItemCart()
             {
                 Product = product,
                 Quantity = 1,
                 Notes = new List<string>(),
-                TableNumber = int.Parse(Comanda),
+                TableNumber = tableNumber,
                 Cnpj = this.Cnpj
             };
 
@@ -79,13 +74,14 @@
             await AddToCart(item);
         }
     }
+
     private void CalculateTotalGeral()
     {
-        totalGeral = OrdersInCheck.Sum(order => order.Value);
+        totalGeral = Orders.Sum(order => order.Total);
     }
     private void CloseOrder()
     {
-        nav.NavigateTo($"Payment/{menu.Company.Cnpj}/{Comanda}/Close");
+        nav.NavigateTo($"Payment/{menu.Company.Cnpj}/{idCompany}/Close");
     }
     private void RemoveProductFromOrder(ItemCart item)
     {
@@ -97,18 +93,16 @@
             _cartService.ClearCart(cartToken);
         }
     }
-    private async Task GoToProductPage(int id)
+    public async Task GoToProductPage(int id, ProductSimpleModel product)
     {
-        nav.NavigateTo($"{menu.Company.Cnpj}/Product/{id}/{Comanda}");
-        //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
-        // await SetSessionCart(Cart);
+        await menuService.SetProductSession(sessionStorageBlazored,product);
+        nav.NavigateTo($"{Store.Id}/Product/{id}/{tableNumber}");
     }
 
     private async Task GoToComboPage(int id)
     {
-        nav.NavigateTo($"{menu.Company.Cnpj}/Combo/{id}/{Comanda}");
-        // await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
-        // await SetSessionCart(Cart);
+        nav.NavigateTo($"{menu.Company.Cnpj}/Combo/{id}/{tableNumber}");
+       
     }
 
 
@@ -116,7 +110,7 @@
     {
         try
         {
-            cartToken = await menuService.GetCartToken(sessionStorageBlazored,int.Parse(Comanda),Cnpj);
+            cartToken = await menuService.GetCartToken(sessionStorageBlazored, tableNumber, Cnpj);
             Cart = _cartService.GetCart(cartToken);
 
         }
@@ -134,7 +128,7 @@
             cartToken = Guid.NewGuid().ToString();
         }
         _cartService.AddToCart(cartToken, item);
-        await menuService.SetCartToken(cartToken, sessionStorageBlazored, int.Parse(Comanda), Cnpj);
+        await menuService.SetCartToken(cartToken, sessionStorageBlazored, tableNumber, Cnpj);
 
 
     }
@@ -158,7 +152,7 @@
             {
                 nav.NavigateTo("/404", true);
             }
-            OrdersInCheck = await GetOrders();
+
             @if (Store.Name != string.Empty)
             {
                 menu = new Menu() { Company = Store };
@@ -168,7 +162,7 @@
                 menu = new Menu();
             }
 
-
+            await GetOrders();
             await GetCatalog();
             CalculateTotalGeral();
         }
@@ -184,10 +178,18 @@
     {
         if (firstRender)
         {
-            if (!await checkClient.CheckExists(int.Parse(Comanda)))
+            try
             {
-                nav.NavigateTo("/404", true);
+                if (!await checkClient.CheckExists(tableNumber, idCompany))
+                {
+                    nav.NavigateTo("/404", true);
+                }
             }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Erro ao verificar table" + ex);
+            }
+
 
 
             await GetCartToken();         
@@ -248,7 +250,7 @@
         <div class="category-container container" style="box-shadow: none !important;background-color: transparent;padding: 8px; ">
             @foreach(var category in catalogs)    
             {
-                <a style="text-decoration:none;color: black;" href="@($" /{Cnpj}/CARDAPIO/M{Comanda}/#{category.Name.Replace(" ", "-")}")"> <div class="category-item">@category.Name</div></a>
+                <a style="text-decoration:none;color: black;" href="@($" /{Cnpj}/CARDAPIO/M{tableNumber}/#{category.Name.Replace(" ", "-")}")"> <div class="category-item">@category.Name</div></a>
             }
             </div>
         </div>
@@ -272,10 +274,10 @@
             <div class="product-list">
                 @foreach (var product in catalogCategory.Products)
                 {
-                    <div class="product-card"  @onclick="()=> product.IsCombo ? GoToComboPage(product.Id) : GoToProductPage(product.Id)">
+                    <div class="product-card"  @onclick="()=> GoToProductPage(product.Id,product)">
                         @* <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center" @onclick:stopPropagation="product.Ingredients.Count <= 0 || product is Combo" *@
                         <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center"
-                                @onclick="() => AddProductToOrder(product)">
+                                @onclick="() => AddProductToOrder((ProductCartModel)product)">
 
                             <svg style="fill: #00a680;" viewBox="0 0 16 16" width="1em" height="1em" role="presentation" focusable="false" aria-hidden="true">
                                 <path d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z"></path>
@@ -336,7 +338,7 @@
                         <div class="cart-details" style="flex-basis: 1px;flex-grow: 2;">
                             <strong>@item.Product.ProductName</strong>
                             <ul class="list-unstyled">
-                                @foreach(var product in item.Product.comboProducts)
+                                @foreach(var product in item.Product.ComboProducts)
                                 {
                                     <li>- @product.ProductName</li>
                                 }
@@ -347,7 +349,7 @@
 @*                                     <li>- Acompanhamento 1</li>
                                 <li>- Acompanhamento 2</li> *@
                                 <li>- R$@* @item.GetPrice().ToString("F2") *@
-                                        @((item.Product.comboProducts.Sum(p=> (decimal)p.Price)).ToString("F2"))
+                                    @((item.Product.ComboProducts.Sum(p => (decimal)p.Price)).ToString("F2"))
                                 </li >
                             </ul>
                         </div>
@@ -423,7 +425,7 @@
 </section> *@
 
 
-@if(OrdersInCheck.Select(x => x.Status == 3).Count() > 0)
+@if(Orders.Select(x => x.Status == 3).Count() > 0)
 {
     <button class="fixed-button" type="button" data-bs-toggle="collapse" data-bs-target="#pedidoMenu" aria-expanded="false" aria-controls="pedidoMenu">
         <img src="/Images/orders/cooking.gif" alt="Pedidos">
@@ -436,30 +438,30 @@
     <div class="collapse mt-3" id="pedidoMenu">
         <div class="card card-body">
             <div class="accordion" id="pedidosAccordion">
-                @foreach(var order in OrdersInCheck)
+                @foreach(var order in Orders)
                 {
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#@("pedido"+order.Id)" aria-expanded="false">
-                                #@order.Id - @(order.Status == 1 ? "Enviado à cozinha" : (order.Status == 2 ? "Preparando" : "Pedido Pronto"))
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#@("pedido"+order.OrderNumber)" aria-expanded="false">
+                                #@order.OrderNumber - @(order.Status == 1 ? "Enviado à cozinha" : (order.Status == 2 ? "Preparando" : "Pedido Pronto"))
                             </button>
                         </h2>
-                        <div id="@("pedido"+order.Id)" class="accordion-collapse collapse" data-bs-parent="#pedidosAccordion">
+                        <div id="@("pedido"+order.OrderNumber)" class="accordion-collapse collapse" data-bs-parent="#pedidosAccordion">
                             <div class="accordion-body">
                                 <ul class="list-group">
-                                    @foreach (var product in order.Products)
+                                    @foreach (var product in order.Items)
                                     {
                                         <li class="list-group-item">
                                             <div class="product-container">
-                                                <img src="@product.Image" alt="@product.Name">
+                                                <img src="@product.ImageUrl" alt="@product.ProductName">
                                                 <div>
-                                                    @product.Name
+                                                    @product.ProductName
                                                     <ul>
                                                         @* //Não utilize GetPrice(), pois na OrderInCheck ele pega o valor pago *@
-                                                        <li>R$ @product.Value.ToString("F2")</li>
-                                                        @if(product.Note != null && product.Note != string.Empty)
+                                                        <li>R$ @product.Total.ToString("F2")</li>
+                                                        @if (product.Notes != null && product.Notes != string.Empty)
                                                         {
-                                                            <li>@product.Note</li>
+                                                            <li>@product.Notes</li>
                                                         }
                                                         
                                                     </ul>
@@ -530,7 +532,7 @@
 @code{
     private async Task SubmitOrder(List<ItemCart> itens)
     {
-        await orderClient.SubmitOrder(itens, int.Parse(Comanda), Store.Id);
+        await orderClient.SubmitOrder(itens, tableNumber, Store.Id);
 
         Cart.Clear();
         //await SetSessionCart(Cart);
@@ -538,55 +540,5 @@
         nav.Refresh(true);
 
     }
-    async Task<List<Product>> GetProducts()
-    {
-        HttpResponseMessage response = _httpClient.GetAsync("Products").Result;
-        var content = await response.Content.ReadAsStringAsync();
-        var options = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            };
-
-        List<Product> p = System.Text.Json.JsonSerializer.Deserialize<List<Product>>(content,options);
-
-
-
-        return p;
-    }
-
-    async Task<int> GetOrderNumber()
-    {
-        HttpResponseMessage response = _httpClient.GetAsync("OrderNumber").Result;
-        var content = await response.Content.ReadAsStringAsync();
-        var options = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            };
-
-        int number = System.Text.Json.JsonSerializer.Deserialize<int>(content, options);
-
-
-
-        return number;
-    }
-
-    public async Task<List<Order>> GetOrders()
-    {
-        HttpResponseMessage response = _httpClient.GetAsync($"GetOrdersInTable/{Comanda}").Result;
-        var content = await response.Content.ReadAsStringAsync();
-        var options = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            };
-
-        List<Order> o = System.Text.Json.JsonSerializer.Deserialize<List<Order>>(content, options);
-
-
-
-        return o;
-    }
-
-
-
 
 }

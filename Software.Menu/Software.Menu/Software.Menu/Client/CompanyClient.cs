@@ -21,22 +21,21 @@ namespace Software.Menu.Client
             }
             return false;
         }
-        public async Task<Company> GetCompanyFromCnpj(string cnpj)
+        public async Task<Company> GetCompany(int idCompany)
         {
-            if (CheckStoreExists(cnpj).Result)
-            {
-                HttpResponseMessage response = _httpClient.GetAsync($"Company/{cnpj}").Result;
-                var content = await response.Content.ReadAsStringAsync();
-                var options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
 
-                if (response.IsSuccessStatusCode)
-                {
-                    return JsonSerializer.Deserialize<Company>(content, options);
-                }
+            HttpResponseMessage response = _httpClient.GetAsync($"api/menu/companies/{idCompany}").Result;
+            var content = await response.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonSerializer.Deserialize<Company>(content, options);
             }
+            
            
            
             return null;

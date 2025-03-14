@@ -24,21 +24,20 @@ namespace Software.Menu.Client
             return false;
         }
 
-        public async Task<bool> CheckExists(int idTable)
+        public async Task<bool> CheckExists(int tableId,int companyId)
         {
-            HttpResponseMessage response = _httpClient.GetAsync($"CheckExists/{idTable}").Result;
-            if(response.IsSuccessStatusCode)
-            {
-                return true;
-            }
-            return false;
+            HttpResponseMessage response = _httpClient.GetAsync($"/api/menu/tables/exists/{companyId}/{tableId}").Result;
             var content = await response.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
             };
-
-            var tableJson = JsonSerializer.Deserialize<Table>(content, options);
+            var exist = JsonSerializer.Deserialize<TableExistsModel>(content, options);
+            if (exist.Value)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

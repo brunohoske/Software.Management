@@ -23,7 +23,6 @@ namespace Software.Menu.Profiles
                 .ForMember(dst => dst.Name, map => map.MapFrom(src => src.ProductName))
                 .ForMember(dst => dst.Image, map => map.MapFrom(src => src.Image)
                 );
-
             //CreateMap<Combo, ProductDTO>()
             //   .ForMember(dst => dst.Id, map => map.MapFrom(src => src.Id))
             //   .ForMember(dst => dst.Value, map => map.MapFrom(src => src.Value))

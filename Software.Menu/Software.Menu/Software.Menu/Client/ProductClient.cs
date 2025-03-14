@@ -30,27 +30,46 @@ namespace Software.Menu.Client
 
         public async Task<List<DisplayCatalogModel>> GetCatalog(int companyId)
         {
-            HttpResponseMessage response = _httpClient.GetAsync($"api/erp/product/catalog/{companyId}").Result;
+            HttpResponseMessage response = _httpClient.GetAsync($"api/erp/products/catalog/{companyId}").Result;
             var content = await response.Content.ReadAsStringAsync();
-            List<DisplayCatalogModel> catalog = JsonSerializer.Deserialize<List<DisplayCatalogModel>>(content);
+            var options = new JsonSerializerOptions 
+            {
+                PropertyNameCaseInsensitive = true
+            };
+            List<DisplayCatalogModel> catalog = JsonSerializer.Deserialize<List<DisplayCatalogModel>>(content,options);
             return catalog;
 
         }
 
         public async Task<ProductCompleteModel> GetCompleteProduct(int idProduct)
         {
-            HttpResponseMessage response = _httpClient.GetAsync($"api/erp/product/details/{idProduct}").Result;
+
+            HttpResponseMessage response = _httpClient.GetAsync($"api/erp/products/details/{idProduct}").Result;
             var content = await response.Content.ReadAsStringAsync();
-            ProductCompleteModel product = JsonSerializer.Deserialize<ProductCompleteModel>(content);
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            ProductCompleteModel product = JsonSerializer.Deserialize<ProductCompleteModel>(content,options);
             return product;
 
         }
 
         public async Task<ProductExtrasModel> GetProductExtras(int idProduct)
         {
-            HttpResponseMessage response = _httpClient.GetAsync($"api/erp/product/extras/{idProduct}").Result;
+            HttpResponseMessage response = _httpClient.GetAsync($"api/erp/products/extras/{idProduct}").Result;
+            if(!response.IsSuccessStatusCode)
+            {
+               return new ProductExtrasModel();
+            }
             var content = await response.Content.ReadAsStringAsync();
-            ProductExtrasModel extras = JsonSerializer.Deserialize<ProductExtrasModel>(content);
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            ProductExtrasModel extras = JsonSerializer.Deserialize<ProductExtrasModel>(content,options);
             return extras;
 
         }

@@ -28,21 +28,21 @@ namespace Software.Menu.Services
             string cacheKey = _cartKey + token;
             return _memoryCache.Get<List<ItemCart>>(cacheKey) ?? new List<ItemCart>();
         }
-        public static bool AreCombosEqual(ProductSimpleModel combo1, ProductSimpleModel combo2)
+        public static bool AreCombosEqual(ProductCartModel combo1, ProductCartModel combo2)
         {
             if (combo1 == null || combo2 == null)
                 return false;
             if (combo1.Id != combo2.Id || combo1.ProductName != combo2.ProductName)
                 return false;
-            if (combo1.comboProducts == null && combo2.comboProducts == null)
+            if (combo1.ComboProducts == null && combo2.ComboProducts == null)
                 return true;
-            if (combo1.comboProducts == null || combo2.comboProducts == null)
+            if (combo1.ComboProducts == null || combo2.ComboProducts == null)
                 return false;
-            if (combo1.comboProducts.Count != combo2.comboProducts.Count)
+            if (combo1.ComboProducts.Count != combo2.ComboProducts.Count)
                 return false;
-            for (int i = 0; i < combo1.comboProducts.Count; i++)
+            for (int i = 0; i < combo1.ComboProducts.Count; i++)
             {
-                if (combo1.comboProducts[i].Id != combo2.comboProducts[i].Id || combo1.comboProducts[i].ProductName != combo2.comboProducts[i].ProductName)
+                if (combo1.ComboProducts[i].Id != combo2.ComboProducts[i].Id || combo1.ComboProducts[i].ProductName != combo2.ComboProducts[i].ProductName)
                     return false;
             }
 

@@ -3,7 +3,7 @@
     public class ItemCart
     {
         
-        public ProductSimpleModel Product { get; set; }
+        public ProductCartModel Product { get; set; }
         public int Quantity { get; set; }
         public List<string> Notes { get; set; }
         public string NotesText { get { return String.Join("\n", Notes); } }
@@ -12,7 +12,7 @@
         public int TableNumber { get; set; }
 
         public ItemCart() { }
-        public ItemCart(ProductSimpleModel product, int quantity, int table,string cnpj)
+        public ItemCart(ProductCartModel product, int quantity, int table,string cnpj)
         {
             Product = product;
             Quantity = quantity;
@@ -41,7 +41,7 @@
                 {
                     if(Product.IsCombo == true)
                     {
-                        total += (Product.comboProducts.Sum(p => p.Price)) + (Acompanhamentos.Sum(a => (a.Product.Price * a.Quantity)));
+                        total += (Product.ComboProducts.Sum(p => p.Price)) + (Acompanhamentos.Sum(a => (a.Product.Price * a.Quantity)));
                     }
                     total += (Product.Price) + (Acompanhamentos.Sum(a => (a.Product.Price * a.Quantity)));
                 }
@@ -51,7 +51,7 @@
             {
                 if (Product.IsCombo)
                 {
-                    return Product.comboProducts.Sum(p => p.Price) * Quantity;
+                    return Product.ComboProducts.Sum(p => p.Price) * Quantity;
                 }
                 return Product.Price * Quantity;
             }

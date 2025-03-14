@@ -1,5 +1,15 @@
-﻿<h3>ProductDetails</h3>
-
+﻿@page "/{idCompany:int}/Product/{idProduct:int}/{tableNumber:int}"
+@rendermode InteractiveServer
+@attribute [StreamRendering(true)]
 @code {
-
+        [Parameter]
+        public int idProduct { get; set; }
+        [Parameter]
+        public int idCompany { get; set; }
+        [Parameter]
+        public int tableNumber { get; set; }
 }
+
+<ProductPage idCompany="idCompany" TableNumber="tableNumber" idProduct="idProduct"/>
+
+

@@ -52,6 +52,15 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseWebAssemblyDebugging();
+    app.Use(async (context, next) =>
+    {
+        if (context.Request.Path == "/")
+        {
+            context.Response.Redirect("/1/cardapio/m1"); // Substitua pelo caminho desejado
+            return;
+        }
+        await next();
+    });
 }
 else
 {

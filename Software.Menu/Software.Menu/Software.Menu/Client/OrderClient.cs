@@ -4,6 +4,7 @@ using Software.Menu.Models.ViewModels;
 using Software.Menu.Models;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using System.Text;
 
 namespace Software.Menu.Client
 {
@@ -33,7 +34,7 @@ namespace Software.Menu.Client
                 {
                     if (item.Product.IsCombo)
                     {
-                        foreach (var comboProduct in item.Product.comboProducts)
+                        foreach (var comboProduct in item.Product.ComboProducts)
                         {
                             for (int i = 0; i < item.Quantity; i++)
                             {
@@ -136,14 +137,14 @@ namespace Software.Menu.Client
                 PropertyNameCaseInsensitive = true
             };
 
-            int number = System.Text.Json.JsonSerializer.Deserialize<int>(content, options);
+            int number = JsonSerializer.Deserialize<int>(content, options);
 
 
 
             return number;
         }
 
-        public async Task<List<Order>> GetOrders(int comanda)
+        public async Task<List<Order>> GetOrders_(int comanda)
         {
             HttpResponseMessage response = _httpClient.GetAsync($"GetOrdersInTable/{comanda}").Result;
             var content = await response.Content.ReadAsStringAsync();
@@ -157,6 +158,34 @@ namespace Software.Menu.Client
 
 
             return o;
+        }
+
+        public async Task<List<OrderDisplayModel>> GetOrders(int companyId)
+        {
+            HttpContent content = new StringContent(JsonSerializer.Serialize(new OrderIdsModel() { OrderIds = new List<int>() { 1 } }), Encoding.UTF8, "application/json");
+            HttpResponseMessage response = _httpClient.PostAsync($"https://localhost:7265/api/menu/orders/list/{companyId}",content).Result;
+            
+            if(!response.IsSuccessStatusCode )
+            {
+                return new List<OrderDisplayModel>();
+            }
+
+            var result = await response.Content.ReadAsStringAsync();
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            List<OrderDisplayModel> orders = JsonSerializer.Deserialize<List<OrderDisplayModel>>(result, options);
+
+
+
+            return orders;
+        }
+
+        public async Task SendOrder()
+        {
+
         }
     }
 }

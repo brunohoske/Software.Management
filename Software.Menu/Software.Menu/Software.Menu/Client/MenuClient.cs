@@ -17,22 +17,6 @@ namespace Software.Menu.Client
 
         
 
-        public async Task<List<Order>> GetOrders(int comanda)
-        {
-            HttpResponseMessage response = _httpClient.GetAsync($"GetOrdersInTable/{comanda}").Result;
-            var content = await response.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            };
-
-            List<Order> o = System.Text.Json.JsonSerializer.Deserialize<List<Order>>(content, options);
-
-
-
-            return o;
-        }
-
         public async Task<Coupon> SearchCoupon(string code)
         {
             
@@ -54,20 +38,7 @@ namespace Software.Menu.Client
 
         }
 
-        public async Task<List<Category>> GetCategories()
-        {
-            HttpResponseMessage response = _httpClient.GetAsync("Categories").Result;
-            var content = await response.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            };
-
-            List<Category> categories = JsonSerializer.Deserialize<List<Category>>(content, options);
-            return categories;
-
-
-        }
+ 
 
         
     }

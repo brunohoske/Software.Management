@@ -1,0 +1,637 @@
+﻿@* 
+@page "/{Cnpj}/Combo/{idCombo}/{TableNumber}"
+
+@rendermode InteractiveServer
+@attribute [StreamRendering(true)]
+
+
+
+
+@code {
+    [Parameter]
+    public string Cnpj { get; set; } = null!;
+    [Parameter, EditorRequired]
+    public string TableNumber { get; set; } = null!;
+    [Parameter, EditorRequired]
+    public string idCombo { get; set; } = null!;
+
+    List<Product> productsSelectedsGroup = new List<Product>();
+
+
+    Company store = new Company();
+    //List<Ingredient> ingredients = new List<Ingredient>();
+    List<Product> selectedAcomps = new List<Product>();
+    ItemCart itemCart = new ItemCart();
+    List<ItemCart> acomps = new List<ItemCart>();
+    List<ItemCart> Cart = new List<ItemCart>();
+    List<string> notes = new List<string>();
+    int quantity = 1;
+    //Product selectedProduct;
+    Combo selectedCombo;
+    private bool _isFirstRender = true;
+    string cartToken;
+
+    List<(int, bool)> _productCheck = new List<(int, bool)>();
+
+    public Table Table { get; set; }
+
+    double total;
+    string customNote;
+    decimal totalPayment;
+
+    public async Task<Product> GetSelectedProduct(int id)
+    {
+        return await productClient.GetProductFromId(id);
+    }
+
+    public async Task<Combo> GetSelectedCombo(int id)
+    {
+        return await comboClient.GetComboFromId(id);
+    }
+
+    private async Task GetCartToken()
+    {
+        try
+        {
+            cartToken = await menuService.GetCartToken(sessionStorageBlazored, int.Parse(TableNumber), Cnpj);
+            Cart = _cartService.GetCart(cartToken);
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erro ao ler o Session com token" + ex);
+        }
+
+    }
+    private async Task AddToCart(ItemCart item)
+    {
+        if (cartToken == null || cartToken == string.Empty)
+        {
+            cartToken = Guid.NewGuid().ToString();
+        }
+        _cartService.AddToCart(cartToken, item);
+        await menuService.SetCartToken(cartToken, sessionStorageBlazored, int.Parse(TableNumber), Cnpj);
+
+
+    }
+    public static bool AreCombosEqual(Combo combo1, Combo combo2)
+    {
+        if (combo1 == null || combo2 == null)
+            return false;
+        if (combo1.Id != combo2.Id || combo1.Name != combo2.Name)
+            return false;
+        if (combo1.Products == null && combo2.Products == null)
+            return true;
+        if (combo1.Products == null || combo2.Products == null)
+            return false;
+        if (combo1.Products.Count != combo2.Products.Count)
+            return false;
+        for (int i = 0; i < combo1.Products.Count; i++)
+        {
+            if (combo1.Products[i].Id != combo2.Products[i].Id || combo1.Products[i].Name != combo2.Products[i].Name)
+                return false;
+        }
+
+        return true;
+    }
+    private bool clicked = false;
+    private async Task AddProduct()
+    {
+        if (clicked == true) return;
+        if(productsSelectedsGroup.Count == (selectedCombo.Groups.Count))
+        {
+            if (selectedCombo != null)
+            {
+                foreach (var product in productsSelectedsGroup)
+                {
+                    selectedCombo.Products.Add(product);
+                }
+
+                itemCart.Product = (Combo)selectedCombo;
+                itemCart.Quantity = quantity;
+                //itemCart.Acompanhamentos = acomps;
+                itemCart.Notes = notes;
+                if (customNote != "" && customNote != null)
+                {
+                    itemCart.Notes.Add(customNote);
+                }
+                itemCart.Cnpj = this.Cnpj;
+                itemCart.TableNumber = int.Parse(TableNumber);
+
+                if (acomps != null)
+                {
+
+                    foreach (var acomp in acomps)
+                    {
+                        var item = new ItemCart();
+                        item.Product = acomp.Product;
+                        item.Quantity = acomp.Quantity;
+                        item.Cnpj = Cnpj;
+                        item.TableNumber =  int.Parse(TableNumber);
+                        await AddToCart(item);
+                    }
+
+
+                }
+                clicked = true;
+                StateHasChanged();
+                await AddToCart(itemCart);
+                await js.InvokeVoidAsync("history.back");
+
+
+            }
+            else
+            {
+                Console.WriteLine("Combo is null");
+            }
+        }
+        else
+        {
+            await js.InvokeVoidAsync("showNotification", $"Selecione todos os itens obrigatórios!", "warning");
+        }
+
+    }
+
+    private async Task AddNote(string note, bool isIngredient)
+    {
+        notes.Add(note);
+
+    }
+    private async Task RemoveNote(string note)
+    {
+        notes.Remove(note);
+    }
+    private async Task IncrementItem()
+    {
+        quantity++; StateHasChanged();UpdateTotal();
+    }
+    private async Task DecrementItem()
+    {
+        if (quantity > 1) quantity--; StateHasChanged(); UpdateTotal();
+    }
+    private async Task AddAcompanhamento(ItemCart item)
+    {
+        var existingItem = acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id);
+
+        if (existingItem != null)
+        {
+            existingItem.Quantity++;
+        }
+        else
+        {
+            item.Quantity = 1;
+            acomps.Add(item);
+        }
+        await UpdateTotal();
+        StateHasChanged();
+
+    }
+
+    private async Task RemoveAcompanhamento(ItemCart item)
+    {
+        var index = acomps.FindIndex(a => a.Product.Id == item.Product.Id);
+
+        if (index != -1)
+        {
+
+            if (acomps[index].Quantity > 1)
+            {
+                acomps[index].Quantity--;
+            }
+            else
+            {
+                acomps.RemoveAt(index);
+            }
+        }
+
+        await UpdateTotal();
+        StateHasChanged();
+    }
+
+    private void ChangeIngredient(string note, bool isChecked)
+    {
+        if (!isChecked)
+        {
+            notes.Add("Sem " + note + ",\n");
+        }
+        else
+        {
+            notes.Remove("Sem " + note + ",\n");
+        }
+    }
+
+    private async Task ToggleSelectionGroup(Grupo  group, Product product)
+    {
+        // Encontrar um item já selecionado dentro do grupo
+        var existingProduct = productsSelectedsGroup.FirstOrDefault(p => group.Products.Contains(p));
+
+        // Se houver um produto já marcado no grupo, remove
+        if (existingProduct != null)
+        {
+            productsSelectedsGroup.Remove(existingProduct);
+        }
+
+        // Adiciona o novo produto selecionado
+        productsSelectedsGroup.Add(product);
+        await UpdateTotal();
+    }
+
+    private bool IsChecked(Grupo group, Product product) =>
+        productsSelectedsGroup.Any(p => p.Id == product.Id);
+
+    private async Task GoToProductPage(int id)
+    {
+        nav.NavigateTo($"{Cnpj}/Product/{id}/{TableNumber}");
+    }
+    private async Task GoToComboPage(int id)
+    {
+        nav.NavigateTo($"{Cnpj}/Combo/{id}/{TableNumber}");
+    }
+    private async Task ReturnPage()
+    {
+
+        await js.InvokeVoidAsync("history.back");
+    }
+
+    private async Task UpdateTotal()
+    {
+
+        var SomaGrupos = productsSelectedsGroup.Sum(p => p.GetPrice());
+        var somaAcomanhamentos = acomps.Sum(t => t.GetPrice());
+        var precoProduto = selectedCombo.Products.Sum(p => p.GetPrice());
+
+        totalPayment = Convert.ToDecimal(Math.Round(((precoProduto + somaAcomanhamentos + SomaGrupos) * quantity),2)); 
+
+
+    }
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        selectedCombo = await GetSelectedCombo(int.Parse(idCombo));
+        selectedAcomps.AddRange(selectedCombo.Products.SelectMany(p => p.Acompanhamentos));
+
+        selectedCombo.Store = await companyClient.GetCompanyFromCnpj(Cnpj);
+        if (selectedCombo.Store == null)
+        {
+            nav.NavigateTo("/404", true);
+        }
+        await UpdateTotal();
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            if (!await checkClient.CheckExists(int.Parse(TableNumber)))
+            {
+                nav.NavigateTo("/404", true);
+            }
+            await GetCartToken();
+
+
+
+            _isFirstRender = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task AddProductToOrder(Product product)
+    {
+        if (product.Ingredients.Any()) return;
+        if (product is Combo) return;
+        var item = new ItemCart()
+            {
+                Product = product,
+                Quantity = 1,
+                Notes = new List<string>(),
+                TableNumber = int.Parse(TableNumber),
+                Cnpj = this.Cnpj 
+            };
+        await AddToCart(item);
+        var index = _cartService.GetCart(cartToken).FindIndex(item => item.Product.Id == product.Id);
+        if (index != -1)
+        {
+            //Cart[index].Quantity++;
+            await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!", "success");
+        }
+        else
+        {
+            //Cart.Add(item);
+            if (_cartService.GetCart(cartToken).Contains(item))
+            {
+                await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} Adicionado com sucesso!", "success");
+            }
+            else
+            {
+                await js.InvokeVoidAsync("showNotification", $"{item.Product.Name} não foi adicionado! Erro ocorrido","error");
+            }
+
+
+        }
+    }
+
+
+}
+<style>
+    .quantity-controls button {
+        width: 30px;
+        height: 30px;
+        border: none;
+        background-color: #00a680;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+    }
+
+        .quantity-controls button:hover {
+            background-color: #007e5e;
+        }
+
+    .quantity-label {
+        min-width: 30px;
+        display: inline-block;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .scroll-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        padding-bottom: 10px;
+    }
+
+    .side-item {
+        min-width: 150px;
+    }
+
+        .side-item img {
+            max-width: 100px;
+        }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+    }
+
+    .product-card {
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+    }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .follow-up-item {
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+        .follow-up-item:hover {
+            transform: translateY(-3px);
+        }
+
+    .ingredient-item {
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #00a680;
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #007e5e;
+        }
+
+    .selected {
+        border: 2px solid #00a680;
+        background-color: rgba(0, 166, 128, 0.1);
+    }
+
+</style>
+<nav class=" position-fixed navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm" style="width: 100%;z-index: 1000;
+">
+    <div class="container" style="box-shadow: none !important;justify-content: flex-start;">
+        <svg @onclick="ReturnPage" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 20px;margin-bottom: 5px;margin-right: 12px;cursor:pointer"><path d="M48 256a208 208 0 1 1 416 0A208 208 0 1 1 48 256zm464 0A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM217.4 376.9c4.2 4.5 10.1 7.1 16.3 7.1c12.3 0 22.3-10 22.3-22.3l0-57.7 96 0c17.7 0 32-14.3 32-32l0-32c0-17.7-14.3-32-32-32l-96 0 0-57.7c0-12.3-10-22.3-22.3-22.3c-6.2 0-12.1 2.6-16.3 7.1L117.5 242.2c-3.5 3.8-5.5 8.7-5.5 13.8s2 10.1 5.5 13.8l99.9 107.1z"></path></svg>
+        <a class="navbar-brand fw-bold" href="@($"/{Cnpj}/CARDAPIO/M{TableNumber}")">@selectedCombo.Store.Name</a>
+    </div>
+</nav>
+<div class="container my-5" style="margin-top: 7rem !important">
+    <div class="row">
+        <!-- Product Details -->
+        <div class="col-md-6 text-center">
+            <img src="@selectedCombo.Image" class="img-fluid rounded" style="width: 450px; height: 305px; object-fit: contain;" alt="Product Image">
+        </div>
+        <div class="col-md-6 mt-3">
+            <h2 class="fw-bold">@selectedCombo.Name</h2>
+            <h4 class="">R$@selectedCombo.Value.ToString("F2")</h4>
+            <p class="text-muted">@selectedCombo.Description</p>
+            <p class="text-muted">@selectedCombo.Kcal <strong> Kcal</strong></p>
+
+            <!-- Ingredient Customization -->
+            <div class="mt-4" style="border-bottom: inset;">
+                <h5 class="fw-bold">Customize seu combo:</h5>
+                <div class="row">
+
+                    <div class="container py-4">
+                        <h2 class="text-center">Monte seu Combo</h2>
+
+                        <div class="mb-4">
+                            @foreach (var product in selectedCombo.Products)
+                            {
+                                <h4>Selecione o Produto:</h4>
+                                <div class="item">
+                                    <img src="@product.Image" alt="produto">
+                                    <div class="info">
+                                        <h5>@product.Name</h5>
+                                        <p>+ R$ @product.GetPrice().ToString("F2")</p>
+                                    </div>
+                                    <input type="radio" name="burguer" class="form-check-input" id="burguer1" checked>
+                                </div>
+                            }
+
+
+                            @foreach (var group in selectedCombo.Groups)
+                            {
+
+                                <div style="margin-top: 10px;">
+                                    <h4>Selecione o @group.ViewName:</h4>
+                                    @foreach (var product in group.Products)
+                                    {
+
+
+                                        <div class="item">
+                                            <img src="@product.Image" alt="produto">
+                                            <div class="info">
+                                                <h5>@product.Name</h5>
+                                                <p>+ R$ @product.GetPrice().ToString("F2")</p>
+                                            </div>
+                                            <input type="radio"
+                                                   name="grupo-product-@group.Id"
+                                                   id="@product.Id"
+                                                   class="form-check-input me-2"
+                                                   checked="@IsChecked(group, product)"
+                                                   @onchange="(e) => ToggleSelectionGroup(group, product)" />
+                                        </div>
+                                    }
+                                </div>
+
+                            }
+                          
+
+
+                        </div>
+                        
+
+                   
+                    </div>
+                </div>
+
+
+            <!-- Sides Options -->
+            @if (selectedAcomps.Count >= 1)
+            {
+                <div class="container my-5" style="border-bottom: inset;">
+                    <h5 class="fw-bold">Acompanhamentos:</h5>
+                    <div class="scroll-container">
+                        @foreach (var acomp in selectedAcomps)
+                        {
+                            ItemCart item = new ItemCart()
+                            {
+                                Product = acomp,
+                                TableNumber =  int.Parse(TableNumber),
+                                Cnpj = this.Cnpj 
+
+                            };
+                            <div class="side-item text-center">
+                                <img src="@item.Product.Image" class="img-fluid rounded mb-2" alt="Fries">
+                                <p class="mb-1">🍟 @item.Product.Name - R$@(item.Product.Value.ToString("F2"))</p>
+                                <div class="quantity-controls">
+                                    <button @onclick="() => { item.DecrementQuantity(); RemoveAcompanhamento(item); StateHasChanged();}">-</button>
+                                    <span class="quantity-label">@(acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id) == null ? 0 : acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id).Quantity)</span>
+                                    <button @onclick="() => { item.IncrementQuantity(); AddAcompanhamento(item);StateHasChanged(); }">+</button>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+
+
+            }
+
+
+
+
+            <!-- Action Buttons -->
+
+            <div class="mt-5"></div>
+
+            <div class="position-fixed bottom-0 start-0 w-100 bg-white p-3 border-top" style="z-index: 1;display: flex;align-items: center;gap: 15px;">
+                <div class="col-4">
+                    <div class="quantity-controls text-center ">
+                        <button @onclick="DecrementItem">-</button>
+                        <span class="quantity-label">@quantity</span>
+                        <button @onclick="IncrementItem">+</button>
+                    </div>
+                </div>
+                <button @onclick="AddProduct"  class="btn btn-primary btn-lg w-100">
+                        Adicionar - R$@totalPayment.ToString("F2")
+                                    
+                </button>
+
+
+            </div>
+
+        </div>
+            <div class="container mt-4">
+                <label for="observacoes" class="form-label">Observações</label>
+                <textarea maxlength="80" @bind="customNote" class="form-control" id="observacoes" rows="3" placeholder="Digite aqui..."></textarea>
+            </div>
+
+            @if (selectedCombo.CategoriesReccomended.Any() && selectedCombo.CategoriesReccomended != null)
+            {
+                <h1>Sugestões</h1>
+                <section id="menu" class="menu-section" style="background-color: transparent; box-shadow:none">
+                        
+                    @foreach (var category in selectedCombo.CategoriesReccomended)
+                    {
+                        <div class="product-category" id="@category.Name">
+                            <h3 class="category-title">@category.Name</h3>
+                            <div class="product-list">
+                                @foreach (var product in category.Products)
+                                {
+                                    @if (product.Id != selectedCombo.Id || product is not Combo)
+                                    {
+                                        <div class="product-card" @onclick="()=> product is Combo ? GoToComboPage(product.Id) : GoToProductPage(product.Id)">
+                                        <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center" @onclick:stopPropagation="product.Ingredients.Count <= 0"
+                                                @onclick="() => AddProductToOrder(product)">
+
+                                            <svg style="fill: #00a680;" viewBox="0 0 16 16" width="1em" height="1em" role="presentation" focusable="false" aria-hidden="true">
+                                                <path d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z"></path>
+                                            </svg>
+                                        </button>
+                                        <img src="@product.Image" alt="Product Image" class="product-image" />
+                                        <div class="product-details">
+                                            <h4 class="product-name">@product.Name</h4>
+                                            <p class="product-description">@product.Description</p>
+                                            <div class="product-bottom">
+                                                <span class="product-price">R$ @product.GetPrice().ToString("F2")</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    }
+
+
+
+                            }
+
+
+                            </div>
+                        </div>
+                    }
+                </section>
+            }
+    </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+        window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+    });
+    function increment(id) {
+        const element = document.getElementById(id);
+        let value = parseInt(element.innerText);
+        element.innerText = value + 1;
+    }
+
+    function selecionarUnico(selecionado) {
+        document.querySelectorAll('input[name="grupo-product"]').forEach(checkbox => {
+            if (checkbox !== selecionado) {
+                checkbox.checked = false;
+            }
+        });
+    }
+
+    function decrement(id) {
+        const element = document.getElementById(id);
+        let value = parseInt(element.innerText);
+        if (value > 0) {
+            element.innerText = value - 1;
+        }
+    }
+    function toggleSelection(element) {
+        element.classList.toggle('selected');
+    }
+
+</script> *@

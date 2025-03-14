@@ -1,18 +1,13 @@
-﻿@page "/{Cnpj}/Product/{idProduct}/{TableNumber}"
-@using System.Text.Json
-
-@rendermode InteractiveServer
-@inject IJSRuntime js
-
-
-
+﻿
 @code {
     [Parameter]
     public string Cnpj { get; set; } = null!;
-    [Parameter]
-    public string TableNumber { get; set; } = null!;
-    [Parameter]
-    public string idProduct { get; set; } = null!;
+    [Parameter,EditorRequired]
+    public int TableNumber { get; set; }
+    [Parameter,EditorRequired]
+    public int idProduct { get; set; }
+    [Parameter,EditorRequired]
+    public int idCompany { get; set; }
 
     Company store = new Company();
     public Table Table { get; set; }
@@ -21,32 +16,31 @@
     List<ItemCart> acomps = new List<ItemCart>();
     List<ItemCart> Cart = new List<ItemCart>(); 
     List<string> notes = new List<string>();
-    ProductCompleteModel selectedProduct;
+    public ProductCompleteModel selectedProduct;
     int quantity = 1;
 
     private bool _isFirstRender = true;
 
     List<(int, bool)> _ingredientChecked = new List<(int, bool)>();
 
-   
+
 
     double total;
     string customNote;
     decimal totalPayment;
     string cartToken;
 
-
-    public async Task GetSelectedProduct(int id)
+    public async Task GetSelectedProduct()
     {
-        //Buscar no session storage
-        selectedProduct = new ProductCompleteModel();
-        selectedProduct.Extras = await productClient.GetProductExtras(id);
+        selectedProduct = await menuService.GetProductSession(sessionStorageBlazored, idProduct);
+
     }
-    private async Task GetCartToken()
+
+    public async Task GetCartToken()
     {
         try
         {
-            cartToken = await menuService.GetCartToken(sessionStorageBlazored, int.Parse(TableNumber), Cnpj);
+            cartToken = await menuService.GetCartToken(sessionStorageBlazored, TableNumber, Cnpj);
             Cart = _cartService.GetCart(cartToken);
 
         }
@@ -57,24 +51,25 @@
 
     }
 
-    private async Task AddToCart(ItemCart item)
+    public async Task AddToCart(ItemCart item)
     {
         if (cartToken == null || cartToken == string.Empty)
         {
             cartToken = Guid.NewGuid().ToString();
         }
         _cartService.AddToCart(cartToken, item);
-        await menuService.SetCartToken(cartToken, sessionStorageBlazored, int.Parse(TableNumber), Cnpj);
+        await menuService.SetCartToken(cartToken, sessionStorageBlazored, TableNumber, Cnpj);
 
 
     }
-    private bool clicked = false;
-    private async Task AddProduct()
+    public bool clicked = false;
+    public async Task AddProduct()
     {
         if (clicked == true) return;
         if (selectedProduct != null)
         {
-            itemCart.Product = selectedProduct;
+            //criar mapper
+            itemCart.Product = (ProductCartModel)(ProductSimpleModel)selectedProduct;
             itemCart.Product.Price = selectedProduct.GetPrice();
             itemCart.Quantity = quantity;
             itemCart.Notes = notes;
@@ -83,7 +78,7 @@
                 itemCart.Notes.Add(customNote) ;  
             }
             itemCart.Cnpj = Cnpj;
-            itemCart.TableNumber = int.Parse(TableNumber);
+            itemCart.TableNumber = TableNumber;
             //itemCart.Table = new Table() { TableNumber = int.Parse(TableNumber) };
 
             await AddToCart(itemCart);
@@ -96,7 +91,7 @@
                     item.Product = acomp.Product;
                     item.Quantity = acomp.Quantity;
                     item.Cnpj = this.Cnpj ;
-                    item.TableNumber = int.Parse(TableNumber);
+                    item.TableNumber = TableNumber;
                     //Cart.Add(item);
                     await AddToCart(item);
                 }
@@ -118,24 +113,24 @@
         }
     }
 
-    private async Task AddNote(string note, bool isIngredient)
+    public async Task AddNote(string note, bool isIngredient)
     {
         notes.Add(note);
 
     }
-    private async Task RemoveNote(string note)
+    public async Task RemoveNote(string note)
     {
         notes.Remove(note);
     }
-    private async Task IncrementItem()
+    public async Task IncrementItem()
     {
         quantity++; UpdateTotal(); StateHasChanged();
     }
-    private async Task DecrementItem()
+    public async Task DecrementItem()
     { 
         if (quantity > 1) quantity--; UpdateTotal(); StateHasChanged();
     }
-    private async Task AddAcompanhamento(ItemCart item)
+    public async Task AddAcompanhamento(ItemCart item)
     {
         var existingItem = acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id);
 
@@ -152,7 +147,7 @@
         StateHasChanged();
     }
 
-    private async Task RemoveAcompanhamento(ItemCart item)
+    public async Task RemoveAcompanhamento(ItemCart item)
     {
         var index = acomps.FindIndex(a => a.Product.Id == item.Product.Id);
 
@@ -185,46 +180,40 @@
         }
     }
 
-    private async Task GoToProductPage(int id)
+
+    public async Task GoToProductPage(int id, ProductSimpleModel product)
     {
-        nav.NavigateTo($"{Cnpj}/Product/{id}/{TableNumber}");
-        //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
-        //await SetSessionCart(Cart);
+        await menuService.SetProductSession(sessionStorageBlazored, product);
+        nav.NavigateTo($"{idCompany}Product/{id}/{TableNumber}");
     }
-    private async Task GoToComboPage(int id)
+    public async Task ReturnPage()
     {
-        nav.NavigateTo($"{Cnpj}/Combo/{id}/{TableNumber}");
-        //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
-        //await SetSessionCart(Cart);
-    }
-    private async Task ReturnPage()
-    {
-        //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart));
-        //await SetSessionCart(Cart);
         await js.InvokeVoidAsync("history.back");
     }
     protected override async Task OnInitializedAsync()
     {
-        companyClient = new CompanyClient($"{Cnpj}");
-        ingredientClient = new IngredientClient($"{Cnpj}");
-        productClient = new ProductClient($"{Cnpj}");
-        menuClient = new MenuClient($"{Cnpj}");
-        checkClient = new CheckClient($"{Cnpj}");
 
-        await GetSelectedProduct(int.Parse(idProduct));
 
-        store = await companyClient.GetCompanyFromCnpj(Cnpj);
+        //store = await companyClient.GetCompany(idCompany);
+        store = new Company()
+            {
+                Cnpj = "",
+                Id = 1,
+                Name = "McDonald's"
+            };
         if (store == null)
         {
             nav.NavigateTo("/404", true);
         }
-        await UpdateTotal();
+
     }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            if (!await checkClient.CheckExists(int.Parse(TableNumber)))
+            await GetSelectedProduct();
+            await UpdateTotal();
+            if (!await checkClient.CheckExists(TableNumber,idCompany))
             {
                 nav.NavigateTo("/404", true);
             }
@@ -235,7 +224,7 @@
             StateHasChanged();
         }
     }
-    private async Task AddProductToOrder(ProductSimpleModel product)
+    private async Task AddProductToOrder(ProductCartModel product)
     {
         try
         {
@@ -246,7 +235,7 @@
                     Product = product,
                     Quantity = 1,
                     Notes = new List<string>(),
-                    TableNumber = int.Parse(TableNumber),
+                    TableNumber = TableNumber,
                     Cnpj = this.Cnpj
 
                 };
@@ -271,7 +260,7 @@
 
             }
             //await SessionStorage.SetAsync("cart", JsonSerializer.Serialize(Cart, options));
-           
+
 
         }
         catch(Exception ex)
@@ -279,7 +268,7 @@
             Console.WriteLine("Erro ao inserir ao Cart"+ex.Message);
         }
 
-        
+
     }
 
     private decimal CalcularTotal()
@@ -289,7 +278,7 @@
         return Math.Round(((precoProduto + somaAcomanhamentos) * quantity),2);
 
     } 
-    private async Task UpdateTotal()
+    public async Task UpdateTotal()
     {
         var somaAcomanhamentos = acomps.Sum(t => t.GetPrice());
         var precoProduto = selectedProduct.GetPrice();
@@ -379,151 +368,172 @@
     }
 
 </style>
+
+
 <nav class=" position-fixed navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm " style="width: 100%;z-index: 1000;">
     <div class="container" style="box-shadow: none !important;justify-content: flex-start;">
         <svg @onclick="ReturnPage" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 20px;margin-bottom: 5px;margin-right: 12px; cursor:pointer"><path d="M48 256a208 208 0 1 1 416 0A208 208 0 1 1 48 256zm464 0A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM217.4 376.9c4.2 4.5 10.1 7.1 16.3 7.1c12.3 0 22.3-10 22.3-22.3l0-57.7 96 0c17.7 0 32-14.3 32-32l0-32c0-17.7-14.3-32-32-32l-96 0 0-57.7c0-12.3-10-22.3-22.3-22.3c-6.2 0-12.1 2.6-16.3 7.1L117.5 242.2c-3.5 3.8-5.5 8.7-5.5 13.8s2 10.1 5.5 13.8l99.9 107.1z"></path></svg>
         <a class="navbar-brand fw-bold"  href="@($"/{Cnpj}/CARDAPIO/M{TableNumber}")">@(store.Name)</a>
     </div>
 </nav>
-<div class="container my-5" style="margin-top: 7rem !important;">
-    <div class="row">
-        <!-- Product Details -->
-        <div class="col-md-6 text-center">
-            <img src="@selectedProduct.Image" class="img-fluid rounded" style="width: 450px; height: 305px; object-fit: contain;" alt="Product Image">
-        </div>
-        <div class="col-md-6 mt-3">
-            <h2 class="fw-bold">@selectedProduct.ProductName</h2>
-            @if (@selectedProduct.GetPrice() != selectedProduct.Price)
-            {
-                <h6 style="text-decoration: line-through;color: gray;"> R$@selectedProduct.Price.ToString("F2") </h6>
-            }
-            <h4 class="">R$@selectedProduct.GetPrice().ToString("F2")</h4>
-            <p class="text-muted">@selectedProduct.Description</p>
-           @*  <p class="text-muted">@selectedProduct.Category.Name</p> *@
-            <p class="text-muted">@selectedProduct.Kcal <strong> Kcal</strong></p>
-
-            <!-- Ingredient Customization -->
-            @if (selectedProduct.Extras.Ingredients.Any() && selectedProduct.Extras.Ingredients != null)
-            {
-                <div class="mt-4" style="border-bottom: inset;">
-                    <h5 class="fw-bold">Customize Your Ingredients:</h5>
-                    <div class="row">
-
-                        @foreach (var ingredient in selectedProduct.Extras.Ingredients)
-                        {
-                            _ingredientChecked.Add(new(ingredient.Id, true));
-
-                            int index = _ingredientChecked.FindIndex(x => x.Item1 == ingredient.Id);
-                            <div class="col-6">
-                                <div class="ingredient-item p-2 border rounded mb-2 @(_ingredientChecked[index].Item2? "" : "selected")" id="@ingredient.Id" name="@ingredient.Name" @onclick="(e) => ChangeIngredient(ingredient.Name, (_ingredientChecked[index] = (_ingredientChecked[index].Item1, !_ingredientChecked[index].Item2)).Item2 )">
-                                    🧀Sem @ingredient.Name
-                                </div>
-                            </div>
-                        }
-                    </div>
-                </div>
-            }
-            
-            <!-- Sides Options -->
-            @if (selectedProduct.Extras.Sides.Count >= 1)
-            {
-                <div class="container my-5" style="border-bottom: inset;">
-                    <h5 class="fw-bold">Acompanhamentos:</h5>
-                    <div class="scroll-container">
-                        @foreach (var side in selectedProduct.Extras.Sides)
-                        {
-                            ItemCart item = new ItemCart()
-                            {
-                                Product = side.Side,
-                                TableNumber = int.Parse(TableNumber),
-                                Cnpj = this.Cnpj
-
-                            };
-                            <div class="side-item text-center">
-                                <img src="@item.Product.Image" class="img-fluid rounded mb-2" alt="Fries">
-                                <p class="mb-1">🍟 @item.Product.ProductName - R$@(item.Product.GetPrice().ToString("F2"))</p>
-                                <div class="quantity-controls">
-                                    <button @onclick="() => { item.DecrementQuantity(); RemoveAcompanhamento(item); StateHasChanged();}">-</button>
-                                    <span class="quantity-label">@(acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id) == null ? 0 : acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id)?.Quantity?? 0)</span>
-                                    <button @onclick="() => { item.IncrementQuantity(); AddAcompanhamento(item);StateHasChanged(); }">+</button>
-                                </div>
-                            </div>
-                        }
-
-                    </div>
-                </div>
-
-            
-            }
-            
-
-
-            
-            <!-- Action Buttons -->
-            
-            <div class="mt-5"></div>
-            <div class="position-fixed bottom-0 start-0 w-100 bg-white p-3 border-top" style="z-index: 1;display: flex;align-items: center;gap: 15px;">
-                <div class="col-4">
-                    <div class="quantity-controls text-center ">
-                        <button @onclick="DecrementItem">-</button>
-                        <span class="quantity-label">@quantity</span>
-                        <button @onclick="IncrementItem">+</button>
-                    </div>
-                </div>
-                <button @onclick="AddProduct" class="btn btn-primary btn-lg w-100">
-                    Adicionar - R$@(totalPayment.ToString("F2"))
-                </button>
-
-
+@if(selectedProduct == null)
+{
+    <p><em>Carregando o produto</em></p>
+}
+else
+{
+    <div class="container my-5" style="margin-top: 7rem !important;">
+        <div class="row">
+            <!-- Product Details -->
+            <div class="col-md-6 text-center">
+                <img src="@selectedProduct.Image" class="img-fluid rounded" style="width: 450px; height: 305px; object-fit: contain;" alt="Product Image">
             </div>
 
-        </div>
 
-        <div class="container mt-4">
-            <label for="observacoes" class="form-label">Observações</label>
-            <textarea maxlength="80" @bind="customNote" class="form-control" id="observacoes" rows="3" placeholder="Digite aqui..."></textarea>
-        </div>
-
-        @if(selectedProduct.Extras.Recommendations.Any() && selectedProduct.Extras.Recommendations != null)
-        {
-            <h1>Sugestões</h1>
-            <section id="menu" class="menu-section" style="background-color: transparent; box-shadow:none">
-
-                @foreach (var product in selectedProduct.Extras.Recommendations)
+            <div class="col-md-6 mt-3">
+                <h2 class="fw-bold">@selectedProduct.ProductName</h2>
+                @if (@selectedProduct.GetPrice() != selectedProduct.Price)
                 {
-                    <div class="product-category" id="Reomendados">
-                        <h3 class="category-title">Reomendados</h3>
-                        <div class="product-list">
-                            @if (product.Id != selectedProduct.Id || product.IsCombo)
-                            {
-                                <div class="product-card" @onclick="()=> product.IsCombo ? GoToComboPage(product.Id) : GoToProductPage(product.Id)">
-                                    <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center" @* @onclick:stopPropagation="product.Ingredients.Count <= 0" *@
-                                            @onclick="() => AddProductToOrder(product)">
+                    <h6 style="text-decoration: line-through;color: gray;"> R$@selectedProduct.Price.ToString("F2") </h6>
+                }
+                <h4 class="">R$@selectedProduct.GetPrice().ToString("F2")</h4>
+                <p class="text-muted">@selectedProduct.Description</p>
+                @*  <p class="text-muted">@selectedProduct.Category.Name</p> *@
+                <p class="text-muted">@selectedProduct.Kcal <strong> Kcal</strong></p>
 
-                                        <svg style="fill: #00a680;" viewBox="0 0 16 16" width="1em" height="1em" role="presentation" focusable="false" aria-hidden="true">
-                                            <path d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z"></path>
-                                        </svg>
-                                    </button>
-                                    <img src="@product.Image" alt="Product Image" class="product-image" />
-                                    <div class="product-details">
-                                        <h4 class="product-name">@product.ProductName</h4>
-                                        <p class="product-description">@product.Description</p>
-                                        <div class="product-bottom">
-                                            <span class="product-price">R$ @product.GetPrice().ToString("F2")</span>
-                                            @* <button class="add-to-cart">Adicionar</button> *@
+                <!-- Ingredient Customization -->
+                @if(selectedProduct.IsCombo)
+                {
+                    <ComboPage/>
+                }
+                else
+                {
+                    @if (selectedProduct.Extras.Ingredients.Any() && selectedProduct.Extras.Ingredients != null)
+                    {
+                        <div class="mt-4" style="border-bottom: inset;">
+                            <h5 class="fw-bold">Customize Your Ingredients:</h5>
+                            <div class="row">
+
+                                @foreach (var ingredient in selectedProduct.Extras.Ingredients)
+                                {
+                                    _ingredientChecked.Add(new(ingredient.Id, true));
+
+                                    int index = _ingredientChecked.FindIndex(x => x.Item1 == ingredient.Id);
+                                    <div class="col-6">
+                                        <div class="ingredient-item p-2 border rounded mb-2 @(_ingredientChecked[index].Item2? "" : "selected")" id="@ingredient.Id" name="@ingredient.Name" @onclick="(e) => ChangeIngredient(ingredient.Name, (_ingredientChecked[index] = (_ingredientChecked[index].Item1, !_ingredientChecked[index].Item2)).Item2 )">
+                                            🧀Sem @ingredient.Name
                                         </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                }
+                    
+               
+
+                <!-- Sides Options -->
+                @if (selectedProduct.Extras.Sides.Count >= 1)
+                {
+                    <div class="container my-5" style="border-bottom: inset;">
+                        <h5 class="fw-bold">Acompanhamentos:</h5>
+                        <div class="scroll-container">
+                            @foreach (var side in selectedProduct.Extras.Sides)
+                            {
+                                ItemCart item = new ItemCart()
+                        {
+                            Product = (ProductCartModel)side.Side,
+                            TableNumber = TableNumber,
+                            Cnpj = this.Cnpj
+
+                        };
+                                <div class="side-item text-center">
+                                    <img src="@item.Product.Image" class="img-fluid rounded mb-2" alt="Fries">
+                                    <p class="mb-1">🍟 @item.Product.ProductName - R$@(item.Product.GetPrice().ToString("F2"))</p>
+                                    <div class="quantity-controls">
+                                        <button @onclick="() => { item.DecrementQuantity(); RemoveAcompanhamento(item); StateHasChanged();}">-</button>
+                                        <span class="quantity-label">@(acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id) == null ? 0 : acomps.FirstOrDefault(a => a.Product.Id == item.Product.Id)?.Quantity ?? 0)</span>
+                                        <button @onclick="() => { item.IncrementQuantity(); AddAcompanhamento(item);StateHasChanged(); }">+</button>
                                     </div>
                                 </div>
                             }
 
-
                         </div>
                     </div>
+
+
                 }
-            </section>
-        }
+
+
+
+
+                <!-- Action Buttons -->
+
+                <div class="mt-5"></div>
+                <div class="position-fixed bottom-0 start-0 w-100 bg-white p-3 border-top" style="z-index: 1;display: flex;align-items: center;gap: 15px;">
+                    <div class="col-4">
+                        <div class="quantity-controls text-center ">
+                            <button @onclick="DecrementItem">-</button>
+                            <span class="quantity-label">@quantity</span>
+                            <button @onclick="IncrementItem">+</button>
+                        </div>
+                    </div>
+                    <button @onclick="AddProduct" class="btn btn-primary btn-lg w-100">
+                        Adicionar - R$@(totalPayment.ToString("F2"))
+                    </button>
+
+
+                </div>
+
+            </div>
+
+            <div class="container mt-4">
+                <label for="observacoes" class="form-label">Observações</label>
+                <textarea maxlength="80" @bind="customNote" class="form-control" id="observacoes" rows="3" placeholder="Digite aqui..."></textarea>
+            </div>
+
+            @if (selectedProduct.Extras.Recommendations.Any() && selectedProduct.Extras.Recommendations != null)
+            {
+                <h1>Sugestões</h1>
+                <section id="menu" class="menu-section" style="background-color: transparent; box-shadow:none">
+
+                    @foreach (var product in selectedProduct.Extras.Recommendations)
+                    {
+                        <div class="product-category" id="Reomendados">
+                            <h3 class="category-title">Reomendados</h3>
+                            <div class="product-list">
+                                @if (product.Id != selectedProduct.Id || product.IsCombo)
+                                {
+                                    <div class="product-card" @onclick="()=> GoToProductPage(product.Id,product)">
+                                        <button tabindex="0" role="button" aria-live="polite" aria-busy="false" aria-atomic="true" aria-disabled="false" class="quick-add  d-flex align-items-center" @* @onclick:stopPropagation="product.Ingredients.Count <= 0" *@
+                                                @onclick="() => AddProductToOrder((ProductCartModel)product)">
+
+                                            <svg style="fill: #00a680;" viewBox="0 0 16 16" width="1em" height="1em" role="presentation" focusable="false" aria-hidden="true">
+                                                <path d="M14.125 7.344H8.656V1.875H7.344v5.469H1.875v1.312h5.469v5.469h1.312V8.656h5.469V7.344z"></path>
+                                            </svg>
+                                        </button>
+                                        <img src="@product.Image" alt="Product Image" class="product-image" />
+                                        <div class="product-details">
+                                            <h4 class="product-name">@product.ProductName</h4>
+                                            <p class="product-description">@product.Description</p>
+                                            <div class="product-bottom">
+                                                <span class="product-price">R$ @product.GetPrice().ToString("F2")</span>
+                                                @* <button class="add-to-cart">Adicionar</button> *@
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+
+                            </div>
+                        </div>
+                    }
+                </section>
+            }
+        </div>
     </div>
-</div>
+}
+
 
 
 
