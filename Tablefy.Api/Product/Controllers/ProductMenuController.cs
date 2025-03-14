@@ -25,19 +25,19 @@ namespace Tablefy.Api.Product.Controllers
             return Ok(items);
         }
 
-        [Route("details/{id}")]
+        [Route("details/{companyId}/{id}")]
         [HttpGet]
-        public async Task<ActionResult<ProductCompleteModel>> GetDetailsById(int id)
+        public async Task<ActionResult<ProductCompleteModel>> GetDetailsById(int companyId, int id)
         {
-            var product = await _service.GetDetailsByIdAsync(id);
+            var product = await _service.GetDetailsByIdAsync(companyId, id);
             return Ok(product);
         }
 
-        [Route("extras/{id}")]
+        [Route("extras/{companyId}/{id}")]
         [HttpGet]
-        public async Task<ActionResult<ProductExtrasModel>> GetExtrasById(int id)
+        public async Task<ActionResult<ProductExtrasModel>> GetExtrasById(int companyId, int id)
         {
-            var product = await _service.GetExtrasByIdAsync(id);
+            var product = await _service.GetExtrasByIdAsync(companyId,id);
             return Ok(product);
         }
     }

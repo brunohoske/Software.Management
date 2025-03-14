@@ -1,5 +1,5 @@
 ﻿using Tablefy.Api.Company;
-using Tablefy.Api.Order.Relations;
+using Tablefy.Api.Order.Entities.Relations;
 using Tablefy.Api.Product.Entities.Relations;
 
 namespace Tablefy.Api.Product.Entities
@@ -23,5 +23,6 @@ namespace Tablefy.Api.Product.Entities
         public ICollection<ProductCompanyEntity> CompanyProducts { get; set; } = new List<ProductCompanyEntity>();
         public ICollection<OrderProductEntity> OrderProducts { get; set; } = new List<OrderProductEntity>();
         public ICollection<ProductIngredientsEntity> ProductIngredients { get; set; } = new List<ProductIngredientsEntity>();
+        public ICollection<ComboProductsEntity> ComboProducts { get; set; } = new List<ComboProductsEntity>();
     }
 }

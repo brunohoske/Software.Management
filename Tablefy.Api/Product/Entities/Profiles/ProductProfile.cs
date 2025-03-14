@@ -37,6 +37,7 @@ namespace Tablefy.Api.Product.Entities.Profiles
                 .ForMember(dest => dest.Recommendations, opt => opt.MapFrom(src => src.ProductRecommendations.Select(cp => cp.Product)))
                 .ForMember(dest => dest.Sides, opt => opt.MapFrom(src => src.ProductsSides))
                 .ForMember(dest => dest.Ingredients, opt => opt.MapFrom(src => src.ProductIngredients.Select(cp => cp.Ingredient)))
+                .ForMember(dest => dest.ComboProducts, opt => opt.MapFrom(src => src.ComboProducts.Select(cp => cp.Product)))
                 .ForMember(dest => dest.SelectionGroups, opt => opt.MapFrom(src => src.SelectionGroupProducts.Select(cp => cp.SelectionGroup)));
 
             CreateMap<ProductEntity, ProductCompleteModel>()

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tablefy.Api.Data;
 
@@ -10,9 +11,11 @@ using Tablefy.Api.Data;
 namespace Tablefy.Api.Migrations
 {
     [DbContext(typeof(TablefyContext))]
-    partial class TablefyContextModelSnapshot : ModelSnapshot
+    [Migration("20250314025414_Initial8")]
+    partial class Initial8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

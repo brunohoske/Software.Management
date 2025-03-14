@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tablefy.Api.Data;
 
@@ -10,9 +11,11 @@ using Tablefy.Api.Data;
 namespace Tablefy.Api.Migrations
 {
     [DbContext(typeof(TablefyContext))]
-    partial class TablefyContextModelSnapshot : ModelSnapshot
+    [Migration("20250313040709_Initial6")]
+    partial class Initial6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -223,7 +226,7 @@ namespace Tablefy.Api.Migrations
                     b.ToTable("Ingredients");
                 });
 
-            modelBuilder.Entity("Tablefy.Api.Order.Entities.OrderEntity", b =>
+            modelBuilder.Entity("Tablefy.Api.Order.OrderEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -241,21 +244,15 @@ namespace Tablefy.Api.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime");
 
-                    b.Property<decimal>("Discount")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<string>("Note")
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("Subtotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("Total")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -264,7 +261,7 @@ namespace Tablefy.Api.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Tablefy.Api.Order.Entities.Relations.OrderProductEntity", b =>
+            modelBuilder.Entity("Tablefy.Api.Order.Relations.OrderProductEntity", b =>
                 {
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
@@ -275,42 +272,18 @@ namespace Tablefy.Api.Migrations
                     b.Property<DateTime>("AddedAt")
                         .HasColumnType("datetime");
 
-                    b.Property<string>("Barcode")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<decimal>("Discount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<bool>("FromCombo")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<bool>("IsCombo")
-                        .HasColumnType("tinyint(1)");
+                    b.Property<int>("CompanyId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Notes")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
-
-                    b.Property<int>("ReferenciaCombo")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Subtotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("TempImage")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<decimal>("Total")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("OrderId", "ProductId");
 
@@ -562,7 +535,7 @@ namespace Tablefy.Api.Migrations
                     b.Navigation("Employee");
                 });
 
-            modelBuilder.Entity("Tablefy.Api.Order.Entities.OrderEntity", b =>
+            modelBuilder.Entity("Tablefy.Api.Order.OrderEntity", b =>
                 {
                     b.HasOne("Tablefy.Api.Check.CheckEntity", "Check")
                         .WithMany()
@@ -573,9 +546,9 @@ namespace Tablefy.Api.Migrations
                     b.Navigation("Check");
                 });
 
-            modelBuilder.Entity("Tablefy.Api.Order.Entities.Relations.OrderProductEntity", b =>
+            modelBuilder.Entity("Tablefy.Api.Order.Relations.OrderProductEntity", b =>
                 {
-                    b.HasOne("Tablefy.Api.Order.Entities.OrderEntity", "Order")
+                    b.HasOne("Tablefy.Api.Order.OrderEntity", "Order")
                         .WithMany("OrderProducts")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -763,7 +736,7 @@ namespace Tablefy.Api.Migrations
                     b.Navigation("ProductIngredients");
                 });
 
-            modelBuilder.Entity("Tablefy.Api.Order.Entities.OrderEntity", b =>
+            modelBuilder.Entity("Tablefy.Api.Order.OrderEntity", b =>
                 {
                     b.Navigation("OrderProducts");
                 });

@@ -10,8 +10,8 @@ using Tablefy.Api.Coupon;
 using Tablefy.Api.Employee;
 using Tablefy.Api.Employee.Relations;
 using Tablefy.Api.Ingredient;
-using Tablefy.Api.Order;
-using Tablefy.Api.Order.Relations;
+using Tablefy.Api.Order.Entities;
+using Tablefy.Api.Order.Entities.Relations;
 using Tablefy.Api.Product.Entities;
 using Tablefy.Api.Product.Entities.Relations;
 
@@ -36,7 +36,9 @@ namespace Tablefy.Api.Data
         public DbSet<ProductRecommendationsEntity> ProductRecommendations { get; set; }
         public DbSet<ProductIngredientsEntity> ProductIngredients { get; set; }
         public DbSet<ProductCategoryEntity> ProductCategories { get; set; }
+        public DbSet<ComboProductsEntity> ComboProducts { get; set; }
         public DbSet<SelectionGroupProductEntity> SelectionGroupProducts { get; set; }
+        
         
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -185,7 +187,24 @@ namespace Tablefy.Api.Data
                 .HasOne(ps => ps.Side)
                 .WithMany()  
                 .HasForeignKey(ps => ps.SideId)
-                .OnDelete(DeleteBehavior.Restrict); 
+                .OnDelete(DeleteBehavior.Restrict);
+            #endregion
+
+            #region Combo Products Relation
+            modelBuilder.Entity<ComboProductsEntity>()
+            .HasKey(ps => new { ps.ProductId, ps.ComboId }); // Composite Key
+
+            modelBuilder.Entity<ComboProductsEntity>()
+                .HasOne(ps => ps.Combo)
+                .WithMany(p => p.ComboProducts)
+                .HasForeignKey(ps => ps.ComboId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ComboProductsEntity>()
+                .HasOne(ps => ps.Product)
+                .WithMany()
+                .HasForeignKey(ps => ps.ProductId)
+                .OnDelete(DeleteBehavior.Restrict);
             #endregion
 
             #region Recommendations Relation
