@@ -21,7 +21,7 @@ namespace Tablefy.Api.Order.Entities.Relations
         public bool IsCombo { get; set; }
         public bool FromCombo { get; set; }
         /// Deve ser um valor representativo para produtos de combo para saber em qual combo foi comprado o item (ex: 1, 2,3)
-        public int ReferenciaCombo { get; set; }
+        public int ComboReference { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime AddedAt { get; set; }

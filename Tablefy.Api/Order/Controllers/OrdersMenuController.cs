@@ -3,8 +3,8 @@
 namespace Tablefy.Api.Order.Controllers
 {
     [ApiController]
-    [Route("api/erp/order")]
-    public class OrderMenuController : ControllerBase
+    [Route("api/menu/orders")]
+    public class OrdersMenuController : ControllerBase
     {
     }
 }

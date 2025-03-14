@@ -7,13 +7,13 @@ using Tablefy.Api.Product.Services;
 namespace Tablefy.Api.Product.Controllers
 {
     [ApiController]
-    [Route("api/erp/product")]
-    public class ProductErpController : ControllerBase
+    [Route("api/erp/products")]
+    public class ProductsErpController : ControllerBase
     {
         private readonly ProductErpService _service;
         private readonly IMapper _mapper;
 
-        public ProductErpController(ProductErpService service, IMapper mapper)
+        public ProductsErpController(ProductErpService service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;

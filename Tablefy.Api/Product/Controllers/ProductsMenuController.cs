@@ -7,12 +7,12 @@ using Tablefy.Api.Product.Services;
 namespace Tablefy.Api.Product.Controllers
 {
     [ApiController]
-    [Route("api/erp/product")]
-    public class ProductMenuController : ControllerBase
+    [Route("api/erp/products")]
+    public class ProductsMenuController : ControllerBase
     {
         private readonly ProductMenuService _service;
 
-        public ProductMenuController(ProductMenuService service)
+        public ProductsMenuController(ProductMenuService service)
         {
             _service = service;
         }
