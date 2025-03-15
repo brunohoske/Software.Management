@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Tablefy.Api.Category;
+using Tablefy.Api.Company;
 using Tablefy.Api.Ingredient;
 using Tablefy.Api.Product.Entities.Relations;
 using Tablefy.Api.Product.Models;
@@ -11,6 +12,7 @@ namespace Tablefy.Api.Product.Entities.Profiles
         public ProductProfile()
         {
             CreateMap<ProductCompanyEntity, ProductCompanyModel>();
+            CreateMap<CompanyEntity, CompanyModel>();
             // Mapeamento direto
             CreateMap<ProductEntity, ProductSimpleModel>()
                 .ForMember(dest => dest.CompanyId, opt => opt.MapFrom(src => src.CompanyProducts.Select(cp => cp.CompanyId).FirstOrDefault()))
