@@ -24,6 +24,7 @@ namespace Tablefy.Api.Data
         public DbSet<CategoryEntity> Categories { get; set; }
         public DbSet<IngredientEntity> Ingredients { get; set; }
         public DbSet<SelectionGroupEntity> SelectionGroups { get; set; }
+        public DbSet<ComboSelectionGroupEntity> ComboSelectionGroups { get; set; }
         public DbSet<ProductSidesEntity> ProductSides { get; set; }
         public DbSet<ProductRecommendationsEntity> ProductRecommendations { get; set; }
         public DbSet<ProductIngredientsEntity> ProductIngredients { get; set; }
@@ -142,14 +143,14 @@ namespace Tablefy.Api.Data
             .HasKey(ps => new { ps.ProductId, ps.SideId }); // Composite Key
 
             modelBuilder.Entity<ProductSidesEntity>()
-                .HasOne(ps => ps.Product)  
+                .HasOne(ps => ps.Product)
                 .WithMany(p => p.ProductsSides)
                 .HasForeignKey(ps => ps.ProductId)
-                .OnDelete(DeleteBehavior.Restrict); 
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<ProductSidesEntity>()
                 .HasOne(ps => ps.Side)
-                .WithMany()  
+                .WithMany()
                 .HasForeignKey(ps => ps.SideId)
                 .OnDelete(DeleteBehavior.Restrict);
             #endregion
@@ -199,10 +200,27 @@ namespace Tablefy.Api.Data
 
             modelBuilder.Entity<SelectionGroupProductEntity>()
                 .HasOne(sgp => sgp.Product)
-                .WithMany(p => p.SelectionGroupProducts)
+                .WithMany()
                 .HasForeignKey(sgp => sgp.ProductId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            #endregion
+
+            #region Combo Selection Group Products
+            modelBuilder.Entity<ComboSelectionGroupEntity>()
+                .HasKey(sgp => new { sgp.SelectionGroupId, sgp.ComboId });
+
+            modelBuilder.Entity<ComboSelectionGroupEntity>()
+                .HasOne(sgp => sgp.Combo)
+                .WithMany(sg => sg.ComboSelectionGroups)
+                .HasForeignKey(sgp => sgp.SelectionGroupId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<ComboSelectionGroupEntity>()
+                .HasOne(sgp => sgp.SelectionGroup)
+                .WithMany()
+                .HasForeignKey(sgp => sgp.ComboId)
+                .OnDelete(DeleteBehavior.Cascade);
             #endregion
 
             #endregion

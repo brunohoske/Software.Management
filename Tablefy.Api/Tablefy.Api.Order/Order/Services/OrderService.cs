@@ -35,10 +35,10 @@ namespace Tablefy.Order.Api.Order.Services
             transaction.Commit();
             return new OrderCreateResponseModel { OrderId = entity.Id, OrderTotal = order.Total, OrderNumber = entity.OrderNumber };
         }
-        public async Task<OrderDisplayModel?> GetOrderByIds(int companyId,List<int> ids)
+        public async Task<List<OrderDisplayModel>> GetOrdersByTable(int companyId,int tableId)
         {
-            var orderDisplay = await _context.Orders
-            .Where(o => ids.Contains(o.Id) && o.CompanyId == companyId)
+            var ordersDisplay = await _context.Orders
+            .Where(o => o.TableId == tableId && o.CompanyId == companyId)
             .Select(o => new OrderDisplayModel
             {
                 OrderNumber = o.OrderNumber,
@@ -51,9 +51,8 @@ namespace Tablefy.Order.Api.Order.Services
                     Total = i.Total,
                     Notes = i.Notes
                 }).ToList()
-            }).FirstOrDefaultAsync();
-            if (orderDisplay == null) return null;
-            return orderDisplay;
+            }).ToListAsync();
+            return ordersDisplay;
         }
     }
 }

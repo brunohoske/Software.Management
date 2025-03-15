@@ -66,7 +66,7 @@ namespace Tablefy.Api.Product.Services
                     .Include(p => p.ComboProducts.Where(cp => cp.Combo.IsCombo))
                         .ThenInclude(combo => combo.Product)
                         .ThenInclude(combocp => combocp.CompanyProducts.Where(cp => cp.CompanyId == companyId))
-                    .Include(p => p.SelectionGroupProducts)
+                    .Include(p => p.ComboSelectionGroups)
                         .ThenInclude(sgp => sgp.SelectionGroup)
                         .ThenInclude(sg => sg.SelectionGroupProducts)
                         .ThenInclude(sgp => sgp.Product)

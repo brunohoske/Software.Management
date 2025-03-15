@@ -21,6 +21,8 @@ obj/
 *.sdf
 *.opensdf
 *.tlog
+#Migrations
+Migrations/
 
 # Ignore User-Specific Files
 *.rsuser

@@ -33,11 +33,11 @@ namespace Tablefy.Order.Api.Order.Controllers
             
         }
 
-        [HttpPost("list/{companyId}")]
-        public async Task<ActionResult<OrderDisplayModel>> GetOrderByIdList(int companyId, [FromBody] OrderIdsModel orderIds)
+        [HttpPost("list/{companyId}/table/{tableId}")]
+        public async Task<ActionResult<List<OrderDisplayModel>>> GetOrdersByTableList(int companyId, int tableId)
         {
-            var orders = await _service.GetOrderByIds(companyId, orderIds.OrderIds);
-            if (orders == null)
+            var orders = await _service.GetOrdersByTable(companyId, tableId);
+            if (orders.Count == 0)
                 return NotFound();
             return Ok(orders);
         }
